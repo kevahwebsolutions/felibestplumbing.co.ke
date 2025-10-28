@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Sitemap: https://felibestplumbing.co.ke/sitemap.xml
+
+# Optimize crawling
+Disallow: /images/
+Disallow: /css/
+Disallow: /js/
+Disallow: /external/
