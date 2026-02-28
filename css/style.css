@@ -4780,7 +4780,7 @@ iframe.wait-autoplay {
   -webkit-transform: translateX(0);
   transform: translateX(0);
   opacity: 1;
-  background-image: url(../images/popup-wrapper.jpg);
+  background-image: url(../images/popup-wrapper.webp);
   background-position: right top;
   background-repeat: no-repeat;
 }
@@ -11277,7 +11277,7 @@ body.tt-pupup-open .tt-popup__wrapper {
   opacity: 1;
 }
 .tt-modal.tt-modal__open .tt-modal__layout {
-  background-image: url(../images/tt-modal__bg.png);
+  background-image: url(../images/tt-modal__bg.webp);
   background-position: center top;
   background-repeat: no-repeat;
 }
