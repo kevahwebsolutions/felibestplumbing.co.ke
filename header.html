@@ -15,18 +15,21 @@
     <meta name="keywords" content="Felibest Plumbing" />
     <meta name="description" content="Felibest Plumbing" />
     <meta name="author" content="Kevah Web Solutions" />
-    <link rel="shortcut icon" href="images/favicon.png" />
+    <link rel="shortcut icon" href="images/favicon.webp" />
     <meta name="format-detection" content="telephone=no" />
     <meta
       name="viewport"
       content="width=device-width,initial-scale=1,shrink-to-fit=no"
     />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' https: 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com https://www.googletagmanager.com; frame-src https://www.google.com;">
     <link rel="preconnect" href="https://fonts.gstatic.com/" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&amp;family=Mulish:wght@800&amp;family=Raleway:wght@900&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="preload" href="css/style.css" as="style" />
+    <link rel="preload" href="css/style.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/style.min.css"></noscript>
+    <style>/* Critical CSS inlined */body{font-family:Inter, sans-serif;margin:0;color:#6c7176;background:#fff} .tt-header{background:#1e60aa;box-shadow:0 20px 30px rgba(26,54,85,.1)} .tt-logo__icon img{width:140px;height:40px;display:block;object-fit:contain} .mainslider__imgbg img{width:100%;height:auto;object-fit:cover} .f-logo{max-width:120px;display:inline-block}</style>
     <link rel="stylesheet" href="css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js" async></script>
 </head>
@@ -59,7 +62,7 @@
                 <div class="h-icon__title">Follow us:</div>
                 <ul class="h-icon__list">
                   <li>
-                    <a href="https://www.facebook.com/FelibestPlumbing" target="_blank"
+                    <a href="https://www.facebook.com/FelibestPlumbing" target="_blank" aria-label="Facebook"
                       ><svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +109,7 @@
             <div class="tt-col tt-obj-logo">
               <a class="tt-logo tt-logo__alignment" href="index.html"
                 ><div class="tt-logo__icon">
-                  <img src="images/logo.webp" alt="Logo" />
+                  <img src="images/logo.webp" alt="Felibest Plumbing Logo" width="140" height="40" decoding="async" />
                 </div>
                 <div class="tt-logo__text">
                   Felibest<br />Plumbing
@@ -305,7 +308,7 @@ c26,26,62,42.4,102,42.4s76-16,102-42.4c26-26,42.4-62.4,42.4-102C331.8,167.2,261.
     485px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 244px;"></div>
     </div></div><div class="tt-popup__wrapper" id="js-popup-wrapper"></div></div></div></div></div></div>
 </header>
-    <div id="tt-pageContent">
+    <main id="tt-pageContent">
       <div class="section-indent nomargin">
         <div class="mainslider__wrapper">
           <div
@@ -340,8 +343,8 @@ c26,26,62,42.4,102,42.4s76-16,102-42.4c26-26,42.4-62.4,42.4-102C331.8,167.2,261.
                       <source
                         srcset="images/mainslide-01__bg.webp"
                         type="image/jpg" />
-                      <img src="images/mainslide-01__bg.webp" alt=""
-                    /></picture>
+                      <img src="images/mainslide-01__bg.webp" alt="" width="1440" height="720" fetchpriority="high" decoding="async" />
+                    </picture>
                   </div>
                 </div>
                 <div class="mainslider__img">
@@ -407,8 +410,8 @@ c26,26,62,42.4,102,42.4s76-16,102-42.4c26-26,42.4-62.4,42.4-102C331.8,167.2,261.
                       <source
                         srcset="images/mainslide-02__bg.webp"
                         type="image/jpg" />
-                      <img src="images/mainslide-02__bg.webp" alt=""
-                    /></picture>
+                      <img src="images/mainslide-02__bg.webp" alt="" width="1440" height="720" fetchpriority="high" decoding="async" />
+                    </picture>
                   </div>
                 </div>
                 <div class="mainslider__img">
@@ -993,7 +996,7 @@ c26,26,62,42.4,102,42.4s76-16,102-42.4c26-26,42.4-62.4,42.4-102C331.8,167.2,261.
           <div class="tt-additional__bg01">
             <div
               class="tt-additional__bg01-02 lazyload"
-              data-bg="images/additional_img02.png"
+              data-bg="images/additional_img02.webp"}
             ></div>
             <div class="tt-additional__bg02">
               <div class="tt-row01">
@@ -1556,6 +1559,7 @@ c26,26,62,42.4,102,42.4s76-16,102-42.4c26-26,42.4-62.4,42.4-102C331.8,167.2,261.
             </div>
         </div>
     </div>
+    </main>
     <footer id="tt-footer">
       <div id="map" class="lazyload" data-bg="images/map-footer.jpg">
         <iframe
@@ -1569,7 +1573,7 @@ c26,26,62,42.4,102,42.4s76-16,102-42.4c26-26,42.4-62.4,42.4-102C331.8,167.2,261.
           aria-hidden="false"
         ></iframe>
       </div>
-      <div class="footer-layout lazyload" data-bg="images/map-footer.png">
+      <div class="footer-layout lazyload" data-bg="images/map-footer.webp"}>
         <div class="container container__fluid-lg">
           <div class="row f-info__wrapper">
             <div class="col-sm-4">
