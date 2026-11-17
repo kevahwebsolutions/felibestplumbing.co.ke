@@ -11,9 +11,10 @@ const initial: ActionState = {};
 
 export function LoginForm() {
   const [state, action, pending] = useActionState(loginAction, initial);
+  const [email, setEmail] = React.useState('');
   return (
     <form action={action} className="grid gap-5" noValidate>
-      <Field label="Email" htmlFor="email" error={state.fieldErrors?.email}><Input id="email" name="email" type="email" autoComplete="username" required /></Field>
+      <Field label="Email" htmlFor="email" error={state.fieldErrors?.email}><Input id="email" name="email" type="email" autoComplete="username" required value={email} onChange={(e) => setEmail(e.target.value)} /></Field>
       <Field label="Password" htmlFor="password" error={state.fieldErrors?.password}><Input id="password" name="password" type="password" autoComplete="current-password" required /></Field>
       {state.error ? <p role="alert" className="rounded-2xl bg-peach-100 px-4 py-3 font-semibold text-cta-600">{state.error}</p> : null}
       <Button type="submit" size="lg" disabled={pending}>{pending ? <Loader2 className="size-5 animate-spin" aria-hidden /> : <Lock className="size-5" aria-hidden />} Sign in</Button>

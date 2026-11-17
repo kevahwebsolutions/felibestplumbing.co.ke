@@ -1,0 +1,63 @@
+# /etc/nginx/sites-available/felibestplumbing.co.ke
+# Obtain certificates first:  sudo certbot --nginx -d felibestplumbing.co.ke -d www.felibestplumbing.co.ke
+
+limit_req_zone $binary_remote_addr zone=felibest_login:10m rate=10r/m;
+limit_req_zone $binary_remote_addr zone=felibest_api:10m rate=30r/m;
+
+server {
+    listen 80;
+    server_name felibestplumbing.co.ke www.felibestplumbing.co.ke;
+    return 301 https://felibestplumbing.co.ke$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name www.felibestplumbing.co.ke;
+    ssl_certificate     /etc/letsencrypt/live/felibestplumbing.co.ke/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/felibestplumbing.co.ke/privkey.pem;
+    return 301 https://felibestplumbing.co.ke$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name felibestplumbing.co.ke;
+
+    ssl_certificate     /etc/letsencrypt/live/felibestplumbing.co.ke/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/felibestplumbing.co.ke/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    client_max_body_size 8m;   # product image uploads (the app caps each file at 6 MB)
+
+    gzip on;
+    gzip_types text/css application/javascript application/json image/svg+xml;
+
+    # Long-lived caching for hashed build assets and optimised images
+    location /_next/static/ {
+        proxy_pass http://127.0.0.1:3000;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+    # Throttle the admin login and public form endpoints (the app also rate limits)
+    location = /admin/login {
+        limit_req zone=felibest_login burst=5 nodelay;
+        proxy_pass http://127.0.0.1:3000;
+        include /etc/nginx/proxy_params;
+    }
+    location ~ ^/api/(forms|orders)$ {
+        limit_req zone=felibest_api burst=10 nodelay;
+        proxy_pass http://127.0.0.1:3000;
+        include /etc/nginx/proxy_params;
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+}

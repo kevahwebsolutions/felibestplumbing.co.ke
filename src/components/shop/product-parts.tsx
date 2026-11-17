@@ -109,7 +109,7 @@ export function ProductCard({ p, view = 'grid', onQuickView, priority = false }:
       className={cn('clay-card clay-card-hover group flex overflow-hidden', list ? 'flex-col sm:flex-row' : 'flex-col')}
     >
       <div className={cn('relative shrink-0 overflow-hidden', list ? 'aspect-[4/3] sm:aspect-auto sm:w-56 md:w-64' : 'aspect-[4/3]')}>
-        <Link href={`/shop/${p.slug}`} tabIndex={-1} aria-hidden className="block size-full transition-transform duration-500 group-hover:scale-105">
+        <Link href={`/shop/${p.slug}`} tabIndex={-1} aria-hidden className="relative block size-full transition-transform duration-500 group-hover:scale-105">
           <ProductImage p={p} sizes={list ? '256px' : '(min-width:1280px) 22vw, (min-width:768px) 33vw, 50vw'} priority={priority} />
         </Link>
         <div className="absolute left-3 top-3 flex flex-wrap gap-2">

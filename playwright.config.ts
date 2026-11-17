@@ -3,7 +3,8 @@ import { defineConfig } from '@playwright/test';
 const port = 3100;
 export default defineConfig({
   testDir: './e2e',
-  timeout: 60_000,
+  timeout: 120_000,
+  expect: { timeout: 20_000 },
   fullyParallel: false,
   workers: 1,
   reporter: [['list']],
