@@ -1,10 +1,10 @@
 // Screenshots every route at 375, 768 and 1440 px into docs/screens/ and reports horizontal overflow.
 // Usage: BASE_URL=http://localhost:3000 npm run screens
-import './load-env';
+import './load-env.ts';
 import fs from 'node:fs';
 import { chromium } from '@playwright/test';
-import { SERVICES } from '../src/data/services';
-import { POSTS } from '../src/data/blog';
+import { SERVICES } from '../src/data/services.ts';
+import { POSTS } from '../src/data/blog.ts';
 
 const base = (process.env.BASE_URL ?? 'http://localhost:3000').replace(/\/$/, '');
 const only = process.argv[2];

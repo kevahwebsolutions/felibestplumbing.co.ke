@@ -8,7 +8,8 @@ const rows = [];
 const redirects = [];
 const seen = new Set();
 const add = (source, destination) => {
-  if (source === destination || seen.has(source)) return;
+  // Skip self-redirects, duplicates and malformed mixes of spaces and hyphens.
+  if (source === destination || seen.has(source) || (/[  ]/.test(source) && /[-%]/.test(source))) return;
   seen.add(source);
   redirects.push({ source, destination });
 };

@@ -51,7 +51,7 @@ Every page of the old static site, its title, the new route and the old-to-new 3
 | `testimonials.html` | Customer Testimonials / Felibest Plumbing Nairobi | `/testimonials` |  |
 | `water-pressure.html` | Low Water Pressure Fix Nairobi / Felibest Plumbing | `/services/low-water-pressure` |  |
 
-## 301 redirects (116)
+## 301 redirects (108)
 
 Stored in `config/legacy-redirects.json` and loaded by `next.config.mjs`. Covers capitalised names, names with spaces (plain, %20, hyphenated, non-breaking space), and with or without `.html`.
 
@@ -137,20 +137,12 @@ Stored in `config/legacy-redirects.json` and loaded by `next.config.mjs`. Covers
 | `/tank%20installation%20and%20repair` | `/services/tank-installation-and-repair` |
 | `/Tank Installation and Repair.html` | `/services/tank-installation-and-repair` |
 | `/Tank%20Installation%C2%A0and%C2%A0Repair.html` | `/services/tank-installation-and-repair` |
-| `/Tank%20Installation and Repair.html` | `/services/tank-installation-and-repair` |
-| `/Tank-Installation and Repair.html` | `/services/tank-installation-and-repair` |
 | `/tank installation and repair.html` | `/services/tank-installation-and-repair` |
 | `/tank%20installation%C2%A0and%C2%A0repair.html` | `/services/tank-installation-and-repair` |
-| `/tank%20installation and repair.html` | `/services/tank-installation-and-repair` |
-| `/tank-installation and repair.html` | `/services/tank-installation-and-repair` |
 | `/Tank Installation and Repair` | `/services/tank-installation-and-repair` |
 | `/Tank%20Installation%C2%A0and%C2%A0Repair` | `/services/tank-installation-and-repair` |
-| `/Tank%20Installation and Repair` | `/services/tank-installation-and-repair` |
-| `/Tank-Installation and Repair` | `/services/tank-installation-and-repair` |
 | `/tank installation and repair` | `/services/tank-installation-and-repair` |
 | `/tank%20installation%C2%A0and%C2%A0repair` | `/services/tank-installation-and-repair` |
-| `/tank%20installation and repair` | `/services/tank-installation-and-repair` |
-| `/tank-installation and repair` | `/services/tank-installation-and-repair` |
 | `/water-pressure.html` | `/services/low-water-pressure` |
 | `/water-pressure` | `/services/low-water-pressure` |
 | `/price.html` | `/pricing` |

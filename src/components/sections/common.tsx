@@ -14,8 +14,8 @@ export function ServiceCard({ s, className, feature = false }: { s: Service; cla
     <Link
       href={`/services/${s.slug}`}
       className={cn(
-        'clay-card clay-card-hover group flex h-full flex-col gap-4 p-6',
-        feature && 'clay-card-blue !bg-none text-white',
+        feature ? 'clay-card-blue clay-card-hover relative text-white' : 'clay-card clay-card-hover',
+        'group flex h-full flex-col gap-4 p-6 transition-transform',
         className,
       )}
     >
