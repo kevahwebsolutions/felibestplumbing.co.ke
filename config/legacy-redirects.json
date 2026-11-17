@@ -1,0 +1,466 @@
+[
+ {
+  "source": "/index.html",
+  "destination": "/"
+ },
+ {
+  "source": "/index",
+  "destination": "/"
+ },
+ {
+  "source": "/header.html",
+  "destination": "/"
+ },
+ {
+  "source": "/header",
+  "destination": "/"
+ },
+ {
+  "source": "/about.html",
+  "destination": "/about"
+ },
+ {
+  "source": "/services.html",
+  "destination": "/services"
+ },
+ {
+  "source": "/services-item01.html",
+  "destination": "/services/residential-plumbing"
+ },
+ {
+  "source": "/services-item01",
+  "destination": "/services/residential-plumbing"
+ },
+ {
+  "source": "/services-item02.html",
+  "destination": "/services/commercial-plumbing"
+ },
+ {
+  "source": "/services-item02",
+  "destination": "/services/commercial-plumbing"
+ },
+ {
+  "source": "/services-item03.html",
+  "destination": "/services/bathroom-renovations"
+ },
+ {
+  "source": "/services-item03",
+  "destination": "/services/bathroom-renovations"
+ },
+ {
+  "source": "/Bathroom-renovations.html",
+  "destination": "/services/bathroom-renovations"
+ },
+ {
+  "source": "/bathroom-renovations.html",
+  "destination": "/services/bathroom-renovations"
+ },
+ {
+  "source": "/Bathroom-renovations",
+  "destination": "/services/bathroom-renovations"
+ },
+ {
+  "source": "/bathroom-renovations",
+  "destination": "/services/bathroom-renovations"
+ },
+ {
+  "source": "/Blocked-sink-bathtub.html",
+  "destination": "/services/blocked-sink-bath-shower"
+ },
+ {
+  "source": "/blocked-sink-bathtub.html",
+  "destination": "/services/blocked-sink-bath-shower"
+ },
+ {
+  "source": "/Blocked-sink-bathtub",
+  "destination": "/services/blocked-sink-bath-shower"
+ },
+ {
+  "source": "/blocked-sink-bathtub",
+  "destination": "/services/blocked-sink-bath-shower"
+ },
+ {
+  "source": "/Commercial-plumbing.html",
+  "destination": "/services/commercial-plumbing"
+ },
+ {
+  "source": "/commercial-plumbing.html",
+  "destination": "/services/commercial-plumbing"
+ },
+ {
+  "source": "/Commercial-plumbing",
+  "destination": "/services/commercial-plumbing"
+ },
+ {
+  "source": "/commercial-plumbing",
+  "destination": "/services/commercial-plumbing"
+ },
+ {
+  "source": "/Consultation-Services.html",
+  "destination": "/services/plumbing-consultation"
+ },
+ {
+  "source": "/consultation-services.html",
+  "destination": "/services/plumbing-consultation"
+ },
+ {
+  "source": "/Consultation-Services",
+  "destination": "/services/plumbing-consultation"
+ },
+ {
+  "source": "/consultation-services",
+  "destination": "/services/plumbing-consultation"
+ },
+ {
+  "source": "/Residential-plumbing.html",
+  "destination": "/services/residential-plumbing"
+ },
+ {
+  "source": "/residential-plumbing.html",
+  "destination": "/services/residential-plumbing"
+ },
+ {
+  "source": "/Residential-plumbing",
+  "destination": "/services/residential-plumbing"
+ },
+ {
+  "source": "/residential-plumbing",
+  "destination": "/services/residential-plumbing"
+ },
+ {
+  "source": "/blocked-toilet-repair.html",
+  "destination": "/services/blocked-toilet-repair"
+ },
+ {
+  "source": "/blocked-toilet-repair",
+  "destination": "/services/blocked-toilet-repair"
+ },
+ {
+  "source": "/burst-pipes-repair.html",
+  "destination": "/services/burst-pipes-repair"
+ },
+ {
+  "source": "/burst-pipes-repair",
+  "destination": "/services/burst-pipes-repair"
+ },
+ {
+  "source": "/cubicle-installations.html",
+  "destination": "/services/glass-shower-cubicles"
+ },
+ {
+  "source": "/cubicle-installations",
+  "destination": "/services/glass-shower-cubicles"
+ },
+ {
+  "source": "/drain-lines.html",
+  "destination": "/services/drain-lines"
+ },
+ {
+  "source": "/drain-lines",
+  "destination": "/services/drain-lines"
+ },
+ {
+  "source": "/electric-instant-shower.html",
+  "destination": "/services/electric-instant-shower"
+ },
+ {
+  "source": "/electric-instant-shower",
+  "destination": "/services/electric-instant-shower"
+ },
+ {
+  "source": "/fire-and-safety.html",
+  "destination": "/services/fire-and-safety"
+ },
+ {
+  "source": "/fire-and-safety",
+  "destination": "/services/fire-and-safety"
+ },
+ {
+  "source": "/fixing-sewer-smell.html",
+  "destination": "/services/sewer-smell-removal"
+ },
+ {
+  "source": "/fixing-sewer-smell",
+  "destination": "/services/sewer-smell-removal"
+ },
+ {
+  "source": "/glass-shower-enclosure-repair-and-installation.html",
+  "destination": "/services/glass-shower-enclosures"
+ },
+ {
+  "source": "/glass-shower-enclosure-repair-and-installation",
+  "destination": "/services/glass-shower-enclosures"
+ },
+ {
+  "source": "/heater-installations.html",
+  "destination": "/services/water-heater-installation"
+ },
+ {
+  "source": "/heater-installations",
+  "destination": "/services/water-heater-installation"
+ },
+ {
+  "source": "/interior-design.html",
+  "destination": "/services/bathroom-interior-design"
+ },
+ {
+  "source": "/interior-design",
+  "destination": "/services/bathroom-interior-design"
+ },
+ {
+  "source": "/leaking-shower-taps.html",
+  "destination": "/services/leaking-taps-and-mixers"
+ },
+ {
+  "source": "/leaking-shower-taps",
+  "destination": "/services/leaking-taps-and-mixers"
+ },
+ {
+  "source": "/piping-and-repiping.html",
+  "destination": "/services/piping-and-repiping"
+ },
+ {
+  "source": "/piping-and-repiping",
+  "destination": "/services/piping-and-repiping"
+ },
+ {
+  "source": "/plumbing-emergencies.html",
+  "destination": "/services/emergency-plumbing"
+ },
+ {
+  "source": "/plumbing-emergencies",
+  "destination": "/services/emergency-plumbing"
+ },
+ {
+  "source": "/shower-head-install.html",
+  "destination": "/services/shower-head-installation"
+ },
+ {
+  "source": "/shower-head-install",
+  "destination": "/services/shower-head-installation"
+ },
+ {
+  "source": "/sink-tap-repair.html",
+  "destination": "/services/sink-and-tap-repair"
+ },
+ {
+  "source": "/sink-tap-repair",
+  "destination": "/services/sink-and-tap-repair"
+ },
+ {
+  "source": "/solar-water-heater.html",
+  "destination": "/services/solar-water-heater"
+ },
+ {
+  "source": "/solar-water-heater",
+  "destination": "/services/solar-water-heater"
+ },
+ {
+  "source": "/sump-pump-repair.html",
+  "destination": "/services/sump-pump-repair"
+ },
+ {
+  "source": "/sump-pump-repair",
+  "destination": "/services/sump-pump-repair"
+ },
+ {
+  "source": "/tank-installation-and-repair.html",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/tank-installation-and-repair",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/Tank Installation and Repair.html",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/Tank%20Installation%20and%20Repair.html",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/Tank-Installation-and-Repair.html",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/tank installation and repair.html",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/tank%20installation%20and%20repair.html",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/Tank Installation and Repair",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/Tank%20Installation%20and%20Repair",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/Tank-Installation-and-Repair",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/tank installation and repair",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/tank%20installation%20and%20repair",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/Tank Installation and Repair.html",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/Tank%20Installation%C2%A0and%C2%A0Repair.html",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/Tank%20Installation and Repair.html",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/Tank-Installation and Repair.html",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/tank installation and repair.html",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/tank%20installation%C2%A0and%C2%A0repair.html",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/tank%20installation and repair.html",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/tank-installation and repair.html",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/Tank Installation and Repair",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/Tank%20Installation%C2%A0and%C2%A0Repair",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/Tank%20Installation and Repair",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/Tank-Installation and Repair",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/tank installation and repair",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/tank%20installation%C2%A0and%C2%A0repair",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/tank%20installation and repair",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/tank-installation and repair",
+  "destination": "/services/tank-installation-and-repair"
+ },
+ {
+  "source": "/water-pressure.html",
+  "destination": "/services/low-water-pressure"
+ },
+ {
+  "source": "/water-pressure",
+  "destination": "/services/low-water-pressure"
+ },
+ {
+  "source": "/price.html",
+  "destination": "/pricing"
+ },
+ {
+  "source": "/price",
+  "destination": "/pricing"
+ },
+ {
+  "source": "/gallery.html",
+  "destination": "/gallery"
+ },
+ {
+  "source": "/gallery2.html",
+  "destination": "/gallery"
+ },
+ {
+  "source": "/gallery2",
+  "destination": "/gallery"
+ },
+ {
+  "source": "/gallery3.html",
+  "destination": "/gallery"
+ },
+ {
+  "source": "/gallery3",
+  "destination": "/gallery"
+ },
+ {
+  "source": "/testimonials.html",
+  "destination": "/testimonials"
+ },
+ {
+  "source": "/faq.html",
+  "destination": "/faq"
+ },
+ {
+  "source": "/blog.html",
+  "destination": "/blog"
+ },
+ {
+  "source": "/single-post.html",
+  "destination": "/blog"
+ },
+ {
+  "source": "/single-post",
+  "destination": "/blog"
+ },
+ {
+  "source": "/contact.html",
+  "destination": "/contact"
+ },
+ {
+  "source": "/contacts-coverage.html",
+  "destination": "/coverage"
+ },
+ {
+  "source": "/contacts-coverage",
+  "destination": "/coverage"
+ },
+ {
+  "source": "/shop.html",
+  "destination": "/shop"
+ },
+ {
+  "source": "/shop-item.html",
+  "destination": "/shop"
+ },
+ {
+  "source": "/shop-item",
+  "destination": "/shop"
+ },
+ {
+  "source": "/product.html",
+  "destination": "/shop"
+ },
+ {
+  "source": "/product",
+  "destination": "/shop"
+ }
+]
