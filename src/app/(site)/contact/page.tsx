@@ -50,7 +50,7 @@ export default function ContactPage() {
                 {rows.map((r) => (
                   <li key={r.label} className="flex items-center gap-4"><PlumbIcon name={r.icon} size={52} /><div><p className="text-sm font-bold uppercase tracking-wider text-muted">{r.label}</p><p className="font-heading text-xl font-bold text-ink">{r.value}</p></div></li>
                 ))}
-                <li className="flex items-center gap-4"><span className="fp-icon !size-[52px]"><Mail className="size-6" aria-hidden /></span><div><p className="text-sm font-bold uppercase tracking-wider text-muted">Email</p>{emails.map((e) => <a key={e} href={`mailto:${e}`} className="block break-all font-bold text-navy-600 underline-offset-4 hover:underline">{e}</a>)}</div></li>
+                <li className="flex items-center gap-4"><span className="fp-icon !size-[52px]"><Mail className="size-6" aria-hidden /></span><div><p className="text-sm font-bold uppercase tracking-wider text-muted">Email</p>{emails.map((e) => <a key={e} href={`mailto:${e}`} className="flex min-h-11 items-center break-all font-bold text-navy-600 underline-offset-4 hover:underline">{e}</a>)}</div></li>
               </ul>
             </Reveal>
           </div>

@@ -169,6 +169,7 @@ export function ShopClient({ products, categories, initialCategory = '' }: { pro
           </div>
         </div>
 
+        <h2 className="sr-only">Products</h2>
         <p className="mb-4 pl-2 font-semibold text-muted" aria-live="polite">
           {mounted ? `Showing ${Math.min(visible.length, filtered.length)} of ${filtered.length} products` : 'Loading products...'}
           {activeFilters ? <button type="button" onClick={reset} className="ml-3 inline-flex items-center gap-1 font-bold text-navy-600 underline"><X className="size-4" aria-hidden /> Clear filters</button> : null}
