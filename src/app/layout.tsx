@@ -23,7 +23,7 @@ export const viewport: Viewport = { themeColor: '#06264a', width: 'device-width'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-KE" className={`${barlow.variable} ${inter.variable}`}>
+    <html lang="en-KE" data-scroll-behavior="smooth" className={`${barlow.variable} ${inter.variable}`}>
       <body>
         {children}
         <SiteToaster />

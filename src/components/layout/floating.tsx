@@ -58,7 +58,7 @@ export function MobileBar({ phone, whatsappNumber }: { phone: string; whatsappNu
 export function EmergencyBadge({ phone, className }: { phone: string; className?: string }) {
   const tel = `tel:${phone.replace(/[^\d+]/g, '')}`;
   return (
-    <a href={tel} aria-label={`24/7 emergency plumber, call ${phone}`} className={`group inline-flex flex-col rounded-lg border-2 border-white/80 px-5 py-3 text-white transition-colors hover:bg-white/10 ${className ?? ''}`}>
+    <a href={tel} className={`group inline-flex flex-col rounded-lg border-2 border-white/80 px-5 py-3 text-white transition-colors hover:bg-white/10 ${className ?? ''}`}>
       <span className="font-heading text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">24/7 Emergency</span>
       <span className="font-heading text-4xl font-bold tracking-wide">{phone}</span>
     </a>

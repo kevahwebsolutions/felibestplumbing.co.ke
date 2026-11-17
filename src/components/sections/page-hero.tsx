@@ -15,7 +15,7 @@ export function PageHero({ title, intro, crumbs, children, eyebrow, image = DEFA
   return (
     <section className="relative isolate overflow-hidden bg-navy-900 text-white">
       <JsonLd data={breadcrumbLd(all)} />
-      <Image src={image} alt="" fill sizes="100vw" className="-z-20 object-cover opacity-40 grayscale" style={{ objectPosition: imagePosition }} />
+      <Image src={image} alt="" fill priority quality={60} sizes="100vw" className="-z-20 object-cover opacity-40" style={{ objectPosition: imagePosition }} />
       <div aria-hidden className="bp-grid absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-900/90 to-navy-900/60" />
       <div className="container-fp py-10 sm:py-14 lg:py-16">
         <nav aria-label="Breadcrumb">

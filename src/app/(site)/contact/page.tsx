@@ -2,6 +2,7 @@ import { Clock, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 import { PageHero } from '@/components/sections/page-hero';
 import { BookingForm } from '@/components/forms/booking-form';
 import { PlumbIcon } from '@/components/plumb/icons';
+import { MapEmbed } from '@/components/sections/map-embed';
 import { Reveal } from '@/components/motion/reveal';
 import { ButtonAnchor } from '@/components/ui/button';
 import { buildMetadata } from '@/lib/seo';
@@ -59,7 +60,7 @@ export default function ContactPage() {
         <div className="container-fp !px-0">
           <h2 id="map-h" className="mb-6 flex items-center gap-3 font-heading text-4xl font-bold"><MapPin className="size-8 text-cta-500" aria-hidden /> Find us in Nairobi</h2>
           <div className="fp-card overflow-hidden rounded-lg p-2">
-            <iframe title="Map of Nairobi, Kenya" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="h-[380px] w-full rounded-lg border-0" src="https://www.google.com/maps?q=Nairobi,+Kenya&output=embed" />
+            <MapEmbed className="h-[380px] rounded-md" />
           </div>
           <p className="mt-4 flex items-center gap-2 pl-2 text-sm text-muted"><Clock className="size-4" aria-hidden /> We come to you. Call us to arrange a visit.</p>
         </div>

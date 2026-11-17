@@ -23,7 +23,7 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   serverExternalPackages: ['better-sqlite3', 'sharp'],
-  images: { formats: ['image/avif', 'image/webp'], deviceSizes: [360, 480, 640, 768, 1024, 1280, 1600, 1920], minimumCacheTTL: 31536000 },
+  images: { formats: ['image/webp'], qualities: [60, 70, 75], deviceSizes: [360, 480, 640, 768, 1024, 1280, 1600, 1920], minimumCacheTTL: 31536000 },
   async redirects() {
     return redirects.map((r) => ({ source: r.source, destination: r.destination, permanent: false, statusCode: 301 }));
   },

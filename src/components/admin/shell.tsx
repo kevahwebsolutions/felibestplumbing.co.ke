@@ -31,12 +31,12 @@ const ACTIONS = [
 function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname();
   return (
-    <nav aria-label="Admin" className="grid gap-2">
+    <nav aria-label="Admin" className="grid gap-1">
       {NAV.map(({ href, label, Icon }) => {
         const active = href === '/admin' ? pathname === '/admin' : pathname.startsWith(href);
         return (
           <Link key={href} href={href} onClick={onNavigate} aria-current={active ? 'page' : undefined}
-            className={cn('flex min-h-12 items-center gap-3 rounded-full px-4 font-heading font-bold transition-colors', active ? 'bg-gradient-to-b from-navy-600 to-navy-700 text-white shadow-[inset_3px_4px_8px_rgb(255_255_255/0.3),inset_-3px_-4px_8px_rgb(6_31_61/0.45)]' : 'text-navy-800 hover:bg-white/70')}>
+            className={cn('flex min-h-11 items-center gap-3 rounded-md border-l-4 px-3 font-heading text-lg font-semibold uppercase tracking-wider transition-colors', active ? 'border-orange-brand bg-white/10 text-white' : 'border-transparent text-sky-200 hover:bg-white/5 hover:text-white')}>
             <Icon className="size-5" aria-hidden /> {label}
           </Link>
         );
@@ -54,7 +54,7 @@ function CommandPalette({ open, setOpen }: { open: boolean; setOpen: (b: boolean
   }, [open, products.length]);
   const go = (href: string) => { setOpen(false); router.push(href); };
   return (
-    <Command.Dialog open={open} onOpenChange={setOpen} label="Quick search" className="fixed left-1/2 top-[18%] z-[95] w-[calc(100vw-24px)] max-w-xl -translate-x-1/2 overflow-hidden rounded-lg bg-white shadow-[var(--fp-shadow-hover)]" overlayClassName="fp-overlay fixed inset-0 z-[90] bg-navy-950/55 backdrop-blur-sm">
+    <Command.Dialog open={open} onOpenChange={setOpen} label="Quick search" className="fixed left-1/2 top-[18%] z-[95] w-[calc(100vw-24px)] max-w-xl -translate-x-1/2 overflow-hidden rounded-lg bg-white shadow-[var(--shadow-lift)]" overlayClassName="fp-overlay fixed inset-0 z-[90] bg-navy-950/60">
       <div className="flex items-center gap-3 border-b border-sky-200 px-5"><Search className="size-5 text-navy-600" aria-hidden />
         <Command.Input placeholder="Search pages, actions and products..." className="h-14 w-full bg-transparent text-base outline-none placeholder:text-muted" /></div>
       <Command.List className="max-h-80 overflow-y-auto p-2">
@@ -89,34 +89,34 @@ export function AdminShell({ email, children }: { email: string; children: React
   }, []);
   const brand = (
     <Link href="/admin" className="flex items-center gap-3">
-      <span className="grid size-12 place-items-center rounded-full bg-[radial-gradient(circle_at_30%_25%,var(--color-navy-600),var(--color-navy-900))]"><Image src="/images/logo-white.webp" alt="" width={36} height={36} /></span>
-      <span className="font-heading text-xl font-bold leading-tight text-navy-700">Felibest<br /><span className="text-xs tracking-[0.2em] text-cta-500">ADMIN</span></span>
+      <span className="grid size-12 place-items-center"><Image src="/images/logo-white.webp" alt="" width={44} height={44} /></span>
+      <span className="font-heading text-2xl font-bold uppercase leading-none text-white">Felibest<br /><span className="text-sm tracking-[0.3em] text-sky-400">Admin</span></span>
     </Link>
   );
   return (
-    <div className="flex min-h-dvh">
-      <aside className="no-print sticky top-0 hidden h-dvh w-72 shrink-0 p-4 lg:block">
-        <div className="fp-card flex h-full flex-col gap-6 rounded-lg p-5">
+    <div className="admin-root flex min-h-dvh bg-sky-50">
+      <aside className="no-print sticky top-0 hidden h-dvh w-64 shrink-0 lg:block">
+        <div className="bp-grid flex h-full flex-col gap-6 bg-navy-900 p-5">
           {brand}
           <NavLinks />
           <div className="mt-auto grid gap-3">
-            <p className="truncate pl-2 text-sm text-muted" title={email}>{email}</p>
-            <form action={logoutAction}><button type="submit" className="fp-button fp-button-ghost fp-button-sm w-full"><LogOut className="size-4" aria-hidden /> Sign out</button></form>
+            <p className="truncate pl-2 text-sm text-sky-200" title={email}>{email}</p>
+            <form action={logoutAction}><button type="submit" className="fp-button fp-button-outline fp-button-sm w-full"><LogOut className="size-4" aria-hidden /> Sign out</button></form>
           </div>
         </div>
       </aside>
       <div className="min-w-0 flex-1">
-        <header className="no-print sticky top-0 z-40 flex items-center gap-3 px-4 pb-2 pt-4 lg:px-8">
+        <header className="no-print sticky top-0 z-40 flex items-center gap-3 border-b border-sky-200 bg-white px-4 py-3 lg:px-8">
           <DialogPrimitive.Root open={menu} onOpenChange={setMenu}>
-            <DialogPrimitive.Trigger className="fp-chip !min-h-12 w-12 justify-center !px-0 lg:hidden" aria-label="Open menu"><Menu className="size-5" aria-hidden /></DialogPrimitive.Trigger>
-            <SheetContent title="Admin menu" side="left" data-lenis-prevent>
+            <DialogPrimitive.Trigger className="fp-chip !min-h-11 w-11 justify-center !px-0 lg:hidden" aria-label="Open menu"><Menu className="size-5" aria-hidden /></DialogPrimitive.Trigger>
+            <SheetContent title="Admin menu" side="left" className="!bg-navy-900 !text-white [&_h2]:!text-white [&_button[aria-label=Close]]:!text-white">
               <div className="mb-4">{brand}</div>
               <NavLinks onNavigate={() => setMenu(false)} />
-              <form action={logoutAction} className="mt-auto"><button type="submit" className="fp-button fp-button-ghost w-full"><LogOut className="size-4" aria-hidden /> Sign out</button></form>
+              <form action={logoutAction} className="mt-auto"><button type="submit" className="fp-button fp-button-outline w-full"><LogOut className="size-4" aria-hidden /> Sign out</button></form>
             </SheetContent>
           </DialogPrimitive.Root>
           <button type="button" onClick={() => setPalette(true)} className="fp-input flex !min-h-12 flex-1 items-center gap-3 text-left text-muted sm:max-w-md">
-            <Search className="size-5 text-navy-600" aria-hidden /> <span className="flex-1 truncate">Quick search</span><kbd className="hidden rounded-lg bg-white px-2 py-0.5 text-xs font-bold text-navy-700 shadow sm:block">Ctrl K</kbd>
+            <Search className="size-5 text-navy-600" aria-hidden /> <span className="flex-1 truncate">Quick search</span><kbd className="hidden rounded border border-sky-300 bg-sky-50 px-2 py-0.5 text-xs font-bold text-navy-700 sm:block">Ctrl K</kbd>
           </button>
           <Link href="/" target="_blank" className="fp-chip ml-auto hidden sm:inline-flex"><ExternalLink className="size-4" aria-hidden /> View site</Link>
         </header>

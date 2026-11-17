@@ -4,7 +4,6 @@ import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Check, Eye, ShoppingCart } from 'lucide-react';
-import { motion, useReducedMotion } from 'framer-motion';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { PlumbGlyph, type GlyphName } from '@/components/plumb/icons';
@@ -91,15 +90,9 @@ export function PriceTag({ p, size = 'md' }: { p: ProductView; size?: 'md' | 'lg
 }
 
 export function ProductCard({ p, view = 'grid', onQuickView, priority = false }: { p: ProductView; view?: 'grid' | 'list'; onQuickView?: (p: ProductView) => void; priority?: boolean }) {
-  const reduce = useReducedMotion();
   const list = view === 'list';
   return (
-    <motion.article
-      layout={!reduce}
-      initial={reduce ? false : { opacity: 0, y: 22 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ type: 'spring', stiffness: 170, damping: 22 }}
-      className={cn('fp-card fp-card-hover group flex overflow-hidden', list ? 'flex-col sm:flex-row' : 'flex-col')}
+    <article className={cn('fp-card fp-card-hover group flex overflow-hidden', list ? 'flex-col sm:flex-row' : 'flex-col')}
     >
       <div className={cn('relative shrink-0 overflow-hidden', list ? 'aspect-[4/3] sm:aspect-auto sm:w-56 md:w-64' : 'aspect-[4/3]')}>
         <Link href={`/shop/${p.slug}`} tabIndex={-1} aria-hidden className="relative block size-full transition-transform duration-500 group-hover:scale-105">
@@ -136,7 +129,7 @@ export function ProductCard({ p, view = 'grid', onQuickView, priority = false }:
         </div>
         <AddToCartButton product={p} size="sm" className="w-full" />
       </div>
-    </motion.article>
+    </article>
   );
 }
 

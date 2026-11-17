@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { Clock, Mail, Menu, MessageCircle, Phone, ShoppingCart, X } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { SITE, whatsappLink } from '@/lib/site';
 import { ButtonAnchor } from '@/components/ui/button';
 import { SOCIAL_ICONS } from '@/components/plumb/brand-icons';
@@ -37,11 +36,12 @@ function isActive(pathname: string, href: string) {
 /** The logo has a white wordmark, so it always sits on navy. */
 export function Logo({ className, priority = false, size = 52 }: { className?: string; priority?: boolean; size?: number }) {
   return (
-    <Link href="/" aria-label="Felibest Plumbing home" className={cn('group flex items-center gap-3', className)}>
+    <Link href="/" className={cn('group flex items-center gap-3', className)}>
       <Image src="/images/logo-white.webp" alt="" width={size} height={size} priority={priority} className="shrink-0 object-contain transition-[width,height] duration-200" style={{ width: size, height: size }} />
       <span className="leading-none">
         <span className="block font-heading text-[1.65rem] font-bold uppercase tracking-wide text-white">Felibest</span>
         <span className="block font-heading text-sm font-semibold uppercase tracking-[0.32em] text-sky-400">Plumbing</span>
+        <span className="sr-only"> home</span>
       </span>
     </Link>
   );
@@ -63,9 +63,9 @@ export function CartButton({ className }: { className?: string }) {
         <ShoppingCart className="size-5" aria-hidden />
       </span>
       {mounted && count > 0 ? (
-        <motion.span key={count} initial={{ scale: 0.6 }} animate={{ scale: 1 }} transition={{ duration: 0.15 }} className="fp-pill fp-pill-orange absolute -right-2 -top-2 min-w-6 justify-center !px-1.5 !py-0.5 !text-xs">
+        <span key={count} className="fp-pill fp-pill-orange absolute -right-2 -top-2 min-w-6 justify-center !px-1.5 !py-0.5 !text-xs">
           {count}
-        </motion.span>
+        </span>
       ) : null}
     </button>
   );
@@ -76,7 +76,7 @@ export function UtilityBar({ phone, email, hours }: { phone: string; email: stri
   return (
     <div className="no-print hidden bg-navy-950 text-sky-200 lg:block">
       <div className="container-fp flex items-center justify-between gap-6 py-2 text-sm">
-        <a href={tel} className="flex items-center gap-3 text-white" aria-label={`24/7 emergency line ${phone}`}>
+        <a href={tel} className="flex items-center gap-3 text-white">
           <span className="fp-pill fp-pill-orange !py-0.5">24/7 Emergency</span>
           <span className="font-heading text-2xl font-bold tracking-wide">{phone}</span>
         </a>

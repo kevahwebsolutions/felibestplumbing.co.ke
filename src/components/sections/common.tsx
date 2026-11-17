@@ -57,7 +57,7 @@ export function CtaBand({ phone, whatsappNumber, title = 'Plumbing problem? We a
             <ButtonLink href="/contact#book" variant="outline" size="lg">Book online</ButtonLink>
           </div>
         </div>
-        <a href={tel} aria-label={`24/7 emergency line ${phone}`} className="hidden rounded-lg border-2 border-white/80 px-6 py-4 text-white transition-colors hover:bg-white/10 lg:block">
+        <a href={tel} className="hidden rounded-lg border-2 border-white/80 px-6 py-4 text-white transition-colors hover:bg-white/10 lg:block">
           <span className="block font-heading text-sm font-semibold uppercase tracking-[0.22em] text-sky-300">Emergency line</span>
           <span className="block font-heading text-5xl font-bold tracking-wide">{phone}</span>
         </a>

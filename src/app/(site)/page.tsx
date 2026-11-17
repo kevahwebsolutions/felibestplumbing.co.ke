@@ -3,11 +3,13 @@ import Link from 'next/link';
 import { ArrowRight, BadgeCheck, Clock, MapPin, Phone, ShieldCheck, Wallet } from 'lucide-react';
 import { PipeConnector, SectionHeading, WaterLine } from '@/components/plumb/decor';
 import { PlumbGlyph } from '@/components/plumb/icons';
-import { CountUp, Reveal, Stagger, StaggerItem } from '@/components/motion/reveal';
+import { Reveal, Stagger, StaggerItem } from '@/components/motion/reveal';
+import { CountUp } from '@/components/motion/count-up';
 import { BookingForm } from '@/components/forms/booking-form';
 import { ButtonAnchor, ButtonLink } from '@/components/ui/button';
 import { CtaBand } from '@/components/sections/common';
 import { FaqList } from '@/components/sections/faq-list';
+import { MapEmbed } from '@/components/sections/map-embed';
 import { HowItWorks } from '@/components/sections/how-it-works';
 import { ServiceTabs } from '@/components/sections/service-tabs';
 import { TestimonialCarousel } from '@/components/sections/testimonial-carousel';
@@ -91,27 +93,27 @@ export default function HomePage() {
 
       {/* 2. TRUST STRIP */}
       <section aria-label="Our track record" className="border-b border-sky-200 bg-white">
-        <dl className="container-fp grid grid-cols-2 divide-sky-200 py-2 sm:grid-cols-3 lg:grid-cols-5 lg:divide-x">
+        <ul className="container-fp grid grid-cols-2 divide-sky-200 py-2 sm:grid-cols-3 lg:grid-cols-5 lg:divide-x">
           {[
             { n: SITE.stats.experienceYears, suf: '+', label: 'Years combined experience' },
             { n: SITE.stats.installs, suf: '+', label: 'Plumbing installs' },
             { n: SITE.stats.repairs, suf: '+', label: 'Repairs fixed' },
           ].map((st) => (
-            <div key={st.label} className="flex flex-col-reverse items-center px-3 py-5 text-center">
-              <dt className="mt-1 text-sm font-semibold uppercase tracking-wider text-muted">{st.label}</dt>
-              <dd className="font-heading text-5xl font-bold text-navy-700 sm:text-6xl"><CountUp to={st.n} suffix={st.suf} /></dd>
-            </div>
+            <li key={st.label} className="flex flex-col-reverse items-center px-3 py-5 text-center">
+              <p className="mt-1 text-sm font-semibold uppercase tracking-wider text-muted">{st.label}</p>
+              <p className="font-heading text-5xl font-bold text-navy-700 sm:text-6xl"><CountUp to={st.n} suffix={st.suf} /></p>
+            </li>
           ))}
           {[
             { glyph: 'shield' as const, label: 'Licensed technicians' },
             { glyph: 'valve' as const, label: 'On-time guarantee' },
           ].map((b) => (
-            <div key={b.label} className="flex flex-col items-center justify-center gap-1 px-3 py-5 text-center">
+            <li key={b.label} className="flex flex-col items-center justify-center gap-1 px-3 py-5 text-center">
               <span className="grid size-12 place-items-center rounded-lg bg-navy-700 text-white" aria-hidden><PlumbGlyph name={b.glyph} size={30} /></span>
               <p className="text-sm font-semibold uppercase tracking-wider text-muted">{b.label}</p>
-            </div>
+            </li>
           ))}
-        </dl>
+        </ul>
       </section>
 
       {/* 3. EMERGENCY BAND */}
@@ -120,7 +122,7 @@ export default function HomePage() {
           <p className="font-heading text-3xl font-bold uppercase leading-tight sm:text-4xl">
             Burst pipe? Blocked toilet? No water? <span className="text-navy-950">We answer 24/7.</span>
           </p>
-          <a href={tel} className="inline-flex min-h-14 items-center gap-3 rounded-lg bg-navy-950 px-6 py-2 font-heading text-3xl font-bold tracking-wide text-white shadow-[0_3px_0_#000] transition-colors hover:bg-navy-900 active:translate-y-0.5" aria-label={`Call the emergency line ${s.phone}`}>
+          <a href={tel} className="inline-flex min-h-14 items-center gap-3 rounded-lg bg-navy-950 px-6 py-2 font-heading text-3xl font-bold tracking-wide text-white shadow-[0_3px_0_#000] transition-colors hover:bg-navy-900 active:translate-y-0.5">
             <Phone className="size-6 text-orange-brand" aria-hidden /> {s.phone}
           </a>
         </div>
@@ -231,7 +233,7 @@ export default function HomePage() {
             <Link href="/coverage" className="mt-6 inline-flex min-h-11 items-center font-heading text-lg font-bold uppercase tracking-wider text-navy-700 underline underline-offset-4">View all areas</Link>
           </div>
           <div className="overflow-hidden rounded-lg border border-sky-200">
-            <iframe title="Map of Nairobi, Kenya" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="h-[360px] w-full border-0 lg:h-full lg:min-h-[420px]" src="https://www.google.com/maps?q=Nairobi,+Kenya&output=embed" />
+            <MapEmbed className="h-[360px] lg:h-full lg:min-h-[420px]" />
           </div>
         </div>
       </section>

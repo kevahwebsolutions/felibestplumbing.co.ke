@@ -4,13 +4,13 @@ import * as React from 'react';
 import Link from 'next/link';
 import { Area, AreaChart, Bar, BarChart, CartesianGrid, Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { AlertTriangle, ArrowDownRight, ArrowUpRight, CalendarDays, Minus } from 'lucide-react';
-import { CountUp } from '@/components/motion/reveal';
+import { CountUp } from '@/components/motion/count-up';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/field';
 import { cn, formatKES } from '@/lib/utils';
 import type { Dashboard } from '@/lib/server/analytics';
 
-const COLORS = ['#0c4c93', '#51acfb', '#d63a0c', '#7cc0fc', '#ff8a63', '#1e60aa', '#a9d6fd', '#8a2406'];
+const COLORS = ['#0c4c93', '#51acfb', '#06264a', '#7cc0fc', '#b87333', '#1a5fae', '#b9c8d8', '#566370'];
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 function useMounted() {
@@ -84,7 +84,7 @@ function Heatmap({ grid }: { grid: number[][] }) {
             <span className="w-8 text-xs font-bold text-muted">{DAYS[d]}</span>
             <div className="grid flex-1 gap-[3px]" style={{ gridTemplateColumns: 'repeat(24, minmax(0, 1fr))' }}>
               {row.map((v, h) => (
-                <span key={h} title={`${DAYS[d]} ${h}:00, ${v} pageviews`} className="aspect-square rounded-md" style={{ background: v === 0 ? '#eaf3fd' : `rgba(12,76,147,${0.15 + (v / max) * 0.85})` }} />
+                <span key={h} title={`${DAYS[d]} ${h}:00, ${v} pageviews`} className="aspect-square rounded-sm" style={{ background: v === 0 ? '#e9eff5' : `rgba(12,76,147,${0.15 + (v / max) * 0.85})` }} />
               ))}
             </div>
           </div>
@@ -165,7 +165,7 @@ export function DashboardView({ d, preset, placeholderCount }: { d: Dashboard; p
               <linearGradient id="gv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#51acfb" stopOpacity={0.7} /><stop offset="1" stopColor="#51acfb" stopOpacity={0.05} /></linearGradient>
               <linearGradient id="gp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#0c4c93" stopOpacity={0.45} /><stop offset="1" stopColor="#0c4c93" stopOpacity={0.03} /></linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 6" vertical={false} stroke="#cde7fe" />
+            <CartesianGrid strokeDasharray="2 4" vertical={false} stroke="#d7e0ea" />
             <XAxis dataKey="day" tickFormatter={(v: string) => v.slice(5)} tick={{ fontSize: 11 }} minTickGap={24} />
             <YAxis allowDecimals={false} tick={{ fontSize: 11 }} />
             <Tooltip contentStyle={tooltipStyle} />
@@ -180,11 +180,11 @@ export function DashboardView({ d, preset, placeholderCount }: { d: Dashboard; p
         <Panel title="Top pages" empty={d.topPages.length === 0} table={<SimpleTable head={['Page', 'Views']} rows={d.topPages.map((p) => [p.name, p.value])} />}>
           <ChartBox height={300}>
             <BarChart data={d.topPages} layout="vertical" margin={{ left: 10, right: 16 }}>
-              <CartesianGrid strokeDasharray="3 6" horizontal={false} stroke="#cde7fe" />
+              <CartesianGrid strokeDasharray="2 4" horizontal={false} stroke="#d7e0ea" />
               <XAxis type="number" allowDecimals={false} tick={{ fontSize: 11 }} />
               <YAxis type="category" dataKey="name" width={120} tick={{ fontSize: 11 }} tickFormatter={(v: string) => (v.length > 18 ? v.slice(0, 17) + '...' : v)} />
               <Tooltip contentStyle={tooltipStyle} />
-              <Bar dataKey="value" name="Views" fill="#0c4c93" radius={[0, 14, 14, 0]} animationDuration={900} />
+              <Bar dataKey="value" name="Views" fill="#0c4c93" radius={[0, 3, 3, 0]} animationDuration={900} />
             </BarChart>
           </ChartBox>
         </Panel>
@@ -211,10 +211,10 @@ export function DashboardView({ d, preset, placeholderCount }: { d: Dashboard; p
         <Panel title="Browsers" empty={d.browsers.length === 0} table={<SimpleTable head={['Browser', 'Sessions']} rows={d.browsers.map((s) => [s.name, s.value])} />}>
           <ChartBox height={240}>
             <BarChart data={d.browsers} margin={{ left: -10, right: 8 }}>
-              <CartesianGrid strokeDasharray="3 6" vertical={false} stroke="#cde7fe" />
+              <CartesianGrid strokeDasharray="2 4" vertical={false} stroke="#d7e0ea" />
               <XAxis dataKey="name" tick={{ fontSize: 11 }} /><YAxis allowDecimals={false} tick={{ fontSize: 11 }} />
               <Tooltip contentStyle={tooltipStyle} />
-              <Bar dataKey="value" name="Sessions" fill="#51acfb" radius={[14, 14, 0, 0]}>{d.browsers.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}</Bar>
+              <Bar dataKey="value" name="Sessions" fill="#51acfb" radius={[3, 3, 0, 0]}>{d.browsers.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}</Bar>
             </BarChart>
           </ChartBox>
         </Panel>
@@ -228,12 +228,12 @@ export function DashboardView({ d, preset, placeholderCount }: { d: Dashboard; p
         <Panel title="Top products: views versus add to cart" empty={d.products.length === 0} table={<SimpleTable head={['Product', 'Views', 'Added to cart']} rows={d.products.map((p) => [p.name, p.views, p.addToCart])} />}>
           <ChartBox height={320}>
             <BarChart data={d.products} margin={{ left: -10, right: 8 }}>
-              <CartesianGrid strokeDasharray="3 6" vertical={false} stroke="#cde7fe" />
+              <CartesianGrid strokeDasharray="2 4" vertical={false} stroke="#d7e0ea" />
               <XAxis dataKey="name" tick={{ fontSize: 10 }} tickFormatter={(v: string) => (v.length > 10 ? v.slice(0, 9) + '...' : v)} interval={0} />
               <YAxis allowDecimals={false} tick={{ fontSize: 11 }} />
               <Tooltip contentStyle={tooltipStyle} /><Legend />
-              <Bar dataKey="views" name="Views" fill="#0c4c93" radius={[10, 10, 0, 0]} />
-              <Bar dataKey="addToCart" name="Added to cart" fill="#d63a0c" radius={[10, 10, 0, 0]} />
+              <Bar dataKey="views" name="Views" fill="#0c4c93" radius={[3, 3, 0, 0]} />
+              <Bar dataKey="addToCart" name="Added to cart" fill="#d63a0c" radius={[3, 3, 0, 0]} />
             </BarChart>
           </ChartBox>
         </Panel>
@@ -245,7 +245,7 @@ export function DashboardView({ d, preset, placeholderCount }: { d: Dashboard; p
               return (
                 <li key={f.step}>
                   <div className="mb-1 flex justify-between text-sm font-bold"><span>{f.step}</span><span>{f.sessions.toLocaleString('en-KE')}{prev ? <span className="ml-2 font-semibold text-muted">{prev ? Math.round((f.sessions / prev) * 100) : 0}% of previous</span> : null}</span></div>
-                  <div className="h-8 overflow-hidden rounded-full bg-sky-100 shadow-[inset_2px_3px_6px_rgb(12_76_147/0.25)]"><div className="h-full rounded-full bg-gradient-to-b from-sky-400 to-navy-700 shadow-[inset_0_2px_2px_rgb(255_255_255/0.5)] transition-[width] duration-1000" style={{ width: `${pct}%` }} /></div>
+                  <div className="h-6 overflow-hidden rounded-sm bg-sky-100"><div className="h-full rounded-sm bg-navy-700" style={{ width: `${pct}%` }} /></div>
                 </li>
               );
             })}
@@ -257,11 +257,11 @@ export function DashboardView({ d, preset, placeholderCount }: { d: Dashboard; p
         <Panel title="Best-selling categories (KES)" empty={d.categorySales.length === 0} table={<SimpleTable head={['Category', 'Sales']} rows={d.categorySales.map((c) => [c.name, formatKES(c.value)])} />}>
           <ChartBox height={260}>
             <BarChart data={d.categorySales} layout="vertical" margin={{ left: 10, right: 16 }}>
-              <CartesianGrid strokeDasharray="3 6" horizontal={false} stroke="#cde7fe" />
+              <CartesianGrid strokeDasharray="2 4" horizontal={false} stroke="#d7e0ea" />
               <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={(v: number) => `${Math.round(v / 1000)}k`} />
               <YAxis type="category" dataKey="name" width={110} tick={{ fontSize: 11 }} />
               <Tooltip contentStyle={tooltipStyle} formatter={(v) => formatKES(Number(v))} />
-              <Bar dataKey="value" name="Sales" fill="#51acfb" radius={[0, 14, 14, 0]} />
+              <Bar dataKey="value" name="Sales" fill="#51acfb" radius={[0, 3, 3, 0]} />
             </BarChart>
           </ChartBox>
         </Panel>
