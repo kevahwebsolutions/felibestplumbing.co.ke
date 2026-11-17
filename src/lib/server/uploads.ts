@@ -9,7 +9,7 @@ const ALLOWED_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp']);
 const MAX_PIXELS = 40_000_000;
 
 export function uploadDir(): string {
-  return path.resolve(process.env.UPLOAD_DIR ?? './data/uploads');
+  return path.resolve(/*turbopackIgnore: true*/ process.env.UPLOAD_DIR ?? './data/uploads');
 }
 
 export class UploadError extends Error {}
@@ -35,7 +35,7 @@ export async function storeImage(file: File): Promise<string> {
     .toBuffer();
   const name = `${Date.now().toString(36)}-${randomBytes(8).toString('hex')}.webp`;
   await fs.mkdir(uploadDir(), { recursive: true });
-  await fs.writeFile(path.join(uploadDir(), name), out, { mode: 0o640 });
+  await fs.writeFile(path.join(/*turbopackIgnore: true*/ uploadDir(), name), out, { mode: 0o640 });
   return name;
 }
 
@@ -44,7 +44,7 @@ export const SAFE_NAME = /^[a-z0-9]+-[a-f0-9]{16}\.webp$/;
 export async function readUpload(name: string): Promise<Buffer | null> {
   if (!SAFE_NAME.test(name)) return null;
   try {
-    return await fs.readFile(path.join(uploadDir(), name));
+    return await fs.readFile(path.join(/*turbopackIgnore: true*/ uploadDir(), name));
   } catch {
     return null;
   }
@@ -52,5 +52,5 @@ export async function readUpload(name: string): Promise<Buffer | null> {
 
 export async function deleteUpload(name: string): Promise<void> {
   if (!SAFE_NAME.test(name)) return;
-  await fs.rm(path.join(uploadDir(), name), { force: true });
+  await fs.rm(path.join(/*turbopackIgnore: true*/ uploadDir(), name), { force: true });
 }

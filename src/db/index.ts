@@ -9,7 +9,7 @@ export type DB = BetterSQLite3Database<typeof schema>;
 const g = globalThis as unknown as { __felibestDb?: { db: DB; raw: Database.Database } };
 
 export function databasePath(): string {
-  return path.resolve(process.env.DATABASE_PATH ?? './data/felibest.db');
+  return path.resolve(/*turbopackIgnore: true*/ process.env.DATABASE_PATH ?? './data/felibest.db');
 }
 
 function open() {
