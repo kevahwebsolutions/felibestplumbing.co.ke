@@ -193,19 +193,19 @@
  },
  {
   "source": "/heater-installations.html",
-  "destination": "/services/water-heater-installation"
+  "destination": "/services/gutter-installations"
  },
  {
   "source": "/heater-installations",
-  "destination": "/services/water-heater-installation"
+  "destination": "/services/gutter-installations"
  },
  {
   "source": "/interior-design.html",
-  "destination": "/services/bathroom-interior-design"
+  "destination": "/services/interior-design"
  },
  {
   "source": "/interior-design",
-  "destination": "/services/bathroom-interior-design"
+  "destination": "/services/interior-design"
  },
  {
   "source": "/leaking-shower-taps.html",

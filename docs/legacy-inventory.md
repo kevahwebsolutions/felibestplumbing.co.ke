@@ -28,9 +28,9 @@ Every page of the old static site, its title, the new route and the old-to-new 3
 | `gallery3.html` | Plumbing Projects Gallery 3 / Felibest Plumbing | `/gallery` | Merged into /gallery |
 | `glass-shower-enclosure-repair-and-installation.html` | Glass Shower Enclosure Repair & Installation / Felibest Plumbing | `/services/glass-shower-enclosures` |  |
 | `header.html` | Felibest Plumbing | `/` | Template fragment, no page of its own |
-| `heater-installations.html` | Water Heater Installation Nairobi / Felibest Plumbing | `/services/water-heater-installation` |  |
+| `heater-installations.html` | Water Heater Installation Nairobi / Felibest Plumbing | `/services/gutter-installations` |  |
 | `index.html` | Felibest Plumbing | `/` |  |
-| `interior-design.html` | Bathroom Interior Design Services / Felibest Plumbing | `/services/bathroom-interior-design` |  |
+| `interior-design.html` | Bathroom Interior Design Services / Felibest Plumbing | `/services/interior-design` |  |
 | `leaking-shower-taps.html` | Leaking Shower Tap Repair Nairobi / Felibest Plumbing | `/services/leaking-taps-and-mixers` |  |
 | `piping-and-repiping.html` | Pipe Installation & Repiping Nairobi / Felibest Plumbing | `/services/piping-and-repiping` |  |
 | `plumbing-emergencies.html` | 24/7 Emergency Plumbing Nairobi / Felibest Plumbing | `/services/emergency-plumbing` |  |
@@ -105,10 +105,10 @@ Stored in `config/legacy-redirects.json` and loaded by `next.config.mjs`. Covers
 | `/fixing-sewer-smell` | `/services/sewer-smell-removal` |
 | `/glass-shower-enclosure-repair-and-installation.html` | `/services/glass-shower-enclosures` |
 | `/glass-shower-enclosure-repair-and-installation` | `/services/glass-shower-enclosures` |
-| `/heater-installations.html` | `/services/water-heater-installation` |
-| `/heater-installations` | `/services/water-heater-installation` |
-| `/interior-design.html` | `/services/bathroom-interior-design` |
-| `/interior-design` | `/services/bathroom-interior-design` |
+| `/heater-installations.html` | `/services/gutter-installations` |
+| `/heater-installations` | `/services/gutter-installations` |
+| `/interior-design.html` | `/services/interior-design` |
+| `/interior-design` | `/services/interior-design` |
 | `/leaking-shower-taps.html` | `/services/leaking-taps-and-mixers` |
 | `/leaking-shower-taps` | `/services/leaking-taps-and-mixers` |
 | `/piping-and-repiping.html` | `/services/piping-and-repiping` |
