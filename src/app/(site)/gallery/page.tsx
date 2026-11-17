@@ -17,7 +17,7 @@ export default function GalleryPage() {
   return (
     <>
       <PageHero crumbs={[{ name: 'Gallery', path: '/gallery' }]} title="Our work, up close" intro="Examples of the range of work we have undertaken and the craftsmanship of our plumbers. Filter by category and tap a photo to enlarge it." />
-      <section className="section-pad px-3 sm:px-5"><div className="container-clay !px-0"><GalleryClient items={items} categories={GALLERY_CATEGORIES} /></div></section>
+      <section className="section-pad px-3 sm:px-5"><div className="container-fp !px-0"><GalleryClient items={items} categories={GALLERY_CATEGORIES} /></div></section>
       <CtaBand phone={s.phone} whatsappNumber={s.whatsappNumber} />
     </>
   );

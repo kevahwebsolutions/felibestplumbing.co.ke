@@ -23,8 +23,8 @@ export function OrderControls({ id, status, notes }: { id: number; status: strin
     if (res.ok) { toast.success('Order updated'); router.refresh(); } else toast.error(res.error ?? 'Failed');
   }
   return (
-    <div className="no-print clay-card space-y-4 p-6">
-      <h2 className="font-heading text-xl font-extrabold">Manage order</h2>
+    <div className="no-print fp-card space-y-4 p-6">
+      <h2 className="font-heading text-2xl font-bold">Manage order</h2>
       <div><label htmlFor="o-status" className="mb-2 block pl-2 text-sm font-bold">Status</label>
         <Select id="o-status" value={s} onChange={(e) => setS(e.target.value)}>{ORDER_STATUSES.map((v) => <option key={v} value={v}>{LABELS[v]}</option>)}</Select></div>
       <div><label htmlFor="o-notes" className="mb-2 block pl-2 text-sm font-bold">Internal notes</label><Textarea id="o-notes" rows={4} value={n} onChange={(e) => setN(e.target.value)} /></div>
@@ -45,12 +45,12 @@ export function EnquiryRow({ e }: { e: { id: number; kind: string; name: string;
     if (res.ok) { toast.success('Saved'); router.refresh(); } else toast.error(res.error ?? 'Failed');
   }
   return (
-    <article className="clay-card grid gap-4 p-5 lg:grid-cols-[1.2fr_1fr]" aria-label={`Enquiry from ${e.name}`}>
+    <article className="fp-card grid gap-4 p-5 lg:grid-cols-[1.2fr_1fr]" aria-label={`Enquiry from ${e.name}`}>
       <div className="space-y-2">
-        <div className="flex flex-wrap items-center gap-2"><h3 className="font-heading text-lg font-extrabold">{e.name}</h3><span className="clay-pill">{e.kind}</span><span className="text-xs text-muted">{new Date(e.createdAt * 1000).toLocaleString('en-KE', { dateStyle: 'medium', timeStyle: 'short' })}</span></div>
+        <div className="flex flex-wrap items-center gap-2"><h3 className="font-heading text-xl font-bold">{e.name}</h3><span className="fp-pill">{e.kind}</span><span className="text-xs text-muted">{new Date(e.createdAt * 1000).toLocaleString('en-KE', { dateStyle: 'medium', timeStyle: 'short' })}</span></div>
         <p><a className="font-bold text-navy-600 underline" href={`tel:${e.phone}`}>{e.phone}</a>{e.email ? <> &middot; <a className="underline" href={`mailto:${e.email}`}>{e.email}</a></> : null}</p>
         {e.service ? <p className="text-sm"><strong>Service:</strong> {e.service}{e.preferredDate ? ` (preferred ${e.preferredDate})` : ''}</p> : null}
-        {e.message ? <p className="rounded-2xl bg-sky-50 p-3 text-body">{e.message}</p> : null}
+        {e.message ? <p className="rounded-lg bg-sky-50 p-3 text-body">{e.message}</p> : null}
         <p className="text-xs text-muted">{e.forwarded ? 'Forwarded by email' : 'Not forwarded by email'}</p>
       </div>
       <div className="space-y-3">

@@ -82,7 +82,7 @@ export function ProductForm({ initial, categories }: { initial: ProductFormIniti
   return (
     <form onSubmit={onSubmit} noValidate className="grid gap-6 xl:grid-cols-[1.5fr_1fr]">
       <div className="space-y-6">
-        <section className="clay-card space-y-5 p-6" aria-label="Basics">
+        <section className="fp-card space-y-5 p-6" aria-label="Basics">
           <Field label="Product name" htmlFor="p-name" error={err('name')}><Input id="p-name" aria-invalid={!!errors.name} {...register('name')} /></Field>
           <div className="grid gap-5 sm:grid-cols-2">
             <Field label="URL slug" htmlFor="p-slug" error={err('slug')} hint="Created from the name. Edit to customise."><Input id="p-slug" {...register('slug', { onChange: () => setSlugTouched(true) })} /></Field>
@@ -97,48 +97,48 @@ export function ProductForm({ initial, categories }: { initial: ProductFormIniti
           <Field label="Description" htmlFor="p-desc" error={err('description')}><Textarea id="p-desc" rows={7} {...register('description')} /></Field>
         </section>
 
-        <section className="clay-card space-y-4 p-6" aria-label="Specifications">
-          <div className="flex items-center justify-between"><h2 className="font-heading text-xl font-extrabold">Specifications</h2><Button type="button" size="sm" variant="ghost" onClick={() => append({ key: '', value: '' })}><Plus className="size-4" aria-hidden /> Add row</Button></div>
+        <section className="fp-card space-y-4 p-6" aria-label="Specifications">
+          <div className="flex items-center justify-between"><h2 className="font-heading text-2xl font-bold">Specifications</h2><Button type="button" size="sm" variant="ghost" onClick={() => append({ key: '', value: '' })}><Plus className="size-4" aria-hidden /> Add row</Button></div>
           {fields.length === 0 ? <p className="text-muted">No specifications yet.</p> : null}
           {fields.map((f, i) => (
             <div key={f.id} className="grid grid-cols-[1fr_1fr_auto] items-center gap-3">
               <Input aria-label={`Specification ${i + 1} name`} placeholder="Name" {...register(`specs.${i}.key` as const)} />
               <Input aria-label={`Specification ${i + 1} value`} placeholder="Value" {...register(`specs.${i}.value` as const)} />
-              <button type="button" onClick={() => remove(i)} aria-label={`Remove specification ${i + 1}`} className="clay-chip !min-h-11 w-11 justify-center !px-0 text-cta-600"><Trash2 className="size-4" aria-hidden /></button>
+              <button type="button" onClick={() => remove(i)} aria-label={`Remove specification ${i + 1}`} className="fp-chip !min-h-11 w-11 justify-center !px-0 text-cta-600"><Trash2 className="size-4" aria-hidden /></button>
             </div>
           ))}
         </section>
 
-        <section className="clay-card space-y-4 p-6" aria-label="Images">
-          <h2 className="font-heading text-xl font-extrabold">Images</h2>
+        <section className="fp-card space-y-4 p-6" aria-label="Images">
+          <h2 className="font-heading text-2xl font-bold">Images</h2>
           <p className="text-sm text-muted">Drag to reorder. The star marks the primary image. JPG, PNG or WebP up to 6 MB. Images are converted to WebP and stripped of metadata.</p>
           <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {images.map((im, i) => (
-              <li key={im.src} draggable onDragStart={() => setDragIndex(i)} onDragOver={(e) => e.preventDefault()} onDrop={() => { if (dragIndex !== null) move(dragIndex, i); setDragIndex(null); }} className={cn('clay-card relative !rounded-3xl p-2', dragIndex === i && 'opacity-50')}>
-                <div className="relative aspect-square overflow-hidden rounded-2xl"><Image src={im.url} alt={im.alt || `Product image ${i + 1}`} fill sizes="160px" className="object-cover" /></div>
+              <li key={im.src} draggable onDragStart={() => setDragIndex(i)} onDragOver={(e) => e.preventDefault()} onDrop={() => { if (dragIndex !== null) move(dragIndex, i); setDragIndex(null); }} className={cn('fp-card relative !rounded-lg p-2', dragIndex === i && 'opacity-50')}>
+                <div className="relative aspect-square overflow-hidden rounded-lg"><Image src={im.url} alt={im.alt || `Product image ${i + 1}`} fill sizes="160px" className="object-cover" /></div>
                 <div className="mt-2 flex items-center justify-between">
                   <span className="cursor-grab p-2 text-muted" aria-hidden><GripVertical className="size-4" /></span>
-                  <button type="button" aria-pressed={primary === i} aria-label={primary === i ? 'Primary image' : 'Make primary image'} onClick={() => setPrimary(i)} className={cn('clay-chip !min-h-11 w-11 justify-center !px-0', primary === i && 'text-cta-500')}><Star className={cn('size-4', primary === i && 'fill-current')} aria-hidden /></button>
-                  <button type="button" aria-label="Remove image" onClick={() => { setImages((c) => c.filter((_, k) => k !== i)); setPrimary((p) => (p > i ? p - 1 : p === i ? 0 : p)); }} className="clay-chip !min-h-11 w-11 justify-center !px-0 text-cta-600"><Trash2 className="size-4" aria-hidden /></button>
+                  <button type="button" aria-pressed={primary === i} aria-label={primary === i ? 'Primary image' : 'Make primary image'} onClick={() => setPrimary(i)} className={cn('fp-chip !min-h-11 w-11 justify-center !px-0', primary === i && 'text-cta-500')}><Star className={cn('size-4', primary === i && 'fill-current')} aria-hidden /></button>
+                  <button type="button" aria-label="Remove image" onClick={() => { setImages((c) => c.filter((_, k) => k !== i)); setPrimary((p) => (p > i ? p - 1 : p === i ? 0 : p)); }} className="fp-chip !min-h-11 w-11 justify-center !px-0 text-cta-600"><Trash2 className="size-4" aria-hidden /></button>
                 </div>
                 <div className="mt-1 flex gap-1 sm:hidden"><Button type="button" size="sm" variant="ghost" className="flex-1" onClick={() => move(i, Math.max(0, i - 1))}>Left</Button><Button type="button" size="sm" variant="ghost" className="flex-1" onClick={() => move(i, Math.min(images.length - 1, i + 1))}>Right</Button></div>
               </li>
             ))}
           </ul>
           <input ref={fileRef} type="file" accept="image/jpeg,image/png,image/webp" multiple className="sr-only" id="p-files" onChange={(e) => onFiles(e.target.files)} />
-          <label htmlFor="p-files" className="clay-button clay-button-ghost w-fit cursor-pointer">{uploading ? <Loader2 className="size-5 animate-spin" aria-hidden /> : <Upload className="size-5" aria-hidden />} {uploading ? 'Uploading...' : 'Upload images'}</label>
+          <label htmlFor="p-files" className="fp-button fp-button-ghost w-fit cursor-pointer">{uploading ? <Loader2 className="size-5 animate-spin" aria-hidden /> : <Upload className="size-5" aria-hidden />} {uploading ? 'Uploading...' : 'Upload images'}</label>
         </section>
       </div>
 
       <aside className="space-y-6 xl:sticky xl:top-24 xl:self-start">
-        <section className="clay-card space-y-5 p-6" aria-label="Pricing and stock">
-          <h2 className="font-heading text-xl font-extrabold">Pricing and stock</h2>
+        <section className="fp-card space-y-5 p-6" aria-label="Pricing and stock">
+          <h2 className="font-heading text-2xl font-bold">Pricing and stock</h2>
           <Field label="Price (KES)" htmlFor="p-price" error={err('price')}><Input id="p-price" type="number" min={0} step={50} inputMode="numeric" {...num('price')} /></Field>
           <Field label="Sale price (KES, optional)" htmlFor="p-sale" error={err('salePrice')}><Input id="p-sale" type="number" min={0} step={50} inputMode="numeric" {...num('salePrice')} /></Field>
           <Field label="Stock" htmlFor="p-stock" error={err('stock')}><Input id="p-stock" type="number" min={0} inputMode="numeric" {...num('stock')} /></Field>
         </section>
-        <section className="clay-card space-y-4 p-6" aria-label="Visibility">
-          <h2 className="font-heading text-xl font-extrabold">Visibility</h2>
+        <section className="fp-card space-y-4 p-6" aria-label="Visibility">
+          <h2 className="font-heading text-2xl font-bold">Visibility</h2>
           {([['published', 'Published in the shop'], ['featured', 'Featured on the home page'], ['isNew', 'Show a New badge']] as const).map(([k, label]) => (
             <Controller key={k} control={control} name={k} render={({ field }) => (
               <div className="flex items-center justify-between gap-4"><label htmlFor={`sw-${k}`} className="font-bold text-ink">{label}</label><Switch id={`sw-${k}`} checked={!!field.value} onCheckedChange={field.onChange} /></div>

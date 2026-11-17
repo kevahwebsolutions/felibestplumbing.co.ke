@@ -1,37 +1,43 @@
 import * as React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
-import { Bubbles } from '@/components/clay/decor';
 import { JsonLd, breadcrumbLd } from '@/lib/seo';
+import { WaterLine } from '@/components/plumb/decor';
 
 export type Crumb = { name: string; path: string };
 
-export function PageHero({ title, intro, crumbs, children, eyebrow }: { title: React.ReactNode; intro?: React.ReactNode; crumbs: Crumb[]; children?: React.ReactNode; eyebrow?: string }) {
+const DEFAULT_PHOTO = '/images/services2/commercial-11.webp';
+
+/** Navy page header with a duotone photo, blueprint grid and breadcrumbs. */
+export function PageHero({ title, intro, crumbs, children, eyebrow, image = DEFAULT_PHOTO, imagePosition = 'center' }: { title: React.ReactNode; intro?: React.ReactNode; crumbs: Crumb[]; children?: React.ReactNode; eyebrow?: string; image?: string; imagePosition?: string }) {
   const all: Crumb[] = [{ name: 'Home', path: '/' }, ...crumbs];
   return (
-    <section className="relative px-3 pt-6 sm:px-5">
+    <section className="relative isolate overflow-hidden bg-navy-900 text-white">
       <JsonLd data={breadcrumbLd(all)} />
-      <div className="clay-card-blue relative mx-auto max-w-7xl overflow-hidden !rounded-[44px] px-6 py-12 sm:px-12 sm:py-16">
-        <Bubbles items={[{ size: 110, right: '5%', top: '-20px', slow: true }, { size: 54, right: '24%', bottom: '14%', delay: 1 }, { size: 36, left: '46%', top: '16%', delay: 2 }]} />
-        <nav aria-label="Breadcrumb" className="relative">
-          <ol className="flex flex-wrap items-center gap-1 text-sm font-semibold text-sky-100">
+      <Image src={image} alt="" fill sizes="100vw" className="-z-20 object-cover opacity-40 grayscale" style={{ objectPosition: imagePosition }} />
+      <div aria-hidden className="bp-grid absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-900/90 to-navy-900/60" />
+      <div className="container-fp py-10 sm:py-14 lg:py-16">
+        <nav aria-label="Breadcrumb">
+          <ol className="flex flex-wrap items-center gap-1 text-sm font-semibold text-sky-200">
             {all.map((c, i) => (
               <li key={c.path} className="flex items-center gap-1">
                 {i > 0 ? <ChevronRight className="size-4 opacity-70" aria-hidden /> : null}
                 {i === all.length - 1 ? (
                   <span aria-current="page" className="text-white">{c.name}</span>
                 ) : (
-                  <Link href={c.path} className="underline-offset-4 hover:text-white hover:underline">{c.name}</Link>
+                  <Link href={c.path} className="inline-flex min-h-8 items-center underline-offset-4 hover:text-white hover:underline">{c.name}</Link>
                 )}
               </li>
             ))}
           </ol>
         </nav>
-        {eyebrow ? <p className="clay-pill relative mt-6">{eyebrow}</p> : null}
-        <h1 className="relative mt-4 max-w-4xl font-heading text-4xl font-extrabold leading-tight !text-white sm:text-5xl md:text-6xl">{title}</h1>
-        {intro ? <p className="relative mt-5 max-w-2xl text-lg text-sky-100">{intro}</p> : null}
-        {children ? <div className="relative mt-8">{children}</div> : null}
+        {eyebrow ? <p className="eyebrow on-dark mt-6">{eyebrow}</p> : null}
+        <h1 className="mt-3 max-w-4xl text-5xl font-bold leading-[0.98] !text-white sm:text-6xl md:text-7xl">{title}</h1>
+        {intro ? <p className="mt-5 max-w-2xl text-lg text-sky-200">{intro}</p> : null}
+        {children ? <div className="mt-8">{children}</div> : null}
       </div>
+      <WaterLine />
     </section>
   );
 }

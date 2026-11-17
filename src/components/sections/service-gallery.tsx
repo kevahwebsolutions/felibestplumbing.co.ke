@@ -14,8 +14,8 @@ export function ServiceGallery({ images, columns = 3 }: { images: Img[]; columns
       <ul className={`grid grid-cols-2 gap-4 sm:gap-6 ${columns === 4 ? 'lg:grid-cols-4' : 'md:grid-cols-3'}`}>
         {images.map((im, i) => (
           <Reveal as="li" key={im.src} delay={(i % 3) * 0.06}>
-            <button type="button" onClick={() => setIndex(i)} aria-label={`Open photo ${i + 1} of ${images.length}`} className="clay-card clay-card-hover block w-full overflow-hidden !rounded-[28px] p-1.5">
-              <span className="relative block aspect-[4/3] overflow-hidden rounded-[22px]">
+            <button type="button" onClick={() => setIndex(i)} aria-label={`Open photo ${i + 1} of ${images.length}`} className="fp-card fp-card-hover block w-full overflow-hidden rounded-lg p-1.5">
+              <span className="relative block aspect-[4/3] overflow-hidden rounded-md">
                 <Image src={im.src} alt={`${im.alt} (photo ${i + 1})`} fill sizes="(min-width:1024px) 30vw, 50vw" className="object-cover transition-transform duration-500 hover:scale-105" />
               </span>
             </button>

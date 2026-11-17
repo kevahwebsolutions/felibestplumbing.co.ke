@@ -36,7 +36,7 @@ export function ProductsTable({ rows, categories, initialFilter }: { rows: Admin
     { accessorKey: 'category', header: 'Category' },
     { accessorKey: 'price', header: 'Price', cell: ({ row }) => <span className={cn('whitespace-nowrap font-bold', row.original.placeholder && 'text-cta-600')}>{formatKES(row.original.salePrice ?? row.original.price)}{row.original.salePrice ? <del className="ml-1 text-xs font-normal text-muted">{formatKES(row.original.price)}</del> : null}{row.original.placeholder ? <span className="ml-1 text-xs">(placeholder)</span> : null}</span> },
     { accessorKey: 'stock', header: 'Stock', cell: ({ row }) => <span className={cn('font-bold', row.original.stock < 6 && 'text-cta-600')}>{row.original.stock}</span> },
-    { accessorKey: 'published', header: 'Status', cell: ({ row }) => <span className={cn('clay-pill', row.original.published ? 'clay-pill-green' : '')}>{row.original.published ? 'Published' : 'Draft'}</span> },
+    { accessorKey: 'published', header: 'Status', cell: ({ row }) => <span className={cn('fp-pill', row.original.published ? 'fp-pill-green' : '')}>{row.original.published ? 'Published' : 'Draft'}</span> },
   ], [selected]);
 
   const table = useReactTable({ data, columns, state: { sorting, globalFilter: q }, onSortingChange: setSorting, onGlobalFilterChange: setQ, getCoreRowModel: getCoreRowModel(), getFilteredRowModel: getFilteredRowModel(), getSortedRowModel: getSortedRowModel(), globalFilterFn: (row, _id, v) => `${row.original.name} ${row.original.sku} ${row.original.category}`.toLowerCase().includes(String(v).toLowerCase()) });
@@ -53,7 +53,7 @@ export function ProductsTable({ rows, categories, initialFilter }: { rows: Admin
 
   return (
     <div className="space-y-4">
-      <div className="clay-card grid gap-3 p-4 md:grid-cols-[1fr_auto_auto_auto] md:items-center">
+      <div className="fp-card grid gap-3 p-4 md:grid-cols-[1fr_auto_auto_auto] md:items-center">
         <div className="relative"><Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-navy-600" aria-hidden /><Input type="search" placeholder="Search products" aria-label="Search products" value={q} onChange={(e) => setQ(e.target.value)} className="pl-12" /></div>
         <Select aria-label="Filter by category" value={cat} onChange={(e) => setCat(e.target.value)}><option value="">All categories</option>{categories.map((c) => <option key={c}>{c}</option>)}</Select>
         <Select aria-label="Filter by status" value={status} onChange={(e) => setStatus(e.target.value)}><option value="">All statuses</option><option value="published">Published</option><option value="draft">Drafts</option><option value="placeholder">Placeholder price</option><option value="low">Low stock</option></Select>
@@ -61,7 +61,7 @@ export function ProductsTable({ rows, categories, initialFilter }: { rows: Admin
       </div>
 
       {ids.length ? (
-        <div className="clay-card-sky flex flex-wrap items-center gap-3 p-4" role="region" aria-label="Bulk actions">
+        <div className="fp-card-sky flex flex-wrap items-center gap-3 p-4" role="region" aria-label="Bulk actions">
           <p className="font-bold">{ids.length} selected</p>
           <Button size="sm" variant="blue" disabled={busy} onClick={() => run('publish')}>Publish</Button>
           <Button size="sm" variant="ghost" disabled={busy} onClick={() => run('unpublish')}>Unpublish</Button>
@@ -70,7 +70,7 @@ export function ProductsTable({ rows, categories, initialFilter }: { rows: Admin
         </div>
       ) : null}
 
-      <div className="clay-card overflow-x-auto p-2">
+      <div className="fp-card overflow-x-auto p-2">
         <table className="w-full min-w-[720px] text-left">
           <caption className="sr-only">Products</caption>
           <thead>
@@ -79,7 +79,7 @@ export function ProductsTable({ rows, categories, initialFilter }: { rows: Admin
                 {hg.headers.map((h) => (
                   <th key={h.id} scope="col" aria-sort={h.column.getIsSorted() === 'asc' ? 'ascending' : h.column.getIsSorted() === 'desc' ? 'descending' : undefined} className="px-4 py-3 text-xs uppercase tracking-wider text-muted">
                     {h.id === 'select' ? <Checkbox aria-label="Select all visible products" checked={visibleIds.length > 0 && visibleIds.every((id) => selected[id])} onCheckedChange={(v) => setSelected((s) => { const n = { ...s }; visibleIds.forEach((id) => { n[id] = v === true; }); return n; })} /> : h.column.getCanSort() ? (
-                      <button type="button" onClick={h.column.getToggleSortingHandler()} className="inline-flex items-center gap-1 font-extrabold uppercase">{flexRender(h.column.columnDef.header, h.getContext())}<ArrowUpDown className="size-3.5" aria-hidden /></button>
+                      <button type="button" onClick={h.column.getToggleSortingHandler()} className="inline-flex items-center gap-1 font-bold uppercase">{flexRender(h.column.columnDef.header, h.getContext())}<ArrowUpDown className="size-3.5" aria-hidden /></button>
                     ) : flexRender(h.column.columnDef.header, h.getContext())}
                   </th>
                 ))}

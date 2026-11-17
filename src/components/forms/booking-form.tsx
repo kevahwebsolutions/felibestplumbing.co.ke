@@ -51,10 +51,10 @@ export function BookingForm({ defaultService = '', mode = 'booking', compact = f
       <AnimatePresence mode="wait">
         {sent ? (
           <motion.div key="ok" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ type: 'spring', stiffness: 200, damping: 18 }} className="grid place-items-center gap-4 py-10 text-center" role="status">
-            <motion.span initial={{ scale: 0, rotate: -40 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: 'spring', stiffness: 260, damping: 12, delay: 0.1 }} className="clay-icon !size-24 [background:radial-gradient(circle_at_30%_25%,#6ee7a0,#0f7a4b_75%)]">
+            <motion.span initial={{ scale: 0, rotate: -40 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: 'spring', stiffness: 260, damping: 12, delay: 0.1 }} className="fp-icon !size-24 [background:radial-gradient(circle_at_30%_25%,#6ee7a0,#0f7a4b_75%)]">
               <CheckCircle2 className="size-12" aria-hidden />
             </motion.span>
-            <h3 className="font-heading text-2xl font-extrabold">Thank you, we have your request</h3>
+            <h3 className="font-heading text-3xl font-bold">Thank you, we have your request</h3>
             <p className="max-w-sm text-muted">A Felibest plumber will call you shortly. For anything urgent, call us on the number at the top of the page.</p>
             <Button variant="ghost" onClick={() => setSent(false)}>Send another request</Button>
           </motion.div>
@@ -95,7 +95,7 @@ export function BookingForm({ defaultService = '', mode = 'booking', compact = f
               <label htmlFor={id('website')}>Leave this field empty</label>
               <input id={id('website')} tabIndex={-1} autoComplete="off" {...register('website')} />
             </div>
-            {serverError ? <p role="alert" className="rounded-2xl bg-peach-100 px-4 py-3 font-semibold text-cta-600">{serverError}</p> : null}
+            {serverError ? <p role="alert" className="rounded-lg bg-peach-100 px-4 py-3 font-semibold text-cta-600">{serverError}</p> : null}
             <Button type="submit" size="lg" disabled={isSubmitting} className="w-full sm:w-auto sm:justify-self-start">
               {isSubmitting ? <Loader2 className="size-5 animate-spin" aria-hidden /> : <Send className="size-5" aria-hidden />}
               {isSubmitting ? 'Sending...' : mode === 'question' ? 'Send question' : 'Request a plumber'}

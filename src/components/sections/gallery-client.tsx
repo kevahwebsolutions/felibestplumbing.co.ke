@@ -22,7 +22,7 @@ export function GalleryClient({ items, categories }: { items: GalleryItem[]; cat
     <>
       <div className="mb-10 flex flex-wrap justify-center gap-3" role="group" aria-label="Filter by category">
         {categories.map((c) => (
-          <button key={c} type="button" className="clay-chip" aria-pressed={cat === c} onClick={() => { setCat(c); setShown(STEP); }}>
+          <button key={c} type="button" className="fp-chip" aria-pressed={cat === c} onClick={() => { setCat(c); setShown(STEP); }}>
             {c}
           </button>
         ))}
@@ -32,8 +32,8 @@ export function GalleryClient({ items, categories }: { items: GalleryItem[]; cat
         <AnimatePresence mode="popLayout">
           {visible.map((im, i) => (
             <motion.li key={im.src} layout initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.92 }} transition={{ duration: 0.35 }} className="break-inside-avoid">
-              <button type="button" onClick={() => setIndex(i)} aria-label={`Open photo: ${im.alt}`} className="clay-card clay-card-hover block w-full overflow-hidden !rounded-[26px] p-1.5">
-                <Image src={im.src} alt={im.alt} width={im.w} height={im.h} sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 50vw" className="h-auto w-full rounded-[20px]" loading={i < 8 ? 'eager' : 'lazy'} />
+              <button type="button" onClick={() => setIndex(i)} aria-label={`Open photo: ${im.alt}`} className="fp-card fp-card-hover block w-full overflow-hidden rounded-lg p-1.5">
+                <Image src={im.src} alt={im.alt} width={im.w} height={im.h} sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 50vw" className="h-auto w-full rounded-md" loading={i < 8 ? 'eager' : 'lazy'} />
               </button>
             </motion.li>
           ))}

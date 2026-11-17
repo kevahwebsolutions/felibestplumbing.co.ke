@@ -9,9 +9,9 @@ export default function TermsPage() {
     <>
       <PageHero crumbs={[{ name: 'Terms', path: '/terms' }]} title="Terms of service" intro="The plain-language terms for our website, services and shop." />
       <section className="section-pad px-3 sm:px-5">
-        <div className="container-clay mx-auto max-w-3xl !px-0">
-          <div className="clay-card p-8 sm:p-12">
-            <div className="prose-clay">
+        <div className="container-fp mx-auto max-w-3xl !px-0">
+          <div className="fp-card p-8 sm:p-12">
+            <div className="prose-fp">
               <h2>Services and pricing</h2>
               <p>We give you a price before work begins and you approve it before we start. Prices shown on the website are guides. If the scope of a job changes, we will explain why and agree any change with you first.</p>
               <h2>Our guarantees</h2>

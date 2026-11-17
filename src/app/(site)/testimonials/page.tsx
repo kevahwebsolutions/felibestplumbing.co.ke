@@ -18,13 +18,13 @@ export default function TestimonialsPage() {
     <>
       <PageHero crumbs={[{ name: 'Testimonials', path: '/testimonials' }]} title="Reviews from our customers" intro="Hear what our happy customers have to say. Our plumbers are experienced, reliable and professional." />
       <section className="section-pad px-3 sm:px-5">
-        <Stagger className="container-clay grid gap-6 !px-0 md:grid-cols-2">
+        <Stagger className="container-fp grid gap-6 !px-0 md:grid-cols-2">
           {TESTIMONIALS.map((t, i) => (
             <StaggerItem key={i}>
-              <figure className="clay-card flex h-full flex-col gap-4 p-8">
-                <span className="clay-icon !size-14"><Quote className="size-7" aria-hidden /></span>
+              <figure className="fp-card flex h-full flex-col gap-4 p-8">
+                <span className="fp-icon !size-14"><Quote className="size-7" aria-hidden /></span>
                 <div className="flex gap-1 text-cta-500" role="img" aria-label="5 out of 5 stars">{Array.from({ length: 5 }, (_, k) => <Star key={k} className="size-5 fill-current" aria-hidden />)}</div>
-                <figcaption className="font-heading text-2xl font-extrabold">{t.title}</figcaption>
+                <figcaption className="font-heading text-3xl font-bold">{t.title}</figcaption>
                 <blockquote className="flex-1 text-lg text-body">{t.text}</blockquote>
                 <p className="font-bold text-navy-700">- {t.name}, {t.role}</p>
               </figure>

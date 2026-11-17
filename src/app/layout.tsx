@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Nunito } from 'next/font/google';
-import { ClayToaster } from '@/components/layout/providers';
+import { Barlow_Condensed, Inter } from 'next/font/google';
+import { SiteToaster } from '@/components/layout/providers';
 import { JsonLd, localBusinessLd } from '@/lib/seo';
 import { SITE } from '@/lib/site';
 import './globals.css';
 
-const nunito = Nunito({ subsets: ['latin'], weight: ['600', '700', '800', '900'], variable: '--font-nunito', display: 'swap' });
+const barlow = Barlow_Condensed({ subsets: ['latin'], weight: ['600', '700', '800'], variable: '--font-barlow', display: 'swap' });
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
 export const metadata: Metadata = {
@@ -19,14 +19,14 @@ export const metadata: Metadata = {
   formatDetection: { telephone: false },
 };
 
-export const viewport: Viewport = { themeColor: '#0c4c93', width: 'device-width', initialScale: 1 };
+export const viewport: Viewport = { themeColor: '#06264a', width: 'device-width', initialScale: 1 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-KE" className={`${nunito.variable} ${inter.variable}`}>
+    <html lang="en-KE" className={`${barlow.variable} ${inter.variable}`}>
       <body>
         {children}
-        <ClayToaster />
+        <SiteToaster />
         <JsonLd data={localBusinessLd()} />
       </body>
     </html>

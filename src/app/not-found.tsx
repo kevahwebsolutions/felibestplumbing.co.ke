@@ -1,21 +1,36 @@
-import { Droplets } from 'lucide-react';
+import Link from 'next/link';
+import { Phone } from 'lucide-react';
 import { SiteChrome } from '@/components/layout/site-chrome';
 import { ButtonLink } from '@/components/ui/button';
-import { Bubbles, HERO_BUBBLES } from '@/components/clay/decor';
+import { PlumbGlyph } from '@/components/plumb/icons';
+import { getSettings } from '@/lib/server/settings';
 
 export const metadata = { title: 'Page not found', robots: { index: false } };
 
 export default function NotFound() {
+  const s = getSettings();
   return (
     <SiteChrome>
-      <section className="relative grid min-h-[70dvh] place-items-center overflow-hidden px-5 py-20 text-center">
-        <Bubbles items={HERO_BUBBLES} />
-        <div className="relative">
-          <span className="clay-icon mx-auto !size-28"><Droplets className="size-14" aria-hidden /></span>
-          <p className="mt-6 font-heading text-7xl font-black text-navy-700">404</p>
-          <h1 className="mt-2 font-heading text-3xl font-extrabold">This page has sprung a leak</h1>
-          <p className="mx-auto mt-3 max-w-md text-muted">The page you are looking for has moved or does not exist. Let us get you back on track.</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4"><ButtonLink href="/">Go home</ButtonLink><ButtonLink href="/services" variant="ghost">View services</ButtonLink></div>
+      <section className="bp-grid relative overflow-hidden bg-navy-900 py-20 text-white sm:py-28">
+        <div className="container-fp grid items-center gap-10 lg:grid-cols-[auto_1fr]">
+          <div className="mx-auto grid size-40 place-items-center rounded-xl border-b-4 border-copper bg-navy-800 sm:size-52" aria-hidden>
+            <PlumbGlyph name="burst" size={120} />
+          </div>
+          <div>
+            <p className="font-heading text-8xl font-bold leading-none text-orange-brand sm:text-9xl">404</p>
+            <h1 className="mt-2 text-5xl font-bold !text-white sm:text-6xl">Burst pipe. Page not found.</h1>
+            <p className="mt-4 max-w-xl text-lg text-sky-200">The page you are looking for has moved or does not exist. We have shut off the main, so nothing else is leaking. Pick a link below to get back to work.</p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <ButtonLink href="/" size="lg">Go home</ButtonLink>
+              <ButtonLink href="/services" variant="outline" size="lg">View services</ButtonLink>
+              <ButtonLink href="/shop" variant="outline" size="lg">Plumbing shop</ButtonLink>
+            </div>
+            <p className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-1 text-sky-200">
+              <a href={`tel:${s.phone.replace(/[^\d+]/g, '')}`} className="inline-flex min-h-11 items-center gap-2 font-heading text-2xl font-bold tracking-wide text-white hover:underline"><Phone className="size-5" aria-hidden /> {s.phone}</a>
+              <Link href="/contact" className="inline-flex min-h-11 items-center underline underline-offset-4 hover:text-white">Contact us</Link>
+              <Link href="/faq" className="inline-flex min-h-11 items-center underline underline-offset-4 hover:text-white">FAQ</Link>
+            </p>
+          </div>
         </div>
       </section>
     </SiteChrome>

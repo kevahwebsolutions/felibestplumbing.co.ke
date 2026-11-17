@@ -5,7 +5,7 @@ import { Clock, Phone } from 'lucide-react';
 import { PageHero } from '@/components/sections/page-hero';
 import { PostBody } from '@/components/sections/post-body';
 import { CtaBand } from '@/components/sections/common';
-import { SectionHeading } from '@/components/clay/decor';
+import { SectionHeading } from '@/components/plumb/decor';
 import { ButtonLink } from '@/components/ui/button';
 import { POSTS, getPost, postReadingMinutes, relatedPosts } from '@/data/blog';
 import { getService } from '@/data/services';
@@ -41,13 +41,13 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <p className="flex items-center gap-4 text-sky-100"><time dateTime={p.date}>{fmt(p.date)}</time><span className="flex items-center gap-1"><Clock className="size-4" aria-hidden /> {postReadingMinutes(p)} min read</span></p>
       </PageHero>
       <article className="px-3 pt-14 sm:px-5">
-        <div className="container-clay mx-auto max-w-3xl !px-0">
-          <div className="clay-card overflow-hidden !rounded-[36px] p-2"><div className="relative aspect-[16/9] overflow-hidden rounded-[30px]"><Image src={p.cover} alt={p.coverAlt} fill priority sizes="768px" className="object-cover" /></div></div>
+        <div className="container-fp mx-auto max-w-3xl !px-0">
+          <div className="fp-card overflow-hidden rounded-lg p-2"><div className="relative aspect-[16/9] overflow-hidden rounded-lg"><Image src={p.cover} alt={p.coverAlt} fill priority sizes="768px" className="object-cover" /></div></div>
           <div className="mt-10"><PostBody body={p.body} /></div>
-          <ul className="mt-8 flex flex-wrap gap-2" aria-label="Tags">{p.tags.map((t) => <li key={t} className="clay-pill">{t}</li>)}</ul>
+          <ul className="mt-8 flex flex-wrap gap-2" aria-label="Tags">{p.tags.map((t) => <li key={t} className="fp-pill">{t}</li>)}</ul>
           {service ? (
-            <div className="clay-card-peach mt-10 flex flex-col items-start gap-4 p-8">
-              <h2 className="font-heading text-2xl font-extrabold">Need help with this?</h2>
+            <div className="fp-card-peach mt-10 flex flex-col items-start gap-4 p-8">
+              <h2 className="font-heading text-3xl font-bold">Need help with this?</h2>
               <p className="text-body">Our team handles {service.title.toLowerCase()} across Nairobi, 24 hours a day.</p>
               <div className="flex flex-wrap gap-3"><ButtonLink href={`/services/${service.slug}`}>{service.title}</ButtonLink><ButtonLink href="/contact#book" variant="ghost"><Phone className="size-5" aria-hidden /> Book now</ButtonLink></div>
             </div>
@@ -55,13 +55,13 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         </div>
       </article>
       <section className="section-pad px-3 sm:px-5" aria-labelledby="rel-h">
-        <div className="container-clay !px-0">
+        <div className="container-fp !px-0">
           <SectionHeading eyebrow="Keep reading" title={<span id="rel-h">Related guides</span>} />
           <div className="grid gap-6 md:grid-cols-3">
             {related.map((r) => (
-              <Link key={r.slug} href={`/blog/${r.slug}`} className="clay-card clay-card-hover flex h-full flex-col overflow-hidden">
+              <Link key={r.slug} href={`/blog/${r.slug}`} className="fp-card fp-card-hover flex h-full flex-col overflow-hidden">
                 <div className="relative aspect-[16/10]"><Image src={r.cover} alt={r.coverAlt} fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover" /></div>
-                <div className="p-6"><p className="clay-pill mb-3">{r.category}</p><h3 className="font-heading text-lg font-extrabold leading-snug">{r.title}</h3></div>
+                <div className="p-6"><p className="fp-pill mb-3">{r.category}</p><h3 className="font-heading text-xl font-bold leading-snug">{r.title}</h3></div>
               </Link>
             ))}
           </div>

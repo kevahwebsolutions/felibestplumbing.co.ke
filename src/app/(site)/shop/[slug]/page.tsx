@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { PageHero } from '@/components/sections/page-hero';
-import { SectionHeading } from '@/components/clay/decor';
+import { SectionHeading } from '@/components/plumb/decor';
 import { ProductBuyBox, ProductGallery, ProductTabs } from '@/components/shop/product-detail';
 import { ProductCard } from '@/components/shop/product-parts';
 import { buildMetadata, JsonLd } from '@/lib/seo';
@@ -50,15 +50,15 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       />
       <PageHero crumbs={[{ name: 'Shop', path: '/shop' }, { name: p.name, path: `/shop/${p.slug}` }]} title={p.name} eyebrow={p.categoryName} />
       <section className="section-pad !pb-10 px-3 sm:px-5">
-        <div className="container-clay grid gap-10 !px-0 lg:grid-cols-2 lg:gap-16">
+        <div className="container-fp grid gap-10 !px-0 lg:grid-cols-2 lg:gap-16">
           <ProductGallery p={p} />
-          <ProductBuyBox p={p} freeThreshold={s.freeDeliveryThreshold} fee={s.deliveryFee} />
+          <ProductBuyBox p={p} freeThreshold={s.freeDeliveryThreshold} fee={s.deliveryFee} phone={s.phone} />
         </div>
-        <div className="container-clay mt-14 !px-0"><ProductTabs p={p} /></div>
+        <div className="container-fp mt-14 !px-0"><ProductTabs p={p} /></div>
       </section>
       {related.length ? (
         <section className="px-3 pb-20 sm:px-5" aria-labelledby="rel-h">
-          <div className="container-clay !px-0">
+          <div className="container-fp !px-0">
             <SectionHeading eyebrow="Our recommendation" title={<span id="rel-h">Related products</span>} />
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">{related.map((r) => <ProductCard key={r.id} p={r} />)}</div>
           </div>

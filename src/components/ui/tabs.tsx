@@ -11,9 +11,9 @@ export const TabsList = React.forwardRef<HTMLDivElement, React.ComponentPropsWit
 });
 
 export const TabsTrigger = React.forwardRef<HTMLButtonElement, React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>>(function TabsTrigger({ className, ...p }, ref) {
-  return <TabsPrimitive.Trigger ref={ref} className={cn('clay-chip data-[state=active]:!text-white data-[state=active]:[background:linear-gradient(180deg,var(--color-navy-600),var(--color-navy-700))] data-[state=active]:[box-shadow:inset_4px_5px_10px_rgb(6_31_61/0.5),inset_-3px_-3px_6px_rgb(255_255_255/0.2)]', className)} {...p} />;
+  return <TabsPrimitive.Trigger ref={ref} className={cn('fp-chip data-[state=active]:!border-navy-700 data-[state=active]:!bg-navy-700 data-[state=active]:!text-white', className)} {...p} />;
 });
 
 export const TabsContent = React.forwardRef<HTMLDivElement, React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>>(function TabsContent({ className, ...p }, ref) {
-  return <TabsPrimitive.Content ref={ref} className={cn('clay-card p-6 sm:p-8', className)} {...p} />;
+  return <TabsPrimitive.Content ref={ref} className={cn('fp-card p-6 sm:p-8', className)} {...p} />;
 });

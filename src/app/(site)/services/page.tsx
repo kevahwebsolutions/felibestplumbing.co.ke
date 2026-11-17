@@ -1,6 +1,6 @@
 import { PageHero } from '@/components/sections/page-hero';
 import { CtaBand, ServiceCard } from '@/components/sections/common';
-import { SectionHeading } from '@/components/clay/decor';
+import { SectionHeading } from '@/components/plumb/decor';
 import { Stagger, StaggerItem } from '@/components/motion/reveal';
 import { SERVICES, SERVICE_GROUPS } from '@/data/services';
 import { buildMetadata, JsonLd } from '@/lib/seo';
@@ -20,7 +20,7 @@ export default function ServicesPage() {
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'ItemList', itemListElement: SERVICES.map((x, i) => ({ '@type': 'ListItem', position: i + 1, url: absoluteUrl(`/services/${x.slug}`), name: x.title })) }} />
       <PageHero crumbs={[{ name: 'Services', path: '/services' }]} title="Plumbing services across Nairobi" intro="Homes, offices and commercial sites. Pick a service to see how we work, or call us if you are not sure what you need." />
       <div className="px-3 sm:px-5">
-        <div className="container-clay !px-0">
+        <div className="container-fp !px-0">
           {SERVICE_GROUPS.map((g) => (
             <section key={g} className="section-pad !pb-0" aria-labelledby={`g-${g}`}>
               <SectionHeading as="h2" align="left" title={<span id={`g-${g}`}>{g}</span>} className="!mb-8" />

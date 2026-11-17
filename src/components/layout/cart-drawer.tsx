@@ -26,8 +26,8 @@ export function CartDrawer({ settings }: { settings: PublicSettings }) {
         {list.length === 0 ? (
           <div className="grid flex-1 place-items-center text-center">
             <div>
-              <span className="clay-icon mx-auto !size-24"><ShoppingBag className="size-10" aria-hidden /></span>
-              <p className="mt-6 font-heading text-xl font-extrabold text-ink">Your cart is empty</p>
+              <span className="fp-icon mx-auto !size-24"><ShoppingBag className="size-10" aria-hidden /></span>
+              <p className="mt-6 font-heading text-2xl font-bold text-ink">Your cart is empty</p>
               <p className="mt-2 text-muted">Browse taps, valves, heaters and more.</p>
               <ButtonLink href="/shop" className="mt-6" onClick={() => setOpen(false)}>Go to the shop</ButtonLink>
             </div>
@@ -38,16 +38,16 @@ export function CartDrawer({ settings }: { settings: PublicSettings }) {
             <ul className="mt-4 flex-1 space-y-3 overflow-y-auto pr-1">
               <AnimatePresence initial={false}>
                 {list.map((it) => (
-                  <motion.li key={it.productId} layout exit={{ opacity: 0, x: 60, height: 0 }} className="clay-card flex gap-3 !rounded-3xl p-3">
-                    <Link href={`/shop/${it.slug}`} onClick={() => setOpen(false)} className="relative size-20 shrink-0 overflow-hidden rounded-2xl bg-sky-100">
+                  <motion.li key={it.productId} layout exit={{ opacity: 0, x: 60, height: 0 }} className="fp-card flex gap-3 !rounded-lg p-3">
+                    <Link href={`/shop/${it.slug}`} onClick={() => setOpen(false)} className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-sky-100">
                       {it.image ? <Image src={it.image} alt="" fill sizes="80px" className="object-cover" /> : <span className="grid size-full place-items-center text-navy-600"><ShoppingBag className="size-7" aria-hidden /></span>}
                     </Link>
                     <div className="min-w-0 flex-1">
-                      <Link href={`/shop/${it.slug}`} onClick={() => setOpen(false)} className="line-clamp-2 font-heading font-extrabold leading-snug text-ink">{it.name}</Link>
+                      <Link href={`/shop/${it.slug}`} onClick={() => setOpen(false)} className="line-clamp-2 font-heading font-bold leading-snug text-ink">{it.name}</Link>
                       <p className="mt-1 text-sm font-bold text-navy-700">{formatKES(it.price)}</p>
                       <div className="mt-2 flex items-center justify-between gap-2">
                         <QtyStepper value={it.qty} max={it.stock} onChange={(q) => setQty(it.productId, q)} label={it.name} compact />
-                        <button type="button" onClick={() => remove(it.productId)} aria-label={`Remove ${it.name}`} className="clay-chip !min-h-11 w-11 justify-center !px-0 text-cta-600">
+                        <button type="button" onClick={() => remove(it.productId)} aria-label={`Remove ${it.name}`} className="fp-chip !min-h-11 w-11 justify-center !px-0 text-cta-600">
                           <Trash2 className="size-4" aria-hidden />
                         </button>
                       </div>

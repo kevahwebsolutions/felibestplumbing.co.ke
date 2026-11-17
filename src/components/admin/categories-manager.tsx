@@ -39,7 +39,7 @@ export function CategoriesManager({ cats }: { cats: Cat[] }) {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
-      <div className="clay-card overflow-x-auto p-2">
+      <div className="fp-card overflow-x-auto p-2">
         <table className="w-full min-w-[480px] text-left">
           <caption className="sr-only">Categories</caption>
           <thead><tr className="text-xs uppercase tracking-wider text-muted"><th scope="col" className="px-4 py-3">Name</th><th scope="col" className="px-4 py-3">Products</th><th scope="col" className="px-4 py-3">Order</th><th scope="col" className="px-4 py-3"><span className="sr-only">Actions</span></th></tr></thead>
@@ -49,16 +49,16 @@ export function CategoriesManager({ cats }: { cats: Cat[] }) {
                 <th scope="row" className="px-4 py-3 font-bold">{c.name}<span className="block text-xs font-normal text-muted">/{c.slug}</span></th>
                 <td className="px-4 py-3">{c.count}</td><td className="px-4 py-3">{c.sortOrder}</td>
                 <td className="px-4 py-3"><div className="flex justify-end gap-2">
-                  <button type="button" aria-label={`Edit ${c.name}`} onClick={() => setEditing(c)} className="clay-chip !min-h-11 w-11 justify-center !px-0"><Pencil className="size-4" aria-hidden /></button>
-                  <button type="button" aria-label={`Delete ${c.name}`} onClick={() => del(c)} className="clay-chip !min-h-11 w-11 justify-center !px-0 text-cta-600"><Trash2 className="size-4" aria-hidden /></button>
+                  <button type="button" aria-label={`Edit ${c.name}`} onClick={() => setEditing(c)} className="fp-chip !min-h-11 w-11 justify-center !px-0"><Pencil className="size-4" aria-hidden /></button>
+                  <button type="button" aria-label={`Delete ${c.name}`} onClick={() => del(c)} className="fp-chip !min-h-11 w-11 justify-center !px-0 text-cta-600"><Trash2 className="size-4" aria-hidden /></button>
                 </div></td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <form ref={formRef} key={editing?.id ?? 'new'} onSubmit={submit} className="clay-card h-fit space-y-5 p-6" noValidate>
-        <h2 className="font-heading text-xl font-extrabold">{editing ? 'Edit category' : 'New category'}</h2>
+      <form ref={formRef} key={editing?.id ?? 'new'} onSubmit={submit} className="fp-card h-fit space-y-5 p-6" noValidate>
+        <h2 className="font-heading text-2xl font-bold">{editing ? 'Edit category' : 'New category'}</h2>
         <Field label="Name" htmlFor="c-name" error={errors.name}><Input id="c-name" name="name" defaultValue={editing?.name} required /></Field>
         <Field label="Slug (optional)" htmlFor="c-slug" error={errors.slug}><Input id="c-slug" name="slug" defaultValue={editing?.slug} /></Field>
         <Field label="Description" htmlFor="c-desc" error={errors.description}><Input id="c-desc" name="description" defaultValue={editing?.description} /></Field>

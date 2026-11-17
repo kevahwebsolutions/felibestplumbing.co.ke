@@ -19,7 +19,7 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
     <>
       <PageHero crumbs={[{ name: 'Shop', path: '/shop' }]} title="Plumbing supplies shop" intro="Quality fittings, heaters and accessories priced in Kenya shillings. Pay on delivery or send your cart to us on WhatsApp." />
       <section className="section-pad px-3 sm:px-5">
-        <div className="container-clay !px-0">
+        <div className="container-fp !px-0">
           <ShopClient products={products} categories={categories} initialCategory={categories.some((c) => c.slug === category) ? category : ''} />
         </div>
       </section>

@@ -15,5 +15,5 @@ export function PostBody({ body }: { body: string }) {
       out.push(<p key={i}>{b}</p>);
     }
   });
-  return <div className="prose-clay">{out}</div>;
+  return <div className="prose-fp">{out}</div>;
 }

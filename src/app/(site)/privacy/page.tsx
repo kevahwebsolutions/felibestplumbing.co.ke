@@ -9,9 +9,9 @@ export default function PrivacyPage() {
     <>
       <PageHero crumbs={[{ name: 'Privacy', path: '/privacy' }]} title="Privacy policy" intro="We collect only what we need to help you, and we do not sell your data." />
       <section className="section-pad px-3 sm:px-5">
-        <div className="container-clay mx-auto max-w-3xl !px-0">
-          <div className="clay-card p-8 sm:p-12">
-            <div className="prose-clay">
+        <div className="container-fp mx-auto max-w-3xl !px-0">
+          <div className="fp-card p-8 sm:p-12">
+            <div className="prose-fp">
               <h2>What we collect</h2>
               <p>When you book a plumber, ask a question or place an order we collect the details you type in: your name, phone number, optional email, address or delivery area and the message you send. We use them only to respond to your request, deliver your order and keep a record of the work.</p>
               <h2>Analytics without cookies</h2>

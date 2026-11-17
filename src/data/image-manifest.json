@@ -1,0 +1,982 @@
+{
+ "/images/logo-no-background.webp": {
+  "w": 1600,
+  "h": 1007
+ },
+ "/images/gallery/blocked-toilet-1.webp": {
+  "w": 1146,
+  "h": 2048
+ },
+ "/images/gallery/blocked-toilet-2.webp": {
+  "w": 1152,
+  "h": 2048
+ },
+ "/images/gallery/blocked-toilet-3.webp": {
+  "w": 1147,
+  "h": 2048
+ },
+ "/images/gallery/blocked-toilet-4.webp": {
+  "w": 1600,
+  "h": 2844
+ },
+ "/images/gallery/blocked-toilet-5.webp": {
+  "w": 1600,
+  "h": 2133
+ },
+ "/images/gallery/blocked-toilet-6.webp": {
+  "w": 320,
+  "h": 494
+ },
+ "/images/gallery/blocked-toilet-7.webp": {
+  "w": 1200,
+  "h": 628
+ },
+ "/images/gallery/blocked-toilet-8.webp": {
+  "w": 607,
+  "h": 382
+ },
+ "/images/gallery/bth1.webp": {
+  "w": 922,
+  "h": 2048
+ },
+ "/images/gallery/bth2.webp": {
+  "w": 922,
+  "h": 2048
+ },
+ "/images/gallery/bth3.webp": {
+  "w": 1440,
+  "h": 1800
+ },
+ "/images/gallery/bth4.webp": {
+  "w": 1153,
+  "h": 2048
+ },
+ "/images/gallery/bth5.webp": {
+  "w": 1153,
+  "h": 2048
+ },
+ "/images/gallery/bth6.webp": {
+  "w": 1152,
+  "h": 2048
+ },
+ "/images/gallery/burst-pipes-1.webp": {
+  "w": 922,
+  "h": 2048
+ },
+ "/images/gallery/burst-pipes-2.webp": {
+  "w": 840,
+  "h": 400
+ },
+ "/images/gallery/burst-pipes-3.webp": {
+  "w": 1024,
+  "h": 681
+ },
+ "/images/gallery/burst-pipes-4.webp": {
+  "w": 770,
+  "h": 380
+ },
+ "/images/gallery/clog1.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/gallery/clog2.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/gallery/clog3.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/gallery/clog4.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/gallery/clog5.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/gallery/clog6.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/gallery/gallery01.webp": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/gallery/gallery02.webp": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/gallery/gallery03.webp": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/gallery/gallery04.webp": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/gallery/gallery05.webp": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/gallery/gallery06.webp": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/gallery/gallery07.webp": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/gallery/gallery08.webp": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/gallery/gallery09.webp": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/gallery/gallery10.webp": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/gallery/gallery11.webp": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/gallery/gallery12.webp": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/logo.webp": {
+  "w": 500,
+  "h": 500
+ },
+ "/images/our-approach.webp": {
+  "w": 545,
+  "h": 358
+ },
+ "/images/product/product-02.webp": {
+  "w": 270,
+  "h": 340
+ },
+ "/images/product/product-03.webp": {
+  "w": 270,
+  "h": 340
+ },
+ "/images/product/product-13.webp": {
+  "w": 534,
+  "h": 673
+ },
+ "/images/product/product-13-02.webp": {
+  "w": 534,
+  "h": 673
+ },
+ "/images/product/product-13-03.webp": {
+  "w": 534,
+  "h": 673
+ },
+ "/images/product/product-13-04.webp": {
+  "w": 534,
+  "h": 673
+ },
+ "/images/services/consultation-services.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services/bathroom-renovation.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services/bathroom-smell-removal.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services/blocked-sink-repair.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services/broken-pipes.webp": {
+  "w": 600,
+  "h": 800
+ },
+ "/images/services/clogged-toilet.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services/commercial-plumbing.webp": {
+  "w": 960,
+  "h": 1280
+ },
+ "/images/services/fr6.webp": {
+  "w": 963,
+  "h": 1280
+ },
+ "/images/services/glass-shower.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services/glass-shower-enclosure-repair-and-installation-services.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services/instant-shower.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services/interior-design-and-decoration.webp": {
+  "w": 736,
+  "h": 981
+ },
+ "/images/services/kitchen-sink-tap-repair.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services/leaking-tap.webp": {
+  "w": 600,
+  "h": 800
+ },
+ "/images/services/piping-and-repiping.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services/plumbing-emergency.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services/residential-7.webp": {
+  "w": 1080,
+  "h": 1440
+ },
+ "/images/services/residential-plumbing.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services/shower-repair.webp": {
+  "w": 600,
+  "h": 800
+ },
+ "/images/services/solar-water-heater.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services/sump-pump.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services/tank-repair.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services/toilet-repair.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services/water-pressure.webp": {
+  "w": 960,
+  "h": 1280
+ },
+ "/images/services2/blocked-toilet-1.webp": {
+  "w": 1146,
+  "h": 2048
+ },
+ "/images/services2/blocked-toilet-2.webp": {
+  "w": 1152,
+  "h": 2048
+ },
+ "/images/services2/blocked-toilet-3.webp": {
+  "w": 1147,
+  "h": 2048
+ },
+ "/images/services2/blocked-toilet-4.webp": {
+  "w": 1600,
+  "h": 2844
+ },
+ "/images/services2/blocked-toilet-5.webp": {
+  "w": 1600,
+  "h": 2133
+ },
+ "/images/services2/blocked-toilet-6.webp": {
+  "w": 320,
+  "h": 494
+ },
+ "/images/services2/blocked-toilet-7.webp": {
+  "w": 1200,
+  "h": 628
+ },
+ "/images/services2/bth1.webp": {
+  "w": 922,
+  "h": 2048
+ },
+ "/images/services2/bth2.webp": {
+  "w": 922,
+  "h": 2048
+ },
+ "/images/services2/bth3.webp": {
+  "w": 1440,
+  "h": 1800
+ },
+ "/images/services2/bth4.webp": {
+  "w": 1153,
+  "h": 2048
+ },
+ "/images/services2/bth5.webp": {
+  "w": 1153,
+  "h": 2048
+ },
+ "/images/services2/bth6.webp": {
+  "w": 1152,
+  "h": 2048
+ },
+ "/images/services2/burst-pipes-1.webp": {
+  "w": 922,
+  "h": 2048
+ },
+ "/images/services2/burst-pipes-2.webp": {
+  "w": 840,
+  "h": 400
+ },
+ "/images/services2/burst-pipes-3.webp": {
+  "w": 1024,
+  "h": 681
+ },
+ "/images/services2/burst-pipes-4.webp": {
+  "w": 770,
+  "h": 380
+ },
+ "/images/services2/burst-pipes-5.webp": {
+  "w": 850,
+  "h": 450
+ },
+ "/images/services2/clog1.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services2/clog2.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services2/clog3.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services2/clog4.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services2/clog5.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services2/clog6.webp": {
+  "w": 867,
+  "h": 1156
+ },
+ "/images/services2/commercial-1.webp": {
+  "w": 1600,
+  "h": 2125
+ },
+ "/images/services2/commercial-10.webp": {
+  "w": 533,
+  "h": 400
+ },
+ "/images/services2/commercial-11.webp": {
+  "w": 1600,
+  "h": 1066
+ },
+ "/images/services2/commercial-2.webp": {
+  "w": 1600,
+  "h": 2125
+ },
+ "/images/services2/commercial-3.webp": {
+  "w": 1600,
+  "h": 2125
+ },
+ "/images/services2/commercial-4.webp": {
+  "w": 1600,
+  "h": 2125
+ },
+ "/images/services2/commercial-5.webp": {
+  "w": 1600,
+  "h": 2125
+ },
+ "/images/services2/commercial-6.webp": {
+  "w": 1600,
+  "h": 2125
+ },
+ "/images/services2/commercial-7.webp": {
+  "w": 400,
+  "h": 249
+ },
+ "/images/services2/commercial-8.webp": {
+  "w": 600,
+  "h": 319
+ },
+ "/images/services2/commercial-9.webp": {
+  "w": 1400,
+  "h": 1050
+ },
+ "/images/services2/consultation-1.webp": {
+  "w": 1280,
+  "h": 720
+ },
+ "/images/services2/consultation-2.webp": {
+  "w": 284,
+  "h": 178
+ },
+ "/images/services2/consultation-3.webp": {
+  "w": 1440,
+  "h": 1440
+ },
+ "/images/services2/consultation-4.webp": {
+  "w": 1152,
+  "h": 2048
+ },
+ "/images/services2/consultation-5.webp": {
+  "w": 922,
+  "h": 2048
+ },
+ "/images/services2/consultation-6.webp": {
+  "w": 1536,
+  "h": 1920
+ },
+ "/images/services2/drain-clog-1.webp": {
+  "w": 780,
+  "h": 438
+ },
+ "/images/services2/drain-clog-2.webp": {
+  "w": 1600,
+  "h": 900
+ },
+ "/images/services2/drain-clog-3.webp": {
+  "w": 1600,
+  "h": 2844
+ },
+ "/images/services2/drain-clog-4.webp": {
+  "w": 1000,
+  "h": 667
+ },
+ "/images/services2/drain-clog-5.webp": {
+  "w": 1000,
+  "h": 667
+ },
+ "/images/services2/drain-clog-6.webp": {
+  "w": 750,
+  "h": 420
+ },
+ "/images/services2/emer1.webp": {
+  "w": 1600,
+  "h": 2125
+ },
+ "/images/services2/emer2.webp": {
+  "w": 1600,
+  "h": 2125
+ },
+ "/images/services2/emer3.webp": {
+  "w": 1600,
+  "h": 2125
+ },
+ "/images/services2/emer4.webp": {
+  "w": 1600,
+  "h": 2125
+ },
+ "/images/services2/emer5.webp": {
+  "w": 1600,
+  "h": 2125
+ },
+ "/images/services2/emer6.webp": {
+  "w": 1600,
+  "h": 2125
+ },
+ "/images/services2/fr1.webp": {
+  "w": 963,
+  "h": 1280
+ },
+ "/images/services2/fr10.webp": {
+  "w": 963,
+  "h": 1280
+ },
+ "/images/services2/fr2.webp": {
+  "w": 720,
+  "h": 1600
+ },
+ "/images/services2/fr3.webp": {
+  "w": 963,
+  "h": 1280
+ },
+ "/images/services2/fr4.webp": {
+  "w": 963,
+  "h": 1280
+ },
+ "/images/services2/fr5.webp": {
+  "w": 765,
+  "h": 1020
+ },
+ "/images/services2/fr6.webp": {
+  "w": 963,
+  "h": 1280
+ },
+ "/images/services2/fr7.webp": {
+  "w": 963,
+  "h": 1280
+ },
+ "/images/services2/fr8.webp": {
+  "w": 963,
+  "h": 1280
+ },
+ "/images/services2/fr9.webp": {
+  "w": 963,
+  "h": 1280
+ },
+ "/images/services2/gcb1.webp": {
+  "w": 669,
+  "h": 558
+ },
+ "/images/services2/gcb2.webp": {
+  "w": 1003,
+  "h": 1000
+ },
+ "/images/services2/gcb3.webp": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/services2/gcb4.webp": {
+  "w": 742,
+  "h": 990
+ },
+ "/images/services2/gcb5.webp": {
+  "w": 1152,
+  "h": 2048
+ },
+ "/images/services2/gcb6.webp": {
+  "w": 1000,
+  "h": 1503
+ },
+ "/images/services2/in1.webp": {
+  "w": 720,
+  "h": 1280
+ },
+ "/images/services2/in2.webp": {
+  "w": 720,
+  "h": 1280
+ },
+ "/images/services2/in3.webp": {
+  "w": 1280,
+  "h": 720
+ },
+ "/images/services2/in4.webp": {
+  "w": 900,
+  "h": 1600
+ },
+ "/images/services2/in5.webp": {
+  "w": 736,
+  "h": 981
+ },
+ "/images/services2/kitchensink-1.webp": {
+  "w": 1280,
+  "h": 720
+ },
+ "/images/services2/kitchensink-2.webp": {
+  "w": 1280,
+  "h": 720
+ },
+ "/images/services2/kitchensink-3.webp": {
+  "w": 408,
+  "h": 728
+ },
+ "/images/services2/kitchensink-4.webp": {
+  "w": 1000,
+  "h": 662
+ },
+ "/images/services2/kitchensink-5.webp": {
+  "w": 284,
+  "h": 178
+ },
+ "/images/services2/kitchensink-6.webp": {
+  "w": 299,
+  "h": 168
+ },
+ "/images/services2/kitchensink-7.webp": {
+  "w": 450,
+  "h": 303
+ },
+ "/images/services2/kitchensink-8.webp": {
+  "w": 600,
+  "h": 400
+ },
+ "/images/services2/leaking-shower-1.webp": {
+  "w": 1600,
+  "h": 2133
+ },
+ "/images/services2/leaking-shower-2.webp": {
+  "w": 1600,
+  "h": 1066
+ },
+ "/images/services2/leaking-shower-3.webp": {
+  "w": 1600,
+  "h": 2133
+ },
+ "/images/services2/leaking-shower-4.webp": {
+  "w": 1200,
+  "h": 1600
+ },
+ "/images/services2/pip-1.webp": {
+  "w": 1600,
+  "h": 3556
+ },
+ "/images/services2/pip-10.webp": {
+  "w": 1600,
+  "h": 3556
+ },
+ "/images/services2/pip-11.webp": {
+  "w": 1600,
+  "h": 3556
+ },
+ "/images/services2/pip-12.webp": {
+  "w": 1600,
+  "h": 3556
+ },
+ "/images/services2/pip-13.webp": {
+  "w": 1600,
+  "h": 3556
+ },
+ "/images/services2/pip-14.webp": {
+  "w": 1600,
+  "h": 3556
+ },
+ "/images/services2/pip-15.webp": {
+  "w": 1600,
+  "h": 3556
+ },
+ "/images/services2/pip-16.webp": {
+  "w": 1600,
+  "h": 3556
+ },
+ "/images/services2/pip-17.webp": {
+  "w": 1600,
+  "h": 3556
+ },
+ "/images/services2/pip-18.webp": {
+  "w": 1600,
+  "h": 3556
+ },
+ "/images/services2/pip-2.webp": {
+  "w": 1600,
+  "h": 2125
+ },
+ "/images/services2/pip-3.webp": {
+  "w": 750,
+  "h": 1000
+ },
+ "/images/services2/pip-4.webp": {
+  "w": 1600,
+  "h": 2125
+ },
+ "/images/services2/pip-5.webp": {
+  "w": 1600,
+  "h": 2133
+ },
+ "/images/services2/pip-6.webp": {
+  "w": 1600,
+  "h": 2125
+ },
+ "/images/services2/pip-7.webp": {
+  "w": 1600,
+  "h": 3556
+ },
+ "/images/services2/pip-8.webp": {
+  "w": 1468,
+  "h": 3264
+ },
+ "/images/services2/pip-9.webp": {
+  "w": 1600,
+  "h": 3556
+ },
+ "/images/services2/residential-1.webp": {
+  "w": 1146,
+  "h": 2048
+ },
+ "/images/services2/residential-10.webp": {
+  "w": 922,
+  "h": 2048
+ },
+ "/images/services2/residential-11.webp": {
+  "w": 1152,
+  "h": 2048
+ },
+ "/images/services2/residential-12.webp": {
+  "w": 922,
+  "h": 2048
+ },
+ "/images/services2/residential-13.webp": {
+  "w": 1440,
+  "h": 1800
+ },
+ "/images/services2/residential-14.webp": {
+  "w": 1600,
+  "h": 3556
+ },
+ "/images/services2/residential-15.webp": {
+  "w": 1600,
+  "h": 2133
+ },
+ "/images/services2/residential-16.webp": {
+  "w": 1600,
+  "h": 2133
+ },
+ "/images/services2/residential-17.webp": {
+  "w": 1600,
+  "h": 3200
+ },
+ "/images/services2/residential-18.webp": {
+  "w": 1600,
+  "h": 2133
+ },
+ "/images/services2/residential-19.webp": {
+  "w": 1600,
+  "h": 2133
+ },
+ "/images/services2/residential-2.webp": {
+  "w": 1147,
+  "h": 2048
+ },
+ "/images/services2/residential-20.webp": {
+  "w": 1600,
+  "h": 2133
+ },
+ "/images/services2/residential-21.webp": {
+  "w": 1536,
+  "h": 1920
+ },
+ "/images/services2/residential-3.webp": {
+  "w": 922,
+  "h": 2048
+ },
+ "/images/services2/residential-4.webp": {
+  "w": 1152,
+  "h": 2048
+ },
+ "/images/services2/residential-5.webp": {
+  "w": 1600,
+  "h": 899
+ },
+ "/images/services2/residential-6.webp": {
+  "w": 922,
+  "h": 2048
+ },
+ "/images/services2/residential-7.webp": {
+  "w": 1080,
+  "h": 1440
+ },
+ "/images/services2/residential-8.webp": {
+  "w": 922,
+  "h": 2048
+ },
+ "/images/services2/residential-9.webp": {
+  "w": 774,
+  "h": 1032
+ },
+ "/images/services2/sewer-smell-1.webp": {
+  "w": 695,
+  "h": 391
+ },
+ "/images/services2/sewer-smell-2.webp": {
+  "w": 275,
+  "h": 183
+ },
+ "/images/services2/sewer-smell-3.webp": {
+  "w": 795,
+  "h": 530
+ },
+ "/images/services2/sewer-smell-4.webp": {
+  "w": 468,
+  "h": 301
+ },
+ "/images/services2/shower-install-1.webp": {
+  "w": 578,
+  "h": 578
+ },
+ "/images/services2/shower-install-2.webp": {
+  "w": 720,
+  "h": 540
+ },
+ "/images/services2/shower-install-3.webp": {
+  "w": 536,
+  "h": 769
+ },
+ "/images/services2/shower-install-4.webp": {
+  "w": 1080,
+  "h": 1350
+ },
+ "/images/services2/shower-install-5.webp": {
+  "w": 735,
+  "h": 673
+ },
+ "/images/services2/shower-install-6.webp": {
+  "w": 1000,
+  "h": 1000
+ },
+ "/images/services2/shower-install-7.webp": {
+  "w": 1000,
+  "h": 1000
+ },
+ "/images/services2/shower-install-8.webp": {
+  "w": 1024,
+  "h": 1024
+ },
+ "/images/services2/shower-replacement-1.webp": {
+  "w": 460,
+  "h": 546
+ },
+ "/images/services2/shower-replacement-2.webp": {
+  "w": 500,
+  "h": 500
+ },
+ "/images/services2/shower-replacement-3.webp": {
+  "w": 700,
+  "h": 700
+ },
+ "/images/services2/shower-replacement-4.webp": {
+  "w": 500,
+  "h": 600
+ },
+ "/images/services2/shower-replacement-5.webp": {
+  "w": 600,
+  "h": 500
+ },
+ "/images/services2/shower-replacement-6.webp": {
+  "w": 720,
+  "h": 720
+ },
+ "/images/services2/solar-water-heater-1.webp": {
+  "w": 720,
+  "h": 540
+ },
+ "/images/services2/solar-water-heater-2.webp": {
+  "w": 1080,
+  "h": 1450
+ },
+ "/images/services2/solar-water-heater-3.webp": {
+  "w": 1600,
+  "h": 720
+ },
+ "/images/services2/solar-water-heater-4.webp": {
+  "w": 768,
+  "h": 1024
+ },
+ "/images/services2/sump-pump-1.webp": {
+  "w": 1600,
+  "h": 1067
+ },
+ "/images/services2/sump-pump-2.webp": {
+  "w": 664,
+  "h": 342
+ },
+ "/images/services2/sump-pump-3.webp": {
+  "w": 1500,
+  "h": 1000
+ },
+ "/images/services2/sump-pump-4.webp": {
+  "w": 234,
+  "h": 215
+ },
+ "/images/services2/sump-pump-5.webp": {
+  "w": 1000,
+  "h": 665
+ },
+ "/images/services2/tank-repair-1.webp": {
+  "w": 1152,
+  "h": 2048
+ },
+ "/images/services2/tank-repair-10.webp": {
+  "w": 921,
+  "h": 2048
+ },
+ "/images/services2/tank-repair-11.webp": {
+  "w": 1152,
+  "h": 2048
+ },
+ "/images/services2/tank-repair-12.webp": {
+  "w": 1152,
+  "h": 2048
+ },
+ "/images/services2/tank-repair-5.webp": {
+  "w": 1152,
+  "h": 2048
+ },
+ "/images/services2/tank-repair-6.webp": {
+  "w": 727,
+  "h": 960
+ },
+ "/images/services2/tank-repair-7.webp": {
+  "w": 515,
+  "h": 388
+ },
+ "/images/services2/tank-repair-8.webp": {
+  "w": 768,
+  "h": 1024
+ },
+ "/images/services2/tank-repair-9.webp": {
+  "w": 640,
+  "h": 480
+ },
+ "/images/services2/waterpressure-1.webp": {
+  "w": 1600,
+  "h": 900
+ },
+ "/images/services2/waterpressure-2.webp": {
+  "w": 450,
+  "h": 303
+ },
+ "/images/services2/waterpressure-3.webp": {
+  "w": 1024,
+  "h": 678
+ },
+ "/images/services2/waterpressure-4.webp": {
+  "w": 1600,
+  "h": 900
+ },
+ "/images/services2/waterpressure-5.webp": {
+  "w": 1024,
+  "h": 764
+ },
+ "/images/services2/waterpressure-6.webp": {
+  "w": 800,
+  "h": 533
+ },
+ "/images/services2/waterpressure-7.webp": {
+  "w": 780,
+  "h": 438
+ },
+ "/images/services2/waterpressure-8.webp": {
+  "w": 1000,
+  "h": 1000
+ },
+ "/images/services2/wth1.webp": {
+  "w": 225,
+  "h": 225
+ },
+ "/images/services2/wth2.webp": {
+  "w": 300,
+  "h": 300
+ },
+ "/images/services2/wth3.webp": {
+  "w": 940,
+  "h": 705
+ },
+ "/images/services2/wth4.webp": {
+  "w": 1201,
+  "h": 605
+ },
+ "/images/services2/wth5.webp": {
+  "w": 550,
+  "h": 411
+ },
+ "/images/sig.webp": {
+  "w": 190,
+  "h": 56
+ },
+ "/images/signature-img01.webp": {
+  "w": 190,
+  "h": 56
+ }
+}

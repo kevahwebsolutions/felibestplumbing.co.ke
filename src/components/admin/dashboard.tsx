@@ -25,7 +25,7 @@ function Delta({ value, invert = false }: { value: number | null; invert?: boole
   const good = invert ? value < 0 : value > 0;
   const Icon = value > 0 ? ArrowUpRight : ArrowDownRight;
   return (
-    <span className={cn('inline-flex items-center gap-1 text-xs font-extrabold', good ? 'text-success' : 'text-cta-600')}>
+    <span className={cn('inline-flex items-center gap-1 text-xs font-bold', good ? 'text-success' : 'text-cta-600')}>
       <Icon className="size-4" aria-hidden /> {Math.abs(value)}%<span className="sr-only"> {value > 0 ? 'increase' : 'decrease'} versus the previous period</span>
     </span>
   );
@@ -33,9 +33,9 @@ function Delta({ value, invert = false }: { value: number | null; invert?: boole
 
 function Kpi({ label, value, delta, invert, format, suffix }: { label: string; value: number; delta: number | null; invert?: boolean; format?: (n: number) => string; suffix?: string }) {
   return (
-    <div className="clay-card flex flex-col gap-1 p-5">
+    <div className="fp-card flex flex-col gap-1 p-5">
       <p className="text-sm font-bold text-muted">{label}</p>
-      <p className="font-heading text-3xl font-black text-navy-700"><CountUp to={value} format={format} suffix={suffix} duration={1.2} /></p>
+      <p className="font-heading text-4xl font-bold text-navy-700"><CountUp to={value} format={format} suffix={suffix} duration={1.2} /></p>
       <Delta value={delta} invert={invert} />
     </div>
   );
@@ -43,12 +43,12 @@ function Kpi({ label, value, delta, invert, format, suffix }: { label: string; v
 
 function Panel({ title, children, table, className, empty }: { title: string; children: React.ReactNode; table: React.ReactNode; className?: string; empty?: boolean }) {
   return (
-    <section className={cn('clay-card flex flex-col p-5 sm:p-6', className)} aria-label={title}>
-      <h2 className="mb-4 font-heading text-lg font-extrabold">{title}</h2>
-      {empty ? <p className="grid min-h-48 flex-1 place-items-center rounded-3xl bg-sky-50 p-6 text-center text-muted">No data for this period yet.</p> : <div className="min-h-48 flex-1">{children}</div>}
+    <section className={cn('fp-card flex flex-col p-5 sm:p-6', className)} aria-label={title}>
+      <h2 className="mb-4 font-heading text-xl font-bold">{title}</h2>
+      {empty ? <p className="grid min-h-48 flex-1 place-items-center rounded-lg bg-sky-50 p-6 text-center text-muted">No data for this period yet.</p> : <div className="min-h-48 flex-1">{children}</div>}
       <details className="mt-3 text-sm">
         <summary className="cursor-pointer font-bold text-navy-600">View as table</summary>
-        <div className="mt-2 max-h-56 overflow-auto rounded-2xl bg-sky-50 p-2">{table}</div>
+        <div className="mt-2 max-h-56 overflow-auto rounded-lg bg-sky-50 p-2">{table}</div>
       </details>
     </section>
   );
@@ -103,7 +103,7 @@ export function OnlineBadge({ initial }: { initial: number }) {
     return () => window.clearInterval(t);
   }, []);
   return (
-    <p className="clay-pill clay-pill-green !py-2 !text-sm" role="status" aria-live="polite">
+    <p className="fp-pill fp-pill-green !py-2 !text-sm" role="status" aria-live="polite">
       <span className="relative flex size-3"><span className="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-60" /><span className="relative inline-flex size-3 rounded-full bg-success" /></span>
       {n} online now
     </p>
@@ -119,18 +119,18 @@ export function DashboardView({ d, preset, placeholderCount }: { d: Dashboard; p
     <div className="space-y-6">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="font-heading text-3xl font-black sm:text-4xl">Dashboard</h1>
+          <h1 className="font-heading text-4xl font-bold sm:text-5xl">Dashboard</h1>
           <p className="text-muted">{d.range.from} to {d.range.to} ({d.days} days), compared with the previous {d.days} days.</p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
           <OnlineBadge initial={d.online} />
           <div className="flex gap-2" role="group" aria-label="Date range">
-            {['7', '30', '90'].map((p) => <Link key={p} href={`/admin?range=${p}`} className="clay-chip" data-active={preset === p} aria-current={preset === p ? 'true' : undefined}>{p} days</Link>)}
+            {['7', '30', '90'].map((p) => <Link key={p} href={`/admin?range=${p}`} className="fp-chip" data-active={preset === p} aria-current={preset === p ? 'true' : undefined}>{p} days</Link>)}
           </div>
         </div>
       </div>
 
-      <form method="get" action="/admin" className="clay-card flex flex-wrap items-end gap-3 p-4">
+      <form method="get" action="/admin" className="fp-card flex flex-wrap items-end gap-3 p-4">
         <CalendarDays className="mb-3 size-5 text-navy-600" aria-hidden />
         <div><label htmlFor="from" className="mb-1 block pl-2 text-xs font-bold">From</label><Input id="from" name="from" type="date" defaultValue={d.range.from} className="!min-h-11" /></div>
         <div><label htmlFor="to" className="mb-1 block pl-2 text-xs font-bold">To</label><Input id="to" name="to" type="date" defaultValue={d.range.to} className="!min-h-11" /></div>
@@ -138,10 +138,10 @@ export function DashboardView({ d, preset, placeholderCount }: { d: Dashboard; p
       </form>
 
       {placeholderCount > 0 ? (
-        <div className="clay-card-peach flex flex-wrap items-center gap-3 p-4 font-semibold" role="status">
+        <div className="fp-card-peach flex flex-wrap items-center gap-3 p-4 font-semibold" role="status">
           <AlertTriangle className="size-6 shrink-0 text-cta-600" aria-hidden />
           <p className="flex-1">{placeholderCount} products still use placeholder prices. Confirm them before going live.</p>
-          <Link href="/admin/products?filter=placeholder" className="clay-button clay-button-sm">Review prices</Link>
+          <Link href="/admin/products?filter=placeholder" className="fp-button fp-button-sm">Review prices</Link>
         </div>
       ) : null}
 
@@ -267,22 +267,22 @@ export function DashboardView({ d, preset, placeholderCount }: { d: Dashboard; p
         </Panel>
         <Panel title="Low-stock alerts" empty={d.lowStock.length === 0} table={<SimpleTable head={['Product', 'In stock']} rows={d.lowStock.map((p) => [p.name, p.stock])} />}>
           <ul className="space-y-2">
-            {d.lowStock.map((p) => <li key={p.id} className="flex items-center justify-between gap-3 rounded-2xl bg-sky-50 px-4 py-3"><Link href={`/admin/products/${p.id}`} className="font-semibold text-navy-700 underline-offset-4 hover:underline">{p.name}</Link><span className={cn('clay-pill', p.stock === 0 ? 'clay-pill-orange' : '')}>{p.stock === 0 ? 'Out of stock' : `${p.stock} left`}</span></li>)}
+            {d.lowStock.map((p) => <li key={p.id} className="flex items-center justify-between gap-3 rounded-lg bg-sky-50 px-4 py-3"><Link href={`/admin/products/${p.id}`} className="font-semibold text-navy-700 underline-offset-4 hover:underline">{p.name}</Link><span className={cn('fp-pill', p.stock === 0 ? 'fp-pill-orange' : '')}>{p.stock === 0 ? 'Out of stock' : `${p.stock} left`}</span></li>)}
           </ul>
         </Panel>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <section className="clay-card p-5 sm:p-6" aria-label="Recent orders">
-          <div className="mb-4 flex items-center justify-between"><h2 className="font-heading text-lg font-extrabold">Recent orders</h2><Link href="/admin/orders" className="font-bold text-navy-600 underline">View all</Link></div>
-          {d.recentOrders.length === 0 ? <p className="rounded-3xl bg-sky-50 p-6 text-center text-muted">No orders yet.</p> : (
-            <ul className="space-y-2">{d.recentOrders.map((o) => <li key={o.id}><Link href={`/admin/orders/${o.id}`} className="flex items-center justify-between gap-3 rounded-2xl bg-sky-50 px-4 py-3 hover:bg-sky-100"><span><span className="block font-bold text-ink">{o.ref}</span><span className="text-sm text-muted">{o.customerName}</span></span><span className="text-right"><span className="block font-extrabold text-navy-700">{formatKES(o.total)}</span><span className="clay-pill">{o.status.replace(/_/g, ' ')}</span></span></Link></li>)}</ul>
+        <section className="fp-card p-5 sm:p-6" aria-label="Recent orders">
+          <div className="mb-4 flex items-center justify-between"><h2 className="font-heading text-xl font-bold">Recent orders</h2><Link href="/admin/orders" className="font-bold text-navy-600 underline">View all</Link></div>
+          {d.recentOrders.length === 0 ? <p className="rounded-lg bg-sky-50 p-6 text-center text-muted">No orders yet.</p> : (
+            <ul className="space-y-2">{d.recentOrders.map((o) => <li key={o.id}><Link href={`/admin/orders/${o.id}`} className="flex items-center justify-between gap-3 rounded-lg bg-sky-50 px-4 py-3 hover:bg-sky-100"><span><span className="block font-bold text-ink">{o.ref}</span><span className="text-sm text-muted">{o.customerName}</span></span><span className="text-right"><span className="block font-bold text-navy-700">{formatKES(o.total)}</span><span className="fp-pill">{o.status.replace(/_/g, ' ')}</span></span></Link></li>)}</ul>
           )}
         </section>
-        <section className="clay-card p-5 sm:p-6" aria-label="Recent enquiries">
-          <div className="mb-4 flex items-center justify-between"><h2 className="font-heading text-lg font-extrabold">Recent enquiries</h2><Link href="/admin/enquiries" className="font-bold text-navy-600 underline">View all</Link></div>
-          {d.recentEnquiries.length === 0 ? <p className="rounded-3xl bg-sky-50 p-6 text-center text-muted">No enquiries yet.</p> : (
-            <ul className="space-y-2">{d.recentEnquiries.map((e) => <li key={e.id} className="flex items-center justify-between gap-3 rounded-2xl bg-sky-50 px-4 py-3"><span><span className="block font-bold text-ink">{e.name}</span><span className="text-sm text-muted">{e.service || e.kind}</span></span><span className="clay-pill">{e.status}</span></li>)}</ul>
+        <section className="fp-card p-5 sm:p-6" aria-label="Recent enquiries">
+          <div className="mb-4 flex items-center justify-between"><h2 className="font-heading text-xl font-bold">Recent enquiries</h2><Link href="/admin/enquiries" className="font-bold text-navy-600 underline">View all</Link></div>
+          {d.recentEnquiries.length === 0 ? <p className="rounded-lg bg-sky-50 p-6 text-center text-muted">No enquiries yet.</p> : (
+            <ul className="space-y-2">{d.recentEnquiries.map((e) => <li key={e.id} className="flex items-center justify-between gap-3 rounded-lg bg-sky-50 px-4 py-3"><span><span className="block font-bold text-ink">{e.name}</span><span className="text-sm text-muted">{e.service || e.kind}</span></span><span className="fp-pill">{e.status}</span></li>)}</ul>
           )}
         </section>
       </div>

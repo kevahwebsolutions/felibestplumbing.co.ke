@@ -2,16 +2,16 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 
 export const Input = React.forwardRef<HTMLInputElement, React.ComponentPropsWithoutRef<'input'>>(function Input({ className, ...props }, ref) {
-  return <input ref={ref} className={cn('clay-input', className)} {...props} />;
+  return <input ref={ref} className={cn('fp-input', className)} {...props} />;
 });
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, React.ComponentPropsWithoutRef<'textarea'>>(function Textarea({ className, ...props }, ref) {
-  return <textarea ref={ref} className={cn('clay-input min-h-32 resize-y py-4', className)} {...props} />;
+  return <textarea ref={ref} className={cn('fp-input min-h-32 resize-y py-4', className)} {...props} />;
 });
 
 export const Select = React.forwardRef<HTMLSelectElement, React.ComponentPropsWithoutRef<'select'>>(function Select({ className, children, ...props }, ref) {
   return (
-    <select ref={ref} className={cn('clay-input appearance-none bg-[length:18px] bg-[right_1.1rem_center] bg-no-repeat pr-12', className)}
+    <select ref={ref} className={cn('fp-input appearance-none bg-[length:18px] bg-[right_1.1rem_center] bg-no-repeat pr-12', className)}
       style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%230c4c93' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")" }}
       {...props}>
       {children}

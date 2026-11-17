@@ -5,16 +5,17 @@ import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
-export type ButtonVariant = 'primary' | 'blue' | 'ghost';
+export type ButtonVariant = 'primary' | 'blue' | 'ghost' | 'outline';
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
 export function buttonClass(variant: ButtonVariant = 'primary', size: ButtonSize = 'md', className?: string) {
   return cn(
-    'clay-button',
-    variant === 'blue' && 'clay-button-blue',
-    variant === 'ghost' && 'clay-button-ghost',
-    size === 'sm' && 'clay-button-sm',
-    size === 'lg' && 'clay-button-lg',
+    'fp-button',
+    variant === 'blue' && 'fp-button-blue',
+    variant === 'ghost' && 'fp-button-ghost',
+    variant === 'outline' && 'fp-button-outline',
+    size === 'sm' && 'fp-button-sm',
+    size === 'lg' && 'fp-button-lg',
     className,
   );
 }
@@ -24,9 +25,8 @@ function useTactile() {
   return reduce
     ? {}
     : ({
-        whileHover: { y: -3, scaleX: 1.03, scaleY: 0.98 },
-        whileTap: { y: 1, scale: 0.97 },
-        transition: { type: 'spring', stiffness: 520, damping: 18 },
+        whileTap: { scale: 0.98 },
+        transition: { duration: 0.1 },
       } as const);
 }
 

@@ -10,7 +10,7 @@ export default function Page() {
   return (
     <>
       <PageHero crumbs={[{ name: 'Cart', path: '/cart' }, { name: 'Checkout', path: '/checkout' }]} title="Checkout" />
-      <section className="section-pad px-3 sm:px-5"><div className="container-clay !px-0"><CheckoutForm settings={publicSettings(getSettings())} /></div></section>
+      <section className="section-pad px-3 sm:px-5"><div className="container-fp !px-0"><CheckoutForm settings={publicSettings(getSettings())} /></div></section>
     </>
   );
 }

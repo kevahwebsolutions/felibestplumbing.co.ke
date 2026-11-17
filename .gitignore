@@ -9,7 +9,7 @@ out/
 *.db-wal
 *.db-shm
 uploads/
-data/
+/data/
 test-results/
 playwright-report/
 *.tsbuildinfo
