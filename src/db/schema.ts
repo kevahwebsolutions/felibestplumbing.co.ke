@@ -73,6 +73,10 @@ export const orders = sqliteTable(
     deliveryFee: integer('delivery_fee').notNull().default(0),
     total: integer('total').notNull(),
     internalNotes: text('internal_notes').notNull().default(''),
+    /** Set when the Cloud API notifier delivered the order to the owner's WhatsApp. */
+    whatsappNotifiedAt: integer('whatsapp_notified_at'),
+    /** Short non-sensitive reason when the Cloud API notifier failed. */
+    whatsappNotifyError: text('whatsapp_notify_error'),
     createdAt: integer('created_at').notNull().$defaultFn(now),
   },
   (t) => [index('orders_status_idx').on(t.status), index('orders_created_idx').on(t.createdAt)],

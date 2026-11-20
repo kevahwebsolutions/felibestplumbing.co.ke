@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Phone, Search, Star, Truck, Wrench } from 'lucide-react';
 import { AddToCartButton, PriceTag, ProductArt, StockBadge } from './product-parts';
 import { QtyStepper } from './cart-parts';
+import { QuickWhatsAppOrder } from './quick-order';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Pill } from '@/components/ui/misc';
 import { track } from '@/lib/track';
@@ -62,6 +63,7 @@ export function ProductBuyBox({ p, freeThreshold, fee, phone = '' }: { p: Produc
         <QtyStepper value={qty} max={p.stock} onChange={(n) => setQty(Math.max(1, n))} label={p.name} />
         <AddToCartButton product={p} qty={qty} size="lg" className="flex-1 sm:flex-none" />
       </div>
+      <QuickWhatsAppOrder p={p} qty={qty} fee={fee} freeThreshold={freeThreshold} />
       <p className="fp-card-sky flex items-start gap-3 p-4 text-sm font-semibold text-brand-strong"><Truck className="mt-0.5 size-5 shrink-0" aria-hidden />
         Delivery from {fee === 0 ? 'free' : `KES ${fee.toLocaleString('en-KE')}`}{freeThreshold > 0 ? `, free on orders over KES ${freeThreshold.toLocaleString('en-KE')}` : ''}. Pay on delivery or order via WhatsApp.</p>
       <div className="fp-card-blue flex flex-wrap items-center justify-between gap-4 p-5">

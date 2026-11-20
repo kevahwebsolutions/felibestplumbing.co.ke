@@ -16,7 +16,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const p = getProductBySlug(slug);
   if (!p) return {};
   const desc = (p.description || `${p.name} from the Felibest Plumbing shop in Nairobi.`).slice(0, 155);
-  return buildMetadata({ title: `${p.name} in Nairobi`, description: desc, path: `/shop/${p.slug}`, image: p.images[0]?.url });
+  // WhatsApp and most link-preview crawlers need a JPEG, so og:image is the generated /og route and not the WebP photo.
+  return buildMetadata({
+    title: `${p.name} in Nairobi`,
+    description: desc,
+    path: `/shop/${p.slug}`,
+    image: `/og/product/${encodeURIComponent(p.slug)}`,
+    imageSize: { width: 1200, height: 630, type: 'image/jpeg', alt: p.name },
+  });
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {

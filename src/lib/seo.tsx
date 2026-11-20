@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { absoluteUrl } from '@/lib/utils';
 import { SITE } from '@/lib/site';
 
-export function buildMetadata(opts: { title: string; description: string; path: string; image?: string; noindex?: boolean; type?: 'website' | 'article' }): Metadata {
+export function buildMetadata(opts: { title: string; description: string; path: string; image?: string; imageSize?: { width: number; height: number; type?: string; alt?: string }; noindex?: boolean; type?: 'website' | 'article' }): Metadata {
   const url = absoluteUrl(opts.path);
   const image = absoluteUrl(opts.image ?? '/images/logo-light.png');
   return {
@@ -17,7 +17,7 @@ export function buildMetadata(opts: { title: string; description: string; path: 
       title: opts.title,
       description: opts.description,
       url,
-      images: [{ url: image }],
+      images: [{ url: image, ...(opts.imageSize ?? {}) }],
     },
     twitter: { card: 'summary_large_image', title: opts.title, description: opts.description, images: [image] },
   };

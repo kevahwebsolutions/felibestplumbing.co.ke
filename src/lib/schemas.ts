@@ -171,7 +171,7 @@ export type SettingsInput = z.input<typeof settingsSchema>;
 export type Settings = z.output<typeof settingsSchema>;
 
 export const ANALYTICS_EVENTS = [
-  'pageview', 'product_view', 'add_to_cart', 'checkout_start', 'order_placed', 'call_click', 'whatsapp_click', 'form_submit',
+  'pageview', 'product_view', 'add_to_cart', 'checkout_start', 'order_placed', 'call_click', 'whatsapp_click', 'whatsapp_order_redirect', 'form_submit',
 ] as const;
 export type AnalyticsEvent = (typeof ANALYTICS_EVENTS)[number];
 

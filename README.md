@@ -132,9 +132,47 @@ deploy/              nginx example and database backup script
 
 `/admin` is protected by an iron-session cookie (HttpOnly, SameSite=Lax, Secure in production), bcrypt passwords, login rate limiting and a forced password change on first login. Every admin page, server action and route handler checks authorization and validates input with zod. Admin responses carry `noindex` headers. Press Ctrl+K for the command palette.
 
+## Orders and WhatsApp
+
+Checkout saves the order in the database first (public reference such as `FP-ABC234`), then sends the customer to WhatsApp automatically with a prefilled message to the business number from Admin, Settings (default +254 798 174 201):
+
+- Phones: same-tab redirect to `https://wa.me/<number>?text=...`. The history entry is the saved order, so Back returns to `/order/[ref]`.
+- Desktop: a tab is opened inside the submit click (so popup blockers allow it) and pointed at WhatsApp once the order is saved. If the browser blocks it, `/order/[ref]` shows a large green "Send order on WhatsApp" button. The order is saved either way.
+- Product pages have an "Order this on WhatsApp" button that saves a single-item order the same way.
+
+The message is built by one pure, unit-tested module, `src/lib/whatsapp-message.ts`: reference, customer, phone, area, address, notes, payment, then each item with quantity, unit price, line total and absolute product URL, then delivery, total and the order link. Input is sanitised (control characters stripped, lengths capped) and the encoded link is kept under about 1900 characters: long carts list the first items and summarise the rest, always keeping the order link.
+
+Analytics events: `order_placed`, `whatsapp_click` and `whatsapp_order_redirect`.
+
+### Product image in the WhatsApp message
+
+A `wa.me` link cannot attach images. The picture arrives as the link preview of the product URL in the message. Each product page therefore sets `og:title`, `og:description`, `og:url`, `og:type` and an `og:image` that points to `/og/product/[slug]`, a generated 1200x630 JPEG (product photo on white, Felibest logo, KES price). WhatsApp does not reliably render WebP previews, which is why the preview is a JPEG. The order page is `noindex`.
+
+**Previews only render on the deployed public domain, not on localhost.** WhatsApp fetches the link from its own servers, so a `localhost` or private-network URL cannot be previewed. Set `NEXT_PUBLIC_SITE_URL` to the real https domain in production. After changing a product image, WhatsApp may cache the old preview for a while; the `/og` route itself is cached for one hour at the browser and one day at the CDN.
+
+### Enable automatic WhatsApp (Cloud API)
+
+This is optional. It makes the server message the owner's WhatsApp the moment an order is saved, with the first product's picture and an order summary, without the customer doing anything. If it is not configured, or it fails, checkout is unaffected and the customer-side WhatsApp message still works.
+
+1. Create a Meta Business account at business.facebook.com and verify the business.
+2. At developers.facebook.com create an app (type Business) and add the WhatsApp product.
+3. In WhatsApp, API setup, add and verify the sender phone number. Copy its **Phone number ID** (not the number) into `WHATSAPP_PHONE_NUMBER_ID`.
+4. In Business settings, Users, System users, create a system user, give it the app and the WhatsApp account, and generate a **permanent token** with the `whatsapp_business_messaging` and `whatsapp_business_management` permissions. Put it in `WHATSAPP_CLOUD_TOKEN`. Never commit it and never put it in client code.
+5. Set `WHATSAPP_OWNER_NUMBER` to the owner's number that should receive alerts (digits with country code, for example `254798174201`).
+6. Meta only allows free-form messages to a number that messaged the business in the last 24 hours. For every other case create a message template (category Utility, language English) in WhatsApp Manager, Message templates, with a single variable, for example: `New website order: {{1}}`. Wait for approval, then set `WHATSAPP_TEMPLATE_NAME` (and `WHATSAPP_TEMPLATE_LANGUAGE` if not `en`).
+7. Restart the app. Place a test order. Admin, Orders shows a "WhatsApp: sent" or "WhatsApp: not sent" badge for each order; a failed attempt stores a short, non-sensitive reason.
+
+All three of `WHATSAPP_CLOUD_TOKEN`, `WHATSAPP_PHONE_NUMBER_ID` and `WHATSAPP_OWNER_NUMBER` must be set for the notifier to switch on. It runs after the order is saved, never blocks checkout, retries once, and logs only status text. The token is only sent in the `Authorization` header to graph.facebook.com. The product image is fetched by Meta from `/og/product/[slug]` on your public domain, so the site must be publicly reachable.
+
+Code: `src/lib/server/notifiers.ts` (`OrderNotifier`, `WhatsAppLinkNotifier`, `WhatsAppCloudNotifier`).
+
 ## Payments
 
-Checkout has two options today: pay on delivery (cash or M-Pesa) and order via WhatsApp with a prefilled cart message. Both go through the `PaymentProvider` interface in `src/lib/server/payments.ts`. To add M-Pesa Daraja STK push later, implement a provider whose `initiate` calls the STK push endpoint, add a callback route that marks the order paid, and register it. Nothing else in checkout changes. Daraja is intentionally not implemented.
+Checkout offers pay on delivery (cash or M-Pesa) and pay via WhatsApp. Both go through the `PaymentProvider` interface in `src/lib/server/payments.ts`. To add M-Pesa Daraja STK push later, implement a provider whose `initiate` calls the STK push endpoint, add a callback route that marks the order paid, and register it. Nothing else in checkout changes. Daraja is intentionally not implemented.
+
+## Themes
+
+The site theme is a block of `--t-*` variables at the top of `src/app/globals.css`; Tailwind tokens (`surface`, `ink`, `brand`, `accent`...) read them. Branch `revamp/plumbing-v2-light` is the light theme and `revamp/plumbing-v2` is the dark navy theme. See `docs/LIGHT-vs-DARK.md`.
 
 ## Analytics and privacy
 

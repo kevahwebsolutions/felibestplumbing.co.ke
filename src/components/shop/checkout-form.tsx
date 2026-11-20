@@ -11,13 +11,14 @@ import { Field, Input, Select, Textarea } from '@/components/ui/field';
 import { cartSubtotal, deliveryFor } from '@/lib/cart-math';
 import { checkoutSchema, DELIVERY_AREAS, type CheckoutInput } from '@/lib/schemas';
 import { track } from '@/lib/track';
+import { openPlaceholderTab, placeOrderAndSend } from '@/lib/order-client';
 import { cn, formatKES } from '@/lib/utils';
 import { useCart } from '@/store/cart';
 import type { PublicSettings } from '@/lib/server/settings';
 
 const METHODS = [
   { id: 'pay_on_delivery' as const, label: 'Pay on delivery', desc: 'Cash or M-Pesa when your order arrives', Icon: Banknote },
-  { id: 'whatsapp' as const, label: 'Order via WhatsApp', desc: 'We open WhatsApp with your cart ready to send', Icon: MessageCircle },
+  { id: 'whatsapp' as const, label: 'Pay via WhatsApp', desc: 'We confirm payment with you on WhatsApp', Icon: MessageCircle },
 ];
 
 export function CheckoutForm({ settings }: { settings: PublicSettings }) {
@@ -54,25 +55,19 @@ export function CheckoutForm({ settings }: { settings: PublicSettings }) {
 
   const onSubmit = handleSubmit(async (values) => {
     setServerError('');
-    try {
-      const res = await fetch('/api/orders', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ customer: values, items: items.map((i) => ({ productId: i.productId, qty: i.qty })) }),
-      });
-      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string; ref?: string; total?: number; redirectUrl?: string | null };
-      if (!res.ok || !data.ok || !data.ref) {
-        setServerError(data.error ?? 'We could not place your order. Please try again or call us.');
-        if (res.status === 422) setError('root', { message: data.error });
-        return;
-      }
-      track('order_placed', { path: '/checkout', value: data.total });
-      clear();
-      toast.success(`Order ${data.ref} placed`);
-      if (data.redirectUrl) window.open(data.redirectUrl, '_blank', 'noopener,noreferrer');
-      router.push(`/order/${data.ref}`);
-    } catch {
-      setServerError('We could not reach the server. Please check your connection or call us.');
+    // Opened inside the submit gesture so the WhatsApp tab is not blocked as a popup on desktop.
+    const placeholder = openPlaceholderTab();
+    const result = await placeOrderAndSend(
+      { customer: values, items: items.map((i) => ({ productId: i.productId, qty: i.qty })) },
+      { path: '/checkout', goto: (href) => router.push(href), placeholder },
+    );
+    if (!result.ok) {
+      setServerError(result.error);
+      if (result.status === 422) setError('root', { message: result.error });
+      return;
     }
+    clear();
+    toast.success(`Order ${result.ref} saved`);
   });
 
   return (
@@ -102,7 +97,7 @@ export function CheckoutForm({ settings }: { settings: PublicSettings }) {
                 return (
                   <button key={m.id} type="button" role="radio" aria-checked={on} onClick={() => field.onChange(m.id)}
                     className={cn('fp-card flex items-start gap-3 !rounded-lg p-4 text-left', on && 'ring-4 ring-brand-soft/70')}>
-                    <span className={cn('fp-icon !size-12 shrink-0', m.id === 'whatsapp' && '[background:radial-gradient(circle_at_30%_25%,#5be08f,#0f7a4b_75%)]')}><m.Icon className="size-6" aria-hidden /></span>
+                    <span className={cn('fp-icon !size-12 shrink-0', m.id === 'whatsapp' && 'fp-icon-green')}><m.Icon className="size-6" aria-hidden /></span>
                     <span><span className="block font-heading font-bold text-ink">{m.label}</span><span className="text-sm text-ink-muted">{m.desc}</span></span>
                   </button>
                 );
@@ -124,7 +119,7 @@ export function CheckoutForm({ settings }: { settings: PublicSettings }) {
         </dl>
         {serverError ? <p role="alert" className="rounded-lg bg-accent-tint px-4 py-3 font-semibold text-accent-strong">{serverError}</p> : null}
         <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>{isSubmitting ? <Loader2 className="size-5 animate-spin" aria-hidden /> : null}{isSubmitting ? 'Placing order...' : 'Place order'}</Button>
-        <p className="text-xs text-ink-muted">No payment is taken online. We confirm your order and delivery time by phone or WhatsApp.</p>
+        <p className="text-xs text-ink-muted">No payment is taken online. After you place the order we open WhatsApp with your order ready to send. The order is saved either way.</p>
       </aside>
     </form>
   );
