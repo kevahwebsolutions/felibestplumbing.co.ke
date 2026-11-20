@@ -108,7 +108,7 @@ test('product page exposes a valid JPEG og:image and the og tags WhatsApp needs'
   expect(image).toMatch(/^https?:\/\/.+\/og\/product\/.+/);
   expect(await og('og:image:type')).toBe('image/jpeg');
   // The configured public origin is not the test server, so fetch the same path from the test server.
-  const res = await request.get(new URL(image).pathname, { baseURL });
+  const res = await request.get(`${baseURL}${new URL(image).pathname}`);
   expect(res.status()).toBe(200);
   expect(res.headers()['content-type']).toBe('image/jpeg');
   expect(res.headers()['cache-control']).toMatch(/max-age/);
@@ -117,5 +117,5 @@ test('product page exposes a valid JPEG og:image and the og tags WhatsApp needs'
   const meta = await sharp(buf).metadata();
   expect(meta.format).toBe('jpeg');
   expect([meta.width, meta.height]).toEqual([1200, 630]);
-  expect((await request.get('/og/product/does-not-exist', { baseURL })).status()).toBe(404);
+  expect((await request.get(`${baseURL}/og/product/does-not-exist`)).status()).toBe(404);
 });

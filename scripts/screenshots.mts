@@ -1,4 +1,4 @@
-// Screenshots every route at 375, 768 and 1440 px into docs/screens-v2/ and reports horizontal overflow.
+// Screenshots every route at 375, 768 and 1440 px into docs/screens-light/ and reports horizontal overflow.
 // Usage: BASE_URL=http://localhost:3000 npm run screens
 import './load-env.ts';
 import fs from 'node:fs';
@@ -8,11 +8,11 @@ import { POSTS } from '../src/data/blog.ts';
 
 const base = (process.env.BASE_URL ?? 'http://localhost:3000').replace(/\/$/, '');
 const only = process.argv[2];
-const publicRoutes = ['/', '/about', '/services', ...SERVICES.slice(0, 3).map((s) => `/services/${s.slug}`), '/shop', '/shop/intatherm-safe-touch-basin-mixer-tap', '/cart', '/checkout', '/pricing', '/gallery', '/testimonials', '/faq', '/blog', `/blog/${POSTS[0]!.slug}`, '/contact', '/coverage', '/privacy', '/terms', '/does-not-exist'];
-const adminRoutes = ['/admin', '/admin/products', '/admin/products/new', '/admin/categories', '/admin/orders', '/admin/enquiries', '/admin/settings'];
+const publicRoutes = ['/', '/about', '/services', ...SERVICES.slice(0, 3).map((s) => `/services/${s.slug}`), '/shop', '/shop/intatherm-safe-touch-basin-mixer-tap', '/cart', '/checkout', '/pricing', '/gallery', '/testimonials', '/faq', '/blog', `/blog/${POSTS[0]!.slug}`, '/contact', '/coverage', '/privacy', '/terms', '/does-not-exist', `/order/${process.env.ORDER_REF ?? 'FP-44477C'}`];
+const adminRoutes = ['/admin', '/admin/products', '/admin/products/new', '/admin/categories', '/admin/orders', '/admin/enquiries', '/admin/settings', '/admin/orders/1'];
 const sizes = [{ w: 375, h: 812 }, { w: 768, h: 1024 }, { w: 1440, h: 900 }];
 
-fs.mkdirSync('docs/screens-v2', { recursive: true });
+fs.mkdirSync('docs/screens-light', { recursive: true });
 const browser = await chromium.launch();
 const issues: string[] = [];
 
@@ -29,7 +29,7 @@ async function shoot(route: string, authed: boolean, storage?: string) {
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     if (overflow > 1) issues.push(`${route} @${s.w}: horizontal overflow of ${overflow}px`);
     const name = (route === '/' ? 'home' : route.replace(/^\//, '').replace(/\//g, '_')) + `-${s.w}.png`;
-    await page.screenshot({ path: `docs/screens-v2/${authed ? 'admin-' : ''}${name}`, fullPage: true });
+    await page.screenshot({ path: `docs/screens-light/${authed ? 'admin-' : ''}${name}`, fullPage: true });
     await ctx.close();
   }
 }
@@ -52,5 +52,5 @@ if (process.env.ADMIN_EMAIL && process.env.ADMIN_PASSWORD && (!only || only.star
   await ctx.close();
 }
 await browser.close();
-fs.writeFileSync('docs/screens-v2/REPORT.txt', issues.length ? issues.join('\n') : 'No horizontal overflow detected.');
+fs.writeFileSync('docs/screens-light/REPORT.txt', issues.length ? issues.join('\n') : 'No horizontal overflow detected.');
 console.log(issues.length ? issues.join('\n') : 'Done. No horizontal overflow detected.');

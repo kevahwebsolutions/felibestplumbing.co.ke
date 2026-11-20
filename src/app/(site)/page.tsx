@@ -80,7 +80,7 @@ export default function HomePage() {
           </div>
 
           <div className="relative pb-6 lg:min-h-[760px] lg:pb-0">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-line bg-tint lg:absolute lg:inset-y-0 lg:left-0 lg:aspect-auto lg:w-[62%]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-line bg-tint lg:absolute lg:inset-y-0 lg:left-0 lg:aspect-auto lg:w-[74%]">
               <Image src="/images/services2/commercial-11.webp" alt="Copper and brass plumbing pipework with isolation valves on a tiled wall" fill priority quality={70} sizes="(min-width:1024px) 46vw, 100vw" className="object-cover object-[60%_center]" />
               <div aria-hidden className="absolute inset-0 bg-surface-alt/20" />
               <div aria-hidden className="absolute inset-x-0 bottom-0 h-1.5 bg-brand" />

@@ -75,7 +75,7 @@ export function ProductBuyBox({ p, freeThreshold, fee, phone = '' }: { p: Produc
           </div>
         </div>
         <Link href="/contact#book" className="fp-button fp-button-sm">Book a plumber</Link>
-        {phone ? <a href={`tel:${phone.replace(/[^\d+]/g, '')}`} className="inline-flex min-h-11 items-center gap-2 font-heading text-xl font-bold tracking-wide text-white underline-offset-4 hover:underline"><Phone className="size-4" aria-hidden /> {phone}</a> : null}
+        {phone ? <a href={`tel:${phone.replace(/[^\d+]/g, '')}`} className="inline-flex min-h-11 items-center gap-2 font-heading text-xl font-bold tracking-wide text-brand underline-offset-4 hover:underline"><Phone className="size-4" aria-hidden /> {phone}</a> : null}
       </div>
     </div>
   );
