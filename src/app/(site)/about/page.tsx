@@ -27,13 +27,13 @@ export default function AboutPage() {
         <div className="container-fp grid items-center gap-12 !px-0 lg:grid-cols-2">
           <Reveal>
             <p className="eyebrow mb-3">About the company</p>
-            <h2 className="font-heading text-4xl font-bold sm:text-5xl">With more than <span className="text-cta-500"><CountUp to={4} suffix="+ years" /></span> of combined experience</h2>
+            <h2 className="font-heading text-4xl font-bold sm:text-5xl">With more than <span className="text-accent"><CountUp to={4} suffix="+ years" /></span> of combined experience</h2>
             <p className="mt-5 text-lg text-body">We take pride in solving any problem you may have in a quick, professional and friendly manner. Our quality plumbing service and our personal customer service touch set us apart from other plumbing companies.</p>
             <p className="mt-4 text-lg text-body">Because we are family-owned and operated, we can provide a higher standard of plumbing service at a competitive price. Our licensed plumbers are thoroughly trained and fully equipped to handle all your plumbing needs.</p>
-            <p className="mt-8 border-l-4 border-copper pl-4 font-heading text-2xl font-semibold uppercase tracking-wide text-ink">{SITE.founder.short}<br /><span className="text-base font-medium normal-case tracking-normal text-muted">{SITE.founder.role}</span></p>
+            <p className="mt-8 border-l-4 border-copper pl-4 font-heading text-2xl font-semibold uppercase tracking-wide text-ink">{SITE.founder.short}<br /><span className="text-base font-medium normal-case tracking-normal text-ink-muted">{SITE.founder.role}</span></p>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="overflow-hidden rounded-lg border border-sky-200">
+            <div className="overflow-hidden rounded-lg border border-line">
               <div className="relative aspect-[4/3]">
                 <Image src="/images/gallery/gallery09.webp" alt="Felibest plumber fitting a wall-hung vanity in a Nairobi bathroom" fill sizes="(min-width:1024px) 560px, 100vw" className="object-cover" />
               </div>

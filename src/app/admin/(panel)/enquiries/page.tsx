@@ -21,7 +21,7 @@ export default async function EnquiriesPage({ searchParams }: { searchParams: Pr
         {(['new', 'contacted', 'done'] as const).map((s) => <Link key={s} href={`/admin/enquiries?status=${s}`} className="fp-chip capitalize" data-active={status === s}>{s} ({all.filter((e) => e.status === s).length})</Link>)}
       </div>
       <div className="space-y-4">{rows.map((e) => <EnquiryRow key={e.id} e={e} />)}</div>
-      {rows.length === 0 ? <p className="fp-card p-10 text-center text-muted">Nothing here yet.</p> : null}
+      {rows.length === 0 ? <p className="fp-card p-10 text-center text-ink-muted">Nothing here yet.</p> : null}
     </div>
   );
 }

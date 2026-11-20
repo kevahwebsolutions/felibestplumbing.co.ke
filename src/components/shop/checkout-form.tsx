@@ -101,9 +101,9 @@ export function CheckoutForm({ settings }: { settings: PublicSettings }) {
                 const on = field.value === m.id;
                 return (
                   <button key={m.id} type="button" role="radio" aria-checked={on} onClick={() => field.onChange(m.id)}
-                    className={cn('fp-card flex items-start gap-3 !rounded-lg p-4 text-left', on && 'ring-4 ring-navy-600/70')}>
+                    className={cn('fp-card flex items-start gap-3 !rounded-lg p-4 text-left', on && 'ring-4 ring-brand-soft/70')}>
                     <span className={cn('fp-icon !size-12 shrink-0', m.id === 'whatsapp' && '[background:radial-gradient(circle_at_30%_25%,#5be08f,#0f7a4b_75%)]')}><m.Icon className="size-6" aria-hidden /></span>
-                    <span><span className="block font-heading font-bold text-ink">{m.label}</span><span className="text-sm text-muted">{m.desc}</span></span>
+                    <span><span className="block font-heading font-bold text-ink">{m.label}</span><span className="text-sm text-ink-muted">{m.desc}</span></span>
                   </button>
                 );
               })}
@@ -117,14 +117,14 @@ export function CheckoutForm({ settings }: { settings: PublicSettings }) {
         <ul className="space-y-2 text-sm">
           {items.map((i) => <li key={i.productId} className="flex justify-between gap-3"><span>{i.qty} x {i.name}</span><span className="shrink-0 font-bold text-ink">{formatKES(i.price * i.qty)}</span></li>)}
         </ul>
-        <dl className="space-y-2 border-t border-sky-200 pt-4">
+        <dl className="space-y-2 border-t border-line pt-4">
           <div className="flex justify-between"><dt>Subtotal</dt><dd className="font-bold text-ink">{formatKES(subtotal)}</dd></div>
           <div className="flex justify-between"><dt>Delivery</dt><dd className="font-bold text-ink">{delivery === 0 ? 'Free' : formatKES(delivery)}</dd></div>
-          <div className="flex justify-between pt-2 text-2xl"><dt className="font-heading font-bold">Total</dt><dd className="font-heading font-bold text-navy-700">{formatKES(subtotal + delivery)}</dd></div>
+          <div className="flex justify-between pt-2 text-2xl"><dt className="font-heading font-bold">Total</dt><dd className="font-heading font-bold text-brand">{formatKES(subtotal + delivery)}</dd></div>
         </dl>
-        {serverError ? <p role="alert" className="rounded-lg bg-peach-100 px-4 py-3 font-semibold text-cta-600">{serverError}</p> : null}
+        {serverError ? <p role="alert" className="rounded-lg bg-accent-tint px-4 py-3 font-semibold text-accent-strong">{serverError}</p> : null}
         <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>{isSubmitting ? <Loader2 className="size-5 animate-spin" aria-hidden /> : null}{isSubmitting ? 'Placing order...' : 'Place order'}</Button>
-        <p className="text-xs text-muted">No payment is taken online. We confirm your order and delivery time by phone or WhatsApp.</p>
+        <p className="text-xs text-ink-muted">No payment is taken online. We confirm your order and delivery time by phone or WhatsApp.</p>
       </aside>
     </form>
   );

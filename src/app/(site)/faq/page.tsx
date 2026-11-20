@@ -30,7 +30,7 @@ export default function FaqPage() {
           ))}
           <div className="fp-card mt-16 p-8" id="ask">
             <h2 className="font-heading text-3xl font-bold">Ask your own question</h2>
-            <p className="mb-6 mt-2 text-muted">Many of us need an answer to a plumbing situation from time to time. Send us yours and we will reply.</p>
+            <p className="mb-6 mt-2 text-ink-muted">Many of us need an answer to a plumbing situation from time to time. Send us yours and we will reply.</p>
             <BookingForm mode="question" idPrefix="faq" />
           </div>
         </div>

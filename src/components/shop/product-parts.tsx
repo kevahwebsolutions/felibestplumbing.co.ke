@@ -18,12 +18,12 @@ export const CATEGORY_GLYPH: Record<string, GlyphName | 'pump' | 'sink' | 'toile
   valves: 'valve', 'water-filtration': 'droplet', 'water-heaters': 'geyser', 'toilet-parts': 'toilet', accessories: 'wrench',
 };
 
-/** Category illustration used when a product has no photo: fitting glyph on a blueprint plate. */
+/** Category illustration used when a product has no photo: fitting glyph on a brand plate over a light blueprint tint. */
 export function ProductArt({ category, className }: { category: string; className?: string }) {
   const glyph = CATEGORY_GLYPH[category] ?? 'wrench';
   return (
-    <div className={cn('bp-grid relative grid size-full place-items-center overflow-hidden bg-navy-800', className)} aria-hidden>
-      <PlumbGlyph name={glyph} size={88} />
+    <div className={cn('bp-grid relative grid size-full place-items-center overflow-hidden bg-tint', className)} aria-hidden>
+      <span className="fp-icon !size-28 !rounded-xl"><PlumbGlyph name={glyph} size={72} /></span>
     </div>
   );
 }
@@ -48,7 +48,7 @@ export function ProductImage({ p, sizes, priority = false, className }: { p: Pro
 }
 
 export function StockBadge({ stock }: { stock: number }) {
-  if (stock <= 0) return <Pill className="!text-cta-600">Out of stock</Pill>;
+  if (stock <= 0) return <Pill className="!text-accent-strong">Out of stock</Pill>;
   if (stock <= 5) return <Pill tone="orange">Only {stock} left</Pill>;
   return <Pill tone="green"><Check className="size-3.5" aria-hidden /> In stock</Pill>;
 }
@@ -83,8 +83,8 @@ export function AddToCartButton({ product, qty = 1, size = 'md', className, labe
 export function PriceTag({ p, size = 'md' }: { p: ProductView; size?: 'md' | 'lg' }) {
   return (
     <p className="flex flex-wrap items-baseline gap-x-2">
-      <span className={cn('font-heading font-bold text-navy-700', size === 'lg' ? 'text-5xl' : 'text-3xl')}>{formatKES(p.finalPrice)}</span>
-      {p.onSale ? <del className="text-sm text-muted" aria-label={`Was ${formatKES(p.price)}`}>{formatKES(p.price)}</del> : null}
+      <span className={cn('font-heading font-bold text-brand', size === 'lg' ? 'text-5xl' : 'text-3xl')}>{formatKES(p.finalPrice)}</span>
+      {p.onSale ? <del className="text-sm text-ink-muted" aria-label={`Was ${formatKES(p.price)}`}>{formatKES(p.price)}</del> : null}
     </p>
   );
 }
@@ -109,21 +109,21 @@ export function ProductCard({ p, view = 'grid', onQuickView, priority = false }:
         ) : null}
       </div>
       <div className="flex flex-1 flex-col gap-2.5 p-4 sm:p-5">
-        <p className="flex flex-wrap items-center gap-x-2 text-xs font-semibold uppercase tracking-wider text-muted">
+        <p className="flex flex-wrap items-center gap-x-2 text-xs font-semibold uppercase tracking-wider text-ink-muted">
           <span>{p.categoryName}</span>
-          {productBrand(p) ? <span className="text-navy-700">&middot; {productBrand(p)}</span> : null}
+          {productBrand(p) ? <span className="text-brand">&middot; {productBrand(p)}</span> : null}
         </p>
         <h3 className="font-heading text-2xl font-semibold leading-tight">
-          <Link href={`/shop/${p.slug}`} className="text-ink hover:text-navy-700">{p.name}</Link>
+          <Link href={`/shop/${p.slug}`} className="text-ink hover:text-brand">{p.name}</Link>
         </h3>
         {specChips(p).length ? (
           <ul className="flex flex-wrap gap-1.5" aria-label="Key specifications">
-            {specChips(p).map((c) => <li key={c} className="rounded border border-sky-300 bg-sky-50 px-2 py-0.5 text-xs font-semibold text-navy-800">{c}</li>)}
+            {specChips(p).map((c) => <li key={c} className="rounded border border-line-strong bg-surface-alt px-2 py-0.5 text-xs font-semibold text-brand-strong">{c}</li>)}
           </ul>
         ) : null}
-        {list ? <p className="line-clamp-2 text-sm text-muted">{p.description}</p> : null}
-        <p className="text-xs text-muted">SKU: <span className="font-mono">{p.sku || 'n/a'}</span></p>
-        <div className="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-sky-200 pt-3">
+        {list ? <p className="line-clamp-2 text-sm text-ink-muted">{p.description}</p> : null}
+        <p className="text-xs text-ink-muted">SKU: <span className="font-mono">{p.sku || 'n/a'}</span></p>
+        <div className="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-line pt-3">
           <PriceTag p={p} />
           <StockBadge stock={p.stock} />
         </div>

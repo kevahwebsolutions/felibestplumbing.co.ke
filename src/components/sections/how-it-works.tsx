@@ -15,10 +15,10 @@ export function HowItWorks({ steps }: { steps: Step[] }) {
   return (
     <div className="relative">
       <div aria-hidden className="absolute left-0 right-0 top-8 hidden h-3 lg:block">
-        <PipeRun orientation="h" tone="dark" className="h-full w-full" />
+        <PipeRun orientation="h" className="h-full w-full" />
       </div>
       <div aria-hidden className="absolute bottom-8 left-8 top-8 w-3 -translate-x-1/2 lg:hidden">
-        <PipeRun orientation="v" tone="dark" className="h-full w-full" />
+        <PipeRun orientation="v" className="h-full w-full" />
       </div>
       <ol className="relative grid gap-10 lg:grid-cols-4 lg:gap-6">
         {steps.map((st, i) => (
@@ -32,8 +32,8 @@ export function HowItWorks({ steps }: { steps: Step[] }) {
           >
             <ValveNode label={i + 1} size={64} className="shrink-0" />
             <div>
-              <h3 className="text-2xl font-bold uppercase !text-white">{st.title}</h3>
-              <p className="mt-2 text-sky-200">{st.text}</p>
+              <h3 className="text-2xl font-bold uppercase text-ink">{st.title}</h3>
+              <p className="mt-2 text-body">{st.text}</p>
             </div>
           </motion.li>
         ))}

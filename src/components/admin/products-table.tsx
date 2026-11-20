@@ -29,13 +29,13 @@ export function ProductsTable({ rows, categories, initialFilter }: { rows: Admin
   const columns = React.useMemo<ColumnDef<AdminProductRow>[]>(() => [
     { id: 'select', enableSorting: false, header: () => null, cell: ({ row }) => <Checkbox aria-label={`Select ${row.original.name}`} checked={!!selected[row.original.id]} onCheckedChange={(v) => setSelected((s) => ({ ...s, [row.original.id]: v === true }))} /> },
     { accessorKey: 'name', header: 'Product', cell: ({ row }) => (
-      <Link href={`/admin/products/${row.original.id}`} className="flex min-w-56 items-center gap-3 font-bold text-ink hover:text-navy-600">
-        <span className="relative size-12 shrink-0 overflow-hidden rounded-xl bg-sky-100">{row.original.image ? <Image src={row.original.image} alt="" fill sizes="48px" className="object-cover" /> : null}</span>
-        <span>{row.original.name}<span className="block text-xs font-semibold text-muted">{row.original.sku}</span></span>
+      <Link href={`/admin/products/${row.original.id}`} className="flex min-w-56 items-center gap-3 font-bold text-ink hover:text-brand-soft">
+        <span className="relative size-12 shrink-0 overflow-hidden rounded-xl bg-tint">{row.original.image ? <Image src={row.original.image} alt="" fill sizes="48px" className="object-cover" /> : null}</span>
+        <span>{row.original.name}<span className="block text-xs font-semibold text-ink-muted">{row.original.sku}</span></span>
       </Link>) },
     { accessorKey: 'category', header: 'Category' },
-    { accessorKey: 'price', header: 'Price', cell: ({ row }) => <span className={cn('whitespace-nowrap font-bold', row.original.placeholder && 'text-cta-600')}>{formatKES(row.original.salePrice ?? row.original.price)}{row.original.salePrice ? <del className="ml-1 text-xs font-normal text-muted">{formatKES(row.original.price)}</del> : null}{row.original.placeholder ? <span className="ml-1 text-xs">(placeholder)</span> : null}</span> },
-    { accessorKey: 'stock', header: 'Stock', cell: ({ row }) => <span className={cn('font-bold', row.original.stock < 6 && 'text-cta-600')}>{row.original.stock}</span> },
+    { accessorKey: 'price', header: 'Price', cell: ({ row }) => <span className={cn('whitespace-nowrap font-bold', row.original.placeholder && 'text-accent-strong')}>{formatKES(row.original.salePrice ?? row.original.price)}{row.original.salePrice ? <del className="ml-1 text-xs font-normal text-ink-muted">{formatKES(row.original.price)}</del> : null}{row.original.placeholder ? <span className="ml-1 text-xs">(placeholder)</span> : null}</span> },
+    { accessorKey: 'stock', header: 'Stock', cell: ({ row }) => <span className={cn('font-bold', row.original.stock < 6 && 'text-accent-strong')}>{row.original.stock}</span> },
     { accessorKey: 'published', header: 'Status', cell: ({ row }) => <span className={cn('fp-pill', row.original.published ? 'fp-pill-green' : '')}>{row.original.published ? 'Published' : 'Draft'}</span> },
   ], [selected]);
 
@@ -54,7 +54,7 @@ export function ProductsTable({ rows, categories, initialFilter }: { rows: Admin
   return (
     <div className="space-y-4">
       <div className="fp-card grid gap-3 p-4 md:grid-cols-[1fr_auto_auto_auto] md:items-center">
-        <div className="relative"><Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-navy-600" aria-hidden /><Input type="search" placeholder="Search products" aria-label="Search products" value={q} onChange={(e) => setQ(e.target.value)} className="pl-12" /></div>
+        <div className="relative"><Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-brand-soft" aria-hidden /><Input type="search" placeholder="Search products" aria-label="Search products" value={q} onChange={(e) => setQ(e.target.value)} className="pl-12" /></div>
         <Select aria-label="Filter by category" value={cat} onChange={(e) => setCat(e.target.value)}><option value="">All categories</option>{categories.map((c) => <option key={c}>{c}</option>)}</Select>
         <Select aria-label="Filter by status" value={status} onChange={(e) => setStatus(e.target.value)}><option value="">All statuses</option><option value="published">Published</option><option value="draft">Drafts</option><option value="placeholder">Placeholder price</option><option value="low">Low stock</option></Select>
         <ButtonLink href="/admin/products/new"><Plus className="size-5" aria-hidden /> New product</ButtonLink>
@@ -77,7 +77,7 @@ export function ProductsTable({ rows, categories, initialFilter }: { rows: Admin
             {table.getHeaderGroups().map((hg) => (
               <tr key={hg.id}>
                 {hg.headers.map((h) => (
-                  <th key={h.id} scope="col" aria-sort={h.column.getIsSorted() === 'asc' ? 'ascending' : h.column.getIsSorted() === 'desc' ? 'descending' : undefined} className="px-4 py-3 text-xs uppercase tracking-wider text-muted">
+                  <th key={h.id} scope="col" aria-sort={h.column.getIsSorted() === 'asc' ? 'ascending' : h.column.getIsSorted() === 'desc' ? 'descending' : undefined} className="px-4 py-3 text-xs uppercase tracking-wider text-ink-muted">
                     {h.id === 'select' ? <Checkbox aria-label="Select all visible products" checked={visibleIds.length > 0 && visibleIds.every((id) => selected[id])} onCheckedChange={(v) => setSelected((s) => { const n = { ...s }; visibleIds.forEach((id) => { n[id] = v === true; }); return n; })} /> : h.column.getCanSort() ? (
                       <button type="button" onClick={h.column.getToggleSortingHandler()} className="inline-flex items-center gap-1 font-bold uppercase">{flexRender(h.column.columnDef.header, h.getContext())}<ArrowUpDown className="size-3.5" aria-hidden /></button>
                     ) : flexRender(h.column.columnDef.header, h.getContext())}
@@ -88,15 +88,15 @@ export function ProductsTable({ rows, categories, initialFilter }: { rows: Admin
           </thead>
           <tbody>
             {table.getRowModel().rows.map((r) => (
-              <tr key={r.id} className="border-t border-sky-200 hover:bg-sky-50">
+              <tr key={r.id} className="border-t border-line hover:bg-surface-alt">
                 {r.getVisibleCells().map((c) => <td key={c.id} className="px-4 py-3 align-middle">{flexRender(c.column.columnDef.cell, c.getContext())}</td>)}
               </tr>
             ))}
           </tbody>
         </table>
-        {table.getRowModel().rows.length === 0 ? <p className="p-10 text-center text-muted">No products match.</p> : null}
+        {table.getRowModel().rows.length === 0 ? <p className="p-10 text-center text-ink-muted">No products match.</p> : null}
       </div>
-      <p className="pl-2 text-sm text-muted">{table.getRowModel().rows.length} of {rows.length} products</p>
+      <p className="pl-2 text-sm text-ink-muted">{table.getRowModel().rows.length} of {rows.length} products</p>
     </div>
   );
 }

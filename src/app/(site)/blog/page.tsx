@@ -28,8 +28,8 @@ export default function BlogPage() {
                 <p className="fp-pill self-start">{first.category}</p>
                 <h2 className="font-heading text-4xl font-bold leading-tight">{first.title}</h2>
                 <p className="text-lg text-body">{first.excerpt}</p>
-                <p className="flex items-center gap-4 text-sm text-muted"><time dateTime={first.date}>{fmt(first.date)}</time><span className="flex items-center gap-1"><Clock className="size-4" aria-hidden /> {postReadingMinutes(first)} min read</span></p>
-                <span className="inline-flex items-center gap-2 font-heading font-bold text-navy-600">Read the guide <ArrowRight className="size-5 transition-transform group-hover:translate-x-1.5" aria-hidden /></span>
+                <p className="flex items-center gap-4 text-sm text-ink-muted"><time dateTime={first.date}>{fmt(first.date)}</time><span className="flex items-center gap-1"><Clock className="size-4" aria-hidden /> {postReadingMinutes(first)} min read</span></p>
+                <span className="inline-flex items-center gap-2 font-heading font-bold text-brand-soft">Read the guide <ArrowRight className="size-5 transition-transform group-hover:translate-x-1.5" aria-hidden /></span>
               </div>
             </Link>
           ) : null}
@@ -42,7 +42,7 @@ export default function BlogPage() {
                     <p className="fp-pill self-start">{p.category}</p>
                     <h2 className="font-heading text-2xl font-bold leading-snug">{p.title}</h2>
                     <p className="flex-1 text-body">{p.excerpt}</p>
-                    <p className="flex items-center gap-4 text-sm text-muted"><time dateTime={p.date}>{fmt(p.date)}</time><span>{postReadingMinutes(p)} min read</span></p>
+                    <p className="flex items-center gap-4 text-sm text-ink-muted"><time dateTime={p.date}>{fmt(p.date)}</time><span>{postReadingMinutes(p)} min read</span></p>
                   </div>
                 </Link>
               </StaggerItem>

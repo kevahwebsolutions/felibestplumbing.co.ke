@@ -14,14 +14,14 @@ export function Skeleton({ className }: { className?: string }) {
 export const RangeSlider = React.forwardRef<HTMLSpanElement, React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root> & { labels?: [string, string] }>(function RangeSlider({ className, labels = ['Minimum price', 'Maximum price'], ...p }, ref) {
   return (
     <SliderPrimitive.Root ref={ref} className={cn('relative flex h-10 w-full touch-none select-none items-center', className)} {...p}>
-      <SliderPrimitive.Track className="relative h-2 grow rounded-sm bg-sky-200">
-        <SliderPrimitive.Range className="absolute h-full rounded-sm bg-navy-700" />
+      <SliderPrimitive.Track className="relative h-2 grow rounded-sm bg-line">
+        <SliderPrimitive.Range className="absolute h-full rounded-sm bg-brand" />
       </SliderPrimitive.Track>
       {[0, 1].map((i) => (
         <SliderPrimitive.Thumb
           key={i}
           aria-label={labels[i]}
-          className="block size-7 rounded-md border-2 border-navy-700 bg-white shadow-sm transition-transform hover:scale-110 active:scale-95"
+          className="block size-7 rounded-md border-2 border-brand bg-surface shadow-sm transition-transform hover:scale-110 active:scale-95"
         />
       ))}
     </SliderPrimitive.Root>
@@ -32,10 +32,10 @@ export const Switch = React.forwardRef<HTMLButtonElement, React.ComponentPropsWi
   return (
     <SwitchPrimitive.Root
       ref={ref}
-      className={cn('relative h-8 w-14 shrink-0 rounded-md border border-sky-300 bg-sky-200 transition-colors data-[state=checked]:border-navy-700 data-[state=checked]:bg-navy-700', className)}
+      className={cn('relative h-8 w-14 shrink-0 rounded-md border border-line-strong bg-line transition-colors data-[state=checked]:border-brand data-[state=checked]:bg-brand', className)}
       {...p}
     >
-      <SwitchPrimitive.Thumb className="block size-6 translate-x-0.5 rounded bg-white shadow transition-transform data-[state=checked]:translate-x-[26px]" />
+      <SwitchPrimitive.Thumb className="block size-6 translate-x-0.5 rounded bg-surface shadow transition-transform data-[state=checked]:translate-x-[26px]" />
     </SwitchPrimitive.Root>
   );
 });
@@ -44,7 +44,7 @@ export const Checkbox = React.forwardRef<HTMLButtonElement, React.ComponentProps
   return (
     <CheckboxPrimitive.Root
       ref={ref}
-      className={cn('grid size-6 shrink-0 place-items-center rounded border border-[#7b8ba0] bg-white text-white data-[state=checked]:border-navy-700 data-[state=checked]:bg-navy-700', className)}
+      className={cn('grid size-6 shrink-0 place-items-center rounded border border-line-strong bg-surface text-on-brand data-[state=checked]:border-brand data-[state=checked]:bg-brand', className)}
       {...p}
     >
       <CheckboxPrimitive.Indicator>

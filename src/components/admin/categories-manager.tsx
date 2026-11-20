@@ -42,15 +42,15 @@ export function CategoriesManager({ cats }: { cats: Cat[] }) {
       <div className="fp-card overflow-x-auto p-2">
         <table className="w-full min-w-[480px] text-left">
           <caption className="sr-only">Categories</caption>
-          <thead><tr className="text-xs uppercase tracking-wider text-muted"><th scope="col" className="px-4 py-3">Name</th><th scope="col" className="px-4 py-3">Products</th><th scope="col" className="px-4 py-3">Order</th><th scope="col" className="px-4 py-3"><span className="sr-only">Actions</span></th></tr></thead>
+          <thead><tr className="text-xs uppercase tracking-wider text-ink-muted"><th scope="col" className="px-4 py-3">Name</th><th scope="col" className="px-4 py-3">Products</th><th scope="col" className="px-4 py-3">Order</th><th scope="col" className="px-4 py-3"><span className="sr-only">Actions</span></th></tr></thead>
           <tbody>
             {cats.map((c) => (
-              <tr key={c.id} className="border-t border-sky-200">
-                <th scope="row" className="px-4 py-3 font-bold">{c.name}<span className="block text-xs font-normal text-muted">/{c.slug}</span></th>
+              <tr key={c.id} className="border-t border-line">
+                <th scope="row" className="px-4 py-3 font-bold">{c.name}<span className="block text-xs font-normal text-ink-muted">/{c.slug}</span></th>
                 <td className="px-4 py-3">{c.count}</td><td className="px-4 py-3">{c.sortOrder}</td>
                 <td className="px-4 py-3"><div className="flex justify-end gap-2">
                   <button type="button" aria-label={`Edit ${c.name}`} onClick={() => setEditing(c)} className="fp-chip !min-h-11 w-11 justify-center !px-0"><Pencil className="size-4" aria-hidden /></button>
-                  <button type="button" aria-label={`Delete ${c.name}`} onClick={() => del(c)} className="fp-chip !min-h-11 w-11 justify-center !px-0 text-cta-600"><Trash2 className="size-4" aria-hidden /></button>
+                  <button type="button" aria-label={`Delete ${c.name}`} onClick={() => del(c)} className="fp-chip !min-h-11 w-11 justify-center !px-0 text-accent-strong"><Trash2 className="size-4" aria-hidden /></button>
                 </div></td>
               </tr>
             ))}

@@ -27,7 +27,7 @@ export function GalleryClient({ items, categories }: { items: GalleryItem[]; cat
           </button>
         ))}
       </div>
-      <p className="mb-6 text-center font-semibold text-muted" aria-live="polite">{filtered.length} photos</p>
+      <p className="mb-6 text-center font-semibold text-ink-muted" aria-live="polite">{filtered.length} photos</p>
       <motion.ul layout className="columns-2 gap-4 sm:gap-6 md:columns-3 lg:columns-4 [&>li]:mb-4 sm:[&>li]:mb-6">
         <AnimatePresence mode="popLayout">
           {visible.map((im, i) => (

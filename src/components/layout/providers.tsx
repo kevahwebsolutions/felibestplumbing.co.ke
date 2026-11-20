@@ -36,7 +36,7 @@ export function SiteToaster() {
       position="top-center"
       toastOptions={{
         unstyled: false,
-        classNames: { toast: '!rounded-lg !border !border-sky-300 !shadow-[var(--shadow-lift)] !font-sans !bg-white !text-ink' },
+        classNames: { toast: '!rounded-lg !border !border-line-strong !shadow-[var(--shadow-lift)] !font-sans !bg-surface !text-ink' },
       }}
     />
   );

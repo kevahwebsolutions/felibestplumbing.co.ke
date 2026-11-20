@@ -10,7 +10,7 @@ export const DialogTrigger = DialogPrimitive.Trigger;
 export const DialogClose = DialogPrimitive.Close;
 
 const Overlay = React.forwardRef<HTMLDivElement, React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>>(function Overlay({ className, ...p }, ref) {
-  return <DialogPrimitive.Overlay ref={ref} className={cn('fp-overlay fixed inset-0 z-[80] bg-navy-950/60', className)} {...p} />;
+  return <DialogPrimitive.Overlay ref={ref} className={cn('fp-overlay fixed inset-0 z-[80] bg-overlay', className)} {...p} />;
 });
 
 type ContentProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & { title: string; description?: string; hideTitle?: boolean };
@@ -27,7 +27,7 @@ export const DialogContent = React.forwardRef<HTMLDivElement, ContentProps>(func
         {...p}
       >
         <DialogPrimitive.Title className={hideTitle ? 'sr-only' : 'pr-12 font-heading text-3xl font-bold uppercase text-ink'}>{title}</DialogPrimitive.Title>
-        <DialogPrimitive.Description className={description ? 'mt-1 text-muted' : 'sr-only'}>{description ?? title}</DialogPrimitive.Description>
+        <DialogPrimitive.Description className={description ? 'mt-1 text-ink-muted' : 'sr-only'}>{description ?? title}</DialogPrimitive.Description>
         {children}
         <DialogPrimitive.Close aria-label="Close" className="fp-chip absolute right-4 top-4 !min-h-11 w-11 justify-center !px-0">
           <X className="size-5" aria-hidden />
@@ -48,7 +48,7 @@ export const SheetContent = React.forwardRef<HTMLDivElement, ContentProps & { si
       <DialogPrimitive.Content
         ref={ref}
         className={cn(
-          'fixed top-0 z-[90] flex h-dvh w-[min(92vw,440px)] flex-col border-sky-200 bg-white p-5 shadow-[0_0_40px_rgb(5_29_56/0.4)]',
+          'fixed top-0 z-[90] flex h-dvh w-[min(92vw,440px)] flex-col border-line bg-surface p-5 shadow-float',
           side === 'right' ? 'right-0 border-l data-[state=open]:animate-[sheet-in-right_0.35s_cubic-bezier(0.22,1,0.36,1)]' : 'left-0 border-r data-[state=open]:animate-[sheet-in-left_0.35s_cubic-bezier(0.22,1,0.36,1)]',
           className,
         )}

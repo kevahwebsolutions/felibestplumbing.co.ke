@@ -99,27 +99,27 @@ export function ProductForm({ initial, categories }: { initial: ProductFormIniti
 
         <section className="fp-card space-y-4 p-6" aria-label="Specifications">
           <div className="flex items-center justify-between"><h2 className="font-heading text-2xl font-bold">Specifications</h2><Button type="button" size="sm" variant="ghost" onClick={() => append({ key: '', value: '' })}><Plus className="size-4" aria-hidden /> Add row</Button></div>
-          {fields.length === 0 ? <p className="text-muted">No specifications yet.</p> : null}
+          {fields.length === 0 ? <p className="text-ink-muted">No specifications yet.</p> : null}
           {fields.map((f, i) => (
             <div key={f.id} className="grid grid-cols-[1fr_1fr_auto] items-center gap-3">
               <Input aria-label={`Specification ${i + 1} name`} placeholder="Name" {...register(`specs.${i}.key` as const)} />
               <Input aria-label={`Specification ${i + 1} value`} placeholder="Value" {...register(`specs.${i}.value` as const)} />
-              <button type="button" onClick={() => remove(i)} aria-label={`Remove specification ${i + 1}`} className="fp-chip !min-h-11 w-11 justify-center !px-0 text-cta-600"><Trash2 className="size-4" aria-hidden /></button>
+              <button type="button" onClick={() => remove(i)} aria-label={`Remove specification ${i + 1}`} className="fp-chip !min-h-11 w-11 justify-center !px-0 text-accent-strong"><Trash2 className="size-4" aria-hidden /></button>
             </div>
           ))}
         </section>
 
         <section className="fp-card space-y-4 p-6" aria-label="Images">
           <h2 className="font-heading text-2xl font-bold">Images</h2>
-          <p className="text-sm text-muted">Drag to reorder. The star marks the primary image. JPG, PNG or WebP up to 6 MB. Images are converted to WebP and stripped of metadata.</p>
+          <p className="text-sm text-ink-muted">Drag to reorder. The star marks the primary image. JPG, PNG or WebP up to 6 MB. Images are converted to WebP and stripped of metadata.</p>
           <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {images.map((im, i) => (
               <li key={im.src} draggable onDragStart={() => setDragIndex(i)} onDragOver={(e) => e.preventDefault()} onDrop={() => { if (dragIndex !== null) move(dragIndex, i); setDragIndex(null); }} className={cn('fp-card relative !rounded-lg p-2', dragIndex === i && 'opacity-50')}>
                 <div className="relative aspect-square overflow-hidden rounded-lg"><Image src={im.url} alt={im.alt || `Product image ${i + 1}`} fill sizes="160px" className="object-cover" /></div>
                 <div className="mt-2 flex items-center justify-between">
-                  <span className="cursor-grab p-2 text-muted" aria-hidden><GripVertical className="size-4" /></span>
-                  <button type="button" aria-pressed={primary === i} aria-label={primary === i ? 'Primary image' : 'Make primary image'} onClick={() => setPrimary(i)} className={cn('fp-chip !min-h-11 w-11 justify-center !px-0', primary === i && 'text-cta-500')}><Star className={cn('size-4', primary === i && 'fill-current')} aria-hidden /></button>
-                  <button type="button" aria-label="Remove image" onClick={() => { setImages((c) => c.filter((_, k) => k !== i)); setPrimary((p) => (p > i ? p - 1 : p === i ? 0 : p)); }} className="fp-chip !min-h-11 w-11 justify-center !px-0 text-cta-600"><Trash2 className="size-4" aria-hidden /></button>
+                  <span className="cursor-grab p-2 text-ink-muted" aria-hidden><GripVertical className="size-4" /></span>
+                  <button type="button" aria-pressed={primary === i} aria-label={primary === i ? 'Primary image' : 'Make primary image'} onClick={() => setPrimary(i)} className={cn('fp-chip !min-h-11 w-11 justify-center !px-0', primary === i && 'text-accent')}><Star className={cn('size-4', primary === i && 'fill-current')} aria-hidden /></button>
+                  <button type="button" aria-label="Remove image" onClick={() => { setImages((c) => c.filter((_, k) => k !== i)); setPrimary((p) => (p > i ? p - 1 : p === i ? 0 : p)); }} className="fp-chip !min-h-11 w-11 justify-center !px-0 text-accent-strong"><Trash2 className="size-4" aria-hidden /></button>
                 </div>
                 <div className="mt-1 flex gap-1 sm:hidden"><Button type="button" size="sm" variant="ghost" className="flex-1" onClick={() => move(i, Math.max(0, i - 1))}>Left</Button><Button type="button" size="sm" variant="ghost" className="flex-1" onClick={() => move(i, Math.min(images.length - 1, i + 1))}>Right</Button></div>
               </li>
@@ -145,7 +145,7 @@ export function ProductForm({ initial, categories }: { initial: ProductFormIniti
             )} />
           ))}
           <Controller control={control} name="isPlaceholderPrice" render={({ field }) => (
-            <div className="flex items-start gap-3"><Checkbox id="ph" checked={!!field.value} onCheckedChange={(v) => field.onChange(v === true)} /><label htmlFor="ph" className="text-sm font-semibold text-ink">This is still a placeholder price<span className="block font-normal text-muted">Untick once you have confirmed the real price.</span></label></div>
+            <div className="flex items-start gap-3"><Checkbox id="ph" checked={!!field.value} onCheckedChange={(v) => field.onChange(v === true)} /><label htmlFor="ph" className="text-sm font-semibold text-ink">This is still a placeholder price<span className="block font-normal text-ink-muted">Untick once you have confirmed the real price.</span></label></div>
           )} />
         </section>
         <Button type="submit" size="lg" className="w-full" disabled={isSubmitting || uploading}>{isSubmitting ? <Loader2 className="size-5 animate-spin" aria-hidden /> : null} Save product</Button>

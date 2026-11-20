@@ -24,12 +24,12 @@ export default async function OrdersPage({ searchParams }: { searchParams: Promi
       <div className="fp-card overflow-x-auto p-2">
         <table className="w-full min-w-[680px] text-left">
           <caption className="sr-only">Orders</caption>
-          <thead><tr className="text-xs uppercase tracking-wider text-muted">{['Reference', 'Customer', 'Date', 'Payment', 'Total', 'Status'].map((h) => <th key={h} scope="col" className="px-4 py-3">{h}</th>)}</tr></thead>
+          <thead><tr className="text-xs uppercase tracking-wider text-ink-muted">{['Reference', 'Customer', 'Date', 'Payment', 'Total', 'Status'].map((h) => <th key={h} scope="col" className="px-4 py-3">{h}</th>)}</tr></thead>
           <tbody>
             {orders.map((o) => (
-              <tr key={o.id} className="border-t border-sky-200 hover:bg-sky-50">
-                <th scope="row" className="px-4 py-3"><Link href={`/admin/orders/${o.id}`} className="font-bold text-navy-700 underline-offset-4 hover:underline">{o.ref}</Link></th>
-                <td className="px-4 py-3">{o.customerName}<span className="block text-xs text-muted">{o.phone}</span></td>
+              <tr key={o.id} className="border-t border-line hover:bg-surface-alt">
+                <th scope="row" className="px-4 py-3"><Link href={`/admin/orders/${o.id}`} className="font-bold text-brand underline-offset-4 hover:underline">{o.ref}</Link></th>
+                <td className="px-4 py-3">{o.customerName}<span className="block text-xs text-ink-muted">{o.phone}</span></td>
                 <td className="px-4 py-3 whitespace-nowrap">{new Date(o.createdAt * 1000).toLocaleDateString('en-KE', { day: 'numeric', month: 'short', year: 'numeric' })}</td>
                 <td className="px-4 py-3">{o.paymentMethod === 'whatsapp' ? 'WhatsApp' : 'On delivery'}</td>
                 <td className="px-4 py-3 font-bold">{formatKES(o.total)}</td>
@@ -38,7 +38,7 @@ export default async function OrdersPage({ searchParams }: { searchParams: Promi
             ))}
           </tbody>
         </table>
-        {orders.length === 0 ? <p className="p-10 text-center text-muted">No orders to show.</p> : null}
+        {orders.length === 0 ? <p className="p-10 text-center text-ink-muted">No orders to show.</p> : null}
       </div>
     </div>
   );

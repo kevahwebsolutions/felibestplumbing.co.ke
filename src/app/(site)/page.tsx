@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, BadgeCheck, Clock, MapPin, Phone, ShieldCheck, Wallet } from 'lucide-react';
-import { PipeConnector, SectionHeading, WaterLine } from '@/components/plumb/decor';
+import { PipeConnector, SectionHeading } from '@/components/plumb/decor';
 import { PlumbGlyph } from '@/components/plumb/icons';
 import { Reveal, Stagger, StaggerItem } from '@/components/motion/reveal';
 import { CountUp } from '@/components/motion/count-up';
@@ -55,18 +55,16 @@ export default function HomePage() {
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }} />
 
       {/* 1. HERO */}
-      <section className="relative isolate overflow-hidden bg-navy-950 text-white">
-        <Image src="/images/services2/commercial-11.webp" alt="Copper and brass plumbing pipework with isolation valves on a tiled wall" fill priority quality={70} sizes="100vw" className="-z-20 object-cover object-[70%_center]" />
-        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950/95 via-navy-900/80 to-navy-900/40 sm:via-navy-900/70" />
-        <div aria-hidden className="bp-grid absolute inset-0 -z-10 opacity-70" />
-        <div className="container-fp grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14 lg:py-20">
+      <section className="relative isolate overflow-hidden border-b border-line bg-surface">
+        <div aria-hidden className="bp-grid absolute inset-y-0 left-0 -z-10 w-full lg:w-[62%] [mask-image:linear-gradient(to_right,black_55%,transparent)]" />
+        <div className="container-fp grid items-center gap-10 py-10 sm:py-14 lg:grid-cols-[1fr_1.1fr] lg:gap-10 lg:py-16">
           <div>
             {s.homeBanner ? <p className="fp-pill fp-pill-orange mb-4">{s.homeBanner}</p> : null}
-            <p className="eyebrow on-dark mb-4"><Clock className="size-4" aria-hidden /> Open 24 hours, 7 days a week</p>
-            <h1 className="text-[3.4rem] font-bold leading-[0.95] !text-white sm:text-7xl lg:text-8xl">
-              Nairobi&rsquo;s 24/7 plumbers. <span className="text-orange-brand">Fixed right,</span> first time.
+            <p className="mb-5 inline-flex items-center gap-2 rounded-md border border-line bg-surface-alt px-3 py-1.5 font-heading text-base font-bold uppercase tracking-[0.12em] text-brand"><Clock className="size-4" aria-hidden /> Open 24 hours, 7 days a week</p>
+            <h1 className="text-[3.2rem] font-bold leading-[0.95] sm:text-7xl lg:text-[4.7rem]">
+              Nairobi&rsquo;s 24/7 plumbers. <span className="text-accent">Fixed right,</span> first time.
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-sky-100">
+            <p className="mt-6 max-w-xl text-lg text-body">
               Licensed plumbers who arrive on time, explain the problem and let you approve the price before any work starts. Burst pipes at midnight to full bathroom installs.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
@@ -76,32 +74,38 @@ export default function HomePage() {
             <ul className="mt-8 grid gap-x-6 gap-y-2 sm:grid-cols-2">
               {[[Clock, 'On-time guarantee'], [BadgeCheck, '100% satisfaction guarantee'], [Wallet, 'You approve the price first'], [ShieldCheck, 'Fully licensed technicians']].map(([Icon, label]) => {
                 const I = Icon as typeof Clock;
-                return <li key={label as string} className="flex items-center gap-2 font-semibold text-white"><I className="size-5 text-sky-400" aria-hidden /> {label as string}</li>;
+                return <li key={label as string} className="flex items-center gap-2 font-semibold text-ink"><I className="size-5 text-brand" aria-hidden /> {label as string}</li>;
               })}
             </ul>
           </div>
 
-          <div className="rounded-xl border border-white/20 bg-white p-6 text-body shadow-[0_24px_50px_-20px_rgb(5_29_56/0.8)] sm:p-7" id="quick-book">
-            <p className="eyebrow mb-1">Free quote</p>
-            <h2 className="text-4xl font-bold">Book a plumber</h2>
-            <p className="mb-5 mt-1 text-muted">Tell us what you need and we will call you back shortly.</p>
-            <BookingForm compact idPrefix="hero" />
+          <div className="relative pb-6 lg:min-h-[760px] lg:pb-0">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-line bg-tint lg:absolute lg:inset-y-0 lg:left-0 lg:aspect-auto lg:w-[62%]">
+              <Image src="/images/services2/commercial-11.webp" alt="Copper and brass plumbing pipework with isolation valves on a tiled wall" fill priority quality={70} sizes="(min-width:1024px) 46vw, 100vw" className="object-cover object-[60%_center]" />
+              <div aria-hidden className="absolute inset-0 bg-surface-alt/20" />
+              <div aria-hidden className="absolute inset-x-0 bottom-0 h-1.5 bg-brand" />
+            </div>
+            <div className="relative z-10 -mt-24 ml-3 mr-3 rounded-xl border border-line bg-surface p-6 shadow-float sm:ml-8 sm:mr-8 sm:p-7 lg:absolute lg:right-0 lg:top-6 lg:mx-0 lg:mt-0 lg:w-[22.5rem]" id="quick-book">
+              <p className="eyebrow mb-1">Free quote</p>
+              <h2 className="text-4xl font-bold">Book a plumber</h2>
+              <p className="mb-5 mt-1 text-ink-muted">Tell us what you need and we will call you back shortly.</p>
+              <BookingForm compact idPrefix="hero" />
+            </div>
           </div>
         </div>
-        <WaterLine />
       </section>
 
       {/* 2. TRUST STRIP */}
-      <section aria-label="Our track record" className="border-b border-sky-200 bg-white">
-        <ul className="container-fp grid grid-cols-2 divide-sky-200 py-2 sm:grid-cols-3 lg:grid-cols-5 lg:divide-x">
+      <section aria-label="Our track record" className="border-b border-line bg-surface-alt lg:pt-14">
+        <ul className="container-fp grid grid-cols-2 divide-line py-2 sm:grid-cols-3 lg:grid-cols-5 lg:divide-x">
           {[
             { n: SITE.stats.experienceYears, suf: '+', label: 'Years combined experience' },
             { n: SITE.stats.installs, suf: '+', label: 'Plumbing installs' },
             { n: SITE.stats.repairs, suf: '+', label: 'Repairs fixed' },
           ].map((st) => (
             <li key={st.label} className="flex flex-col-reverse items-center px-3 py-5 text-center">
-              <p className="mt-1 text-sm font-semibold uppercase tracking-wider text-muted">{st.label}</p>
-              <p className="font-heading text-5xl font-bold text-navy-700 sm:text-6xl"><CountUp to={st.n} suffix={st.suf} /></p>
+              <p className="mt-1 text-sm font-semibold uppercase tracking-wider text-ink-muted">{st.label}</p>
+              <p className="font-heading text-5xl font-bold text-ink sm:text-6xl"><CountUp to={st.n} suffix={st.suf} /></p>
             </li>
           ))}
           {[
@@ -109,21 +113,21 @@ export default function HomePage() {
             { glyph: 'valve' as const, label: 'On-time guarantee' },
           ].map((b) => (
             <li key={b.label} className="flex flex-col items-center justify-center gap-1 px-3 py-5 text-center">
-              <span className="grid size-12 place-items-center rounded-lg bg-navy-700 text-white" aria-hidden><PlumbGlyph name={b.glyph} size={30} /></span>
-              <p className="text-sm font-semibold uppercase tracking-wider text-muted">{b.label}</p>
+              <span className="grid size-12 place-items-center rounded-lg bg-brand text-on-brand" aria-hidden><PlumbGlyph name={b.glyph} size={30} /></span>
+              <p className="text-sm font-semibold uppercase tracking-wider text-ink-muted">{b.label}</p>
             </li>
           ))}
         </ul>
       </section>
 
       {/* 3. EMERGENCY BAND */}
-      <section aria-label="Emergency plumbing" className="bg-cta-500 text-white">
+      <section aria-label="Emergency plumbing" className="bg-accent text-on-accent">
         <div className="container-fp flex flex-col items-start justify-between gap-5 py-6 md:flex-row md:items-center">
           <p className="font-heading text-3xl font-bold uppercase leading-tight sm:text-4xl">
-            Burst pipe? Blocked toilet? No water? <span className="text-navy-950">We answer 24/7.</span>
+            Burst pipe? Blocked toilet? No water? <span className="underline decoration-white/60 decoration-4 underline-offset-8">We answer 24/7.</span>
           </p>
-          <a href={tel} className="inline-flex min-h-14 items-center gap-3 rounded-lg bg-navy-950 px-6 py-2 font-heading text-3xl font-bold tracking-wide text-white shadow-[0_3px_0_#000] transition-colors hover:bg-navy-900 active:translate-y-0.5">
-            <Phone className="size-6 text-orange-brand" aria-hidden /> {s.phone}
+          <a href={tel} className="inline-flex min-h-14 items-center gap-3 rounded-lg bg-surface px-6 py-2 font-heading text-3xl font-bold tracking-wide text-accent shadow-[0_3px_0_var(--color-accent-edge)] transition-colors hover:bg-surface-alt active:translate-y-0.5">
+            <Phone className="size-6" aria-hidden /> {s.phone}
           </a>
         </div>
       </section>
@@ -140,9 +144,9 @@ export default function HomePage() {
       </section>
 
       {/* 5. HOW IT WORKS */}
-      <section className="bp-grid bg-navy-900 py-16 text-white sm:py-20" aria-labelledby="how-title">
+      <section className="bp-grid border-y border-line bg-surface-alt py-16 sm:py-20" aria-labelledby="how-title">
         <div className="container-fp">
-          <SectionHeading dark eyebrow="How it works" title={<span id="how-title">Four steps from call to fixed</span>} intro="You stay informed and in control from the first call to the final clean-up." />
+          <SectionHeading eyebrow="How it works" title={<span id="how-title">Four steps from call to fixed</span>} intro="You stay informed and in control from the first call to the final clean-up." />
           <HowItWorks steps={HOW_IT_WORKS} />
         </div>
       </section>
@@ -157,10 +161,9 @@ export default function HomePage() {
           <Stagger className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:grid-rows-2">
             {PROJECTS.map((p, i) => (
               <StaggerItem key={p.src} className={i === 0 ? 'col-span-2 row-span-2' : ''}>
-                <figure className="group relative h-full min-h-[190px] overflow-hidden rounded-lg bg-navy-900 sm:min-h-[240px]">
-                  <Image src={p.src} alt={p.alt} fill sizes={i === 0 ? '(min-width:1024px) 50vw, 100vw' : '(min-width:1024px) 25vw, 50vw'} className="object-cover grayscale-[25%] transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none" style={{ objectPosition: p.pos }} />
-                  <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-transparent to-transparent" />
-                  <figcaption className="absolute inset-x-0 bottom-0 p-3 font-heading text-lg font-semibold uppercase tracking-wider text-white sm:p-4">{p.label}</figcaption>
+                <figure className="group relative h-full min-h-[190px] overflow-hidden rounded-lg border border-line bg-tint sm:min-h-[240px]">
+                  <Image src={p.src} alt={p.alt} fill sizes={i === 0 ? '(min-width:1024px) 50vw, 100vw' : '(min-width:1024px) 25vw, 50vw'} className="object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none" style={{ objectPosition: p.pos }} />
+                  <figcaption className="absolute inset-x-0 bottom-0 border-t-4 border-brand bg-surface/95 px-3 py-2 font-heading text-lg font-semibold uppercase tracking-wider text-ink sm:px-4">{p.label}</figcaption>
                 </figure>
               </StaggerItem>
             ))}
@@ -172,7 +175,7 @@ export default function HomePage() {
 
       {/* 7. SHOP TEASER */}
       {products.length ? (
-        <section className="bg-sky-50 py-16 sm:py-20">
+        <section className="bg-surface-alt py-16 sm:py-20">
           <div className="container-fp">
             <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
               <SectionHeading align="left" eyebrow="Plumbing supplies" title="Fittings, taps and valves" intro="Order from our shop. Pay on delivery or order via WhatsApp." className="!mb-0" />
@@ -193,16 +196,16 @@ export default function HomePage() {
             <figure className="fp-card-sky border-l-4 !border-l-copper p-6">
               <blockquote className="text-lg text-ink">You approve the price before we start the job. We treat your property like our own.</blockquote>
               <figcaption className="mt-4">
-                <span className="font-heading text-lg font-semibold uppercase tracking-wider text-ink">{SITE.founder.short}, <span className="text-muted">{SITE.founder.role}</span></span>
+                <span className="font-heading text-lg font-semibold uppercase tracking-wider text-ink">{SITE.founder.short}, <span className="text-ink-muted">{SITE.founder.role}</span></span>
               </figcaption>
             </figure>
           </Reveal>
           <Stagger className="grid gap-4 sm:grid-cols-2">
             {WHY.map((w) => (
               <StaggerItem key={w.title} className="fp-card h-full p-6">
-                <span className="grid size-14 place-items-center rounded-lg border-b-[3px] border-copper bg-navy-700 text-white" aria-hidden><PlumbGlyph name={w.glyph} size={34} /></span>
+                <span className="grid size-14 place-items-center rounded-lg border-b-[3px] border-copper bg-brand text-on-brand" aria-hidden><PlumbGlyph name={w.glyph} size={34} /></span>
                 <h3 className="mt-4 text-2xl font-bold uppercase">{w.title}</h3>
-                <p className="mt-2 text-muted">{w.text}</p>
+                <p className="mt-2 text-ink-muted">{w.text}</p>
               </StaggerItem>
             ))}
           </Stagger>
@@ -210,7 +213,7 @@ export default function HomePage() {
       </section>
 
       {/* 9. TESTIMONIALS */}
-      <section className="bg-sky-50 py-16 sm:py-20">
+      <section className="bg-surface-alt py-16 sm:py-20">
         <div className="container-fp">
           <SectionHeading eyebrow="Testimonials" title="What our customers say" intro="Our plumbers are experienced, reliable and professional." />
           <TestimonialCarousel />
@@ -230,9 +233,9 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
-            <Link href="/coverage" className="mt-6 inline-flex min-h-11 items-center font-heading text-lg font-bold uppercase tracking-wider text-navy-700 underline underline-offset-4">View all areas</Link>
+            <Link href="/coverage" className="mt-6 inline-flex min-h-11 items-center font-heading text-lg font-bold uppercase tracking-wider text-brand underline underline-offset-4">View all areas</Link>
           </div>
-          <div className="overflow-hidden rounded-lg border border-sky-200">
+          <div className="overflow-hidden rounded-lg border border-line">
             <MapEmbed className="h-[360px] lg:h-full lg:min-h-[420px]" />
           </div>
         </div>

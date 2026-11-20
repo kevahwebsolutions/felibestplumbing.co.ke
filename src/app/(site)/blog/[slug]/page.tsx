@@ -38,7 +38,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     <>
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.excerpt, image: absoluteUrl(p.cover), datePublished: p.date, dateModified: p.date, mainEntityOfPage: absoluteUrl(`/blog/${p.slug}`), author: { '@type': 'Organization', name: SITE.name }, publisher: { '@type': 'Organization', name: SITE.name, logo: { '@type': 'ImageObject', url: absoluteUrl('/icons/icon-512.png') } } }} />
       <PageHero crumbs={[{ name: 'Blog', path: '/blog' }, { name: p.title, path: `/blog/${p.slug}` }]} title={p.title} eyebrow={p.category}>
-        <p className="flex items-center gap-4 text-sky-100"><time dateTime={p.date}>{fmt(p.date)}</time><span className="flex items-center gap-1"><Clock className="size-4" aria-hidden /> {postReadingMinutes(p)} min read</span></p>
+        <p className="flex items-center gap-4 text-body"><time dateTime={p.date}>{fmt(p.date)}</time><span className="flex items-center gap-1"><Clock className="size-4" aria-hidden /> {postReadingMinutes(p)} min read</span></p>
       </PageHero>
       <article className="px-3 pt-14 sm:px-5">
         <div className="container-fp mx-auto max-w-3xl !px-0">

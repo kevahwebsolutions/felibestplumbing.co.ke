@@ -23,10 +23,10 @@ export default function TestimonialsPage() {
             <StaggerItem key={i}>
               <figure className="fp-card flex h-full flex-col gap-4 p-8">
                 <span className="fp-icon !size-14"><Quote className="size-7" aria-hidden /></span>
-                <div className="flex gap-1 text-cta-500" role="img" aria-label="5 out of 5 stars">{Array.from({ length: 5 }, (_, k) => <Star key={k} className="size-5 fill-current" aria-hidden />)}</div>
+                <div className="flex gap-1 text-accent" role="img" aria-label="5 out of 5 stars">{Array.from({ length: 5 }, (_, k) => <Star key={k} className="size-5 fill-current" aria-hidden />)}</div>
                 <figcaption className="font-heading text-3xl font-bold">{t.title}</figcaption>
                 <blockquote className="flex-1 text-lg text-body">{t.text}</blockquote>
-                <p className="font-bold text-navy-700">- {t.name}, {t.role}</p>
+                <p className="font-bold text-brand">- {t.name}, {t.role}</p>
               </figure>
             </StaggerItem>
           ))}

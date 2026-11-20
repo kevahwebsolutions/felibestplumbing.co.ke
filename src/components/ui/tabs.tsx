@@ -11,7 +11,7 @@ export const TabsList = React.forwardRef<HTMLDivElement, React.ComponentPropsWit
 });
 
 export const TabsTrigger = React.forwardRef<HTMLButtonElement, React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>>(function TabsTrigger({ className, ...p }, ref) {
-  return <TabsPrimitive.Trigger ref={ref} className={cn('fp-chip data-[state=active]:!border-navy-700 data-[state=active]:!bg-navy-700 data-[state=active]:!text-white', className)} {...p} />;
+  return <TabsPrimitive.Trigger ref={ref} className={cn('fp-chip data-[state=active]:!border-brand data-[state=active]:!bg-brand data-[state=active]:!text-on-brand', className)} {...p} />;
 });
 
 export const TabsContent = React.forwardRef<HTMLDivElement, React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>>(function TabsContent({ className, ...p }, ref) {

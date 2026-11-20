@@ -55,7 +55,7 @@ export function BookingForm({ defaultService = '', mode = 'booking', compact = f
               <CheckCircle2 className="size-12" aria-hidden />
             </motion.span>
             <h3 className="font-heading text-3xl font-bold">Thank you, we have your request</h3>
-            <p className="max-w-sm text-muted">A Felibest plumber will call you shortly. For anything urgent, call us on the number at the top of the page.</p>
+            <p className="max-w-sm text-ink-muted">A Felibest plumber will call you shortly. For anything urgent, call us on the number at the top of the page.</p>
             <Button variant="ghost" onClick={() => setSent(false)}>Send another request</Button>
           </motion.div>
         ) : (
@@ -95,12 +95,12 @@ export function BookingForm({ defaultService = '', mode = 'booking', compact = f
               <label htmlFor={id('website')}>Leave this field empty</label>
               <input id={id('website')} tabIndex={-1} autoComplete="off" {...register('website')} />
             </div>
-            {serverError ? <p role="alert" className="rounded-lg bg-peach-100 px-4 py-3 font-semibold text-cta-600">{serverError}</p> : null}
+            {serverError ? <p role="alert" className="rounded-lg bg-accent-tint px-4 py-3 font-semibold text-accent-strong">{serverError}</p> : null}
             <Button type="submit" size="lg" disabled={isSubmitting} className="w-full sm:w-auto sm:justify-self-start">
               {isSubmitting ? <Loader2 className="size-5 animate-spin" aria-hidden /> : <Send className="size-5" aria-hidden />}
               {isSubmitting ? 'Sending...' : mode === 'question' ? 'Send question' : 'Request a plumber'}
             </Button>
-            <p className="text-sm text-muted">We only use your details to answer this request.</p>
+            <p className="text-sm text-ink-muted">We only use your details to answer this request.</p>
           </motion.form>
         )}
       </AnimatePresence>

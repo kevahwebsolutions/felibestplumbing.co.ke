@@ -7,7 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Licensed plumbers in Nairobi, available 24 hours a day.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#f8f8fa',
+    background_color: '#ffffff',
     theme_color: '#0c4c93',
     icons: [
       { src: '/icons/icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },

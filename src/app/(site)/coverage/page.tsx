@@ -23,12 +23,12 @@ export default function CoveragePage() {
             <StaggerItem key={z.zone} className="fp-card p-8">
               <h2 className="font-heading text-3xl font-bold">{z.zone}</h2>
               <ul className="mt-5 grid grid-cols-2 gap-3">
-                {z.areas.map((a) => <li key={a} className="flex items-center gap-2 font-semibold text-body"><MapPin className="size-5 shrink-0 text-cta-500" aria-hidden /> {a}</li>)}
+                {z.areas.map((a) => <li key={a} className="flex items-center gap-2 font-semibold text-body"><MapPin className="size-5 shrink-0 text-accent" aria-hidden /> {a}</li>)}
               </ul>
             </StaggerItem>
           ))}
         </Stagger>
-        <p className="container-fp mt-8 !px-0 text-center text-muted">Your area is not listed? Call {s.phone} and we will tell you straight away whether we can reach you.</p>
+        <p className="container-fp mt-8 !px-0 text-center text-ink-muted">Your area is not listed? Call {s.phone} and we will tell you straight away whether we can reach you.</p>
       </section>
       <CtaBand phone={s.phone} whatsappNumber={s.whatsappNumber} />
     </>

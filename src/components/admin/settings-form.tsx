@@ -46,14 +46,14 @@ export function SettingsForm({ initial }: { initial: SettingsInput }) {
       </div>
       <section className="fp-card space-y-5 p-6 xl:col-span-2" aria-label="Offers">
         <div className="flex items-center justify-between"><h2 className="font-heading text-2xl font-bold">Offers (shown on the pricing page)</h2><Button type="button" size="sm" variant="ghost" onClick={() => append({ title: '', description: '', label: '', active: true })} disabled={fields.length >= 8}><Plus className="size-4" aria-hidden /> Add offer</Button></div>
-        {fields.length === 0 ? <p className="text-muted">No offers. The offers section is hidden on the pricing page.</p> : null}
+        {fields.length === 0 ? <p className="text-ink-muted">No offers. The offers section is hidden on the pricing page.</p> : null}
         {fields.map((f, i) => (
-          <div key={f.id} className="grid gap-4 rounded-lg bg-sky-50 p-4 md:grid-cols-[1fr_1.4fr_160px_auto_auto] md:items-end">
+          <div key={f.id} className="grid gap-4 rounded-lg bg-surface-alt p-4 md:grid-cols-[1fr_1.4fr_160px_auto_auto] md:items-end">
             <Field label="Title" htmlFor={`o-t-${i}`}><Input id={`o-t-${i}`} {...register(`offers.${i}.title` as const)} /></Field>
             <Field label="Description" htmlFor={`o-d-${i}`}><Textarea id={`o-d-${i}`} rows={2} className="!min-h-14" {...register(`offers.${i}.description` as const)} /></Field>
             <Field label="Badge" htmlFor={`o-l-${i}`}><Input id={`o-l-${i}`} {...register(`offers.${i}.label` as const)} /></Field>
             <Controller control={control} name={`offers.${i}.active` as const} render={({ field }) => (<div className="flex items-center gap-2 pb-3"><Switch id={`o-a-${i}`} checked={!!field.value} onCheckedChange={field.onChange} /><label htmlFor={`o-a-${i}`} className="text-sm font-bold">Active</label></div>)} />
-            <button type="button" onClick={() => remove(i)} aria-label={`Remove offer ${i + 1}`} className="fp-chip mb-1 !min-h-11 w-11 justify-center !px-0 text-cta-600"><Trash2 className="size-4" aria-hidden /></button>
+            <button type="button" onClick={() => remove(i)} aria-label={`Remove offer ${i + 1}`} className="fp-chip mb-1 !min-h-11 w-11 justify-center !px-0 text-accent-strong"><Trash2 className="size-4" aria-hidden /></button>
           </div>
         ))}
       </section>

@@ -21,7 +21,7 @@ export function CartPage({ settings }: { settings: PublicSettings }) {
       <div className="fp-card grid place-items-center gap-4 p-12 text-center">
         <span className="fp-icon !size-24"><ShoppingBag className="size-10" aria-hidden /></span>
         <h2 className="font-heading text-3xl font-bold">Your cart is empty</h2>
-        <p className="text-muted">Add taps, valves or heaters from the shop.</p>
+        <p className="text-ink-muted">Add taps, valves or heaters from the shop.</p>
         <ButtonLink href="/shop">Browse the shop</ButtonLink>
       </div>
     );
@@ -35,28 +35,28 @@ export function CartPage({ settings }: { settings: PublicSettings }) {
         <ul className="mt-6 space-y-4">
           {items.map((it) => (
             <li key={it.productId} className="fp-card flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:p-5">
-              <Link href={`/shop/${it.slug}`} className="relative size-24 shrink-0 overflow-hidden rounded-lg bg-sky-100">
-                {it.image ? <Image src={it.image} alt="" fill sizes="96px" className="object-cover" /> : <span className="grid size-full place-items-center text-navy-600"><ShoppingBag className="size-8" aria-hidden /></span>}
+              <Link href={`/shop/${it.slug}`} className="relative size-24 shrink-0 overflow-hidden rounded-lg bg-tint">
+                {it.image ? <Image src={it.image} alt="" fill sizes="96px" className="object-cover" /> : <span className="grid size-full place-items-center text-brand-soft"><ShoppingBag className="size-8" aria-hidden /></span>}
               </Link>
               <div className="min-w-0 flex-1">
-                <p className="text-xs font-bold uppercase tracking-wider text-muted">{it.category}</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-ink-muted">{it.category}</p>
                 <Link href={`/shop/${it.slug}`} className="font-heading text-xl font-bold text-ink">{it.name}</Link>
-                <p className="font-bold text-navy-700">{formatKES(it.price)}</p>
+                <p className="font-bold text-brand">{formatKES(it.price)}</p>
               </div>
               <QtyStepper value={it.qty} max={it.stock} onChange={(q) => setQty(it.productId, q)} label={it.name} />
               <p className="w-28 text-right font-heading text-xl font-bold">{formatKES(it.price * it.qty)}</p>
-              <button type="button" onClick={() => remove(it.productId)} aria-label={`Remove ${it.name}`} className="fp-chip !min-h-11 w-11 justify-center !px-0 text-cta-600"><Trash2 className="size-5" aria-hidden /></button>
+              <button type="button" onClick={() => remove(it.productId)} aria-label={`Remove ${it.name}`} className="fp-chip !min-h-11 w-11 justify-center !px-0 text-accent-strong"><Trash2 className="size-5" aria-hidden /></button>
             </li>
           ))}
         </ul>
-        <button type="button" onClick={clear} className="mt-4 pl-2 font-bold text-navy-600 underline">Clear cart</button>
+        <button type="button" onClick={clear} className="mt-4 pl-2 font-bold text-brand-soft underline">Clear cart</button>
       </div>
       <aside className="fp-card h-fit space-y-4 p-7 lg:sticky lg:top-28">
         <h2 className="font-heading text-3xl font-bold">Order summary</h2>
         <dl className="space-y-3">
           <div className="flex justify-between"><dt>Subtotal</dt><dd className="font-bold text-ink">{formatKES(subtotal)}</dd></div>
           <div className="flex justify-between"><dt>Delivery</dt><dd className="font-bold text-ink">{delivery === 0 ? 'Free' : formatKES(delivery)}</dd></div>
-          <div className="flex justify-between border-t border-sky-200 pt-3 text-2xl"><dt className="font-heading font-bold">Total</dt><dd className="font-heading font-bold text-navy-700">{formatKES(subtotal + delivery)}</dd></div>
+          <div className="flex justify-between border-t border-line pt-3 text-2xl"><dt className="font-heading font-bold">Total</dt><dd className="font-heading font-bold text-brand">{formatKES(subtotal + delivery)}</dd></div>
         </dl>
         <ButtonLink href="/checkout" size="lg" className="w-full">Proceed to checkout</ButtonLink>
         <ButtonLink href="/shop" variant="ghost" className="w-full">Continue shopping</ButtonLink>

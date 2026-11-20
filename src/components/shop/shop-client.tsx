@@ -26,7 +26,7 @@ function QuickView({ p, onClose }: { p: ProductView | null; onClose: () => void 
       {p ? (
         <DialogContent title={p.name} description={p.categoryName} data-lenis-prevent>
           <div className="mt-5 grid gap-6 md:grid-cols-2">
-            <div className="relative aspect-square overflow-hidden rounded-lg border border-sky-200">
+            <div className="relative aspect-square overflow-hidden rounded-lg border border-line">
               {p.images[0] ? <Image src={p.images[0].url} alt={p.images[0].alt || p.name} fill sizes="(min-width:768px) 380px, 90vw" className="object-cover" /> : <ProductArt category={p.categorySlug} />}
             </div>
             <div className="flex flex-col gap-4">
@@ -54,7 +54,7 @@ function Filters({ price, setPrice, bounds, tags, tag, setTag }: {
       <div>
         <h2 className="mb-1 font-heading text-2xl font-semibold uppercase">Price range</h2>
         <RangeSlider min={bounds[0]} max={bounds[1]} step={50} value={price} onValueChange={(v) => setPrice([v[0]!, v[1]!])} minStepsBetweenThumbs={1} />
-        <p className="mt-1 flex justify-between text-sm font-bold text-navy-700"><span>{formatKES(price[0])}</span><span>{formatKES(price[1])}</span></p>
+        <p className="mt-1 flex justify-between text-sm font-bold text-brand"><span>{formatKES(price[0])}</span><span>{formatKES(price[1])}</span></p>
       </div>
       {tags.length ? (
         <div>
@@ -119,10 +119,10 @@ export function ShopClient({ products, categories, initialCategory = '' }: { pro
             const on = category === c.slug;
             return (
               <li key={c.id}>
-                <button type="button" aria-pressed={on} onClick={() => setCategory(c.slug)} className={cn('flex min-h-[88px] w-28 flex-col items-center justify-center gap-1.5 rounded-lg border px-2 py-2 text-center transition-colors', on ? 'border-navy-700 bg-navy-700 text-white' : 'border-sky-300 bg-white text-navy-800 hover:border-navy-700')}>
-                  <span className={cn('grid size-10 place-items-center rounded-md', on ? 'bg-white/15' : 'bg-navy-700')} aria-hidden><PlumbGlyph name={c.slug ? (CATEGORY_GLYPH[c.slug] ?? 'wrench') : 'tee'} size={26} /></span>
+                <button type="button" aria-pressed={on} onClick={() => setCategory(c.slug)} className={cn('flex min-h-[88px] w-28 flex-col items-center justify-center gap-1.5 rounded-lg border px-2 py-2 text-center transition-colors', on ? 'border-brand bg-brand text-on-brand' : 'border-line-strong bg-surface text-brand-strong hover:border-brand')}>
+                  <span className={cn('grid size-10 place-items-center rounded-md', on ? 'bg-on-brand/15' : 'bg-brand')} aria-hidden><PlumbGlyph name={c.slug ? (CATEGORY_GLYPH[c.slug] ?? 'wrench') : 'tee'} size={26} /></span>
                   <span className="font-heading text-base font-semibold uppercase leading-none tracking-wide">{c.name}</span>
-                  <span className={cn('text-xs font-semibold', on ? 'text-sky-200' : 'text-muted')}>{c.count} items</span>
+                  <span className={cn('text-xs font-semibold', on ? 'text-on-brand' : 'text-ink-muted')}>{c.count} items</span>
                 </button>
               </li>
             );
@@ -139,7 +139,7 @@ export function ShopClient({ products, categories, initialCategory = '' }: { pro
       <div>
         <div className="fp-card mb-6 grid gap-3 p-4 sm:grid-cols-[1fr_auto_auto] sm:items-center">
           <div className="relative">
-            <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-navy-600" aria-hidden />
+            <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-brand-soft" aria-hidden />
             <Input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search taps, valves, heaters..." aria-label="Search products" className="pl-12" />
           </div>
           <label className="flex items-center gap-2">
@@ -170,9 +170,9 @@ export function ShopClient({ products, categories, initialCategory = '' }: { pro
         </div>
 
         <h2 className="sr-only">Products</h2>
-        <p className="mb-4 pl-2 font-semibold text-muted" aria-live="polite">
+        <p className="mb-4 pl-2 font-semibold text-ink-muted" aria-live="polite">
           {mounted ? `Showing ${Math.min(visible.length, filtered.length)} of ${filtered.length} products` : 'Loading products...'}
-          {activeFilters ? <button type="button" onClick={reset} className="ml-3 inline-flex items-center gap-1 font-bold text-navy-600 underline"><X className="size-4" aria-hidden /> Clear filters</button> : null}
+          {activeFilters ? <button type="button" onClick={reset} className="ml-3 inline-flex items-center gap-1 font-bold text-brand-soft underline"><X className="size-4" aria-hidden /> Clear filters</button> : null}
         </p>
 
         {!mounted ? (
@@ -181,7 +181,7 @@ export function ShopClient({ products, categories, initialCategory = '' }: { pro
           <div className="fp-card grid place-items-center gap-4 p-12 text-center">
             <span className="fp-icon !size-20"><Search className="size-9" aria-hidden /></span>
             <h2 className="font-heading text-3xl font-bold">No products match your filters</h2>
-            <p className="text-muted">Try a different search, widen the price range or clear the filters.</p>
+            <p className="text-ink-muted">Try a different search, widen the price range or clear the filters.</p>
             <Button onClick={reset}>Clear filters</Button>
           </div>
         ) : (

@@ -3,7 +3,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
-export type ButtonVariant = 'primary' | 'blue' | 'ghost' | 'outline';
+export type ButtonVariant = 'primary' | 'blue' | 'ghost' | 'outline' | 'whatsapp';
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
 export function buttonClass(variant: ButtonVariant = 'primary', size: ButtonSize = 'md', className?: string) {
@@ -12,6 +12,7 @@ export function buttonClass(variant: ButtonVariant = 'primary', size: ButtonSize
     variant === 'blue' && 'fp-button-blue',
     variant === 'ghost' && 'fp-button-ghost',
     variant === 'outline' && 'fp-button-outline',
+    variant === 'whatsapp' && 'fp-button-whatsapp',
     size === 'sm' && 'fp-button-sm',
     size === 'lg' && 'fp-button-lg',
     className,

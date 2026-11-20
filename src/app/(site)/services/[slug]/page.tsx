@@ -61,9 +61,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="container-fp grid gap-10 !px-0 lg:grid-cols-[1.4fr_0.9fr] lg:gap-14">
           <article>
             <Reveal>
-              <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-sky-200 bg-navy-900">
+              <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-line bg-tint">
                 <Image src={hero.src} alt={hero.alt} fill priority sizes="(min-width:1024px) 760px, 100vw" className="object-cover" style={{ objectPosition: 'center 40%' }} />
-                <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-navy-950/60 to-transparent" />
+                <div aria-hidden className="absolute inset-x-0 bottom-0 h-1.5 bg-brand" />
                 <PlumbIcon name={s.icon} size={56} tone={s.emergency ? 'orange' : 'blue'} className="absolute bottom-4 left-4" />
               </div>
             </Reveal>
@@ -76,7 +76,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <Stagger as="ol" className="mt-6 space-y-4">
                   {s.list.map((it, i) => (
                     <StaggerItem as="li" key={i} className="fp-card flex gap-4 p-5">
-                      {s.listKind === 'steps' ? <span className="fp-icon !size-12 shrink-0 font-heading text-2xl font-bold" aria-hidden>{i + 1}</span> : <CheckCircle2 className="mt-1 size-7 shrink-0 text-navy-600" aria-hidden />}
+                      {s.listKind === 'steps' ? <span className="fp-icon !size-12 shrink-0 font-heading text-2xl font-bold" aria-hidden>{i + 1}</span> : <CheckCircle2 className="mt-1 size-7 shrink-0 text-brand-soft" aria-hidden />}
                       <p className="text-body">{it.title ? <strong className="text-ink">{it.title}. </strong> : null}{it.text}</p>
                     </StaggerItem>
                   ))}
@@ -86,25 +86,25 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </article>
 
           <aside className="lg:sticky lg:top-28 lg:self-start">
-            <div className="fp-card border-t-4 !border-t-orange-brand p-6 sm:p-7" id="book">
+            <div className="fp-card border-t-4 !border-t-accent-bright p-6 sm:p-7" id="book">
               <p className="eyebrow mb-1">Free quote</p>
               <h2 className="text-4xl font-bold">Book this service</h2>
-              <p className="mb-5 mt-1 text-muted">You approve the price before any work starts.</p>
+              <p className="mb-5 mt-1 text-ink-muted">You approve the price before any work starts.</p>
               <BookingForm compact defaultService={s.title} idPrefix="svc" />
             </div>
           </aside>
         </div>
       </div>
 
-      <section className="bp-grid mt-14 bg-navy-900 py-14 text-white" aria-labelledby="proc-h">
+      <section className="bp-grid mt-14 border-y border-line bg-surface-alt py-14" aria-labelledby="proc-h">
         <div className="container-fp">
-          <SectionHeading dark align="left" eyebrow="Our process" title={<span id="proc-h">How we handle {s.title.toLowerCase()}</span>} />
+          <SectionHeading align="left" eyebrow="Our process" title={<span id="proc-h">How we handle {s.title.toLowerCase()}</span>} />
           <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {HOW_IT_WORKS.map((st, i) => (
-              <li key={st.title} className="rounded-lg border border-white/15 bg-white/5 p-5">
-                <span className="font-heading text-5xl font-bold text-copper-300" aria-hidden>{String(i + 1).padStart(2, '0')}</span>
-                <h3 className="mt-1 text-2xl font-bold uppercase !text-white">{st.title}</h3>
-                <p className="mt-2 text-sm text-sky-200">{st.text}</p>
+              <li key={st.title} className="fp-card p-5">
+                <span className="font-heading text-5xl font-bold text-brand" aria-hidden>{String(i + 1).padStart(2, '0')}</span>
+                <h3 className="mt-1 text-2xl font-bold uppercase">{st.title}</h3>
+                <p className="mt-2 text-sm text-body">{st.text}</p>
               </li>
             ))}
           </ol>

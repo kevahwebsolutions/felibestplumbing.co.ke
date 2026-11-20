@@ -4,7 +4,7 @@ import { SITE } from '@/lib/site';
 
 export function buildMetadata(opts: { title: string; description: string; path: string; image?: string; noindex?: boolean; type?: 'website' | 'article' }): Metadata {
   const url = absoluteUrl(opts.path);
-  const image = absoluteUrl(opts.image ?? '/images/logo-white.webp');
+  const image = absoluteUrl(opts.image ?? '/images/logo-light.png');
   return {
     title: opts.title,
     description: opts.description,
@@ -44,7 +44,7 @@ export function localBusinessLd() {
     '@id': `${SITE.url}/#business`,
     name: SITE.name,
     url: SITE.url,
-    image: absoluteUrl('/images/logo-white.webp'),
+    image: absoluteUrl('/images/logo-light.png'),
     logo: absoluteUrl('/icons/icon-512.png'),
     telephone: SITE.phone,
     email: SITE.emails[0],

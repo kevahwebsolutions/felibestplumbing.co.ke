@@ -11,7 +11,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
   const s = getSettings();
   return (
     <>
-      <a href="#main" className="sr-only z-[100] rounded bg-white px-5 py-3 font-bold text-navy-700 focus:not-sr-only focus:fixed focus:left-4 focus:top-4">
+      <a href="#main" className="sr-only z-[100] rounded bg-surface px-5 py-3 font-bold text-brand focus:not-sr-only focus:fixed focus:left-4 focus:top-4">
         Skip to main content
       </a>
       <Tracker />

@@ -50,18 +50,18 @@ export default function PricingPage() {
             <div className="fp-card overflow-hidden p-2 sm:p-4">
               <table className="w-full text-left">
                 <caption className="sr-only">Indicative plumbing prices in KES</caption>
-                <thead><tr className="text-sm uppercase tracking-wider text-muted"><th scope="col" className="px-4 py-3">Job</th><th scope="col" className="px-4 py-3 text-right">Typical price</th></tr></thead>
+                <thead><tr className="text-sm uppercase tracking-wider text-ink-muted"><th scope="col" className="px-4 py-3">Job</th><th scope="col" className="px-4 py-3 text-right">Typical price</th></tr></thead>
                 <tbody>
                   {RATE_GUIDE.map((r) => (
-                    <tr key={r.item} className="border-t border-sky-200">
+                    <tr key={r.item} className="border-t border-line">
                       <th scope="row" className="px-4 py-4 font-semibold text-ink">{r.item}</th>
-                      <td className="px-4 py-4 text-right font-heading text-3xl font-bold text-navy-700">{r.range}</td>
+                      <td className="px-4 py-4 text-right font-heading text-3xl font-bold text-brand">{r.range}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <p className="mt-4 pl-2 text-sm text-muted">Prices are a guide only and exclude parts and materials unless stated. Final quotes are given after assessment.</p>
+            <p className="mt-4 pl-2 text-sm text-ink-muted">Prices are a guide only and exclude parts and materials unless stated. Final quotes are given after assessment.</p>
           </Reveal>
         </div>
       </section>
@@ -72,10 +72,10 @@ export default function PricingPage() {
           <Stagger className="grid gap-6 lg:grid-cols-3">
             {PLANS.map((p, i) => (
               <StaggerItem key={p.name} className={i === 1 ? 'fp-card-blue p-8' : 'fp-card p-8'}>
-                <h3 className={`font-heading text-3xl font-bold ${i === 1 ? '!text-white' : ''}`}>{p.name}</h3>
-                <p className={i === 1 ? 'text-sky-100' : 'text-muted'}>{p.for}</p>
+                <h3 className={'font-heading text-3xl font-bold'}>{p.name}</h3>
+                <p className="text-ink-muted">{p.for}</p>
                 <ul className="my-6 space-y-3">
-                  {p.perks.map((perk) => <li key={perk} className="flex gap-3"><Check className={`mt-1 size-5 shrink-0 ${i === 1 ? 'text-sky-300' : 'text-navy-600'}`} aria-hidden />{perk}</li>)}
+                  {p.perks.map((perk) => <li key={perk} className="flex gap-3"><Check className={`mt-1 size-5 shrink-0 text-brand-soft`} aria-hidden />{perk}</li>)}
                 </ul>
                 <ButtonLink href="/contact#book" variant={i === 1 ? 'primary' : 'blue'} className="w-full">{p.from}</ButtonLink>
               </StaggerItem>

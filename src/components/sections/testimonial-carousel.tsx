@@ -27,12 +27,12 @@ export function TestimonialCarousel() {
             <div key={i} className="min-w-0 shrink-0 grow-0 basis-full pl-5 md:basis-1/2 lg:basis-1/3" role="group" aria-roledescription="slide" aria-label={`${i + 1} of ${TESTIMONIALS.length}`}>
               <figure className="fp-card flex h-full flex-col gap-4 p-7">
                 <span className="fp-icon !size-12"><Quote className="size-6" aria-hidden /></span>
-                <div className="flex gap-1 text-cta-500" role="img" aria-label="5 out of 5 stars">
+                <div className="flex gap-1 text-accent" role="img" aria-label="5 out of 5 stars">
                   {Array.from({ length: 5 }, (_, s) => <Star key={s} className="size-5 fill-current" aria-hidden />)}
                 </div>
                 <figcaption className="font-heading text-2xl font-bold text-ink">{t.title}</figcaption>
                 <blockquote className="flex-1 text-body">{t.text}</blockquote>
-                <p className="font-bold text-navy-700">- {t.name}, {t.role}</p>
+                <p className="font-bold text-brand">- {t.name}, {t.role}</p>
               </figure>
             </div>
           ))}
@@ -43,7 +43,7 @@ export function TestimonialCarousel() {
         <div className="flex gap-2" role="tablist" aria-label="Choose testimonial">
           {TESTIMONIALS.map((_, i) => (
             <button key={i} type="button" role="tab" aria-selected={i === index} aria-label={`Testimonial ${i + 1}`} onClick={() => embla?.scrollTo(i)} className="grid size-11 place-items-center">
-              <span className={cn('block h-3 rounded-full transition-all', i === index ? 'w-8 bg-navy-600' : 'w-3 bg-sky-300')} />
+              <span className={cn('block h-3 rounded-full transition-all', i === index ? 'w-8 bg-brand-soft' : 'w-3 bg-line-strong')} />
             </button>
           ))}
         </div>

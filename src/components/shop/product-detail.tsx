@@ -40,7 +40,7 @@ export function ProductGallery({ p }: { p: ProductView }) {
         <ul className="mt-4 grid grid-cols-4 gap-3" aria-label="Product photos">
           {p.images.map((im, i) => (
             <li key={im.id}>
-              <button type="button" onClick={() => setActive(i)} aria-label={`Show photo ${i + 1}`} aria-pressed={i === active} className={cn('fp-card relative block aspect-square w-full overflow-hidden p-1', i === active && '!border-navy-700 ring-2 ring-navy-700')}>
+              <button type="button" onClick={() => setActive(i)} aria-label={`Show photo ${i + 1}`} aria-pressed={i === active} className={cn('fp-card relative block aspect-square w-full overflow-hidden p-1', i === active && '!border-brand ring-2 ring-brand')}>
                 <Image src={im.url} alt="" fill sizes="120px" className="rounded object-cover" />
               </button>
             </li>
@@ -57,23 +57,23 @@ export function ProductBuyBox({ p, freeThreshold, fee, phone = '' }: { p: Produc
   return (
     <div className="space-y-5">
       <PriceTag p={p} size="lg" />
-      <div className="flex flex-wrap items-center gap-3"><StockBadge stock={p.stock} /><span className="text-sm text-muted">SKU: {p.sku || 'n/a'}</span></div>
+      <div className="flex flex-wrap items-center gap-3"><StockBadge stock={p.stock} /><span className="text-sm text-ink-muted">SKU: {p.sku || 'n/a'}</span></div>
       <div className="flex flex-wrap items-center gap-4">
         <QtyStepper value={qty} max={p.stock} onChange={(n) => setQty(Math.max(1, n))} label={p.name} />
         <AddToCartButton product={p} qty={qty} size="lg" className="flex-1 sm:flex-none" />
       </div>
-      <p className="fp-card-sky flex items-start gap-3 p-4 text-sm font-semibold text-navy-800"><Truck className="mt-0.5 size-5 shrink-0" aria-hidden />
+      <p className="fp-card-sky flex items-start gap-3 p-4 text-sm font-semibold text-brand-strong"><Truck className="mt-0.5 size-5 shrink-0" aria-hidden />
         Delivery from {fee === 0 ? 'free' : `KES ${fee.toLocaleString('en-KE')}`}{freeThreshold > 0 ? `, free on orders over KES ${freeThreshold.toLocaleString('en-KE')}` : ''}. Pay on delivery or order via WhatsApp.</p>
       <div className="fp-card-blue flex flex-wrap items-center justify-between gap-4 p-5">
         <div className="flex items-start gap-3">
-          <Wrench className="mt-1 size-6 shrink-0 text-copper-300" aria-hidden />
+          <Wrench className="mt-1 size-6 shrink-0 text-brand" aria-hidden />
           <div>
-            <p className="font-heading text-2xl font-semibold uppercase !text-white">Need it installed?</p>
-            <p className="text-sm text-sky-200">Book a licensed Felibest plumber to fit it. You approve the price first.</p>
+            <p className="font-heading text-2xl font-semibold uppercase text-ink">Need it installed?</p>
+            <p className="text-sm text-body">Book a licensed Felibest plumber to fit it. You approve the price first.</p>
           </div>
         </div>
         <Link href="/contact#book" className="fp-button fp-button-sm">Book a plumber</Link>
-        {phone ? <a href={`tel:${phone.replace(/[^d+]/g, '')}`} className="inline-flex min-h-11 items-center gap-2 font-heading text-xl font-bold tracking-wide text-white underline-offset-4 hover:underline"><Phone className="size-4" aria-hidden /> {phone}</a> : null}
+        {phone ? <a href={`tel:${phone.replace(/[^\d+]/g, '')}`} className="inline-flex min-h-11 items-center gap-2 font-heading text-xl font-bold tracking-wide text-white underline-offset-4 hover:underline"><Phone className="size-4" aria-hidden /> {phone}</a> : null}
       </div>
     </div>
   );
@@ -94,17 +94,17 @@ export function ProductTabs({ p }: { p: ProductView }) {
             <caption className="sr-only">Specifications for {p.name}</caption>
             <tbody>
               {p.specs.map((sp) => (
-                <tr key={sp.key} className="border-b border-sky-200 last:border-0 odd:bg-sky-50">
+                <tr key={sp.key} className="border-b border-line last:border-0 odd:bg-surface-alt">
                   <th scope="row" className="w-2/5 px-4 py-3 font-semibold text-ink">{sp.key}</th>
                   <td className="px-4 py-3 text-body">{sp.value}</td>
                 </tr>
               ))}
             </tbody>
           </table>
-        ) : <p className="text-muted">No additional information for this product.</p>}
+        ) : <p className="text-ink-muted">No additional information for this product.</p>}
       </TabsContent>
       <TabsContent value="reviews">
-        <p className="flex items-center gap-2 text-body"><Star className="size-5 text-cta-500" aria-hidden /> There are no reviews yet. Bought this product? Tell us about it through our contact page.</p>
+        <p className="flex items-center gap-2 text-body"><Star className="size-5 text-accent" aria-hidden /> There are no reviews yet. Bought this product? Tell us about it through our contact page.</p>
       </TabsContent>
     </Tabs>
   );

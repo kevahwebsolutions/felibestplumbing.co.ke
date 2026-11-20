@@ -28,7 +28,7 @@ export function CartDrawer({ settings }: { settings: PublicSettings }) {
             <div>
               <span className="fp-icon mx-auto !size-24"><ShoppingBag className="size-10" aria-hidden /></span>
               <p className="mt-6 font-heading text-2xl font-bold text-ink">Your cart is empty</p>
-              <p className="mt-2 text-muted">Browse taps, valves, heaters and more.</p>
+              <p className="mt-2 text-ink-muted">Browse taps, valves, heaters and more.</p>
               <ButtonLink href="/shop" className="mt-6" onClick={() => setOpen(false)}>Go to the shop</ButtonLink>
             </div>
           </div>
@@ -39,15 +39,15 @@ export function CartDrawer({ settings }: { settings: PublicSettings }) {
               <AnimatePresence initial={false}>
                 {list.map((it) => (
                   <motion.li key={it.productId} layout exit={{ opacity: 0, x: 60, height: 0 }} className="fp-card flex gap-3 !rounded-lg p-3">
-                    <Link href={`/shop/${it.slug}`} onClick={() => setOpen(false)} className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-sky-100">
-                      {it.image ? <Image src={it.image} alt="" fill sizes="80px" className="object-cover" /> : <span className="grid size-full place-items-center text-navy-600"><ShoppingBag className="size-7" aria-hidden /></span>}
+                    <Link href={`/shop/${it.slug}`} onClick={() => setOpen(false)} className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-tint">
+                      {it.image ? <Image src={it.image} alt="" fill sizes="80px" className="object-cover" /> : <span className="grid size-full place-items-center text-brand-soft"><ShoppingBag className="size-7" aria-hidden /></span>}
                     </Link>
                     <div className="min-w-0 flex-1">
                       <Link href={`/shop/${it.slug}`} onClick={() => setOpen(false)} className="line-clamp-2 font-heading font-bold leading-snug text-ink">{it.name}</Link>
-                      <p className="mt-1 text-sm font-bold text-navy-700">{formatKES(it.price)}</p>
+                      <p className="mt-1 text-sm font-bold text-brand">{formatKES(it.price)}</p>
                       <div className="mt-2 flex items-center justify-between gap-2">
                         <QtyStepper value={it.qty} max={it.stock} onChange={(q) => setQty(it.productId, q)} label={it.name} compact />
-                        <button type="button" onClick={() => remove(it.productId)} aria-label={`Remove ${it.name}`} className="fp-chip !min-h-11 w-11 justify-center !px-0 text-cta-600">
+                        <button type="button" onClick={() => remove(it.productId)} aria-label={`Remove ${it.name}`} className="fp-chip !min-h-11 w-11 justify-center !px-0 text-accent-strong">
                           <Trash2 className="size-4" aria-hidden />
                         </button>
                       </div>
@@ -56,7 +56,7 @@ export function CartDrawer({ settings }: { settings: PublicSettings }) {
                 ))}
               </AnimatePresence>
             </ul>
-            <div className="mt-4 space-y-2 border-t border-sky-200 pt-4">
+            <div className="mt-4 space-y-2 border-t border-line pt-4">
               <div className="flex justify-between text-body"><span>Subtotal</span><span className="font-bold text-ink">{formatKES(subtotal)}</span></div>
               <div className="flex justify-between text-body">
                 <span className="inline-flex items-center gap-2"><Truck className="size-4" aria-hidden /> Delivery</span>

@@ -47,11 +47,11 @@ export function EnquiryRow({ e }: { e: { id: number; kind: string; name: string;
   return (
     <article className="fp-card grid gap-4 p-5 lg:grid-cols-[1.2fr_1fr]" aria-label={`Enquiry from ${e.name}`}>
       <div className="space-y-2">
-        <div className="flex flex-wrap items-center gap-2"><h3 className="font-heading text-xl font-bold">{e.name}</h3><span className="fp-pill">{e.kind}</span><span className="text-xs text-muted">{new Date(e.createdAt * 1000).toLocaleString('en-KE', { dateStyle: 'medium', timeStyle: 'short' })}</span></div>
-        <p><a className="font-bold text-navy-600 underline" href={`tel:${e.phone}`}>{e.phone}</a>{e.email ? <> &middot; <a className="underline" href={`mailto:${e.email}`}>{e.email}</a></> : null}</p>
+        <div className="flex flex-wrap items-center gap-2"><h3 className="font-heading text-xl font-bold">{e.name}</h3><span className="fp-pill">{e.kind}</span><span className="text-xs text-ink-muted">{new Date(e.createdAt * 1000).toLocaleString('en-KE', { dateStyle: 'medium', timeStyle: 'short' })}</span></div>
+        <p><a className="font-bold text-brand-soft underline" href={`tel:${e.phone}`}>{e.phone}</a>{e.email ? <> &middot; <a className="underline" href={`mailto:${e.email}`}>{e.email}</a></> : null}</p>
         {e.service ? <p className="text-sm"><strong>Service:</strong> {e.service}{e.preferredDate ? ` (preferred ${e.preferredDate})` : ''}</p> : null}
-        {e.message ? <p className="rounded-lg bg-sky-50 p-3 text-body">{e.message}</p> : null}
-        <p className="text-xs text-muted">{e.forwarded ? 'Forwarded by email' : 'Not forwarded by email'}</p>
+        {e.message ? <p className="rounded-lg bg-surface-alt p-3 text-body">{e.message}</p> : null}
+        <p className="text-xs text-ink-muted">{e.forwarded ? 'Forwarded by email' : 'Not forwarded by email'}</p>
       </div>
       <div className="space-y-3">
         <label htmlFor={`st-${e.id}`} className="sr-only">Status</label>

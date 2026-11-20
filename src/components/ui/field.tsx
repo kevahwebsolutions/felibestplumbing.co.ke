@@ -30,7 +30,7 @@ export function Label({ className, children, ...props }: React.ComponentPropsWit
 export function FieldError({ id, message }: { id?: string; message?: string }) {
   if (!message) return null;
   return (
-    <p id={id} role="alert" className="mt-2 pl-2 text-sm font-semibold text-cta-600">
+    <p id={id} role="alert" className="mt-2 pl-2 text-sm font-semibold text-accent-strong">
       {message}
     </p>
   );
@@ -41,7 +41,7 @@ export function Field({ label, htmlFor, error, hint, children, className }: { la
     <div className={className}>
       <Label htmlFor={htmlFor}>{label}</Label>
       {children}
-      {hint && !error ? <p className="mt-2 pl-2 text-sm text-muted">{hint}</p> : null}
+      {hint && !error ? <p className="mt-2 pl-2 text-sm text-ink-muted">{hint}</p> : null}
       <FieldError id={`${htmlFor}-error`} message={error} />
     </div>
   );

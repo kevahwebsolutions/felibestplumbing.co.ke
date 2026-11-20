@@ -123,7 +123,7 @@ const KEY_TO_GLYPH: Record<IconKey, string> = {
 
 export type GlyphName = keyof typeof GLYPHS;
 
-/** Bare glyph (no tile) for use on dark or light backgrounds. */
+/** Bare glyph (no tile). Glyphs are white with copper and sky details, so place them on a brand-coloured tile. */
 export function PlumbGlyph({ name, size = 32, className }: { name: IconKey | GlyphName; size?: number; className?: string }) {
   const key = (KEY_TO_GLYPH as Record<string, string>)[name] ?? name;
   const Custom = GLYPHS[key];
@@ -138,7 +138,7 @@ export function PlumbGlyph({ name, size = 32, className }: { name: IconKey | Gly
   return <L className={className} strokeWidth={2.100} {...({ style: { width: size, height: size } } as object)} />;
 }
 
-const TONES = { blue: '', orange: 'fp-icon-orange', navy: '[background:var(--color-navy-900)]', sky: '[background:var(--color-navy-800)]' } as const;
+const TONES = { blue: '', orange: 'fp-icon-orange', navy: '[background:var(--color-brand-strong)]', sky: '[background:var(--color-brand-soft)]' } as const;
 
 /** Square tile with a plumbing glyph: navy plate with a copper edge. */
 export function PlumbIcon({ name, size = 56, tone = 'blue', className }: { name: IconKey | GlyphName; size?: number; tone?: keyof typeof TONES; className?: string }) {
