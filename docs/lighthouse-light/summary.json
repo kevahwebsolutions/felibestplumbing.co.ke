@@ -1,0 +1,97 @@
+[
+  {
+    "name": "home",
+    "path": "/",
+    "runs": 3,
+    "perf": 84,
+    "perfAll": [
+      83,
+      89,
+      84
+    ],
+    "a11y": 100,
+    "bp": 96,
+    "seo": 100,
+    "lcp": 910.682,
+    "tbt": 637.5509999999981,
+    "cls": 0,
+    "fcp": 910.682,
+    "bench": 1965.5
+  },
+  {
+    "name": "service",
+    "path": "/services/emergency-plumbing",
+    "runs": 3,
+    "perf": 70,
+    "perfAll": [
+      82,
+      70,
+      70
+    ],
+    "a11y": 100,
+    "bp": 96,
+    "seo": 100,
+    "lcp": 4694.71,
+    "tbt": 379,
+    "cls": 0,
+    "fcp": 1056.68,
+    "bench": 2403.5
+  },
+  {
+    "name": "shop",
+    "path": "/shop",
+    "runs": 3,
+    "perf": 86,
+    "perfAll": [
+      86,
+      97,
+      75
+    ],
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": 907.288,
+    "tbt": 551.7615000000003,
+    "cls": 0,
+    "fcp": 907.288,
+    "bench": 2401.5
+  },
+  {
+    "name": "product",
+    "path": "/shop/intatherm-safe-touch-basin-mixer-tap",
+    "runs": 3,
+    "perf": 75,
+    "perfAll": [
+      75,
+      66,
+      77
+    ],
+    "a11y": 100,
+    "bp": 96,
+    "seo": 100,
+    "lcp": 4453.5075,
+    "tbt": 412.7890000000002,
+    "cls": 0,
+    "fcp": 907.6020000000001,
+    "bench": 2323.5
+  },
+  {
+    "name": "contact",
+    "path": "/contact",
+    "runs": 3,
+    "perf": 90,
+    "perfAll": [
+      89,
+      90,
+      90
+    ],
+    "a11y": 100,
+    "bp": 96,
+    "seo": 100,
+    "lcp": 907.434,
+    "tbt": 398.0000000000001,
+    "cls": 0,
+    "fcp": 907.434,
+    "bench": 2390.5
+  }
+]
