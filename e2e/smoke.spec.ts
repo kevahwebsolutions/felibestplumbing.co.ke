@@ -80,7 +80,7 @@ test('admin login, forced password change and product creation', async ({ page }
   await page.getByLabel('Product name').fill('E2E Test Mixer Tap');
   await page.getByLabel('Price (KES)').fill('2500');
   await page.getByLabel('Stock', { exact: true }).fill('9');
-  await page.getByLabel('Description').fill('A product created by the end to end test.');
+  await page.getByLabel('Description', { exact: true }).fill('A product created by the end to end test.');
   await page.getByLabel('Published in the shop').click();
   await page.getByRole('button', { name: 'Save product' }).click();
   await expect(page).toHaveURL(/\/admin\/products$/);

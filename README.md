@@ -8,7 +8,7 @@ Built with Next.js (App Router), TypeScript, Tailwind CSS, Radix primitives, Fra
 
 ## Items that need the owner before going live
 
-1. **Confirm product prices.** All 24 seeded products carry placeholder KES prices (old USD prices converted at 130 and rounded to the nearest 50). The admin dashboard shows "N products still use placeholder prices" until you confirm them in Products. Twelve products are real items from the old shop. Twelve more are unpublished starter drafts: edit or delete them.
+1. **Review the real catalogue.** The shop holds the 16 real products imported by `npm run db:import-catalog`. See `docs/CATALOG-OWNER-TASKS.md` for what to confirm (photos, prices, descriptions, stock, permission).
 2. **Rotate the Web3Forms access key.** The old key was hard-coded in the legacy HTML (`legacy/*.html`) and is in git history, so treat it as public. Create a new key at web3forms.com and put it in `WEB3FORMS_ACCESS_KEY`. It is never sent to the browser.
 3. **Confirm the business address.** The old pages showed a wrong US address. The site now says "Nairobi, Kenya". Add the real street address in Admin, Settings.
 4. **Confirm offers and the rate guide.** Offers are editable in Settings. The KES rate guide and the coverage area list on the public pages are indicative and live in `src/data/content.ts`. Edit them to match your real pricing and service areas.
@@ -28,6 +28,7 @@ npm i
 cp .env.example .env        # then edit .env (see below)
 npm run db:migrate
 npm run db:seed
+npm run db:import-catalog
 npm run dev
 ```
 
@@ -63,7 +64,8 @@ npm run seed:demo-analytics -- --clear # remove it again
 | `npm test` | Vitest unit tests (cart maths, price formatting, zod schemas, analytics aggregation) |
 | `npm run test:e2e` | Playwright smoke tests (cart and checkout, admin login and product create, form submission, tracking beacon). It starts its own server on port 3100 with a throw-away database |
 | `npm run db:generate` | Create a new Drizzle migration after editing `src/db/schema.ts` |
-| `npm run db:migrate` / `db:seed` | Apply migrations / seed categories, products, settings and the admin user |
+| `npm run db:migrate` / `db:seed` | Apply migrations / seed categories, settings and the admin user (no products) |
+| `npm run db:import-catalog` | Import the real 16-product catalogue and retire old samples. Idempotent, keeps owner edits. Add `-- --dry-run` to print the plan. Production deploy: `npm run db:migrate && npm run db:import-catalog` |
 | `npm run images` | Re-run the sharp image pipeline from `legacy/images` into `public/images` (referenced images only, webp, max 1600 px) |
 | `npm run rollup` | Nightly analytics roll-up into `daily_stats` |
 | `npm run check:redirects` | Checks every legacy URL answers 301 to its new route (needs the server running) |
@@ -85,7 +87,7 @@ cp .env.example .env && nano .env      # set SITE URL, ADMIN_*, SESSION_SECRET, 
 #    Use absolute DATABASE_PATH and UPLOAD_DIR outside the code folder, for example /var/lib/felibest/felibest.db
 
 # 3. Database
-npm run db:migrate && npm run db:seed
+npm run db:migrate && npm run db:seed && npm run db:import-catalog
 
 # 4. Build the standalone server and copy its static files next to it
 npm run build

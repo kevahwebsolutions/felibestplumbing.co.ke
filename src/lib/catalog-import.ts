@@ -35,6 +35,9 @@ export const LEGACY_CATEGORY_SLUGS = [
   'sinks', 'faucets', 'pumps', 'drains', 'showers', 'pipe-fittings', 'steam-showers', 'valves', 'water-filtration', 'water-heaters', 'toilet-parts', 'accessories',
 ] as const;
 
+/** Sort positions the old seed script gave to the two categories that the catalogue reuses. */
+const LEGACY_SORT: Record<string, number> = { pumps: 2, showers: 4 };
+
 export type ImportSummary = {
   dryRun: boolean;
   categoriesCreated: string[];
@@ -108,8 +111,12 @@ export function runCatalogImport(
         if (!row) {
           row = tx.insert(schema.categories).values({ slug: c.slug, name: c.name, description: c.description, sortOrder: c.sortOrder }).returning().get();
           summary.categoriesCreated.push(c.slug);
-        } else if (row.description === '') {
-          tx.update(schema.categories).set({ description: c.description }).where(eq(schema.categories.id, row.id)).run();
+        } else {
+          const set: Partial<typeof schema.categories.$inferInsert> = {};
+          if (row.description === '') set.description = c.description;
+          // Rows left by the old seed script carry the old ordering, so give them the catalogue order once.
+          if (LEGACY_SORT[c.slug] === row.sortOrder && row.sortOrder !== c.sortOrder) set.sortOrder = c.sortOrder;
+          if (Object.keys(set).length) tx.update(schema.categories).set(set).where(eq(schema.categories.id, row.id)).run();
         }
         catId.set(c.slug, row.id);
       }

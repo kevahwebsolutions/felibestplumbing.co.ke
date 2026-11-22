@@ -1,0 +1,1 @@
+46 screenshots. 15 overflow checks (375, 768, 1440). No horizontal overflow detected.
