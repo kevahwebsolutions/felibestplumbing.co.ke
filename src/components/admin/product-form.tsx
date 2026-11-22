@@ -15,12 +15,13 @@ import { productSchema, type ProductInput } from '@/lib/schemas';
 import { cn, slugify } from '@/lib/utils';
 
 export type ProductFormInitial = {
-  id?: number; name: string; slug: string; categoryId: number | null; description: string; price: number; salePrice: number | null; sku: string; stock: number;
-  tags: string[]; specs: { key: string; value: string }[]; featured: boolean; published: boolean; isNew: boolean; isPlaceholderPrice: boolean;
+  id?: number; name: string; slug: string; categoryId: number | null; description: string; price: number; salePrice: number | null; sku: string; stock: number; trackStock: boolean;
+  tags: string[]; specs: { key: string; value: string }[]; featured: boolean; published: boolean; isNew: boolean; needsReview: boolean; descriptionStatus: string; archived: boolean;
+  listPriceNote: string; seoTitle: string; seoDescription: string;
   images: { src: string; url: string; alt: string }[]; primaryIndex: number;
 };
 
-export const EMPTY_PRODUCT: ProductFormInitial = { name: '', slug: '', categoryId: null, description: '', price: 0, salePrice: null, sku: '', stock: 0, tags: [], specs: [], featured: false, published: false, isNew: false, isPlaceholderPrice: false, images: [], primaryIndex: 0 };
+export const EMPTY_PRODUCT: ProductFormInitial = { name: '', slug: '', categoryId: null, description: '', price: 0, salePrice: null, sku: '', stock: 0, trackStock: false, tags: [], specs: [], featured: false, published: false, isNew: false, needsReview: false, descriptionStatus: 'owner', archived: false, listPriceNote: '', seoTitle: '', seoDescription: '', images: [], primaryIndex: 0 };
 
 const urlFor = (src: string) => (src.startsWith('/') ? src : `/media/${src}`);
 
@@ -36,7 +37,7 @@ export function ProductForm({ initial, categories }: { initial: ProductFormIniti
 
   const { register, control, handleSubmit, watch, setValue, setError, formState: { errors, isSubmitting } } = useForm<ProductInput>({
     resolver: zodResolver(productSchema) as never,
-    defaultValues: { id: initial.id, name: initial.name, slug: initial.slug, categoryId: initial.categoryId, description: initial.description, price: initial.price, salePrice: initial.salePrice, sku: initial.sku, stock: initial.stock, specs: initial.specs, featured: initial.featured, published: initial.published, isNew: initial.isNew, isPlaceholderPrice: initial.isPlaceholderPrice },
+    defaultValues: { id: initial.id, name: initial.name, slug: initial.slug, categoryId: initial.categoryId, description: initial.description, price: initial.price, salePrice: initial.salePrice, sku: initial.sku, stock: initial.stock, trackStock: initial.trackStock, specs: initial.specs, featured: initial.featured, published: initial.published, isNew: initial.isNew, needsReview: initial.needsReview, listPriceNote: initial.listPriceNote, seoTitle: initial.seoTitle, seoDescription: initial.seoDescription },
   });
   const { fields, append, remove } = useFieldArray({ control, name: 'specs' });
   const name = watch('name');
@@ -94,7 +95,9 @@ export function ProductForm({ initial, categories }: { initial: ProductFormIniti
             )} />
           </Field>
           <Field label="Tags" htmlFor="p-tags" hint="Separate with commas, for example Installation, Repair"><Input id="p-tags" value={tags} onChange={(e) => setTags(e.target.value)} /></Field>
-          <Field label="Description" htmlFor="p-desc" error={err('description')}><Textarea id="p-desc" rows={7} {...register('description')} /></Field>
+          <Field label="Description" htmlFor="p-desc" error={err('description')} hint={initial.needsReview ? 'Description to be confirmed: this text was written from the product name and photos. Edit it, or tick "Description reviewed" below, to clear the reminder. Customers never see this reminder.' : undefined}><Textarea id="p-desc" rows={7} {...register('description')} /></Field>
+          <Field label="SEO title (optional)" htmlFor="p-seot" error={err('seoTitle')} hint="Shown in Google and browser tabs, about 30 to 60 characters. Leave empty to use the product name."><Input id="p-seot" {...register('seoTitle')} /></Field>
+          <Field label="SEO description (optional)" htmlFor="p-seod" error={err('seoDescription')} hint="About 110 to 155 characters. Leave empty to use the start of the description."><Textarea id="p-seod" rows={3} {...register('seoDescription')} /></Field>
         </section>
 
         <section className="fp-card space-y-4 p-6" aria-label="Specifications">
@@ -135,7 +138,11 @@ export function ProductForm({ initial, categories }: { initial: ProductFormIniti
           <h2 className="font-heading text-2xl font-bold">Pricing and stock</h2>
           <Field label="Price (KES)" htmlFor="p-price" error={err('price')}><Input id="p-price" type="number" min={0} step={50} inputMode="numeric" {...num('price')} /></Field>
           <Field label="Sale price (KES, optional)" htmlFor="p-sale" error={err('salePrice')}><Input id="p-sale" type="number" min={0} step={50} inputMode="numeric" {...num('salePrice')} /></Field>
-          <Field label="Stock" htmlFor="p-stock" error={err('stock')}><Input id="p-stock" type="number" min={0} inputMode="numeric" {...num('stock')} /></Field>
+          <Controller control={control} name="trackStock" render={({ field }) => (
+            <div className="flex items-start gap-3"><Checkbox id="p-track" checked={!!field.value} onCheckedChange={(v) => field.onChange(v === true)} /><label htmlFor="p-track" className="text-sm font-semibold text-ink">Count stock for this product<span className="block font-normal text-ink-muted">Off means the product is always treated as available and orders do not reduce a count.</span></label></div>
+          )} />
+          <Field label="Stock" htmlFor="p-stock" error={err('stock')} hint="Only used when stock counting is on."><Input id="p-stock" type="number" min={0} inputMode="numeric" {...num('stock')} /></Field>
+          <Field label="List price note (internal)" htmlFor="p-lpn" error={err('listPriceNote')} hint="Admin only. Never shown to customers or in search results. For example a previous or struck-through price from the supplier."><Textarea id="p-lpn" rows={2} {...register('listPriceNote')} /></Field>
         </section>
         <section className="fp-card space-y-4 p-6" aria-label="Visibility">
           <h2 className="font-heading text-2xl font-bold">Visibility</h2>
@@ -144,9 +151,10 @@ export function ProductForm({ initial, categories }: { initial: ProductFormIniti
               <div className="flex items-center justify-between gap-4"><label htmlFor={`sw-${k}`} className="font-bold text-ink">{label}</label><Switch id={`sw-${k}`} checked={!!field.value} onCheckedChange={field.onChange} /></div>
             )} />
           ))}
-          <Controller control={control} name="isPlaceholderPrice" render={({ field }) => (
-            <div className="flex items-start gap-3"><Checkbox id="ph" checked={!!field.value} onCheckedChange={(v) => field.onChange(v === true)} /><label htmlFor="ph" className="text-sm font-semibold text-ink">This is still a placeholder price<span className="block font-normal text-ink-muted">Untick once you have confirmed the real price.</span></label></div>
+          <Controller control={control} name="needsReview" render={({ field }) => (
+            <div className="flex items-start gap-3"><Checkbox id="nr" checked={!field.value} onCheckedChange={(v) => field.onChange(v !== true)} /><label htmlFor="nr" className="text-sm font-semibold text-ink">Description reviewed<span className="block font-normal text-ink-muted">{initial.needsReview ? 'Description to be confirmed. Tick once you have checked the text.' : 'The description has been confirmed.'}</span></label></div>
           )} />
+          {initial.archived ? <p className="rounded-lg bg-surface-alt p-3 text-sm text-body">This product is archived. It is hidden from the shop and kept only for order history.</p> : null}
         </section>
         <Button type="submit" size="lg" className="w-full" disabled={isSubmitting || uploading}>{isSubmitting ? <Loader2 className="size-5 animate-spin" aria-hidden /> : null} Save product</Button>
       </aside>

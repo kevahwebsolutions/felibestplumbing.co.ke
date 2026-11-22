@@ -34,8 +34,8 @@ export async function placeOrder(input: unknown): Promise<PlacedOrder> {
   const lines: { productId: number; name: string; sku: string; slug: string; price: number; qty: number }[] = [];
   for (const it of items) {
     const p = byId.get(it.productId);
-    if (!p || !p.published) throw new OrderError('One of the items in your cart is no longer available.');
-    if (p.stock < it.qty) throw new OrderError(`${p.name} has only ${p.stock} left in stock.`);
+    if (!p || !p.published || p.archived) throw new OrderError('One of the items in your cart is no longer available.');
+    if (p.trackStock && p.stock < it.qty) throw new OrderError(`${p.name} has only ${p.stock} left in stock.`);
     lines.push({ productId: p.id, name: p.name, sku: p.sku, slug: p.slug, price: effectivePrice(p.price, p.salePrice), qty: it.qty });
   }
   const settings = getSettings();
@@ -43,6 +43,7 @@ export async function placeOrder(input: unknown): Promise<PlacedOrder> {
   const deliveryFee = deliveryFor(subtotal, settings.deliveryFee, settings.freeDeliveryThreshold);
   const total = subtotal + deliveryFee;
 
+  const tracked = new Set(products.filter((p) => p.trackStock).map((p) => p.id));
   let ref = newOrderRef();
   for (let i = 0; i < 5 && db.select({ id: schema.orders.id }).from(schema.orders).where(eq(schema.orders.ref, ref)).get(); i++) ref = newOrderRef();
 
@@ -57,7 +58,7 @@ export async function placeOrder(input: unknown): Promise<PlacedOrder> {
       .get();
     for (const l of lines) {
       tx.insert(schema.orderItems).values({ orderId: order.id, productId: l.productId, name: l.name, sku: l.sku, price: l.price, qty: l.qty }).run();
-      tx.update(schema.products).set({ stock: sql`${schema.products.stock} - ${l.qty}` }).where(eq(schema.products.id, l.productId)).run();
+      if (tracked.has(l.productId)) tx.update(schema.products).set({ stock: sql`${schema.products.stock} - ${l.qty}` }).where(eq(schema.products.id, l.productId)).run();
     }
   });
 

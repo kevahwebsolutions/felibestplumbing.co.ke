@@ -108,12 +108,16 @@ export const productSchema = z
     salePrice: z.number().int().min(0).max(100_000_000).nullable(),
     sku: z.string().trim().max(60).default(''),
     stock: z.number().int().min(0).max(100000),
+    trackStock: z.boolean().default(false),
     tags: z.array(z.string().trim().min(1).max(40)).max(20).default([]),
     specs: z.array(z.object({ key: z.string().trim().min(1).max(60), value: z.string().trim().min(1).max(200) })).max(30).default([]),
     featured: z.boolean().default(false),
     published: z.boolean().default(false),
     isNew: z.boolean().default(false),
-    isPlaceholderPrice: z.boolean().default(false),
+    needsReview: z.boolean().default(false),
+    listPriceNote: z.string().trim().max(300).default(''),
+    seoTitle: z.string().trim().max(70).default(''),
+    seoDescription: z.string().trim().max(170).default(''),
     images: z
       .array(z.object({ src: z.string().min(1).max(300), alt: z.string().max(200).default('') }))
       .max(12)

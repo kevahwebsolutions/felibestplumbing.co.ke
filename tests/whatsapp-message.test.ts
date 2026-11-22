@@ -11,11 +11,11 @@ const base: MessageOrder = {
   notes: 'Call at the gate',
   paymentMethod: 'pay_on_delivery',
   items: [
-    { name: 'Single Handle Kitchen Faucet', qty: 2, price: 7450, slug: 'single-handle-kitchen-faucet' },
-    { name: 'Brass Gate Valve 1/2"', qty: 1, price: 1200, slug: 'brass-gate-valve' },
+    { name: 'Washing Machine Tap', qty: 2, price: 650, slug: 'washing-machine-tap' },
+    { name: 'Heavy Duty Washing Machine Stand', qty: 1, price: 3500, slug: 'heavy-duty-washing-machine-stand' },
   ],
   deliveryFee: 500,
-  total: 16600,
+  total: 5300,
 };
 
 describe('sanitize', () => {
@@ -47,14 +47,14 @@ describe('buildOrderMessage', () => {
     for (const part of ['FP-ABC234', 'Jane Wanjiru', '+254712345678', 'Kilimani', 'Argwings Kodhek Road, Apt 4', 'Call at the gate', 'Pay on delivery']) expect(msg).toContain(part);
   });
   it('lists each item with qty, unit price, line total and absolute URL', () => {
-    expect(msg).toContain('1. Single Handle Kitchen Faucet');
-    expect(msg).toContain('Qty: 2 x KES 7,450 = KES 14,900');
-    expect(msg).toContain(`${SITE}/shop/single-handle-kitchen-faucet`);
-    expect(msg).toContain(`${SITE}/shop/brass-gate-valve`);
+    expect(msg).toContain('1. Washing Machine Tap');
+    expect(msg).toContain('Qty: 2 x KES 650 = KES 1,300');
+    expect(msg).toContain(`${SITE}/shop/washing-machine-tap`);
+    expect(msg).toContain(`${SITE}/shop/heavy-duty-washing-machine-stand`);
   });
   it('shows delivery, total and the order link', () => {
     expect(msg).toContain('Delivery: KES 500');
-    expect(msg).toContain('Total: KES 16,600');
+    expect(msg).toContain('Total: KES 5,300');
     expect(msg).toContain(`Order link: ${SITE}/order/FP-ABC234`);
   });
   it('is plain text without emojis', () => {
@@ -94,10 +94,10 @@ describe('owner and customer messages', () => {
   it('owner summary includes ref, total and link', () => {
     const s = buildOwnerSummary(base, SITE);
     expect(s).toContain('FP-ABC234');
-    expect(s).toContain('KES 16,600');
+    expect(s).toContain('KES 5,300');
     expect(s).toContain('/order/FP-ABC234');
   });
   it('customer confirmation greets by first name', () => {
-    expect(buildCustomerConfirmation({ ref: 'FP-ABC234', customerName: 'Jane Wanjiru', total: 16600 })).toContain('Hello Jane,');
+    expect(buildCustomerConfirmation({ ref: 'FP-ABC234', customerName: 'Jane Wanjiru', total: 5300 })).toContain('Hello Jane,');
   });
 });

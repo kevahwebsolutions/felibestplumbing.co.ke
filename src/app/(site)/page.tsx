@@ -178,7 +178,7 @@ export default function HomePage() {
         <section className="bg-surface-alt py-16 sm:py-20">
           <div className="container-fp">
             <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
-              <SectionHeading align="left" eyebrow="Plumbing supplies" title="Fittings, taps and valves" intro="Order from our shop. Pay on delivery or order via WhatsApp." className="!mb-0" />
+              <SectionHeading align="left" eyebrow="From our shop" title="Showers, pumps and washing machine supplies" intro="Order from our shop. Pay on delivery or order via WhatsApp." className="!mb-0" />
               <ButtonLink href="/shop" variant="blue">Visit the shop <ArrowRight className="size-5" aria-hidden /></ButtonLink>
             </div>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

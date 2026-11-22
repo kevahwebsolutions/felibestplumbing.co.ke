@@ -74,7 +74,7 @@ test('admin login, forced password change and product creation', async ({ page }
   await page.getByRole('button', { name: 'Update password' }).click();
   await expect(page).toHaveURL(/\/admin$/);
   await expect(page.getByRole('heading', { name: 'Dashboard' })).toBeVisible();
-  await expect(page.getByText(/products still use placeholder prices/)).toBeVisible();
+  await expect(page.getByText(/products? needs? description review/)).toBeVisible();
 
   await page.goto('/admin/products/new');
   await page.getByLabel('Product name').fill('E2E Test Mixer Tap');

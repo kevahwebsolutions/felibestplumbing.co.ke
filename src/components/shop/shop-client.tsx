@@ -16,7 +16,7 @@ import { cn, formatKES } from '@/lib/utils';
 import type { ProductView } from '@/lib/server/products';
 
 type Cat = { id: number; slug: string; name: string; count: number };
-const PAGE = 12;
+const PAGE = 24;
 
 type Sort = 'featured' | 'newest' | 'price-asc' | 'price-desc' | 'name';
 
@@ -26,12 +26,12 @@ function QuickView({ p, onClose }: { p: ProductView | null; onClose: () => void 
       {p ? (
         <DialogContent title={p.name} description={p.categoryName} data-lenis-prevent>
           <div className="mt-5 grid gap-6 md:grid-cols-2">
-            <div className="relative aspect-square overflow-hidden rounded-lg border border-line">
-              {p.images[0] ? <Image src={p.images[0].url} alt={p.images[0].alt || p.name} fill sizes="(min-width:768px) 380px, 90vw" className="object-cover" /> : <ProductArt category={p.categorySlug} />}
+            <div className="relative aspect-square overflow-hidden rounded-lg border border-line bg-surface-alt">
+              {p.images[0] ? <Image src={p.images[0].url} alt={p.images[0].alt || p.name} fill sizes="(min-width:768px) 380px, 90vw" className="object-contain" /> : <ProductArt category={p.categorySlug} />}
             </div>
             <div className="flex flex-col gap-4">
               <PriceTag p={p} size="lg" />
-              <StockBadge stock={p.stock} />
+              <StockBadge p={p} />
               <p className="line-clamp-6 text-body">{p.description}</p>
               <div className="mt-auto grid gap-3">
                 <AddToCartButton product={p} size="lg" className="w-full" />
@@ -51,11 +51,13 @@ function Filters({ price, setPrice, bounds, tags, tag, setTag }: {
 }) {
   return (
     <div className="space-y-8">
-      <div>
-        <h2 className="mb-1 font-heading text-2xl font-semibold uppercase">Price range</h2>
-        <RangeSlider min={bounds[0]} max={bounds[1]} step={50} value={price} onValueChange={(v) => setPrice([v[0]!, v[1]!])} minStepsBetweenThumbs={1} />
-        <p className="mt-1 flex justify-between text-sm font-bold text-brand"><span>{formatKES(price[0])}</span><span>{formatKES(price[1])}</span></p>
-      </div>
+      {bounds[1] > bounds[0] ? (
+        <div>
+          <h2 className="mb-1 font-heading text-2xl font-semibold uppercase">Price range</h2>
+          <RangeSlider min={bounds[0]} max={bounds[1]} step={50} value={price} onValueChange={(v) => setPrice([v[0]!, v[1]!])} minStepsBetweenThumbs={1} />
+          <p className="mt-1 flex justify-between text-sm font-bold text-brand"><span>{formatKES(price[0])}</span><span>{formatKES(price[1])}</span></p>
+        </div>
+      ) : null}
       {tags.length ? (
         <div>
           <h2 className="mb-3 font-heading text-2xl font-semibold uppercase">Tags</h2>
@@ -70,10 +72,10 @@ function Filters({ price, setPrice, bounds, tags, tag, setTag }: {
   );
 }
 
-export function ShopClient({ products, categories, initialCategory = '' }: { products: ProductView[]; categories: Cat[]; initialCategory?: string }) {
+export function ShopClient({ products, categories, initialCategory = '', showCategoryBar = true }: { products: ProductView[]; categories: Cat[]; initialCategory?: string; showCategoryBar?: boolean }) {
   const prices = products.map((p) => p.finalPrice);
-  const bounds: [number, number] = [Math.floor(Math.min(...prices, 0) / 50) * 50, Math.ceil(Math.max(...prices, 50) / 50) * 50];
-  const [mounted, setMounted] = React.useState(false);
+  // Price range comes from the real minimum and maximum, so the slider never offers an empty range.
+  const bounds: [number, number] = prices.length ? [Math.floor(Math.min(...prices) / 50) * 50, Math.ceil(Math.max(...prices) / 50) * 50] : [0, 0];
   const [q, setQ] = React.useState('');
   const [sort, setSort] = React.useState<Sort>('featured');
   const [category, setCategory] = React.useState(initialCategory);
@@ -84,7 +86,6 @@ export function ShopClient({ products, categories, initialCategory = '' }: { pro
   const [loadingMore, setLoadingMore] = React.useState(false);
   const [quick, setQuick] = React.useState<ProductView | null>(null);
   const [sheet, setSheet] = React.useState(false);
-  React.useEffect(() => setMounted(true), []);
 
   const allTags = React.useMemo(() => Array.from(new Set(products.flatMap((p) => p.tags))).sort(), [products]);
   const filtered = React.useMemo(() => {
@@ -113,7 +114,7 @@ export function ShopClient({ products, categories, initialCategory = '' }: { pro
 
   return (
     <div>
-      <nav aria-label="Product categories" className="mb-8 -mx-1 overflow-x-auto pb-2">
+      {showCategoryBar ? <nav aria-label="Product categories" className="mb-8 -mx-1 overflow-x-auto pb-2">
         <ul className="flex min-w-max gap-2 px-1">
           {[{ id: 0, slug: '', name: 'All products', count: products.length }, ...categories].map((c) => {
             const on = category === c.slug;
@@ -128,7 +129,7 @@ export function ShopClient({ products, categories, initialCategory = '' }: { pro
             );
           })}
         </ul>
-      </nav>
+      </nav> : null}
     <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
       <aside className="hidden lg:block">
         <div className="fp-card sticky top-28 max-h-[calc(100dvh-8rem)] overflow-y-auto p-6">
@@ -140,7 +141,7 @@ export function ShopClient({ products, categories, initialCategory = '' }: { pro
         <div className="fp-card mb-6 grid gap-3 p-4 sm:grid-cols-[1fr_auto_auto] sm:items-center">
           <div className="relative">
             <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-brand-soft" aria-hidden />
-            <Input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search taps, valves, heaters..." aria-label="Search products" className="pl-12" />
+            <Input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search the shop" aria-label="Search products" className="pl-12" />
           </div>
           <label className="flex items-center gap-2">
             <span className="sr-only">Sort products</span>
@@ -171,13 +172,11 @@ export function ShopClient({ products, categories, initialCategory = '' }: { pro
 
         <h2 className="sr-only">Products</h2>
         <p className="mb-4 pl-2 font-semibold text-ink-muted" aria-live="polite">
-          {mounted ? `Showing ${Math.min(visible.length, filtered.length)} of ${filtered.length} products` : 'Loading products...'}
+          {`Showing ${Math.min(visible.length, filtered.length)} of ${filtered.length} products`}
           {activeFilters ? <button type="button" onClick={reset} className="ml-3 inline-flex items-center gap-1 font-bold text-brand-soft underline"><X className="size-4" aria-hidden /> Clear filters</button> : null}
         </p>
 
-        {!mounted ? (
-          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">{Array.from({ length: 6 }, (_, i) => <ProductSkeleton key={i} />)}</div>
-        ) : filtered.length === 0 ? (
+        {filtered.length === 0 ? (
           <div className="fp-card grid place-items-center gap-4 p-12 text-center">
             <span className="fp-icon !size-20"><Search className="size-9" aria-hidden /></span>
             <h2 className="font-heading text-3xl font-bold">No products match your filters</h2>

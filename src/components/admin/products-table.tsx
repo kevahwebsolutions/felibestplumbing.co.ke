@@ -7,24 +7,24 @@ import { useRouter } from 'next/navigation';
 import { flexRender, getCoreRowModel, getFilteredRowModel, getSortedRowModel, useReactTable, type ColumnDef, type SortingState } from '@tanstack/react-table';
 import { ArrowUpDown, Plus, Search } from 'lucide-react';
 import { toast } from 'sonner';
-import { bulkProductsAction, confirmPricesAction } from '@/app/admin/actions';
+import { bulkProductsAction, markReviewedAction } from '@/app/admin/actions';
 import { Button, ButtonLink } from '@/components/ui/button';
 import { Input, Select } from '@/components/ui/field';
 import { Checkbox } from '@/components/ui/misc';
 import { cn, formatKES } from '@/lib/utils';
 
-export type AdminProductRow = { id: number; name: string; image: string | null; category: string; price: number; salePrice: number | null; stock: number; published: boolean; featured: boolean; placeholder: boolean; sku: string };
+export type AdminProductRow = { id: number; name: string; image: string | null; category: string; price: number; salePrice: number | null; stock: number | null; published: boolean; archived: boolean; featured: boolean; needsReview: boolean; sku: string };
 
 export function ProductsTable({ rows, categories, initialFilter }: { rows: AdminProductRow[]; categories: string[]; initialFilter?: string }) {
   const router = useRouter();
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [q, setQ] = React.useState('');
   const [cat, setCat] = React.useState('');
-  const [status, setStatus] = React.useState(initialFilter === 'placeholder' ? 'placeholder' : '');
+  const [status, setStatus] = React.useState(initialFilter === 'review' ? 'review' : '');
   const [selected, setSelected] = React.useState<Record<number, boolean>>({});
   const [busy, setBusy] = React.useState(false);
 
-  const data = React.useMemo(() => rows.filter((r) => (!cat || r.category === cat) && (!status || (status === 'published' ? r.published : status === 'draft' ? !r.published : status === 'placeholder' ? r.placeholder : status === 'low' ? r.stock < 6 : true))), [rows, cat, status]);
+  const data = React.useMemo(() => rows.filter((r) => (!cat || r.category === cat) && (!status || (status === 'published' ? r.published && !r.archived : status === 'draft' ? !r.published && !r.archived : status === 'review' ? r.needsReview : status === 'archived' ? r.archived : status === 'low' ? r.stock !== null && r.stock < 6 : true))), [rows, cat, status]);
 
   const columns = React.useMemo<ColumnDef<AdminProductRow>[]>(() => [
     { id: 'select', enableSorting: false, header: () => null, cell: ({ row }) => <Checkbox aria-label={`Select ${row.original.name}`} checked={!!selected[row.original.id]} onCheckedChange={(v) => setSelected((s) => ({ ...s, [row.original.id]: v === true }))} /> },
@@ -34,19 +34,23 @@ export function ProductsTable({ rows, categories, initialFilter }: { rows: Admin
         <span>{row.original.name}<span className="block text-xs font-semibold text-ink-muted">{row.original.sku}</span></span>
       </Link>) },
     { accessorKey: 'category', header: 'Category' },
-    { accessorKey: 'price', header: 'Price', cell: ({ row }) => <span className={cn('whitespace-nowrap font-bold', row.original.placeholder && 'text-accent-strong')}>{formatKES(row.original.salePrice ?? row.original.price)}{row.original.salePrice ? <del className="ml-1 text-xs font-normal text-ink-muted">{formatKES(row.original.price)}</del> : null}{row.original.placeholder ? <span className="ml-1 text-xs">(placeholder)</span> : null}</span> },
-    { accessorKey: 'stock', header: 'Stock', cell: ({ row }) => <span className={cn('font-bold', row.original.stock < 6 && 'text-accent-strong')}>{row.original.stock}</span> },
-    { accessorKey: 'published', header: 'Status', cell: ({ row }) => <span className={cn('fp-pill', row.original.published ? 'fp-pill-green' : '')}>{row.original.published ? 'Published' : 'Draft'}</span> },
+    { accessorKey: 'price', header: 'Price', cell: ({ row }) => <span className="whitespace-nowrap font-bold">{formatKES(row.original.salePrice ?? row.original.price)}{row.original.salePrice ? <del className="ml-1 text-xs font-normal text-ink-muted">{formatKES(row.original.price)}</del> : null}</span> },
+    { accessorKey: 'stock', header: 'Stock', cell: ({ row }) => row.original.stock === null ? <span className="text-ink-muted">Not counted</span> : <span className={cn('font-bold', row.original.stock < 6 && 'text-accent-strong')}>{row.original.stock}</span> },
+    { accessorKey: 'published', header: 'Status', cell: ({ row }) => (
+      <span className="flex flex-wrap gap-1.5">
+        <span className={cn('fp-pill', row.original.published && !row.original.archived ? 'fp-pill-green' : '')}>{row.original.archived ? 'Archived' : row.original.published ? 'Published' : 'Draft'}</span>
+        {row.original.needsReview ? <span className="fp-pill fp-pill-orange">Description to be confirmed</span> : null}
+      </span>) },
   ], [selected]);
 
   const table = useReactTable({ data, columns, state: { sorting, globalFilter: q }, onSortingChange: setSorting, onGlobalFilterChange: setQ, getCoreRowModel: getCoreRowModel(), getFilteredRowModel: getFilteredRowModel(), getSortedRowModel: getSortedRowModel(), globalFilterFn: (row, _id, v) => `${row.original.name} ${row.original.sku} ${row.original.category}`.toLowerCase().includes(String(v).toLowerCase()) });
   const ids = Object.entries(selected).filter(([, v]) => v).map(([k]) => Number(k));
   const visibleIds = table.getRowModel().rows.map((r) => r.original.id);
 
-  async function run(action: 'publish' | 'unpublish' | 'delete' | 'confirm') {
+  async function run(action: 'publish' | 'unpublish' | 'delete' | 'reviewed') {
     if (action === 'delete' && !window.confirm(`Delete ${ids.length} product(s)? This cannot be undone.`)) return;
     setBusy(true);
-    const res = action === 'confirm' ? await confirmPricesAction(ids) : await bulkProductsAction(action, ids);
+    const res = action === 'reviewed' ? await markReviewedAction(ids) : await bulkProductsAction(action, ids);
     setBusy(false);
     if (res.ok) { toast.success('Done'); setSelected({}); router.refresh(); } else toast.error(res.error ?? 'Failed');
   }
@@ -56,7 +60,7 @@ export function ProductsTable({ rows, categories, initialFilter }: { rows: Admin
       <div className="fp-card grid gap-3 p-4 md:grid-cols-[1fr_auto_auto_auto] md:items-center">
         <div className="relative"><Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-brand-soft" aria-hidden /><Input type="search" placeholder="Search products" aria-label="Search products" value={q} onChange={(e) => setQ(e.target.value)} className="pl-12" /></div>
         <Select aria-label="Filter by category" value={cat} onChange={(e) => setCat(e.target.value)}><option value="">All categories</option>{categories.map((c) => <option key={c}>{c}</option>)}</Select>
-        <Select aria-label="Filter by status" value={status} onChange={(e) => setStatus(e.target.value)}><option value="">All statuses</option><option value="published">Published</option><option value="draft">Drafts</option><option value="placeholder">Placeholder price</option><option value="low">Low stock</option></Select>
+        <Select aria-label="Filter by status" value={status} onChange={(e) => setStatus(e.target.value)}><option value="">All statuses</option><option value="published">Published</option><option value="draft">Drafts</option><option value="review">Description to be confirmed</option><option value="archived">Archived</option><option value="low">Low stock</option></Select>
         <ButtonLink href="/admin/products/new"><Plus className="size-5" aria-hidden /> New product</ButtonLink>
       </div>
 
@@ -65,7 +69,7 @@ export function ProductsTable({ rows, categories, initialFilter }: { rows: Admin
           <p className="font-bold">{ids.length} selected</p>
           <Button size="sm" variant="blue" disabled={busy} onClick={() => run('publish')}>Publish</Button>
           <Button size="sm" variant="ghost" disabled={busy} onClick={() => run('unpublish')}>Unpublish</Button>
-          <Button size="sm" variant="ghost" disabled={busy} onClick={() => run('confirm')}>Confirm prices</Button>
+          <Button size="sm" variant="ghost" disabled={busy} onClick={() => run('reviewed')}>Mark description reviewed</Button>
           <Button size="sm" disabled={busy} onClick={() => run('delete')}>Delete</Button>
         </div>
       ) : null}

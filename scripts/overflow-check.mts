@@ -5,7 +5,7 @@ import { SERVICES } from '../src/data/services.ts';
 import { POSTS } from '../src/data/blog.ts';
 
 const base = (process.env.BASE_URL ?? 'http://localhost:3001').replace(/\/$/, '');
-const routes = ['/', '/about', '/services', ...SERVICES.map((s) => `/services/${s.slug}`), '/shop', '/shop/intatherm-safe-touch-basin-mixer-tap', '/cart', '/checkout', '/pricing', '/gallery', '/testimonials', '/faq', '/blog', ...POSTS.map((p) => `/blog/${p.slug}`), '/contact', '/coverage', '/privacy', '/terms', '/does-not-exist', '/admin/login', `/order/${process.env.ORDER_REF ?? 'FP-44477C'}`];
+const routes = ['/', '/about', '/services', ...SERVICES.map((s) => `/services/${s.slug}`), '/shop', '/shop/milano-modern-shower', '/cart', '/checkout', '/pricing', '/gallery', '/testimonials', '/faq', '/blog', ...POSTS.map((p) => `/blog/${p.slug}`), '/contact', '/coverage', '/privacy', '/terms', '/does-not-exist', '/admin/login', `/order/${process.env.ORDER_REF ?? 'FP-44477C'}`];
 const b = await chromium.launch();
 const issues: string[] = [];
 let n = 0;

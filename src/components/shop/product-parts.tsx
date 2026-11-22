@@ -14,8 +14,8 @@ import { cn, formatKES } from '@/lib/utils';
 import type { ProductView } from '@/lib/server/products';
 
 export const CATEGORY_GLYPH: Record<string, GlyphName | 'pump' | 'sink' | 'toilet' | 'droplet'> = {
-  sinks: 'sink', faucets: 'tap', pumps: 'pump', drains: 'drain', showers: 'shower', 'pipe-fittings': 'elbow', 'steam-showers': 'shower',
-  valves: 'valve', 'water-filtration': 'droplet', 'water-heaters': 'geyser', 'toilet-parts': 'toilet', accessories: 'wrench',
+  showers: 'shower', pumps: 'pump', 'washing-machine-plumbing': 'tap', 'washing-machine-covers-and-stands': 'wrench',
+  'laundry-bags': 'droplet', 'laundry-care': 'droplet',
 };
 
 /** Category illustration used when a product has no photo: fitting glyph on a brand plate over a light blueprint tint. */
@@ -47,17 +47,21 @@ export function ProductImage({ p, sizes, priority = false, className }: { p: Pro
   return <Image src={first.url} alt={first.alt || p.name} fill sizes={sizes} priority={priority} className={cn('object-cover', className)} />;
 }
 
-export function StockBadge({ stock }: { stock: number }) {
-  if (stock <= 0) return <Pill className="!text-accent-strong">Out of stock</Pill>;
-  if (stock <= 5) return <Pill tone="orange">Only {stock} left</Pill>;
-  return <Pill tone="green"><Check className="size-3.5" aria-hidden /> In stock</Pill>;
+/** Stock is unknown for most products (no count is kept), so they are shown as available to order. */
+export function StockBadge({ p }: { p: Pick<ProductView, 'stock' | 'trackStock' | 'available'> }) {
+  if (!p.available) return <Pill className="!text-accent-strong">Out of stock</Pill>;
+  if (p.trackStock && p.stock <= 5) return <Pill tone="orange">Only {p.stock} left</Pill>;
+  return <Pill tone="green"><Check className="size-3.5" aria-hidden /> {p.trackStock ? 'In stock' : 'Available to order'}</Pill>;
 }
+
+/** Quantity cap stored with a cart line. Zero means "no cap other than the cart maximum". */
+export const cartStock = (p: Pick<ProductView, 'stock' | 'trackStock'>) => (p.trackStock ? p.stock : 0);
 
 export function AddToCartButton({ product, qty = 1, size = 'md', className, label = 'Add to cart' }: { product: ProductView; qty?: number; size?: 'sm' | 'md' | 'lg'; className?: string; label?: string }) {
   const add = useCart((s) => s.add);
   const ref = React.useRef<HTMLButtonElement>(null);
   const [done, setDone] = React.useState(false);
-  const out = product.stock <= 0;
+  const out = !product.available;
   return (
     <Button
       ref={ref}
@@ -66,7 +70,7 @@ export function AddToCartButton({ product, qty = 1, size = 'md', className, labe
       disabled={out}
       aria-label={out ? `${product.name} is out of stock` : `${label}: ${product.name}`}
       onClick={() => {
-        add({ productId: product.id, slug: product.slug, name: product.name, price: product.finalPrice, stock: product.stock, image: product.images[0]?.url ?? null, category: product.categoryName }, qty);
+        add({ productId: product.id, slug: product.slug, name: product.name, price: product.finalPrice, stock: cartStock(product), image: product.images[0]?.url ?? null, category: product.categoryName }, qty);
         flyToCart(ref.current, product.images[0]?.url ?? null);
         track('add_to_cart', { productId: product.id, path: `/shop/${product.slug}` });
         toast.success(`${product.name} added to your cart`);
@@ -94,7 +98,7 @@ export function ProductCard({ p, view = 'grid', onQuickView, priority = false }:
   return (
     <article className={cn('fp-card fp-card-hover group flex overflow-hidden', list ? 'flex-col sm:flex-row' : 'flex-col')}
     >
-      <div className={cn('relative shrink-0 overflow-hidden', list ? 'aspect-[4/3] sm:aspect-auto sm:w-56 md:w-64' : 'aspect-[4/3]')}>
+      <div className={cn('relative shrink-0 overflow-hidden bg-surface-alt', list ? 'aspect-[4/5] sm:aspect-auto sm:w-56 md:w-64' : 'aspect-[4/5]')}>
         <Link href={`/shop/${p.slug}`} tabIndex={-1} aria-hidden className="relative block size-full transition-transform duration-500 group-hover:scale-105">
           <ProductImage p={p} sizes={list ? '256px' : '(min-width:1280px) 22vw, (min-width:768px) 33vw, 50vw'} priority={priority} />
         </Link>
@@ -122,10 +126,10 @@ export function ProductCard({ p, view = 'grid', onQuickView, priority = false }:
           </ul>
         ) : null}
         {list ? <p className="line-clamp-2 text-sm text-ink-muted">{p.description}</p> : null}
-        <p className="text-xs text-ink-muted">SKU: <span className="font-mono">{p.sku || 'n/a'}</span></p>
+        {p.sku ? <p className="text-xs text-ink-muted">SKU: <span className="font-mono">{p.sku}</span></p> : null}
         <div className="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-line pt-3">
           <PriceTag p={p} />
-          <StockBadge stock={p.stock} />
+          <StockBadge p={p} />
         </div>
         <AddToCartButton product={p} size="sm" className="w-full" />
       </div>
@@ -136,7 +140,7 @@ export function ProductCard({ p, view = 'grid', onQuickView, priority = false }:
 export function ProductSkeleton({ view = 'grid' }: { view?: 'grid' | 'list' }) {
   return (
     <div className={cn('fp-card flex overflow-hidden', view === 'list' ? 'flex-col sm:flex-row' : 'flex-col')} aria-hidden>
-      <div className={cn('skeleton !rounded-none', view === 'list' ? 'aspect-[4/3] sm:w-64' : 'aspect-[4/3]')} />
+      <div className={cn('skeleton !rounded-none', view === 'list' ? 'aspect-[4/5] sm:w-64' : 'aspect-[4/5]')} />
       <div className="flex-1 space-y-3 p-5">
         <div className="skeleton h-3 w-1/3" />
         <div className="skeleton h-5 w-4/5" />

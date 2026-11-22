@@ -10,7 +10,7 @@ const out = process.env.OUT ?? 'docs/lighthouse-light';
 const runs = Number(process.env.RUNS ?? 3);
 const routes = [
   ['home', '/'], ['service', '/services/emergency-plumbing'], ['shop', '/shop'],
-  ['product', '/shop/intatherm-safe-touch-basin-mixer-tap'], ['contact', '/contact'],
+  ['product', '/shop/milano-modern-shower'], ['contact', '/contact'],
 ];
 const median = (a) => [...a].sort((x, y) => x - y)[Math.floor(a.length / 2)];
 fs.mkdirSync(out, { recursive: true });

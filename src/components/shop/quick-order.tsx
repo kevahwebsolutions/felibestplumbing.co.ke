@@ -25,7 +25,7 @@ export function QuickWhatsAppOrder({ p, qty, fee, freeThreshold }: { p: ProductV
   const subtotal = p.finalPrice * qty;
   const delivery = freeThreshold > 0 && subtotal >= freeThreshold ? 0 : fee;
   const err = (n: keyof CheckoutInput) => errors[n]?.message as string | undefined;
-  const out = p.stock <= 0;
+  const out = !p.available;
 
   const onSubmit = handleSubmit(async (values) => {
     setServerError('');

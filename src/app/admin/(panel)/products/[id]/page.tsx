@@ -16,7 +16,7 @@ export default async function EditProductPage({ params }: { params: Promise<{ id
       <h1 className="font-heading text-3xl font-black sm:text-4xl">Edit product</h1>
       <ProductForm
         categories={categories}
-        initial={{ id: p.id, name: p.name, slug: p.slug, categoryId: p.categoryId, description: p.description, price: p.price, salePrice: p.salePrice, sku: p.sku, stock: p.stock, tags: p.tags, specs: p.specs, featured: p.featured, published: p.published, isNew: p.isNew, isPlaceholderPrice: p.isPlaceholderPrice, images: p.images.map((i) => ({ src: i.src, url: i.url, alt: i.alt })), primaryIndex }}
+        initial={{ id: p.id, name: p.name, slug: p.slug, categoryId: p.categoryId, description: p.description, price: p.price, salePrice: p.salePrice, sku: p.sku, stock: p.stock, trackStock: p.trackStock, tags: p.tags, specs: p.specs, featured: p.featured, published: p.published, isNew: p.isNew, needsReview: p.needsReview, descriptionStatus: p.descriptionStatus, archived: p.archived, listPriceNote: p.listPriceNote, seoTitle: p.seoTitle, seoDescription: p.seoDescription, images: p.images.map((i) => ({ src: i.src, url: i.url, alt: i.alt })), primaryIndex }}
       />
     </div>
   );

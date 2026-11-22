@@ -37,7 +37,7 @@ await m.close();
 
 const q = await browser.newContext({ viewport: { width: 1440, height: 900 } });
 const qp = await q.newPage();
-await qp.goto(`${base}/shop/intatherm-safe-touch-basin-mixer-tap`, { waitUntil: 'networkidle' });
+await qp.goto(`${base}/shop/milano-modern-shower`, { waitUntil: 'networkidle' });
 await qp.getByTestId('order-on-whatsapp').click();
 await qp.waitForTimeout(500);
 await qp.screenshot({ path: `${dir}/product-whatsapp-dialog-1440.png` });

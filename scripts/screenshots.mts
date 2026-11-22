@@ -8,7 +8,7 @@ import { POSTS } from '../src/data/blog.ts';
 
 const base = (process.env.BASE_URL ?? 'http://localhost:3000').replace(/\/$/, '');
 const only = process.argv[2];
-const publicRoutes = ['/', '/about', '/services', ...SERVICES.slice(0, 3).map((s) => `/services/${s.slug}`), '/shop', '/shop/intatherm-safe-touch-basin-mixer-tap', '/cart', '/checkout', '/pricing', '/gallery', '/testimonials', '/faq', '/blog', `/blog/${POSTS[0]!.slug}`, '/contact', '/coverage', '/privacy', '/terms', '/does-not-exist', `/order/${process.env.ORDER_REF ?? 'FP-44477C'}`];
+const publicRoutes = ['/', '/about', '/services', ...SERVICES.slice(0, 3).map((s) => `/services/${s.slug}`), '/shop', '/shop/milano-modern-shower', '/cart', '/checkout', '/pricing', '/gallery', '/testimonials', '/faq', '/blog', `/blog/${POSTS[0]!.slug}`, '/contact', '/coverage', '/privacy', '/terms', '/does-not-exist', `/order/${process.env.ORDER_REF ?? 'FP-44477C'}`];
 const adminRoutes = ['/admin', '/admin/products', '/admin/products/new', '/admin/categories', '/admin/orders', '/admin/enquiries', '/admin/settings', '/admin/orders/1'];
 const sizes = [{ w: 375, h: 812 }, { w: 768, h: 1024 }, { w: 1440, h: 900 }];
 

@@ -7,7 +7,7 @@ import { chromium } from '@playwright/test';
 const base = process.env.BASE_URL ?? 'http://localhost:3001';
 const routes = [
   ['home', '/'], ['service', '/services/emergency-plumbing'], ['shop', '/shop'],
-  ['product', '/shop/intatherm-safe-touch-basin-mixer-tap'], ['contact', '/contact'], ['gallery', '/gallery'],
+  ['product', '/shop/milano-modern-shower'], ['contact', '/contact'], ['gallery', '/gallery'],
 ];
 fs.mkdirSync('docs/lighthouse-v2', { recursive: true });
 const rows = [];

@@ -10,6 +10,7 @@ import { QuickWhatsAppOrder } from './quick-order';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Pill } from '@/components/ui/misc';
 import { track } from '@/lib/track';
+import { structureDescription } from '@/lib/catalog-meta';
 import { cn } from '@/lib/utils';
 import type { ProductView } from '@/lib/server/products';
 
@@ -20,16 +21,16 @@ export function ProductGallery({ p }: { p: ProductView }) {
   return (
     <div>
       <div
-        className="fp-card relative aspect-square cursor-zoom-in overflow-hidden rounded-lg p-2"
+        className="fp-card relative aspect-[4/5] cursor-zoom-in overflow-hidden rounded-lg p-2"
         onMouseMove={(e) => {
           const r = e.currentTarget.getBoundingClientRect();
           setZoom({ x: ((e.clientX - r.left) / r.width) * 100, y: ((e.clientY - r.top) / r.height) * 100 });
         }}
         onMouseLeave={() => setZoom(null)}
       >
-        <div className="relative size-full overflow-hidden rounded-md">
+        <div className="relative size-full overflow-hidden rounded-md bg-surface-alt">
           {img ? (
-            <Image src={img.url} alt={img.alt || p.name} fill priority sizes="(min-width:1024px) 560px, 100vw" className="object-cover transition-transform duration-200" style={zoom ? { transform: 'scale(2)', transformOrigin: `${zoom.x}% ${zoom.y}%` } : undefined} />
+            <Image src={img.url} alt={img.alt || p.name} fill priority sizes="(min-width:1024px) 560px, 100vw" className="object-contain transition-transform duration-200" style={zoom ? { transform: 'scale(2)', transformOrigin: `${zoom.x}% ${zoom.y}%` } : undefined} />
           ) : (
             <ProductArt category={p.categorySlug} />
           )}
@@ -42,7 +43,7 @@ export function ProductGallery({ p }: { p: ProductView }) {
           {p.images.map((im, i) => (
             <li key={im.id}>
               <button type="button" onClick={() => setActive(i)} aria-label={`Show photo ${i + 1}`} aria-pressed={i === active} className={cn('fp-card relative block aspect-square w-full overflow-hidden p-1', i === active && '!border-brand ring-2 ring-brand')}>
-                <Image src={im.url} alt="" fill sizes="120px" className="rounded object-cover" />
+                <Image src={im.url} alt="" fill sizes="120px" className="rounded bg-surface-alt object-cover" />
               </button>
             </li>
           ))}
@@ -52,21 +53,21 @@ export function ProductGallery({ p }: { p: ProductView }) {
   );
 }
 
-export function ProductBuyBox({ p, freeThreshold, fee, phone = '' }: { p: ProductView; freeThreshold: number; fee: number; phone?: string }) {
+export function ProductBuyBox({ p, freeThreshold, fee, phone = '', installable = false }: { p: ProductView; freeThreshold: number; fee: number; phone?: string; installable?: boolean }) {
   const [qty, setQty] = React.useState(1);
   React.useEffect(() => { track('product_view', { productId: p.id, path: `/shop/${p.slug}` }); }, [p.id, p.slug]);
   return (
     <div className="space-y-5">
       <PriceTag p={p} size="lg" />
-      <div className="flex flex-wrap items-center gap-3"><StockBadge stock={p.stock} /><span className="text-sm text-ink-muted">SKU: {p.sku || 'n/a'}</span></div>
+      <div className="flex flex-wrap items-center gap-3"><StockBadge p={p} />{p.sku ? <span className="text-sm text-ink-muted">SKU: {p.sku}</span> : null}</div>
       <div className="flex flex-wrap items-center gap-4">
-        <QtyStepper value={qty} max={p.stock} onChange={(n) => setQty(Math.max(1, n))} label={p.name} />
+        <QtyStepper value={qty} max={p.trackStock ? p.stock : undefined} onChange={(n) => setQty(Math.max(1, n))} label={p.name} />
         <AddToCartButton product={p} qty={qty} size="lg" className="flex-1 sm:flex-none" />
       </div>
       <QuickWhatsAppOrder p={p} qty={qty} fee={fee} freeThreshold={freeThreshold} />
       <p className="fp-card-sky flex items-start gap-3 p-4 text-sm font-semibold text-brand-strong"><Truck className="mt-0.5 size-5 shrink-0" aria-hidden />
         Delivery from {fee === 0 ? 'free' : `KES ${fee.toLocaleString('en-KE')}`}{freeThreshold > 0 ? `, free on orders over KES ${freeThreshold.toLocaleString('en-KE')}` : ''}. Pay on delivery or order via WhatsApp.</p>
-      <div className="fp-card-blue flex flex-wrap items-center justify-between gap-4 p-5">
+      {installable ? <div className="fp-card-blue flex flex-wrap items-center justify-between gap-4 p-5">
         <div className="flex items-start gap-3">
           <Wrench className="mt-1 size-6 shrink-0 text-brand" aria-hidden />
           <div>
@@ -76,7 +77,20 @@ export function ProductBuyBox({ p, freeThreshold, fee, phone = '' }: { p: Produc
         </div>
         <Link href="/contact#book" className="fp-button fp-button-sm">Book a plumber</Link>
         {phone ? <a href={`tel:${phone.replace(/[^\d+]/g, '')}`} className="inline-flex min-h-11 items-center gap-2 font-heading text-xl font-bold tracking-wide text-brand underline-offset-4 hover:underline"><Phone className="size-4" aria-hidden /> {phone}</a> : null}
-      </div>
+      </div> : null}
+    </div>
+  );
+}
+
+function Description({ text }: { text: string }) {
+  if (!text) return <p className="text-ink-muted">No description yet.</p>;
+  const s = structureDescription(text);
+  if (!s) return <div className="prose-fp"><p>{text}</p></div>;
+  return (
+    <div className="prose-fp">
+      <p className="font-semibold">{s.lead}</p>
+      <ul>{s.bullets.map((b) => <li key={b}>{b}</li>)}</ul>
+      {s.tail ? <p>{s.tail}</p> : null}
     </div>
   );
 }
@@ -89,7 +103,7 @@ export function ProductTabs({ p }: { p: ProductView }) {
         <TabsTrigger value="info">Specifications</TabsTrigger>
         <TabsTrigger value="reviews">Reviews (0)</TabsTrigger>
       </TabsList>
-      <TabsContent value="desc"><div className="prose-fp"><p>{p.description || 'No description yet.'}</p></div></TabsContent>
+      <TabsContent value="desc"><Description text={p.description} /></TabsContent>
       <TabsContent value="info">
         {p.specs.length ? (
           <table className="w-full text-left">

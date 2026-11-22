@@ -28,7 +28,7 @@ export function CartDrawer({ settings }: { settings: PublicSettings }) {
             <div>
               <span className="fp-icon mx-auto !size-24"><ShoppingBag className="size-10" aria-hidden /></span>
               <p className="mt-6 font-heading text-2xl font-bold text-ink">Your cart is empty</p>
-              <p className="mt-2 text-ink-muted">Browse taps, valves, heaters and more.</p>
+              <p className="mt-2 text-ink-muted">Browse showers, pumps and laundry supplies.</p>
               <ButtonLink href="/shop" className="mt-6" onClick={() => setOpen(false)}>Go to the shop</ButtonLink>
             </div>
           </div>

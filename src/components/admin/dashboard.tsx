@@ -110,7 +110,7 @@ export function OnlineBadge({ initial }: { initial: number }) {
   );
 }
 
-export function DashboardView({ d, preset, placeholderCount }: { d: Dashboard; preset: string; placeholderCount: number }) {
+export function DashboardView({ d, preset, reviewCount }: { d: Dashboard; preset: string; reviewCount: number }) {
   const k = d.kpis;
   const sources = d.sources.map((s) => ({ ...s }));
   const hasTraffic = k.pageviews > 0;
@@ -137,11 +137,11 @@ export function DashboardView({ d, preset, placeholderCount }: { d: Dashboard; p
         <Button type="submit" size="sm" variant="blue">Apply custom range</Button>
       </form>
 
-      {placeholderCount > 0 ? (
+      {reviewCount > 0 ? (
         <div className="fp-card-peach flex flex-wrap items-center gap-3 p-4 font-semibold" role="status">
           <AlertTriangle className="size-6 shrink-0 text-accent-strong" aria-hidden />
-          <p className="flex-1">{placeholderCount} products still use placeholder prices. Confirm them before going live.</p>
-          <Link href="/admin/products?filter=placeholder" className="fp-button fp-button-sm">Review prices</Link>
+          <p className="flex-1">{reviewCount} {reviewCount === 1 ? 'product needs' : 'products need'} description review.</p>
+          <Link href="/admin/products?filter=review" className="fp-button fp-button-sm">Review descriptions</Link>
         </div>
       ) : null}
 

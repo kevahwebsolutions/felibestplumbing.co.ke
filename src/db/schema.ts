@@ -35,7 +35,21 @@ export const products = sqliteTable(
     featured: integer('featured', { mode: 'boolean' }).notNull().default(false),
     published: integer('published', { mode: 'boolean' }).notNull().default(false),
     isNew: integer('is_new', { mode: 'boolean' }).notNull().default(false),
-    isPlaceholderPrice: integer('is_placeholder_price', { mode: 'boolean' }).notNull().default(true),
+    /** False (default) means stock is not counted: the product is always treated as available. */
+    trackStock: integer('track_stock', { mode: 'boolean' }).notNull().default(false),
+    /** Admin-only note, for example the struck-through list price in the source catalogue. Never shown to customers. */
+    listPriceNote: text('list_price_note').notNull().default(''),
+    /** `owner` = written or confirmed by the owner, `source` = supplier text, `generated-from-name` = needs confirming. */
+    descriptionStatus: text('description_status').notNull().default('owner'),
+    needsReview: integer('needs_review', { mode: 'boolean' }).notNull().default(false),
+    seoTitle: text('seo_title').notNull().default(''),
+    seoDescription: text('seo_description').notNull().default(''),
+    /** Archived products are hidden everywhere on the public site but kept for order history. */
+    archived: integer('archived', { mode: 'boolean' }).notNull().default(false),
+    /** Set when the owner saves the product in the admin. */
+    updatedByAdmin: integer('updated_by_admin', { mode: 'boolean' }).notNull().default(false),
+    /** JSON of the values written by the catalogue import, used to tell owner edits from imported values. */
+    importSnapshot: text('import_snapshot').notNull().default(''),
     createdAt: integer('created_at').notNull().$defaultFn(now),
     updatedAt: integer('updated_at').notNull().$defaultFn(now),
   },

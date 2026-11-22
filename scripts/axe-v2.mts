@@ -7,7 +7,7 @@ import { SERVICES } from '../src/data/services.ts';
 import { POSTS } from '../src/data/blog.ts';
 
 const base = (process.env.BASE_URL ?? 'http://localhost:3001').replace(/\/$/, '');
-const pub = ['/', '/about', '/services', ...SERVICES.map((s) => `/services/${s.slug}`).slice(0, 4), '/shop', '/shop/intatherm-safe-touch-basin-mixer-tap', '/cart', '/checkout', '/pricing', '/gallery', '/testimonials', '/faq', '/blog', `/blog/${POSTS[0]!.slug}`, '/contact', '/coverage', '/privacy', '/terms', '/does-not-exist', '/admin/login', `/order/${process.env.ORDER_REF ?? 'FP-44477C'}`];
+const pub = ['/', '/about', '/services', ...SERVICES.map((s) => `/services/${s.slug}`).slice(0, 4), '/shop', '/shop/milano-modern-shower', '/cart', '/checkout', '/pricing', '/gallery', '/testimonials', '/faq', '/blog', `/blog/${POSTS[0]!.slug}`, '/contact', '/coverage', '/privacy', '/terms', '/does-not-exist', '/admin/login', `/order/${process.env.ORDER_REF ?? 'FP-44477C'}`];
 const admin = ['/admin', '/admin/products', '/admin/products/new', '/admin/categories', '/admin/orders', '/admin/enquiries', '/admin/settings', '/admin/orders/1'];
 const browser = await chromium.launch();
 let bad = 0;

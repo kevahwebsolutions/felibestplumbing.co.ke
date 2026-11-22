@@ -132,8 +132,9 @@ export function getDashboard(range: DashRange) {
   });
 
   const stats2 = productStats(events);
-  const productRows = db.select({ id: schema.products.id, name: schema.products.name, categoryId: schema.products.categoryId }).from(schema.products).all();
-  const nameById = new Map(productRows.map((p) => [p.id, p.name]));
+  const productRows = db.select({ id: schema.products.id, name: schema.products.name, categoryId: schema.products.categoryId, archived: schema.products.archived }).from(schema.products).all();
+  // Top-products widgets only list live products. Archived ones stay in order history and category sales.
+  const nameById = new Map(productRows.filter((p) => !p.archived).map((p) => [p.id, p.name]));
   const categoryRows = db.select().from(schema.categories).all();
   const catName = new Map(categoryRows.map((c) => [c.id, c.name]));
   const catByProduct = new Map(productRows.map((p) => [p.id, p.categoryId != null ? catName.get(p.categoryId) ?? 'Uncategorised' : 'Uncategorised']));
@@ -156,7 +157,7 @@ export function getDashboard(range: DashRange) {
   const lowStock = db
     .select({ id: schema.products.id, name: schema.products.name, stock: schema.products.stock })
     .from(schema.products)
-    .where(and(eq(schema.products.published, true), lt(schema.products.stock, 6)))
+    .where(and(eq(schema.products.published, true), eq(schema.products.archived, false), eq(schema.products.trackStock, true), lt(schema.products.stock, 6)))
     .orderBy(schema.products.stock)
     .limit(8)
     .all();
@@ -183,7 +184,7 @@ export function getDashboard(range: DashRange) {
     devices: deviceSplit(events),
     browsers: browserSplit(events),
     heatmap: hourWeekdayHeatmap(events),
-    products: stats2.slice(0, 8).map((s) => ({ name: nameById.get(s.productId) ?? `Product ${s.productId}`, views: s.views, addToCart: s.addToCart })),
+    products: stats2.filter((s) => nameById.has(s.productId)).slice(0, 8).map((s) => ({ name: nameById.get(s.productId) ?? `Product ${s.productId}`, views: s.views, addToCart: s.addToCart })),
     funnel: funnel(events),
     categorySales: [...catSales].map(([name, value]) => ({ name, value })).sort((a, b) => b.value - a.value).slice(0, 8),
     recentOrders,

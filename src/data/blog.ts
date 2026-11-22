@@ -331,7 +331,7 @@ For households with children or older people, thermostatic mixers limit the maxi
 
 ## Installation
 
-Use fresh seals, do not over-tighten and test for leaks under pressure. Felibest Plumbing supplies and installs taps and mixers, or can install ones you have already purchased.`,
+Use fresh seals, do not over-tighten and test for leaks under pressure. Felibest Plumbing installs taps and mixers, whether you buy them elsewhere or already have them.`,
   },
 ];
 

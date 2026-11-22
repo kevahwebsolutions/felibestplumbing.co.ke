@@ -79,10 +79,15 @@ export async function saveProductAction(input: unknown): Promise<ActionState & {
   const d = parsed.data;
   const db = getDb();
   const slug = uniqueSlug(d.slug || d.name, d.id);
+  const before = d.id ? db.select({ description: schema.products.description }).from(schema.products).where(eq(schema.products.id, d.id)).get() : undefined;
+  // Rewriting the description counts as reviewing it, so the "needs review" flag is cleared and the text is the owner's.
+  const rewritten = before !== undefined && before.description !== d.description;
   const values = {
     slug, name: d.name, categoryId: d.categoryId, description: d.description, price: d.price, salePrice: d.salePrice, sku: d.sku,
-    stock: d.stock, tags: d.tags, specs: d.specs, featured: d.featured, published: d.published, isNew: d.isNew,
-    isPlaceholderPrice: d.isPlaceholderPrice, updatedAt: Math.floor(Date.now() / 1000),
+    stock: d.stock, trackStock: d.trackStock, tags: d.tags, specs: d.specs, featured: d.featured, published: d.published, isNew: d.isNew,
+    needsReview: rewritten ? false : d.needsReview, listPriceNote: d.listPriceNote, seoTitle: d.seoTitle, seoDescription: d.seoDescription,
+    ...(rewritten ? { descriptionStatus: 'owner' } : {}),
+    updatedByAdmin: true, updatedAt: Math.floor(Date.now() / 1000),
   };
   let id = d.id;
   const previous: string[] = [];
@@ -115,18 +120,18 @@ export async function bulkProductsAction(action: 'publish' | 'unpublish' | 'dele
     db.delete(schema.products).where(inArray(schema.products.id, parsed.data)).run();
     await Promise.all(files.filter((f) => !f.src.startsWith('/')).map((f) => deleteUpload(f.src)));
   } else {
-    db.update(schema.products).set({ published: action === 'publish', updatedAt: Math.floor(Date.now() / 1000) }).where(inArray(schema.products.id, parsed.data)).run();
+    db.update(schema.products).set({ published: action === 'publish', updatedAt: Math.floor(Date.now() / 1000) }).where(and(inArray(schema.products.id, parsed.data), eq(schema.products.archived, false))).run();
   }
   revalidatePath('/shop');
   revalidatePath('/admin/products');
   return { ok: true };
 }
 
-export async function confirmPricesAction(ids: number[]): Promise<ActionState> {
+export async function markReviewedAction(ids: number[]): Promise<ActionState> {
   await requireAdmin();
   const parsed = idsSchema.safeParse(ids);
   if (!parsed.success) return { error: 'Select at least one product' };
-  getDb().update(schema.products).set({ isPlaceholderPrice: false }).where(inArray(schema.products.id, parsed.data)).run();
+  getDb().update(schema.products).set({ needsReview: false, descriptionStatus: 'owner' }).where(inArray(schema.products.id, parsed.data)).run();
   revalidatePath('/admin');
   revalidatePath('/admin/products');
   return { ok: true };
@@ -176,7 +181,7 @@ export async function updateOrderAction(input: { id: number; status?: string; in
     if (status && status !== current.status && (status === 'cancelled' || current.status === 'cancelled')) {
       const sign = status === 'cancelled' ? 1 : -1;
       for (const it of tx.select().from(schema.orderItems).where(eq(schema.orderItems.orderId, id)).all()) {
-        if (it.productId) tx.update(schema.products).set({ stock: sql`MAX(0, ${schema.products.stock} + ${sign * it.qty})` }).where(eq(schema.products.id, it.productId)).run();
+        if (it.productId) tx.update(schema.products).set({ stock: sql`MAX(0, ${schema.products.stock} + ${sign * it.qty})` }).where(and(eq(schema.products.id, it.productId), eq(schema.products.trackStock, true))).run();
       }
     }
   });

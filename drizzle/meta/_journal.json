@@ -15,6 +15,20 @@
       "when": 1795179117069,
       "tag": "0001_whatsapp_notify",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1795389545298,
+      "tag": "0002_catalog_real_products",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1795389547215,
+      "tag": "0003_drop_placeholder_price",
+      "breakpoints": true
     }
   ]
 }

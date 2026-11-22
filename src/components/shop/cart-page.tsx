@@ -21,7 +21,7 @@ export function CartPage({ settings }: { settings: PublicSettings }) {
       <div className="fp-card grid place-items-center gap-4 p-12 text-center">
         <span className="fp-icon !size-24"><ShoppingBag className="size-10" aria-hidden /></span>
         <h2 className="font-heading text-3xl font-bold">Your cart is empty</h2>
-        <p className="text-ink-muted">Add taps, valves or heaters from the shop.</p>
+        <p className="text-ink-muted">Add showers, pumps or laundry supplies from the shop.</p>
         <ButtonLink href="/shop">Browse the shop</ButtonLink>
       </div>
     );

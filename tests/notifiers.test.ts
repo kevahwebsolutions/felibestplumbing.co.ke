@@ -4,8 +4,8 @@ import { cloudConfigFromEnv, getNotifiers, WhatsAppCloudNotifier, WhatsAppLinkNo
 const ctx = { siteUrl: 'https://felibestplumbing.co.ke', whatsappNumber: '254798174201' };
 const order: NotifyOrder = {
   ref: 'FP-ABC234', customerName: 'Jane Wanjiru', phone: '+254712345678', area: 'Kilimani', address: 'Argwings Kodhek Road', paymentMethod: 'whatsapp',
-  items: [{ name: 'Single Handle Kitchen Faucet', qty: 1, price: 7450, slug: 'single-handle-kitchen-faucet' }], deliveryFee: 500, total: 7950,
-  firstProductSlug: 'single-handle-kitchen-faucet',
+  items: [{ name: 'Milano modern shower', qty: 1, price: 25000, slug: 'milano-modern-shower' }], deliveryFee: 500, total: 25500,
+  firstProductSlug: 'milano-modern-shower',
 };
 const cfg = { token: 'SECRET-TOKEN-123', phoneNumberId: '1234567890', ownerNumber: '+254 798 174 201', templateName: 'new_order_alert' };
 
@@ -18,7 +18,7 @@ describe('WhatsAppLinkNotifier', () => {
     expect(link.startsWith('https://wa.me/254798174201?text=')).toBe(true);
     const text = decodeURIComponent(link.split('text=')[1]!);
     expect(text).toContain('FP-ABC234');
-    expect(text).toContain('https://felibestplumbing.co.ke/shop/single-handle-kitchen-faucet');
+    expect(text).toContain('https://felibestplumbing.co.ke/shop/milano-modern-shower');
   });
   it('does nothing server-side', async () => {
     expect(await n.notify()).toEqual({ status: 'skipped' });
@@ -36,7 +36,7 @@ describe('WhatsAppCloudNotifier', () => {
     expect(init.headers.Authorization).toBe('Bearer SECRET-TOKEN-123');
     const body = JSON.parse(init.body);
     expect(body).toMatchObject({ messaging_product: 'whatsapp', to: '254798174201', type: 'image' });
-    expect(body.image.link).toBe('https://felibestplumbing.co.ke/og/product/single-handle-kitchen-faucet');
+    expect(body.image.link).toBe('https://felibestplumbing.co.ke/og/product/milano-modern-shower');
     expect(body.image.caption).toContain('FP-ABC234');
   });
 
