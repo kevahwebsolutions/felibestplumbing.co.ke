@@ -78,7 +78,7 @@ const FOOT = ' | Felibest Plumbing';
 export const CATALOG_PRODUCTS: CatalogProduct[] = [
   {
     slug: 'milano-modern-shower', name: 'Milano modern shower', categorySlug: 'showers', price: 25000, currency: 'KES', sourceRow: 1,
-    description: 'MODERN MILANO SHOWER WITH INBUILT HEATER & PUMP - Adjustable water temperature - Inbuilt adjustable water pump - Large rainfall shower head - Handheld telephone shower - Chrome shower rail and accessories - Built-in soap dish Price: KSh 25,000',
+    description: 'Modern Milano shower with inbuilt heater and pump - Adjustable water temperature - Inbuilt adjustable water pump - Large rainfall shower head - Handheld telephone shower - Chrome shower rail and accessories - Built-in soap dish',
     descriptionStatus: 'source', needsReview: false, featured: true,
     listPriceNote: 'Struck-through list price in the source catalogue: KES 27,000.',
     seoTitle: `Milano modern shower${FOOT}`,
@@ -89,7 +89,7 @@ export const CATALOG_PRODUCTS: CatalogProduct[] = [
   },
   {
     slug: 'dda-1000p', name: 'DDA 1000P', categorySlug: 'pumps', price: 18200, currency: 'KES', sourceRow: 2,
-    description: 'DAYLIFF DDA 1000P WELL PUMP - Power: 1.0kW (1.3HP) - Maximum Head: 35m - Voltage: 240V - Includes 20m submersible cable - Low-level float switch - Suitable for semi-submerged operation Price: KSh 18,200',
+    description: 'Dayliff DDA 1000P well pump - Power: 1.0 kW (1.3 HP) - Maximum head: 35 m - Voltage: 240 V - Includes 20 m submersible cable - Low-level float switch - Suitable for semi-submerged operation',
     descriptionStatus: 'source', needsReview: false, featured: true,
     listPriceNote: 'Struck-through list price in the source catalogue: KES 19,000.',
     seoTitle: `DDA 1000P Well Pump${FOOT}`,
@@ -102,7 +102,7 @@ export const CATALOG_PRODUCTS: CatalogProduct[] = [
   },
   {
     slug: 'shoes-mesh-bags-for-washing-machine', name: 'Shoes Mesh Bags for Washing Machine', categorySlug: 'laundry-bags', price: 1500, currency: 'KES', sourceRow: 3,
-    description: 'Shoe Washing Mesh Bags – Set of 2 Keep your shoes clean and protected with our durable Shoe Mesh Bags. Perfect for machine washing, they help protect your shoes while allowing water and detergent to clean effectively. Price: KSh 1,500 per set (2 pieces). \u{1F4DE} To order, call/WhatsApp 0185166879. Beta Supplies – Utawala.',
+    description: 'Shoe washing mesh bags, set of 2. Keep your shoes clean and protected with these durable shoe mesh bags. Perfect for machine washing, they help protect your shoes while allowing water and detergent to clean effectively. Sold as a set of 2 pieces.',
     descriptionStatus: 'source', needsReview: false, featured: false,
     listPriceNote: 'Struck-through list price in the source catalogue: KES 1,700.',
     seoTitle: `Shoes Mesh Bags for Washing Machine${FOOT}`,
@@ -127,7 +127,7 @@ export const CATALOG_PRODUCTS: CatalogProduct[] = [
   },
   {
     slug: 'heavy-duty-washing-machine-stand', name: 'Heavy Duty Washing Machine Stand', categorySlug: 'washing-machine-covers-and-stands', price: 3500, currency: 'KES', sourceRow: 5,
-    description: '\u{1F6D2} HEAVY-DUTY MOVABLE WASHING MACHINE & FRIDGE STAND ✅ Strong and durable ✅ Adjustable to fit different appliance sizes ✅ Wheels for easy movement ✅ Stable, anti-slip corner supports \u{1F4B0} Price: KSh 3,500 only! \u{1F4DE} Order yours today!',
+    description: 'Heavy-duty movable washing machine and fridge stand - Strong and durable - Adjustable to fit different appliance sizes - Wheels for easy movement - Stable, anti-slip corner supports',
     descriptionStatus: 'source', needsReview: false, featured: true,
     listPriceNote: 'Struck-through list price in the source catalogue: KES 3,700.',
     seoTitle: `Heavy Duty Washing Machine Stand${FOOT}`,

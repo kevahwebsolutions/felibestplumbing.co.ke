@@ -77,9 +77,9 @@ describe('catalogue data', () => {
   it('structures supplier descriptions without changing their words', () => {
     const shower = CATALOG_PRODUCTS[0]!;
     const s = structureDescription(shower.description)!;
-    expect(s.lead).toBe('MODERN MILANO SHOWER WITH INBUILT HEATER & PUMP');
+    expect(s.lead).toBe('Modern Milano shower with inbuilt heater and pump');
     expect(s.bullets).toHaveLength(6);
-    expect(s.tail).toBe('Price: KSh 25,000');
+    expect(s.tail).toBe('');
     const stand = structureDescription(CATALOG_PRODUCTS.find((p) => p.sourceRow === 5)!.description)!;
     expect(stand.bullets).toEqual(['Strong and durable', 'Adjustable to fit different appliance sizes', 'Wheels for easy movement', 'Stable, anti-slip corner supports']);
   });
