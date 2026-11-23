@@ -87,7 +87,7 @@ Final JSON-LD as served by the production build (`NEXT_PUBLIC_SITE_URL=https://f
         {
           "@type": "ContactPoint",
           "contactType": "customer service",
-          "telephone": "+254 798 174 201",
+          "telephone": "+254798174201",
           "email": "felibestplumbing@gmail.com",
           "areaServed": "KE",
           "availableLanguage": [
@@ -130,7 +130,7 @@ Final JSON-LD as served by the production build (`NEXT_PUBLIC_SITE_URL=https://f
       "url": "https://felibestplumbing.co.ke",
       "image": "https://felibestplumbing.co.ke/images/logo-light.png",
       "logo": "https://felibestplumbing.co.ke/icons/icon-512.png",
-      "telephone": "+254 798 174 201",
+      "telephone": "+254798174201",
       "email": "felibestplumbing@gmail.com",
       "description": "Licensed plumbers in Nairobi, Kenya, available 24 hours a day for repairs, installations and emergencies.",
       "parentOrganization": {
@@ -400,7 +400,7 @@ Final JSON-LD as served by the production build (`NEXT_PUBLIC_SITE_URL=https://f
         {
           "@type": "ContactPoint",
           "contactType": "customer service",
-          "telephone": "+254 798 174 201",
+          "telephone": "+254798174201",
           "email": "felibestplumbing@gmail.com",
           "areaServed": "KE",
           "availableLanguage": [
@@ -443,7 +443,7 @@ Final JSON-LD as served by the production build (`NEXT_PUBLIC_SITE_URL=https://f
       "url": "https://felibestplumbing.co.ke",
       "image": "https://felibestplumbing.co.ke/images/logo-light.png",
       "logo": "https://felibestplumbing.co.ke/icons/icon-512.png",
-      "telephone": "+254 798 174 201",
+      "telephone": "+254798174201",
       "email": "felibestplumbing@gmail.com",
       "description": "Licensed plumbers in Nairobi, Kenya, available 24 hours a day for repairs, installations and emergencies.",
       "parentOrganization": {
@@ -694,7 +694,7 @@ Final JSON-LD as served by the production build (`NEXT_PUBLIC_SITE_URL=https://f
         {
           "@type": "ContactPoint",
           "contactType": "customer service",
-          "telephone": "+254 798 174 201",
+          "telephone": "+254798174201",
           "email": "felibestplumbing@gmail.com",
           "areaServed": "KE",
           "availableLanguage": [
@@ -737,7 +737,7 @@ Final JSON-LD as served by the production build (`NEXT_PUBLIC_SITE_URL=https://f
       "url": "https://felibestplumbing.co.ke",
       "image": "https://felibestplumbing.co.ke/images/logo-light.png",
       "logo": "https://felibestplumbing.co.ke/icons/icon-512.png",
-      "telephone": "+254 798 174 201",
+      "telephone": "+254798174201",
       "email": "felibestplumbing@gmail.com",
       "description": "Licensed plumbers in Nairobi, Kenya, available 24 hours a day for repairs, installations and emergencies.",
       "parentOrganization": {
@@ -988,7 +988,7 @@ Final JSON-LD as served by the production build (`NEXT_PUBLIC_SITE_URL=https://f
         {
           "@type": "ContactPoint",
           "contactType": "customer service",
-          "telephone": "+254 798 174 201",
+          "telephone": "+254798174201",
           "email": "felibestplumbing@gmail.com",
           "areaServed": "KE",
           "availableLanguage": [
@@ -1031,7 +1031,7 @@ Final JSON-LD as served by the production build (`NEXT_PUBLIC_SITE_URL=https://f
       "url": "https://felibestplumbing.co.ke",
       "image": "https://felibestplumbing.co.ke/images/logo-light.png",
       "logo": "https://felibestplumbing.co.ke/icons/icon-512.png",
-      "telephone": "+254 798 174 201",
+      "telephone": "+254798174201",
       "email": "felibestplumbing@gmail.com",
       "description": "Licensed plumbers in Nairobi, Kenya, available 24 hours a day for repairs, installations and emergencies.",
       "parentOrganization": {
@@ -1357,7 +1357,7 @@ Final JSON-LD as served by the production build (`NEXT_PUBLIC_SITE_URL=https://f
         {
           "@type": "ContactPoint",
           "contactType": "customer service",
-          "telephone": "+254 798 174 201",
+          "telephone": "+254798174201",
           "email": "felibestplumbing@gmail.com",
           "areaServed": "KE",
           "availableLanguage": [
@@ -1400,7 +1400,7 @@ Final JSON-LD as served by the production build (`NEXT_PUBLIC_SITE_URL=https://f
       "url": "https://felibestplumbing.co.ke",
       "image": "https://felibestplumbing.co.ke/images/logo-light.png",
       "logo": "https://felibestplumbing.co.ke/icons/icon-512.png",
-      "telephone": "+254 798 174 201",
+      "telephone": "+254798174201",
       "email": "felibestplumbing@gmail.com",
       "description": "Licensed plumbers in Nairobi, Kenya, available 24 hours a day for repairs, installations and emergencies.",
       "parentOrganization": {
@@ -1642,7 +1642,7 @@ Final JSON-LD as served by the production build (`NEXT_PUBLIC_SITE_URL=https://f
         {
           "@type": "ContactPoint",
           "contactType": "customer service",
-          "telephone": "+254 798 174 201",
+          "telephone": "+254798174201",
           "email": "felibestplumbing@gmail.com",
           "areaServed": "KE",
           "availableLanguage": [
@@ -1685,7 +1685,7 @@ Final JSON-LD as served by the production build (`NEXT_PUBLIC_SITE_URL=https://f
       "url": "https://felibestplumbing.co.ke",
       "image": "https://felibestplumbing.co.ke/images/logo-light.png",
       "logo": "https://felibestplumbing.co.ke/icons/icon-512.png",
-      "telephone": "+254 798 174 201",
+      "telephone": "+254798174201",
       "email": "felibestplumbing@gmail.com",
       "description": "Licensed plumbers in Nairobi, Kenya, available 24 hours a day for repairs, installations and emergencies.",
       "parentOrganization": {
@@ -2057,7 +2057,7 @@ Final JSON-LD as served by the production build (`NEXT_PUBLIC_SITE_URL=https://f
         {
           "@type": "ContactPoint",
           "contactType": "customer service",
-          "telephone": "+254 798 174 201",
+          "telephone": "+254798174201",
           "email": "felibestplumbing@gmail.com",
           "areaServed": "KE",
           "availableLanguage": [
@@ -2100,7 +2100,7 @@ Final JSON-LD as served by the production build (`NEXT_PUBLIC_SITE_URL=https://f
       "url": "https://felibestplumbing.co.ke",
       "image": "https://felibestplumbing.co.ke/images/logo-light.png",
       "logo": "https://felibestplumbing.co.ke/icons/icon-512.png",
-      "telephone": "+254 798 174 201",
+      "telephone": "+254798174201",
       "email": "felibestplumbing@gmail.com",
       "description": "Licensed plumbers in Nairobi, Kenya, available 24 hours a day for repairs, installations and emergencies.",
       "parentOrganization": {
@@ -2400,7 +2400,7 @@ Final JSON-LD as served by the production build (`NEXT_PUBLIC_SITE_URL=https://f
         {
           "@type": "ContactPoint",
           "contactType": "customer service",
-          "telephone": "+254 798 174 201",
+          "telephone": "+254798174201",
           "email": "felibestplumbing@gmail.com",
           "areaServed": "KE",
           "availableLanguage": [
@@ -2443,7 +2443,7 @@ Final JSON-LD as served by the production build (`NEXT_PUBLIC_SITE_URL=https://f
       "url": "https://felibestplumbing.co.ke",
       "image": "https://felibestplumbing.co.ke/images/logo-light.png",
       "logo": "https://felibestplumbing.co.ke/icons/icon-512.png",
-      "telephone": "+254 798 174 201",
+      "telephone": "+254798174201",
       "email": "felibestplumbing@gmail.com",
       "description": "Licensed plumbers in Nairobi, Kenya, available 24 hours a day for repairs, installations and emergencies.",
       "parentOrganization": {
