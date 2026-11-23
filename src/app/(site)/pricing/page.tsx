@@ -11,7 +11,7 @@ import { getSettings } from '@/lib/server/settings';
 export const dynamic = 'force-dynamic';
 
 export const metadata = buildMetadata({
-  title: 'Plumbing Prices and Rates in Nairobi (KES)',
+  title: 'Plumbing Prices in Nairobi (KES)',
   description: 'Indicative plumbing prices in Kenya shillings, service plans and current offers from Felibest Plumbing. You approve a fixed price before any work starts.',
   path: '/pricing',
 });

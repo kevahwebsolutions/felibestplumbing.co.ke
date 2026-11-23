@@ -28,7 +28,7 @@ export function allGalleryItems(): GalleryItem[] {
     for (const im of imagesByPrefix(g.prefix, g.alt)) {
       if (seen.has(im.src)) continue;
       seen.add(im.src);
-      out.push({ ...im, category: g.category });
+      out.push({ ...im, alt: `${g.alt}, photo ${out.filter((o) => o.category === g.category).length + 1}`, category: g.category });
     }
   }
   return out;

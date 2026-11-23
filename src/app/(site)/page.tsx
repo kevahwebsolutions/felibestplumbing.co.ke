@@ -24,8 +24,8 @@ import { getSettings } from '@/lib/server/settings';
 export const dynamic = 'force-dynamic';
 
 export const metadata = buildMetadata({
-  title: 'Felibest Plumbing Nairobi | 24/7 Emergency Plumber, Repairs and Installations',
-  description: 'Licensed plumbers in Nairobi, Kenya, available 24 hours a day. Emergency repairs, blocked drains, burst pipes, tanks, solar heaters, bathroom renovations and a plumbing shop. Call +254 798 174 201.',
+  title: { absolute: 'Felibest Plumbing Nairobi | 24/7 Emergency Plumber' },
+  description: 'Licensed Nairobi plumbers open 24 hours a day: emergency repairs, blocked drains, burst pipes, tanks, solar heaters and bathrooms. Call +254 798 174 201.',
   path: '/',
 });
 

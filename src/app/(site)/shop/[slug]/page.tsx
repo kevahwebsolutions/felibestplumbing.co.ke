@@ -15,7 +15,7 @@ export const dynamic = 'force-dynamic';
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const p = getProductBySlug(slug);
-  if (!p) return {};
+  if (!p) notFound();
   // WhatsApp and most link-preview crawlers need a JPEG, so og:image is the generated /og route and not the WebP photo.
   return buildMetadata({
     title: { absolute: productTitle(p) },
@@ -40,6 +40,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         data={{
           '@context': 'https://schema.org',
           '@type': 'Product',
+          '@id': `${absoluteUrl(`/shop/${p.slug}`)}#product`,
           name: p.name,
           description: p.description || p.name,
           sku: p.sku || undefined,

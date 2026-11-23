@@ -7,8 +7,8 @@ import { POSTS, postReadingMinutes } from '@/data/blog';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata = buildMetadata({
-  title: 'Plumbing Tips and Guides for Nairobi Homes',
-  description: 'Practical plumbing advice from Felibest Plumbing: low water pressure, burst pipes, blocked toilets, tank maintenance, solar heaters, instant showers, sewer smells and choosing taps.',
+  title: 'Plumbing Tips and Guides for Nairobi',
+  description: 'Practical plumbing advice from Felibest Plumbing: low water pressure, burst pipes, blocked toilets, water tanks, solar heaters, instant showers and taps.',
   path: '/blog',
 });
 

@@ -8,7 +8,7 @@ import { getSettings } from '@/lib/server/settings';
 
 export const metadata = buildMetadata({
   title: 'Areas We Cover: Plumbers Across Nairobi',
-  description: 'Felibest Plumbing serves Nairobi and nearby areas including Westlands, Kilimani, Karen, Embakasi, Kasarani, Ruaka, Rongai and Thika Road, with same-day service.',
+  description: 'Felibest Plumbing serves Nairobi and nearby areas including Westlands, Kilimani, Karen, Embakasi, Kasarani, Ruaka, Rongai and Thika Road.',
   path: '/coverage',
 });
 

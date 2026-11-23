@@ -8,7 +8,7 @@ import { categoriesWithCounts, listPublishedProducts } from '@/lib/server/produc
 export const dynamic = 'force-dynamic';
 
 export const metadata = buildMetadata({
-  title: { absolute: 'Shop: Showers, Pumps, Laundry Supplies | Felibest Plumbing' },
+  title: 'Shop: Showers, Pumps, Laundry Supplies',
   description: 'Buy a modern shower, a Dayliff well pump, washing machine pipes, taps, covers and laundry supplies in Nairobi. Prices in KES, pay on delivery.',
   path: '/shop',
 });

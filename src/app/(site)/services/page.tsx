@@ -9,7 +9,7 @@ import { getSettings } from '@/lib/server/settings';
 
 export const metadata = buildMetadata({
   title: 'All Plumbing Services in Nairobi',
-  description: 'Every plumbing service from Felibest Plumbing in Nairobi: emergencies, drains, burst pipes, taps, tanks, solar heaters, showers, bathroom renovations and commercial work.',
+  description: 'Every plumbing service from Felibest Plumbing in Nairobi: emergencies, drains, burst pipes, taps, tanks, solar heaters, showers and bathrooms.',
   path: '/services',
 });
 

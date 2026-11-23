@@ -4,6 +4,12 @@ export type Post = {
   slug: string;
   title: string;
   excerpt: string;
+  /** Short page title for search results (the h1 is `title`). */
+  metaTitle: string;
+  /** 110-155 character meta description. */
+  metaDescription: string;
+  /** Set when the post is revised after publishing. */
+  updated?: string;
   date: string;
   category: string;
   tags: string[];
@@ -20,6 +26,8 @@ export const POSTS: Post[] = [
     slug: 'low-water-pressure-causes-and-fixes',
     title: 'Low Water Pressure at Home: 7 Causes and How to Fix Them',
     excerpt: 'Weak showers and slow taps are rarely random. Here are the most common causes in Nairobi homes and what to check before you call a plumber.',
+    metaTitle: 'Low Water Pressure: 7 Causes and Fixes',
+    metaDescription: 'Weak showers and slow taps are rarely random. The most common causes of low water pressure in Nairobi homes and what to check before you call a plumber.',
     date: '2026-09-04',
     category: 'Water systems',
     tags: ['Water pressure', 'Tanks', 'Pumps'],
@@ -64,6 +72,8 @@ If simple checks do not solve it, ask for a pressure test and inspection. We tra
     slug: 'burst-pipe-what-to-do-first',
     title: 'Burst Pipe: What to Do in the First 10 Minutes',
     excerpt: 'Water damage grows by the minute. These steps limit the damage before your plumber arrives.',
+    metaTitle: 'Burst Pipe: What to Do First',
+    metaDescription: 'A burst pipe floods fast. Follow these steps in the first 10 minutes to limit water damage and make the repair quicker once your plumber arrives.',
     date: '2026-09-12',
     category: 'Emergencies',
     tags: ['Burst pipes', 'Emergency', 'Leaks'],
@@ -99,6 +109,8 @@ Felibest Plumbing responds 24 hours a day, 7 days a week. Once the water is unde
     slug: 'blocked-toilet-causes-and-prevention',
     title: 'Blocked Toilet: Why It Happens and How to Stop It Coming Back',
     excerpt: 'A plunger fixes the symptom. Finding the cause stops it happening again.',
+    metaTitle: 'Blocked Toilet Causes and Prevention',
+    metaDescription: 'A plunger only fixes the symptom. Learn why toilets block, what to check first and how to stop it happening again, with advice from Felibest Plumbing.',
     date: '2026-09-20',
     category: 'Drains and sewer',
     tags: ['Toilets', 'Drains', 'Prevention'],
@@ -140,6 +152,8 @@ Felibest Plumbing offers same-day blocked toilet repair across Nairobi. We inspe
     slug: 'water-tank-maintenance-checklist',
     title: 'Water Tank Maintenance: A Practical Yearly Checklist',
     excerpt: 'Because water is often stored, your tank is part of your plumbing. Keep it clean, sealed and leak free.',
+    metaTitle: 'Water Tank Maintenance Checklist',
+    metaDescription: 'Your tank is part of your plumbing. Use this practical yearly checklist to keep a water tank clean, sealed and leak free, and know when to call a plumber.',
     date: '2026-10-01',
     category: 'Water systems',
     tags: ['Tanks', 'Maintenance', 'Water quality'],
@@ -175,6 +189,8 @@ If you are installing a new tank or repairing an old one, Felibest Plumbing can 
     slug: 'solar-water-heater-guide-for-kenyan-homes',
     title: 'Solar Water Heaters for Kenyan Homes: Is One Right for You?',
     excerpt: 'Strong sunshine and high electricity costs make solar hot water an attractive upgrade. A short guide before you buy.',
+    metaTitle: 'Solar Water Heaters for Kenyan Homes',
+    metaDescription: 'Strong sunshine and high electricity costs make solar hot water an attractive upgrade. A short guide to weigh up before you buy a solar water heater.',
     date: '2026-10-09',
     category: 'Water systems',
     tags: ['Solar', 'Water heaters', 'Energy saving'],
@@ -214,6 +230,8 @@ For households that use hot water daily, solar often pays back through lower ele
     slug: 'instant-shower-problems-and-fixes',
     title: 'Electric Instant Shower Problems: Why It Runs Cold or Leaks',
     excerpt: 'The usual faults behind a cold shower, a tripping breaker or water dripping from the unit.',
+    metaTitle: 'Instant Shower Running Cold or Leaking',
+    metaDescription: 'Why an electric instant shower runs cold, trips the breaker or drips from the unit, and what to check before you call a plumber to repair or replace it.',
     date: '2026-10-18',
     category: 'Bathrooms and showers',
     tags: ['Instant shower', 'Electric', 'Leaks'],
@@ -254,6 +272,8 @@ If the unit is old, repeatedly fails or leaks internally, replacement is the saf
     slug: 'bathroom-sewer-smell-causes',
     title: 'Why Does My Bathroom Smell Like a Sewer?',
     excerpt: 'Five common causes of drain odours and what actually fixes each one.',
+    metaTitle: 'Why Your Bathroom Smells Like Sewage',
+    metaDescription: 'Five common causes of sewer smells in a bathroom, from dry traps to blocked drains and vents, and what fixes each one. Advice from Felibest Plumbing.',
     date: '2026-10-27',
     category: 'Drains and sewer',
     tags: ['Smells', 'Drains', 'Bathrooms'],
@@ -295,6 +315,8 @@ Our plumbers inspect your drains, find the cause and fix it, whether it is clear
     slug: 'choosing-the-right-taps-and-mixers',
     title: 'Choosing the Right Taps and Mixers for Your Kitchen and Bathroom',
     excerpt: 'Finish, valve type, pressure rating and fit: what to check so your new tap works well for years.',
+    metaTitle: 'Choosing Taps and Mixers',
+    metaDescription: 'Finish, valve type, pressure rating and fit: what to check when choosing kitchen and bathroom taps and mixers so your new tap works well for years.',
     date: '2026-11-05',
     category: 'Bathrooms and showers',
     tags: ['Taps', 'Mixers', 'Buying guide'],

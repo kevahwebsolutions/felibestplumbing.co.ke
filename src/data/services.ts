@@ -64,7 +64,7 @@ export const SERVICES: Service[] = [
     icon: 'burst',
     group: 'Emergency and repairs',
     seoTitle: 'Burst Pipes Repair in Nairobi',
-    seoDescription: 'Burst pipe repair in Nairobi, available 24/7. Felibest Plumbing finds the break, repairs or replaces the pipe and protects your property from further damage.',
+    seoDescription: 'Burst pipe repair in Nairobi, available 24/7. Felibest Plumbing finds the break, repairs or replaces the pipe and limits damage to your property.',
     paragraphs: [
       'Burst pipes can cause significant damage to your property, leading to water wastage, structural issues and potential mould growth. Our experienced plumbers are available 24/7 to respond quickly, minimise the damage and restore your plumbing system efficiently. Whether it is a minor leak or a major rupture, we have the tools to fix it promptly.',
       'Our approach starts with a thorough assessment of the damage, using non-invasive methods where possible to find the source. We then offer tailored solutions, from simple pipe patches to full replacements, using durable materials to prevent future bursts and give long-lasting results.',
@@ -85,7 +85,7 @@ export const SERVICES: Service[] = [
     icon: 'toilet',
     group: 'Drains and sewer',
     seoTitle: 'Blocked Toilet Repair in Nairobi',
-    seoDescription: 'Blocked toilet repair across Nairobi with same-day service. Felibest Plumbing finds the cause of the blockage and clears it properly. Call +254 798 174 201.',
+    seoDescription: 'Blocked toilet repair across Nairobi with same-day service. Felibest Plumbing finds the cause of the blockage and clears it. Call +254 798 174 201.',
     paragraphs: [
       'A blocked toilet disrupts your day and can become a health hazard if left untreated. We clear blockages throughout Nairobi, from a minor obstruction to a serious problem deep within the pipes, using the right tools for each case, from plunging to advanced drain-clearing techniques.',
       'We prioritise same-day service to minimise downtime. Our plumbers inspect the line to find the real cause, whether it is an object lodged in the pipe or a build-up of waste, and apply a targeted fix so the toilet keeps flushing properly.',
@@ -104,7 +104,7 @@ export const SERVICES: Service[] = [
     short: 'Clear slow and blocked drains caused by grease, hair, soap scum and debris.',
     icon: 'drain',
     group: 'Drains and sewer',
-    seoTitle: 'Drain Line Cleaning and Unclogging in Nairobi',
+    seoTitle: 'Drain Cleaning and Unclogging in Nairobi',
     seoDescription: 'Drain unclogging and drain line cleaning in Nairobi. Felibest Plumbing removes grease, hair and debris and shows you how to prevent the next blockage.',
     paragraphs: [
       'Drain clogs are blockages that occur within your plumbing system, usually from the accumulation of grease, hair, soap scum and other foreign objects. Over time these materials build up, causing water to drain slowly or stop completely, with unpleasant odours and potential damage to your plumbing.',
@@ -133,7 +133,7 @@ export const SERVICES: Service[] = [
     short: 'Hair, soap residue and grease cleared fast, with advice to keep drains flowing.',
     icon: 'sink',
     group: 'Drains and sewer',
-    seoTitle: 'Blocked Sink, Bathtub and Shower Drain Repair in Nairobi',
+    seoTitle: 'Blocked Sink and Bath Drains in Nairobi',
     seoDescription: 'Blocked sink, bathtub or slow shower drain in Nairobi? Felibest Plumbing locates and clears the blockage quickly and helps you prevent a repeat.',
     paragraphs: [
       'Blocked sinks, bathtubs and slow shower drains disrupt your routine and cause unpleasant odours. Hair, soap residue, food particles and grease accumulate over time and lead to slow drainage or complete blockages. We use professional tools to locate the blockage and clear it, restoring proper flow.',
@@ -153,7 +153,7 @@ export const SERVICES: Service[] = [
     short: 'Find and fix the cause of sewer odours: dried traps, blocked drains or poor ventilation.',
     icon: 'smell',
     group: 'Drains and sewer',
-    seoTitle: 'Sewer Smell Removal in Bathrooms, Nairobi',
+    seoTitle: 'Bathroom Sewer Smell Removal in Nairobi',
     seoDescription: 'Sewer smell in your bathroom? Felibest Plumbing finds the root cause, from dried P-traps to blocked drains and ventilation faults, and fixes it for good.',
     paragraphs: [
       'An unpleasant sewer smell in your bathroom is usually a sign of a plumbing fault, not a cleaning problem. Common causes are clogged or damaged drains, dried-up P-traps and ventilation problems.',
@@ -173,7 +173,7 @@ export const SERVICES: Service[] = [
     short: 'Stop drips and leaks by replacing worn washers, valves and cartridges.',
     icon: 'tap',
     group: 'Emergency and repairs',
-    seoTitle: 'Leaking Shower Tap and Mixer Repair in Nairobi',
+    seoTitle: 'Leaking Tap and Mixer Repair in Nairobi',
     seoDescription: 'Leaking shower taps and mixers repaired in Nairobi. Felibest Plumbing replaces worn washers, valves and cartridges to stop waste and protect your walls.',
     paragraphs: [
       'Leaking shower taps and mixers waste water and push up your bills. We find and repair leaks in your shower system, replacing worn-out washers, valves or cartridges to restore your taps and mixers to full working order.',
@@ -251,8 +251,8 @@ export const SERVICES: Service[] = [
     short: 'New-build pipework and full repiping of old, corroded lines by licensed plumbers.',
     icon: 'pipe',
     group: 'Water systems',
-    seoTitle: 'Pipe Installation and Repiping in Nairobi',
-    seoDescription: 'Pipe installation and repiping for homes and businesses in Nairobi. Licensed Felibest plumbers use quality materials to improve pressure and end recurring leaks.',
+    seoTitle: 'Piping and Repiping in Nairobi',
+    seoDescription: 'Pipe installation and repiping for Nairobi homes and businesses. Licensed Felibest plumbers use quality materials to improve pressure and stop leaks.',
     paragraphs: [
       'We offer expert piping and repiping in Nairobi so your plumbing system runs efficiently and reliably. Whether you are constructing a new building or replacing old, corroded pipes, our licensed plumbers provide quality workmanship and durable materials for residential and commercial projects.',
       'Repiping improves water pressure, eliminates leaks and enhances overall performance. From small pipe repairs to full system replacements, we keep disruption to your home or business to a minimum.',
@@ -281,7 +281,7 @@ export const SERVICES: Service[] = [
     icon: 'shower',
     group: 'Bathrooms and showers',
     seoTitle: 'Shower Head Installation in Nairobi',
-    seoDescription: 'Professional shower head installation in Nairobi. Felibest Plumbing fits rain showers and efficient models securely for the best flow and a leak-free finish.',
+    seoDescription: 'Shower head installation in Nairobi. Felibest Plumbing fits rain showers and efficient models securely for good flow and a leak-free finish.',
     paragraphs: [
       'We offer professional shower head installation across Nairobi so you enjoy a refreshing shower. Whether you are upgrading to a high-efficiency model, fitting a rain shower head or replacing an outdated unit, our technicians handle every step with care.',
       'We guide you through choosing a shower head that suits your needs and checking compatibility with your existing plumbing, then install it securely for maximum flow and efficiency.',
@@ -309,7 +309,7 @@ export const SERVICES: Service[] = [
     short: 'Safe replacement of faulty instant showers and detection of hidden leaks.',
     icon: 'bolt',
     group: 'Bathrooms and showers',
-    seoTitle: 'Electric Instant Shower Replacement in Nairobi',
+    seoTitle: 'Instant Shower Replacement in Nairobi',
     seoDescription: 'Electric instant shower replacement and leak detection in Nairobi. Felibest Plumbing diagnoses faults, replaces units and finds hidden leaks safely.',
     paragraphs: [
       'Whether your shower is malfunctioning or you suspect a water leak, our technicians handle the problem efficiently. We quickly diagnose issues, replace faulty electric showers and detect hidden leaks to prevent water damage.',
@@ -329,8 +329,8 @@ export const SERVICES: Service[] = [
     short: 'Energy-efficient solar hot water installed and maintained to cut your electricity bills.',
     icon: 'sun',
     group: 'Water systems',
-    seoTitle: 'Solar Water Heater Installation in Nairobi',
-    seoDescription: 'Solar water heater installation and maintenance in Nairobi. Felibest Plumbing installs efficient systems that reduce electricity bills and keep hot water flowing.',
+    seoTitle: 'Solar Water Heaters in Nairobi',
+    seoDescription: 'Solar water heater installation and maintenance in Nairobi. Felibest Plumbing fits efficient systems that cut electricity use and keep hot water flowing.',
     paragraphs: [
       'We install and maintain solar water heaters in Nairobi. Our team fits energy-efficient systems that harness the sun, reducing your electricity bills and environmental footprint.',
       'We also provide maintenance to keep your solar water heater performing, prolonging its lifespan and ensuring a consistent hot water supply. Whether you need a new system or maintenance on an existing one, we are your partner for solar water heating.',
@@ -349,7 +349,7 @@ export const SERVICES: Service[] = [
     short: 'Water tanks installed and repaired to protect your supply from leaks and corrosion.',
     icon: 'tank',
     group: 'Water systems',
-    seoTitle: 'Water Tank Installation and Repair in Nairobi',
+    seoTitle: 'Water Tank Installation in Nairobi',
     seoDescription: 'Water tank installation and repair across Nairobi. Felibest Plumbing sets up durable tanks and fixes leaks and corrosion to keep your water flowing.',
     paragraphs: [
       'We provide professional tank installation and repair services across Nairobi. Whether you are installing a new water tank or repairing an existing one, our experienced team ensures a seamless process.',
@@ -369,8 +369,8 @@ export const SERVICES: Service[] = [
     short: 'Keep basements and low areas dry with reliable sump pump repair and installation.',
     icon: 'pump',
     group: 'Water systems',
-    seoTitle: 'Sump Pump Repair and Installation in Nairobi',
-    seoDescription: 'Sump pump repair and installation in Nairobi. Felibest Plumbing diagnoses mechanical, electrical and discharge faults to keep your property dry in heavy rain.',
+    seoTitle: 'Sump Pump Repair in Nairobi',
+    seoDescription: 'Sump pump repair and installation in Nairobi. Felibest Plumbing diagnoses mechanical, electrical and discharge faults to keep your property dry.',
     paragraphs: [
       'A working sump pump keeps your basement or low-lying area dry and protected from flooding, especially in heavy rain. Over time wear and tear can cause failure to activate, strange noises or inefficient water removal.',
       'We repair sump pumps in Nairobi and diagnose mechanical problems, electrical issues and clogged discharge pipes quickly. We work on various pump types and brands, restoring the system to full working order.',
@@ -390,7 +390,7 @@ export const SERVICES: Service[] = [
     icon: 'gutter',
     group: 'Property and projects',
     seoTitle: 'Gutter Installation in Nairobi',
-    seoDescription: 'Gutter installation in Nairobi for homes and businesses. Felibest Plumbing fits durable gutters that direct rainwater away from your building during the rains.',
+    seoDescription: 'Gutter installation in Nairobi for homes and businesses. Felibest Plumbing fits durable gutters that guide rainwater away from your building.',
     paragraphs: [
       'We specialise in professional gutter installations that protect your home or business from water damage caused by poor drainage. Our team uses quality materials to install durable, efficient gutter systems that direct rainwater away from your building foundation.',
       'Whether you want to replace old gutters or install new ones, we deliver precision and reliability, giving you peace of mind during the rainy season.',
@@ -410,7 +410,7 @@ export const SERVICES: Service[] = [
     icon: 'bath',
     group: 'Bathrooms and showers',
     seoTitle: 'Bathroom Renovation in Nairobi',
-    seoDescription: 'Bathroom renovation in Nairobi, from fixture upgrades to full remodels. Felibest Plumbing plans, plumbs and finishes with quality materials and honest pricing.',
+    seoDescription: 'Bathroom renovation in Nairobi, from fixture upgrades to full remodels. Felibest Plumbing plans, plumbs and finishes with quality materials.',
     paragraphs: [
       'We specialise in bathroom renovations in Nairobi with tailored solutions for your style and functionality needs. Whether you want to update outdated fixtures, install modern plumbing or completely transform the space, we work with quality materials and proven techniques to deliver precision and durability.',
       'Our renovations enhance both the look and function of your bathroom, maximising water efficiency and improving drainage. We serve residential bathrooms and commercial facilities with timely, cost-effective and reliable service.',
@@ -438,7 +438,7 @@ export const SERVICES: Service[] = [
     short: 'Frameless and semi-frameless glass cubicles made to fit your bathroom.',
     icon: 'glass',
     group: 'Bathrooms and showers',
-    seoTitle: 'Glass Shower Cubicle Installation in Nairobi',
+    seoTitle: 'Glass Shower Cubicles in Nairobi',
     seoDescription: 'Glass shower cubicle installation in Nairobi. Felibest Plumbing fits custom frameless and semi-frameless cubicles for a sleek, durable finish.',
     paragraphs: [
       'Glass shower cubicles are a sleek, modern upgrade for any bathroom. We install custom glass shower cubicles tailored to fit your space, with precision in every installation and a seamless look that lifts the whole room.',
@@ -467,7 +467,7 @@ export const SERVICES: Service[] = [
     short: 'New enclosures and repairs, from leak fixes to replacing damaged panels.',
     icon: 'glass',
     group: 'Bathrooms and showers',
-    seoTitle: 'Glass Shower Enclosure Repair and Installation in Nairobi',
+    seoTitle: 'Glass Shower Enclosure Repair in Nairobi',
     seoDescription: 'Glass shower enclosure repair and installation in Nairobi. Felibest Plumbing installs new enclosures, fixes leaks and replaces damaged panels.',
     paragraphs: [
       'Our glass shower enclosure repair and installation services give your bathroom a sleek, modern upgrade. Whether you are installing a new enclosure or repairing an existing one, our team ensures a flawless finish with quality materials and expert craftsmanship.',
@@ -487,7 +487,7 @@ export const SERVICES: Service[] = [
     short: 'Felibest Interiors: concept, space planning and styling for homes and offices.',
     icon: 'sofa',
     group: 'Property and projects',
-    seoTitle: 'Interior Design and Decoration in Nairobi',
+    seoTitle: 'Interior Design in Nairobi',
     seoDescription: 'Interior design and decoration in Nairobi by Felibest Interiors. Space planning, furniture selection and styling for homes and offices.',
     paragraphs: [
       'Transform your home or office into a stylish, comfortable space with Felibest Interiors. Our interior design and decoration services combine creativity, functionality and modern aesthetics to bring your vision to life.',
@@ -547,7 +547,7 @@ export const SERVICES: Service[] = [
     short: 'Expert guidance on renovations, new fixtures and persistent plumbing problems.',
     icon: 'consult',
     group: 'Property and projects',
-    seoTitle: 'Plumbing Consultation Services in Nairobi',
+    seoTitle: 'Plumbing Consultation in Nairobi',
     seoDescription: 'Plumbing consultation in Nairobi. Felibest Plumbing assesses your project, recommends the best solutions and explains scope, materials and timelines.',
     paragraphs: [
       'Our consultation services give you expert guidance on all your plumbing needs. Whether you are planning a major renovation, installing new fixtures or dealing with persistent problems, we assess your situation and recommend the best solutions, based on your requirements, budget and preferences.',
@@ -567,7 +567,7 @@ export const SERVICES: Service[] = [
     short: 'Design, installation and maintenance of fire protection systems with Felibest Fire and Safety.',
     icon: 'shield',
     group: 'Property and projects',
-    seoTitle: 'Fire and Safety Installation and Maintenance in Nairobi',
+    seoTitle: 'Fire and Safety Systems in Nairobi',
     seoDescription: 'Fire and safety systems in Nairobi: alarms, smoke detectors, sprinklers, extinguishers and evacuation systems installed and maintained by Felibest.',
     paragraphs: [
       'At Felibest Fire and Safety we design, install and maintain advanced fire protection systems. Our services include fire alarms, smoke detectors, sprinklers, extinguishers and emergency evacuation systems, tailored to meet safety regulations and give maximum protection for your property and personnel.',

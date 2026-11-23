@@ -2,7 +2,7 @@ import { PageHero } from '@/components/sections/page-hero';
 import { buildMetadata } from '@/lib/seo';
 import { SITE } from '@/lib/site';
 
-export const metadata = buildMetadata({ title: 'Terms of Service', description: 'Terms for using the Felibest Plumbing website, booking services and buying from the plumbing shop.', path: '/terms' });
+export const metadata = buildMetadata({ title: 'Terms of Service', description: 'Terms for using the Felibest Plumbing website, booking plumbing services in Nairobi and buying from the Felibest plumbing shop.', path: '/terms' });
 
 export default function TermsPage() {
   return (

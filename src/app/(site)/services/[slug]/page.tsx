@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CheckCircle2, Phone } from 'lucide-react';
 import { PlumbIcon } from '@/components/plumb/icons';
@@ -11,10 +12,10 @@ import { Reveal, Stagger, StaggerItem } from '@/components/motion/reveal';
 import { BookingForm } from '@/components/forms/booking-form';
 import { ButtonAnchor } from '@/components/ui/button';
 import { ServiceGallery } from '@/components/sections/service-gallery';
+import { POSTS } from '@/data/blog';
 import { SERVICES, getService, serviceGallery, serviceHero } from '@/data/services';
-import { buildMetadata, JsonLd } from '@/lib/seo';
+import { buildMetadata, IDS, JsonLd } from '@/lib/seo';
 import { absoluteUrl } from '@/lib/utils';
-import { SITE } from '@/lib/site';
 import { getSettings } from '@/lib/server/settings';
 
 export function generateStaticParams() {
@@ -24,8 +25,8 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const s = getService(slug);
-  if (!s) return {};
-  return buildMetadata({ title: s.seoTitle, description: s.seoDescription, path: `/services/${s.slug}`, image: s.heroSrc });
+  if (!s) notFound();
+  return buildMetadata({ title: s.seoTitle, description: s.seoDescription, path: `/services/${s.slug}`, image: `/og/service/${s.slug}`, imageSize: { width: 1200, height: 630, type: 'image/jpeg', alt: s.title } });
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -35,6 +36,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const settings = getSettings();
   const hero = serviceHero(s);
   const gallery = serviceGallery(s);
+  const guides = POSTS.filter((p) => p.serviceSlug === s.slug);
   const tel = `tel:${settings.phone.replace(/[^\d+]/g, '')}`;
 
   return (
@@ -43,13 +45,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         data={{
           '@context': 'https://schema.org',
           '@type': 'Service',
+          '@id': `${absoluteUrl(`/services/${s.slug}`)}#service`,
           name: s.title,
           description: s.seoDescription,
           serviceType: s.title,
           url: absoluteUrl(`/services/${s.slug}`),
-          image: absoluteUrl(s.heroSrc),
+          image: absoluteUrl(`/og/service/${s.slug}`),
           areaServed: { '@type': 'City', name: 'Nairobi' },
-          provider: { '@type': 'Plumber', name: SITE.name, url: SITE.url, telephone: SITE.phone },
+          provider: { '@id': IDS.business },
         }}
       />
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: s.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }} />
@@ -126,6 +129,22 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="mx-auto max-w-3xl"><FaqList items={s.faqs} defaultOpen="q0" /></div>
         </div>
       </section>
+
+      {guides.length ? (
+        <section className="px-3 pb-14 sm:px-5" aria-labelledby="guides-h">
+          <div className="container-fp !px-0">
+            <SectionHeading eyebrow="Plumbing guides" title={<span id="guides-h">Read before you call</span>} />
+            <ul className="grid gap-4 md:grid-cols-2">
+              {guides.map((g) => (
+                <li key={g.slug} className="fp-card p-5">
+                  <Link href={`/blog/${g.slug}`} className="font-heading text-2xl font-bold underline-offset-4 hover:text-brand hover:underline">{g.title}</Link>
+                  <p className="mt-2 text-body">{g.excerpt}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
 
       <section className="px-3 pb-20 sm:px-5" aria-labelledby="rel-h">
         <div className="container-fp !px-0">

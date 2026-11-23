@@ -11,7 +11,7 @@ import { SITE } from '@/lib/site';
 import { getSettings } from '@/lib/server/settings';
 
 export const metadata = buildMetadata({
-  title: 'About Felibest Plumbing: Family-Owned Plumbers in Nairobi',
+  title: 'Family-Owned Plumbers in Nairobi',
   description: 'Meet Felibest Plumbing: a family-owned, fully licensed Nairobi plumbing team with 4+ years of combined experience, an on-time guarantee and honest pricing.',
   path: '/about',
 });

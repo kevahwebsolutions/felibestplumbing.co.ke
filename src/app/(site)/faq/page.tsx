@@ -8,7 +8,7 @@ import { buildMetadata, JsonLd } from '@/lib/seo';
 import { getSettings } from '@/lib/server/settings';
 
 export const metadata = buildMetadata({
-  title: 'Plumbing FAQ: Prices, Emergencies, Pipes and Water Heaters',
+  title: 'Plumbing FAQ: Prices and Emergencies',
   description: 'Answers to common plumbing questions in Nairobi: what we charge, water heater lifespan, signs you need new pipes, emergencies and preventing clogs.',
   path: '/faq',
 });

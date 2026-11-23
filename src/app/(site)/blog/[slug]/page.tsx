@@ -9,7 +9,7 @@ import { SectionHeading } from '@/components/plumb/decor';
 import { ButtonLink } from '@/components/ui/button';
 import { POSTS, getPost, postReadingMinutes, relatedPosts } from '@/data/blog';
 import { getService } from '@/data/services';
-import { buildMetadata, JsonLd } from '@/lib/seo';
+import { buildMetadata, IDS, JsonLd } from '@/lib/seo';
 import { absoluteUrl } from '@/lib/utils';
 import { SITE } from '@/lib/site';
 import { getSettings } from '@/lib/server/settings';
@@ -21,8 +21,8 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const p = getPost(slug);
-  if (!p) return {};
-  return buildMetadata({ title: p.title, description: p.excerpt, path: `/blog/${p.slug}`, image: p.cover, type: 'article' });
+  if (!p) notFound();
+  return buildMetadata({ title: p.metaTitle, description: p.metaDescription, path: `/blog/${p.slug}`, image: `/og/blog/${p.slug}`, imageSize: { width: 1200, height: 630, type: 'image/jpeg', alt: p.coverAlt }, type: 'article', article: { publishedTime: p.date, modifiedTime: p.updated ?? p.date } });
 }
 
 const fmt = (d: string) => new Date(d).toLocaleDateString('en-KE', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -36,9 +36,24 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const related = relatedPosts(p.slug);
   return (
     <>
-      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.excerpt, image: absoluteUrl(p.cover), datePublished: p.date, dateModified: p.date, mainEntityOfPage: absoluteUrl(`/blog/${p.slug}`), author: { '@type': 'Organization', name: SITE.name }, publisher: { '@type': 'Organization', name: SITE.name, logo: { '@type': 'ImageObject', url: absoluteUrl('/icons/icon-512.png') } } }} />
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          '@id': `${absoluteUrl(`/blog/${p.slug}`)}#article`,
+          headline: p.title,
+          description: p.metaDescription,
+          image: [absoluteUrl(`/og/blog/${p.slug}`)],
+          datePublished: p.date,
+          dateModified: p.updated ?? p.date,
+          inLanguage: 'en-KE',
+          author: { '@id': IDS.organization },
+          publisher: { '@id': IDS.organization },
+          mainEntityOfPage: { '@type': 'WebPage', '@id': absoluteUrl(`/blog/${p.slug}`) },
+        }}
+      />
       <PageHero crumbs={[{ name: 'Blog', path: '/blog' }, { name: p.title, path: `/blog/${p.slug}` }]} title={p.title} eyebrow={p.category}>
-        <p className="flex items-center gap-4 text-body"><time dateTime={p.date}>{fmt(p.date)}</time><span className="flex items-center gap-1"><Clock className="size-4" aria-hidden /> {postReadingMinutes(p)} min read</span></p>
+        <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-body"><span>By {SITE.name}</span><time dateTime={p.date}>Published {fmt(p.date)}</time>{p.updated && p.updated !== p.date ? <time dateTime={p.updated}>Updated {fmt(p.updated)}</time> : null}<span className="flex items-center gap-1"><Clock className="size-4" aria-hidden /> {postReadingMinutes(p)} min read</span></p>
       </PageHero>
       <article className="px-3 pt-14 sm:px-5">
         <div className="container-fp mx-auto max-w-3xl !px-0">

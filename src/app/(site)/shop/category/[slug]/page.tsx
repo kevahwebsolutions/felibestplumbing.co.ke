@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { PageHero } from '@/components/sections/page-hero';
 import { ShopClient } from '@/components/shop/shop-client';
-import { buildMetadata, JsonLd } from '@/lib/seo';
+import { buildMetadata, fitDescription, JsonLd } from '@/lib/seo';
 import { absoluteUrl } from '@/lib/utils';
 import { categoriesWithCounts, categoryBySlug, listProductsInCategory } from '@/lib/server/products';
 
@@ -11,10 +11,14 @@ export const dynamic = 'force-dynamic';
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const c = categoryBySlug(slug);
-  if (!c) return {};
+  if (!c) notFound();
   return buildMetadata({
-    title: { absolute: `${c.name} in Nairobi | Felibest Plumbing` },
-    description: `${c.description} Order online from Felibest Plumbing in Nairobi, prices in KES, pay on delivery or order on WhatsApp.`.slice(0, 160),
+    title: `${c.name} in Nairobi`,
+    description: fitDescription(c.description, [
+      'Order online from Felibest Plumbing in Nairobi, prices in KES, pay on delivery.',
+      'Shop at Felibest Plumbing in Nairobi, prices in KES, pay on delivery.',
+      'Shop at Felibest Plumbing, Nairobi.',
+    ]),
     path: `/shop/category/${c.slug}`,
   });
 }
