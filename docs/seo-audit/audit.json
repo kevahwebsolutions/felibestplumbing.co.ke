@@ -1,0 +1,1361 @@
+{
+  "origin": "https://felibestplumbing.co.ke",
+  "generated": "2026-11-23T00:57:07.651Z",
+  "global": [],
+  "rows": [
+    {
+      "route": "/",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 50,
+      "descLen": 153,
+      "h1": 1,
+      "types": [
+        "FAQPage",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 860,
+      "bytes": 258080,
+      "imgBytes": 250615,
+      "noindex": false
+    },
+    {
+      "route": "/about",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 52,
+      "descLen": 155,
+      "h1": 1,
+      "types": [
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 310,
+      "bytes": 124118,
+      "imgBytes": 47917,
+      "noindex": false
+    },
+    {
+      "route": "/blog",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 56,
+      "descLen": 153,
+      "h1": 1,
+      "types": [
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 278,
+      "bytes": 128107,
+      "imgBytes": 245751,
+      "noindex": false
+    },
+    {
+      "route": "/blog/bathroom-sewer-smell-causes",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 56,
+      "descLen": 149,
+      "h1": 1,
+      "types": [
+        "BlogPosting",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 375,
+      "bytes": 125766,
+      "imgBytes": 134927,
+      "noindex": false
+    },
+    {
+      "route": "/blog/blocked-toilet-causes-and-prevention",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 56,
+      "descLen": 150,
+      "h1": 1,
+      "types": [
+        "BlogPosting",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 364,
+      "bytes": 126397,
+      "imgBytes": 152442,
+      "noindex": false
+    },
+    {
+      "route": "/blog/burst-pipe-what-to-do-first",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 48,
+      "descLen": 145,
+      "h1": 1,
+      "types": [
+        "BlogPosting",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 373,
+      "bytes": 125482,
+      "imgBytes": 141812,
+      "noindex": false
+    },
+    {
+      "route": "/blog/choosing-the-right-taps-and-mixers",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 44,
+      "descLen": 147,
+      "h1": 1,
+      "types": [
+        "BlogPosting",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 368,
+      "bytes": 126376,
+      "imgBytes": 146130,
+      "noindex": false
+    },
+    {
+      "route": "/blog/instant-shower-problems-and-fixes",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 58,
+      "descLen": 152,
+      "h1": 1,
+      "types": [
+        "BlogPosting",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 378,
+      "bytes": 126444,
+      "imgBytes": 155987,
+      "noindex": false
+    },
+    {
+      "route": "/blog/low-water-pressure-causes-and-fixes",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 58,
+      "descLen": 152,
+      "h1": 1,
+      "types": [
+        "BlogPosting",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 430,
+      "bytes": 126591,
+      "imgBytes": 169348,
+      "noindex": false
+    },
+    {
+      "route": "/blog/solar-water-heater-guide-for-kenyan-homes",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 56,
+      "descLen": 149,
+      "h1": 1,
+      "types": [
+        "BlogPosting",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 365,
+      "bytes": 126487,
+      "imgBytes": 187893,
+      "noindex": false
+    },
+    {
+      "route": "/blog/water-tank-maintenance-checklist",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 52,
+      "descLen": 154,
+      "h1": 1,
+      "types": [
+        "BlogPosting",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 354,
+      "bytes": 125741,
+      "imgBytes": 171574,
+      "noindex": false
+    },
+    {
+      "route": "/contact",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 57,
+      "descLen": 137,
+      "h1": 1,
+      "types": [
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 163,
+      "bytes": 115427,
+      "imgBytes": 14794,
+      "noindex": false
+    },
+    {
+      "route": "/coverage",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 59,
+      "descLen": 137,
+      "h1": 1,
+      "types": [
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 138,
+      "bytes": 132939,
+      "imgBytes": 14794,
+      "noindex": false
+    },
+    {
+      "route": "/faq",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 56,
+      "descLen": 147,
+      "h1": 1,
+      "types": [
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 181,
+      "bytes": 128851,
+      "imgBytes": 14794,
+      "noindex": false
+    },
+    {
+      "route": "/gallery",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 52,
+      "descLen": 150,
+      "h1": 1,
+      "types": [
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 194,
+      "bytes": 174417,
+      "imgBytes": 279864,
+      "noindex": false
+    },
+    {
+      "route": "/pricing",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 52,
+      "descLen": 153,
+      "h1": 1,
+      "types": [
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 297,
+      "bytes": 127018,
+      "imgBytes": 14794,
+      "noindex": false
+    },
+    {
+      "route": "/privacy",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 34,
+      "descLen": 113,
+      "h1": 1,
+      "types": [
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 240,
+      "bytes": 100517,
+      "imgBytes": 14794,
+      "noindex": false
+    },
+    {
+      "route": "/services",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 52,
+      "descLen": 142,
+      "h1": 1,
+      "types": [
+        "ItemList",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 473,
+      "bytes": 257422,
+      "imgBytes": 476367,
+      "noindex": false
+    },
+    {
+      "route": "/services/bathroom-renovations",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 50,
+      "descLen": 140,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 452,
+      "bytes": 162029,
+      "imgBytes": 151143,
+      "noindex": false
+    },
+    {
+      "route": "/services/blocked-sink-bath-shower",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 59,
+      "descLen": 144,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 427,
+      "bytes": 159198,
+      "imgBytes": 134608,
+      "noindex": false
+    },
+    {
+      "route": "/services/blocked-toilet-repair",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 52,
+      "descLen": 147,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 446,
+      "bytes": 162044,
+      "imgBytes": 157013,
+      "noindex": false
+    },
+    {
+      "route": "/services/burst-pipes-repair",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 49,
+      "descLen": 145,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 454,
+      "bytes": 161179,
+      "imgBytes": 200284,
+      "noindex": false
+    },
+    {
+      "route": "/services/commercial-plumbing",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 59,
+      "descLen": 140,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 351,
+      "bytes": 167681,
+      "imgBytes": 237948,
+      "noindex": false
+    },
+    {
+      "route": "/services/drain-lines",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 60,
+      "descLen": 150,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 459,
+      "bytes": 162832,
+      "imgBytes": 146054,
+      "noindex": false
+    },
+    {
+      "route": "/services/electric-instant-shower",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 57,
+      "descLen": 148,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 433,
+      "bytes": 162288,
+      "imgBytes": 132671,
+      "noindex": false
+    },
+    {
+      "route": "/services/emergency-plumbing",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 53,
+      "descLen": 148,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 479,
+      "bytes": 163529,
+      "imgBytes": 209292,
+      "noindex": false
+    },
+    {
+      "route": "/services/fire-and-safety",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 54,
+      "descLen": 147,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 370,
+      "bytes": 164094,
+      "imgBytes": 214489,
+      "noindex": false
+    },
+    {
+      "route": "/services/glass-shower-cubicles",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 52,
+      "descLen": 142,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 433,
+      "bytes": 161483,
+      "imgBytes": 126916,
+      "noindex": false
+    },
+    {
+      "route": "/services/glass-shower-enclosures",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 60,
+      "descLen": 142,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 401,
+      "bytes": 159549,
+      "imgBytes": 138545,
+      "noindex": false
+    },
+    {
+      "route": "/services/gutter-installations",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 50,
+      "descLen": 141,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 359,
+      "bytes": 155453,
+      "imgBytes": 112835,
+      "noindex": false
+    },
+    {
+      "route": "/services/interior-design",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 46,
+      "descLen": 135,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 373,
+      "bytes": 156143,
+      "imgBytes": 158429,
+      "noindex": false
+    },
+    {
+      "route": "/services/leaking-taps-and-mixers",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 59,
+      "descLen": 152,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 400,
+      "bytes": 155474,
+      "imgBytes": 92040,
+      "noindex": false
+    },
+    {
+      "route": "/services/low-water-pressure",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 56,
+      "descLen": 147,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 499,
+      "bytes": 169043,
+      "imgBytes": 161332,
+      "noindex": false
+    },
+    {
+      "route": "/services/piping-and-repiping",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 50,
+      "descLen": 149,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 449,
+      "bytes": 184582,
+      "imgBytes": 462222,
+      "noindex": false
+    },
+    {
+      "route": "/services/plumbing-consultation",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 52,
+      "descLen": 149,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 372,
+      "bytes": 158609,
+      "imgBytes": 154416,
+      "noindex": false
+    },
+    {
+      "route": "/services/residential-plumbing",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 60,
+      "descLen": 135,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 390,
+      "bytes": 186315,
+      "imgBytes": 479921,
+      "noindex": false
+    },
+    {
+      "route": "/services/sewer-smell-removal",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 59,
+      "descLen": 153,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 420,
+      "bytes": 156571,
+      "imgBytes": 114870,
+      "noindex": false
+    },
+    {
+      "route": "/services/shower-head-installation",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 55,
+      "descLen": 140,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 455,
+      "bytes": 168102,
+      "imgBytes": 124261,
+      "noindex": false
+    },
+    {
+      "route": "/services/sink-and-tap-repair",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 58,
+      "descLen": 153,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 521,
+      "bytes": 170741,
+      "imgBytes": 148204,
+      "noindex": false
+    },
+    {
+      "route": "/services/solar-water-heater",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 50,
+      "descLen": 153,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 426,
+      "bytes": 158505,
+      "imgBytes": 180808,
+      "noindex": false
+    },
+    {
+      "route": "/services/sump-pump-repair",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 47,
+      "descLen": 144,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 385,
+      "bytes": 156735,
+      "imgBytes": 167671,
+      "noindex": false
+    },
+    {
+      "route": "/services/tank-installation-and-repair",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 54,
+      "descLen": 148,
+      "h1": 1,
+      "types": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 417,
+      "bytes": 166068,
+      "imgBytes": 253244,
+      "noindex": false
+    },
+    {
+      "route": "/shop",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 58,
+      "descLen": 142,
+      "h1": 1,
+      "types": [
+        "ItemList",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 377,
+      "bytes": 223203,
+      "imgBytes": 232862,
+      "noindex": false
+    },
+    {
+      "route": "/shop/barline-5-in-1-laundry-pods-40pcs",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 53,
+      "descLen": 139,
+      "h1": 1,
+      "types": [
+        "Product",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 146,
+      "bytes": 146854,
+      "imgBytes": 101884,
+      "noindex": false
+    },
+    {
+      "route": "/shop/category/laundry-bags",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 43,
+      "descLen": 148,
+      "h1": 1,
+      "types": [
+        "ItemList",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 84,
+      "bytes": 130975,
+      "imgBytes": 51698,
+      "noindex": false
+    },
+    {
+      "route": "/shop/category/laundry-care",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 43,
+      "descLen": 126,
+      "h1": 1,
+      "types": [
+        "ItemList",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 94,
+      "bytes": 137642,
+      "imgBytes": 63343,
+      "noindex": false
+    },
+    {
+      "route": "/shop/category/pumps",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 36,
+      "descLen": 143,
+      "h1": 1,
+      "types": [
+        "ItemList",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 55,
+      "bytes": 113241,
+      "imgBytes": 39617,
+      "noindex": false
+    },
+    {
+      "route": "/shop/category/showers",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 38,
+      "descLen": 133,
+      "h1": 1,
+      "types": [
+        "ItemList",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 59,
+      "bytes": 113527,
+      "imgBytes": 24479,
+      "noindex": false
+    },
+    {
+      "route": "/shop/category/washing-machine-covers-and-stands",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 44,
+      "descLen": 125,
+      "h1": 1,
+      "types": [
+        "ItemList",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 109,
+      "bytes": 138305,
+      "imgBytes": 70968,
+      "noindex": false
+    },
+    {
+      "route": "/shop/category/washing-machine-plumbing",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 55,
+      "descLen": 151,
+      "h1": 1,
+      "types": [
+        "ItemList",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 88,
+      "bytes": 130243,
+      "imgBytes": 56727,
+      "noindex": false
+    },
+    {
+      "route": "/shop/colour-and-dirt-catcher",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 43,
+      "descLen": 132,
+      "h1": 1,
+      "types": [
+        "Product",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 145,
+      "bytes": 141674,
+      "imgBytes": 99721,
+      "noindex": false
+    },
+    {
+      "route": "/shop/dda-1000p",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 39,
+      "descLen": 129,
+      "h1": 1,
+      "types": [
+        "Product",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 136,
+      "bytes": 143361,
+      "imgBytes": 129713,
+      "noindex": false
+    },
+    {
+      "route": "/shop/drawstring-laundry-mesh-bags",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 48,
+      "descLen": 143,
+      "h1": 1,
+      "types": [
+        "Product",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 138,
+      "bytes": 136734,
+      "imgBytes": 119666,
+      "noindex": false
+    },
+    {
+      "route": "/shop/drum-cleaning-tablets",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 41,
+      "descLen": 135,
+      "h1": 1,
+      "types": [
+        "Product",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 139,
+      "bytes": 137405,
+      "imgBytes": 93096,
+      "noindex": false
+    },
+    {
+      "route": "/shop/front-load-washing-machine-cover-kes-1000",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 54,
+      "descLen": 136,
+      "h1": 1,
+      "types": [
+        "Product",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 161,
+      "bytes": 138298,
+      "imgBytes": 107319,
+      "noindex": false
+    },
+    {
+      "route": "/shop/front-load-washing-machine-cover-kes-1200",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 54,
+      "descLen": 133,
+      "h1": 1,
+      "types": [
+        "Product",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 159,
+      "bytes": 138180,
+      "imgBytes": 103691,
+      "noindex": false
+    },
+    {
+      "route": "/shop/front-load-washing-machine-cover-kes-800",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 52,
+      "descLen": 135,
+      "h1": 1,
+      "types": [
+        "Product",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 159,
+      "bytes": 138168,
+      "imgBytes": 97666,
+      "noindex": false
+    },
+    {
+      "route": "/shop/heavy-duty-washing-machine-stand",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 52,
+      "descLen": 137,
+      "h1": 1,
+      "types": [
+        "Product",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 122,
+      "bytes": 142047,
+      "imgBytes": 108466,
+      "noindex": false
+    },
+    {
+      "route": "/shop/milano-modern-shower",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 40,
+      "descLen": 135,
+      "h1": 1,
+      "types": [
+        "Product",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 137,
+      "bytes": 138645,
+      "imgBytes": 97132,
+      "noindex": false
+    },
+    {
+      "route": "/shop/shoes-mesh-bags-for-washing-machine",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 55,
+      "descLen": 136,
+      "h1": 1,
+      "types": [
+        "Product",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 128,
+      "bytes": 145902,
+      "imgBytes": 113506,
+      "noindex": false
+    },
+    {
+      "route": "/shop/washing-machine-inlet-pipe-3m",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 49,
+      "descLen": 129,
+      "h1": 1,
+      "types": [
+        "Product",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 155,
+      "bytes": 137406,
+      "imgBytes": 115157,
+      "noindex": false
+    },
+    {
+      "route": "/shop/washing-machine-outlet-pipe-3m",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 50,
+      "descLen": 127,
+      "h1": 1,
+      "types": [
+        "Product",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 156,
+      "bytes": 137435,
+      "imgBytes": 121577,
+      "noindex": false
+    },
+    {
+      "route": "/shop/washing-machine-scent-beads",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 47,
+      "descLen": 134,
+      "h1": 1,
+      "types": [
+        "Product",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 137,
+      "bytes": 146184,
+      "imgBytes": 111281,
+      "noindex": false
+    },
+    {
+      "route": "/shop/washing-machine-tap",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 39,
+      "descLen": 130,
+      "h1": 1,
+      "types": [
+        "Product",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 162,
+      "bytes": 137007,
+      "imgBytes": 109135,
+      "noindex": false
+    },
+    {
+      "route": "/shop/zipped-laundry-mesh-bags",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 44,
+      "descLen": 137,
+      "h1": 1,
+      "types": [
+        "Product",
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 136,
+      "bytes": 136497,
+      "imgBytes": 105995,
+      "noindex": false
+    },
+    {
+      "route": "/terms",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 36,
+      "descLen": 127,
+      "h1": 1,
+      "types": [
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 182,
+      "bytes": 100067,
+      "imgBytes": 14794,
+      "noindex": false
+    },
+    {
+      "route": "/testimonials",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "titleLen": 53,
+      "descLen": 146,
+      "h1": 1,
+      "types": [
+        "BreadcrumbList",
+        "Organization",
+        "WebSite",
+        "Plumber+LocalBusiness"
+      ],
+      "words": 208,
+      "bytes": 129632,
+      "imgBytes": 14794,
+      "noindex": false
+    }
+  ]
+}
