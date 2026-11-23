@@ -70,6 +70,7 @@ npm run seed:demo-analytics -- --clear # remove it again
 | `npm run rollup` | Nightly analytics roll-up into `daily_stats` |
 | `npm run check:redirects` | Checks every legacy URL answers 301 to its new route (needs the server running) |
 | `npm run check:site` | Crawls a running site: one h1, titles, descriptions, canonicals, image alt text, broken internal links |
+| `npm run seo:audit` | Builds with `NEXT_PUBLIC_SITE_URL=https://felibestplumbing.co.ke`, starts the app on port 3100, crawls every route and writes `docs/SEO-AUDIT.md` (titles, descriptions, canonicals, headings, Open Graph, images, links, JSON-LD, robots, 404s, 108 legacy redirects). Exits non-zero on any failure. `SKIP_BUILD=1` reuses `.next` |
 | `npm run screens` | Playwright screenshots of every route at 375, 768 and 1440 px into `docs/screens/` |
 
 ## Deploy to a Linux server
@@ -110,6 +111,8 @@ sudo nginx -t && sudo systemctl reload nginx
 ```
 
 Run a single instance: SQLite and the in-memory rate limiters assume one process. Install `sqlite3` for the backup script (`sudo apt install sqlite3`). After deploying, point DNS at the server, then run `BASE_URL=https://felibestplumbing.co.ke npm run check:redirects` to confirm every old URL redirects.
+
+**www versus apex host.** The canonical host is `https://felibestplumbing.co.ke` (no www). nginx 301-redirects `http://` and `www.` to it (see `deploy/nginx.conf.example`), and the app never emits the www host: every canonical, sitemap and structured-data URL is built from `NEXT_PUBLIC_SITE_URL`, which must be `https://felibestplumbing.co.ke` in the production `.env`. The sitemap's `lastModified` dates come from `src/data/lastmod.json`, regenerated from git history by `npm run build` (`prebuild`); when git is not available on the server the committed file is used.
 
 When you update: `git pull && npm ci && npm run db:migrate && npm run build`, copy static files again (step 4) and `pm2 restart felibest`.
 

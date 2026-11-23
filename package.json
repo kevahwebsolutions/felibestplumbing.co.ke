@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/gen-lastmod.mjs",
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
@@ -23,6 +24,7 @@
     "images": "node scripts/optimize-images.mjs",
     "check:redirects": "tsx scripts/check-redirects.mts",
     "check:site": "tsx scripts/check-site.mts",
+    "seo:audit": "tsx scripts/seo-audit.mts",
     "rollup": "tsx scripts/rollup.ts",
     "screens": "tsx scripts/screenshots.mts",
     "e2e:serve": "npm run db:migrate && npm run db:seed && npm run db:import-catalog && next dev --port 3100"
